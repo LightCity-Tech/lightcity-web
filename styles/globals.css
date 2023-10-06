@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html{
+  box-sizing: border-box;
+  font-size: 100%;
+  height: 100%;
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  /* transition: all .1s ease-in-out; */
+}
+
+body{
+  background-color: slategray;
+}

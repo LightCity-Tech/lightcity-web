@@ -1,0 +1,15 @@
+.text-primary-100{
+    svg{
+        @apply fill-primary-100 stroke-primary-100;
+    }
+}
+
+.text-white{
+    svg{
+        @apply fill-white stroke-white;
+    }
+}
+
+.icon{
+    margin-right: .5rem;
+}
