@@ -22,7 +22,6 @@ const config: Config = {
           600: "#FFDC41",
           700: "#FCC438",
           800: "#F58522",
-          
         },
         secondary:{
           body: "#32220A",

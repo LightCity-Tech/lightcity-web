@@ -7,6 +7,7 @@ import PlayIcon from '@/public/assets/svgs/play-icon.svg';
 
 const ButtonComponent = () => {
     return(
+       
         <details className="w-full">
             <summary className="pb-5 text-3xl font-bold">Button Component</summary>
             <Button 
