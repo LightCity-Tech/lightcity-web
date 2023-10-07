@@ -18,8 +18,8 @@ const TypographyComponent = () => {
       <Typography variant="body-reg">Body Reg</Typography>
       <Typography variant="caption-mid">Caption Mid</Typography>
       <Typography variant="caption-reg">Caption Reg</Typography>
-      <Typography variant="body-reg" color = "primary-main">Body Reg with Primary Color</Typography>
-      <Typography variant="body-reg" color = "primary-10">Body Reg with Primary-10 Colour</Typography>
+      <Typography variant="body-reg" color = "primary-main">Body Reg with Main Primary Color</Typography>
+      <Typography variant="body-reg" color = "secondary-main">Body Reg with Main Secondary Colour</Typography>
     </details>
   );
 };
