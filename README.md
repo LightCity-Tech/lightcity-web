@@ -21,30 +21,6 @@ Check out the links below to get familiar with them;
 - [Tailwind CSS Official Docs](https://tailwindcss.com/docs/installation)
 - [Tailwind Cheatsheet](https://tailwindcomponents.com/cheatsheet/)
 
-## Components
-
-### Typography Component
-This component is for reusing the texts across the project. The ```<Typography></Typography>``` tag is used for this. This tag takes in certain props and a child element; the child element is of type `React.ReactNode` and so can be a string too.
-
-Other props it takes in are;
-1. color: to assign the colour for the text
-2. align: to assign text-alignment
-3. fontWeight: to assign a font weight
-4. variant: to assign the HTML element of the text
-5. font: to assign the font-family of the text
-6. customClassName: This allows you to pass any extra class name into the text.
-
-And for all of them, you have to pass in particular strings for the typography tag to be properly rendered.
-See the [typography types](./src/ui/elements/typography/index.types.ts) for the values to pass in to the props.
-
-### Button Component
-This componen is for reusing the button across the project. The ```<Button/>``` tag is used for this. This tag takes in certain props. These props are;
-1. color: This sets what the color of the text.
-2. variant: This sets the type of button.
-3. leftIcon or rightIcon: This sets where to position the icon, if any.
-4. label: This sets what text the button displays
-5. customClassName: This allows you to pass any extra class name into the button.
-
 ### Getting Started
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
