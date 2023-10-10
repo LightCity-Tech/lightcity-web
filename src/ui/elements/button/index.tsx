@@ -11,14 +11,29 @@ const button = cva("", {
             primary: 'bg-primary-main border-0 rounded-[6.25rem] hover:bg-primary-700 active:border-2 active:border-[rgba(252, 199, 117, 0.98)]',
             secondary: 'bg-secondary-25 border-0 rounded-[6.25rem] hover:bg-secondary-50 active:border-2 active:border-secondary-50',
             tertiary: 'bg-secondary-25 border-0 rounded hover:bg-secondary-50',
-            outlined: 'bg-transparent border-2  border-secondary-body rounded-[6.25rem]'
+            outlined: 'bg-transparent border-2 rounded-[6.25rem]',
+            text: 'bg-transparent border-0'
         },
         color: {
-            primary: 'text-secondary-body',
-            secondary: 'text-secondary-body'
-            
+            primary: 'text-secondary-main',
+            secondary: 'text-secondary-25',
+            yellow: 'text-primary-main',
+            "pri-outlined": 'text-primary-main',
+            "sec-outlined": 'text-secondary-25'
         }
     },
+    compoundVariants:[
+        {
+            variant: "outlined",
+            color: "pri-outlined",
+            class: "border-primary-main text-primary-main"
+        },
+        {
+            variant: "outlined",
+            color: "sec-outlined",
+            class: "border-secondary-25 text-secondary-25"
+        }
+    ]
 })
 
 const Button:React.FC<ButtonProps> = (props) => {

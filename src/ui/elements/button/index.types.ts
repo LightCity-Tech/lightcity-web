@@ -4,10 +4,11 @@ export enum ButtonVariants{
     primary = 'primary',
     secondary = 'secondary',
     tertiary = 'tertiary',
-    outlined = 'outlined'
+    outlined = 'outlined',
+    text = 'text'
 }
 
-export type ButtonColors = "primary" | "secondary" ;
+export type ButtonColors = "primary" | "secondary" | "yellow" | "pri-outlined" | "sec-outlined" ;
 
 
 
@@ -16,7 +17,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     variant: keyof typeof ButtonVariants;
     label: string;
     rightIcon?: React.ReactNode;
-    leftIcon?: React.ReactNode;left
+    leftIcon?: React.ReactNode;
     customClassName?: string;
     color: ButtonColors;
 }

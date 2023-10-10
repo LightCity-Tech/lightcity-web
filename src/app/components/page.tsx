@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Typography } from "@/src/ui";
 import { TypographyComponent } from "./typography-component";
 import { ButtonComponent } from "./button-component";
+import MeetingCardComponent from "./meeting-card-component";
 
 const Components = () => {
   return (
@@ -17,6 +18,7 @@ const Components = () => {
       </Typography>
       <TypographyComponent />
       <ButtonComponent />
+      <MeetingCardComponent/>
     </main>
   );
 };
