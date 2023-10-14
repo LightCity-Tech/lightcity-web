@@ -51,7 +51,7 @@ const MeetingCard = ({image, title, description, month, startDay, duration, loca
           color="secondary-main"
           fontWeight="bold"
           align = "center"
-          customClassName="text-[7.5rem] grow"
+          customClassName="text-8xl grow"
         >
           {startDay}
         </Typography>

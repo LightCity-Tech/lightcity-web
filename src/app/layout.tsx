@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { uncutSans } from "@/styles/font";
 import "@/styles/globals.css";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "LightCity Church",
   description: "...giving your life eternal value",
+  icons: {
+    icon: [{url: "../../public/favicon/favicon.png", sizes: "32x32", type: "image/png"}]
+  }
 };
 
 export default function RootLayout({
@@ -15,14 +17,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="../../public/favicon/favicon.png"
-        />
-      </Head>
       <body className={`${uncutSans.className}`}>{children}</body>
     </html>
   );

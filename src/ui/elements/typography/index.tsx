@@ -1,5 +1,6 @@
 import React from "react";
 import { TypographyProps, variantMapping } from "./index.types";
+import clsx from "clsx";
 import { cva } from "class-variance-authority";
 import { uncutSans, kashuan } from "@/styles/font";
 
@@ -81,6 +82,8 @@ const Typography: React.FC<TypographyProps> = (props) => {
     variantMapping[variant] ||
     "p") as keyof JSX.IntrinsicElements;
 
+  const className = clsx(customClassName)
+
   return (
     <Tag
       className={typography({
@@ -89,7 +92,7 @@ const Typography: React.FC<TypographyProps> = (props) => {
         font,
         align,
         fontWeight,
-        className: `${customClassName}`,
+        className,
       })}
       {...rest}
     >
