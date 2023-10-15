@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { Typography, Button } from "..";
 import LocationIcon from "@/public/assets/svgs/location.svg";
-import SampleImg from "@/public/assets/images/sample-meeting-img.png";
 import RedirectIcon from "@/public/assets/svgs/redirect-icon.svg";
 
 interface MeetingProps {
@@ -19,7 +18,7 @@ interface MeetingProps {
 
 const MeetingCard = ({image, title, description, month, startDay, duration, location}: MeetingProps) => {
   return (
-    <div className="w-full flex justify-between gap-16 px-4 py-6 bg-white">
+    <div className="w-auto flex justify-between gap-16 px-4 py-6 bg-white">
       <div className="flex gap-8 w-9/12">
         <div>
           <Image src={image} alt="Sample Image for a Meeting" />
