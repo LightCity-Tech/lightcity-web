@@ -47,7 +47,7 @@ const Button:React.FC<ButtonProps> = (props) => {
     } =  props;
 
     const className = clsx(
-        'flex justify-content items-center px-[1rem] py-[0.75rem] text-center font-medium',
+        'flex justify-content items-center px-[1.5rem] py-[0.75rem] text-center font-medium',
         uncutSans.className,
         customClassName,
         styles['text-white']
