@@ -30,7 +30,8 @@ export type TypographyColors =
   | "secondary-50"
   | "secondary-100"
   | "secondary-200"
-  | "black";
+  | "black"
+  | "main-black";
 
 export type TypographyFont = "uncutSans" | "kashuan";
 

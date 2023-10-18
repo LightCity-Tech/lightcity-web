@@ -25,6 +25,7 @@ const typography = cva("", {
     color: {
       white: "text-white",
       black: "text-black",
+      "main-black": "text-main-black",
       "primary-main": "text-primary-main",
       "primary-50": "text-primary-50",
       "primary-100": "text-primary-100",

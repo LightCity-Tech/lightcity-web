@@ -30,6 +30,7 @@ const config: Config = {
           100: "#F0B868",
           200: "#E89D2C"
         },
+        'main-black': "#050300",
         white: "#FAFAFA",
         black: "#000000",
       },

@@ -1,10 +1,10 @@
 "use client";
 
-import { Typography } from "@/src/ui";
+import { Typography, SeriesCard } from "@/src/ui";
 
 const SeriesSection = () => {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-16 px-64">
       <div className="w-full flex justify-center items-center mb-16">
         <div className="border-t border-[#050300] h-0 w-[12.5rem]"></div>
         <Typography
@@ -16,6 +16,9 @@ const SeriesSection = () => {
           CURRENT SERIES
         </Typography>
         <div className="border-t border-[#050300] h-0 w-[12.5rem]"></div>
+      </div>
+      <div>
+        <SeriesCard/>
       </div>
     </section>
   );

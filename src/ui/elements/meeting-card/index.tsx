@@ -80,4 +80,4 @@ const MeetingCard = ({
   );
 };
 
-export default MeetingCard;
+export {MeetingCard};
