@@ -1,3 +1,5 @@
+'use client'
+
 import Logo from "../logo";
 import Link from "next/link";
 import { Button } from "@/src/ui";
@@ -36,7 +38,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full bg-transparent py-4 px-24 flex justify-between items-center">
+    <nav className="w-full h-[10vh] bg-transparent py-4 px-24 flex justify-between items-center">
       <Logo />
       <nav className="grow flex justify-between mx-36">
         {links.map((link, index) => (
@@ -54,6 +56,7 @@ const Navbar = () => {
         color="primary"
         label="Join Us Live"
         customClassName="mb-2"
+        leftIcon = {<BrownPlayIcon/>}
       />
     </nav>
   );
