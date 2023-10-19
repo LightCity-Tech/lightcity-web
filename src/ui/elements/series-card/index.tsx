@@ -3,15 +3,26 @@
 import Image, { StaticImageData } from "next/image";
 
 import { Typography, Button } from "..";
-import  SampleImg from "@/public/assets/images/series-1.png";
-import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg"
+import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
 
-const SeriesCard = () => {
+interface SeriesCardProps{
+    image: StaticImageData;
+    title: string;
+    subtitle: string;
+    description: string;
+}
+
+const SeriesCard = ({
+    image,
+    title,
+    subtitle,
+    description
+}:SeriesCardProps) => {
   return (
     <div className="flex gap-12">
       <div className="w-4/5 rounded-[1.25rem]">
         <Image
-            src={SampleImg}
+            src={image}
             alt="Sample Image for our current series"
             className="h-full w-full object-fill"
         />
@@ -22,23 +33,20 @@ const SeriesCard = () => {
             color="secondary-main"
             fontWeight="semi-bold"
             align="left"
-        >A Living Sacrifice</Typography>
+        >{title}</Typography>
         <Typography
             variant="caption-mid"
             color="main-black"
             fontWeight="medium"
             align="left"
-        >Serving the Lord effectively in a simple way</Typography>
+        >{subtitle}</Typography>
         <Typography
             variant="body-mid"
             color="main-black"
             fontWeight="regular"
             align="left"
         >
-          We are a people of God with a mandate from God to herald the glorious
-          message of Jesus; teaching and preaching until the whole earth is
-          filled with his gospel as the waters cover the sea, and by God, we
-          will not fail.{" "}
+          {description}
         </Typography>
         <Button
             variant="text"
