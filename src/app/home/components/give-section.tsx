@@ -1,27 +1,10 @@
 "use client";
 
-import { Typography } from "@/src/ui";
-// import BulletPoint from "@/public/assets/svgs/bullet-point.svg";
-import { BulletPoint } from "@/src/ui";
+import Image from "next/image";
+import { Typography, BulletPoint, Button } from "@/src/ui";
+import { givingReasons, gridImages } from "./data";
 
 const GiveSection = () => {
-  const givingReasons = [
-    {
-      title: "For the work of ministry",
-      reason:
-        "We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail. ",
-    },
-    {
-      title: "For the work of ministry",
-      reason:
-        "We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail. ",
-    },
-    {
-      title: "For the work of ministry",
-      reason:
-        "We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail. ",
-    },
-  ];
 
   return (
     <section className="w-full px-24 py-[5.8rem] flex justify-between gap-28 bg-white">
@@ -63,8 +46,25 @@ const GiveSection = () => {
             </div>
           ))}
         </div>
+            <Button
+                variant="primary"
+                color="primary"
+                label="Give to Us"
+                customClassName="mt-10"
+            />
       </div>
-      <div></div>
+      <div className="grid-cols-2 grid-rows-3 w-1/2">
+            {gridImages.map((gridImage, index) => (
+                <div key = {index} className={gridImage.customClassName}>
+                    <Image
+                        src = {gridImage.imageSrc}
+                        alt = "Grid Image"
+                        width={250}
+                        height={250}
+                    />
+                </div>
+            ))}
+      </div>
     </section>
   );
 };
