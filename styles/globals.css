@@ -20,3 +20,15 @@ html{
 body{
   background: transparent;
 }
+
+.footer-logo {
+  width: 273px;
+  height: 171px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-logo {
+    width: 50%;
+    height: auto;
+  }
+}
