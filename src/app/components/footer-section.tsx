@@ -2,7 +2,7 @@
 
 import { Button, Typography } from "@/src/ui";
 import Image from "next/image";
-import bgImage from "../services-bg.png";
+import bgImage from "../home/services-bg.png";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
 import FooterLogo from "/public/assets/svgs/lcc-logo-footer.png";
 
@@ -32,7 +32,7 @@ const FooterSection = () => {
               // }}
             />
           </div>
-          <div className="flex space-x-16 md:grid md:grid-cols-2 md:mt-8 md:space-x-0">
+          <div className="flex space-x-16 w-3/5 md:w-full md:gap-x-4 md:grid md:grid-cols-2 md:mt-8 md:space-x-0">
             <section className="space-y-4">
               <Typography
                 variant="h5"
@@ -100,7 +100,7 @@ const FooterSection = () => {
                 Sermon Library
               </Typography>
             </section>
-            <section className="md:mt-8">
+            <section className="md:mt-8 md:w-max">
               <Typography
                 variant="h5"
                 fontWeight="semi-bold"

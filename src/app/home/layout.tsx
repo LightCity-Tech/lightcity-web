@@ -1,4 +1,4 @@
-import Navbar from "../components/navbar-component";
+import Navbar from "../components/navigation/navbar-component";
 
 export default async function HomeLayout({
   children,
@@ -7,7 +7,6 @@ export default async function HomeLayout({
 }) {
   return (
     <section className="">
-      <Navbar />
       <div className="">{children}</div>
     </section>
   );

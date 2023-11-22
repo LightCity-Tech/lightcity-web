@@ -72,6 +72,9 @@ const config: Config = {
 
         sm: { max: "639px" }
         // => @media (max-width: 639px){...}
+      },
+      width: {
+        "width": "max-content"
       }
     },
   },

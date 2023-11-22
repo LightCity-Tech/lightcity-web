@@ -1,6 +1,6 @@
 "use client";
 
-import {MeetingCard} from "@/src/ui/elements/meeting-card";
+import MeetingCard from "@/src/ui/elements/meeting-card";
 import SampleImg from "@/public/assets/images/sample-meeting-img.png";
 
 const MeetingCardComponent = () => {

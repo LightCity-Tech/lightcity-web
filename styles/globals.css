@@ -2,14 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
-html{
+html {
   box-sizing: border-box;
   font-size: 100%;
   height: 100%;
 }
 
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -17,13 +18,94 @@ html{
   /* transition: all .1s ease-in-out; */
 }
 
-body{
+body {
   background: transparent;
 }
 
 .footer-logo {
   width: 273px;
   height: 171px;
+}
+
+.hero-bg {
+  background-image: url("https://res.cloudinary.com/tochukwu/image/upload/v1699629253/lightcity/b61gdasutioumny8cy8h.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide > div > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-image-01 {
+  height: 100vh;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/tochukwu/image/upload/v1699966468/lightcity/yqbpal1us6iyjkwwllru.webp");
+  background-color: #ffffff;
+}
+
+.slider-image-01::before,
+.slider-image-02::before,
+.slider-image-03::before,
+.slider-image-04::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: #151515;
+  opacity: 0.8;
+}
+
+.slider-image-02 {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  background-image: url("https://res.cloudinary.com/tochukwu/image/upload/v1699571659/lightcity/hgglflm36w4ci4scasrj.webp");
+}
+
+.slider-image-03 {
+  height: 100vh;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/tochukwu/image/upload/v1699966438/lightcity/dp4nvg4dmef94cjkmzyt.webp");
+}
+
+.slider-image-04 {
+  height: 100vh;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://res.cloudinary.com/tochukwu/image/upload/v1699966486/lightcity/ixx4dbjstv5ytdytiy2p.webp");
 }
 
 @media screen and (max-width: 768px) {

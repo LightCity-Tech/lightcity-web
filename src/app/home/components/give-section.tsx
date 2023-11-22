@@ -5,10 +5,9 @@ import { Typography, BulletPoint, Button } from "@/src/ui";
 import { givingReasons, gridImages } from "./data";
 
 const GiveSection = () => {
-
   return (
-    <section className="w-full px-24 py-[5.8rem] flex justify-between gap-28 bg-white">
-      <div className="w-1/2">
+    <section className="w-full px-24 md:px-2 py-[5.8rem] flex md:flex md:flex-col justify-between gap-28 bg-white">
+      <div className="w-1/2 md:w-full">
         <div className="flex items-center mb-10">
           <Typography
             variant="h4"
@@ -30,40 +29,45 @@ const GiveSection = () => {
 
               <div>
                 <Typography
-                    variant="h4"
-                    color="secondary-main"
-                    fontWeight="medium"
-                    align="left"
-                    customClassName="mb-3"
-                >{reason.title}</Typography>
+                  variant="h4"
+                  color="secondary-main"
+                  fontWeight="medium"
+                  align="left"
+                  customClassName="mb-3"
+                >
+                  {reason.title}
+                </Typography>
                 <Typography
-                    variant="h6"
-                    color="main-black"
-                    fontWeight="medium"
-                    align="left"
-                >{reason.reason}</Typography>
+                  variant="h6"
+                  color="main-black"
+                  fontWeight="medium"
+                  align="left"
+                >
+                  {reason.reason}
+                </Typography>
               </div>
             </div>
           ))}
         </div>
-            <Button
-                variant="primary"
-                color="primary"
-                label="Give to Us"
-                customClassName="mt-10"
-            />
+        <Button
+          variant="primary"
+          color="primary"
+          label="Give to Us"
+          customClassName="mt-10"
+        />
       </div>
-      <div className="grid-cols-2 grid-rows-3 w-1/2">
-            {gridImages.map((gridImage, index) => (
-                <div key = {index} className={gridImage.customClassName}>
-                    <Image
-                        src = {gridImage.imageSrc}
-                        alt = "Grid Image"
-                        width={250}
-                        height={250}
-                    />
-                </div>
-            ))}
+      <div className="grid gap-3 grid-cols-2 grid-rows-3 w-1/2 md:w-full">
+        {gridImages.map((gridImage, index) => (
+          <div key={index} className={gridImage.customClassName}>
+            <img
+              src={gridImage.imageSrc}
+              alt="Grid Image"
+              // width={250}
+              // height={250}
+              className="rounded-md w-full h-full object-cover"
+            />
+          </div>
+        ))}
       </div>
     </section>
   );
