@@ -53,14 +53,14 @@ const Meeting = (props: Props) => {
               fontWeight="regular"
               customClassName="mb-4 md:text-[24px] md:hidden">
               WORD CONFERENCE 2023 <br/>One Meeting • 3 Days • 6 Sessions <br/>Saints of
-              God gathered in the Name of His Holy Son Jesus, <br/>The Word of God's
+              God gathered in the Name of His Holy Son Jesus, <br/>The Word of God&apos;s
               Grace taught, <br/>The Holy Ghost in His Natural Habitat, <br/>The things
               and ALL the 9 gifts of the Spirit in graceful, yet mighty
               demonstrations - Utterances, Revelation and Power, <br/> ALL in FULL
               demonstration with sick bodies healed and diverse needs met.<br/>
               Encounters and experiences in the Glory and Power of God APLENTY &
               CEASELESS, <br/>Our lives and ministries FOREVER changed... <br/>This is
-              God's plan for your life & ministry. <br/>Tell a friend! Pray, Prepare
+              God&apos;s plan for your life & ministry. <br/>Tell a friend! Pray, Prepare
               and attend! Welcome
             </Typography>
           </div>

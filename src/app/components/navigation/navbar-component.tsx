@@ -141,7 +141,7 @@ export const NavInnerContent = () => (
   <div className="content">
     <ul className="mobile-ul">
       {links.map((link) => (
-        <li className="nav-links">
+        <li className="nav-links" key={link.url}>
           <Link href={link.url}>{link.name}</Link>
           <Spacer width={40} />
         </li>
