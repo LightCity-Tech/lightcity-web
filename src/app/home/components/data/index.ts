@@ -20,19 +20,19 @@ export const givingReasons = [
 
 export const gridImages = [
   {
-    imageSrc: "",
-    customClassName: "",
+    imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699629253/lightcity/b61gdasutioumny8cy8h.webp",
+    customClassName: "row-span-2 col-span-1 rounded h-full",
   },
   {
-    imageSrc: "",
-    customClassName: "",
+    imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699629193/lightcity/vos26cjsuysbcmoyzkxd.webp",
+    customClassName: "row-span-1",
   },
   {
-    imageSrc: "",
-    customClassName: "",
+    imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699629183/lightcity/kyks82djcul0pc5ozpvj.webp",
+    customClassName: "row-span-2",
   },
   {
-    imageSrc: "",
-    customClassName: "",
+    imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699629182/lightcity/le3zmv1r76mrrdgtojmo.webp",
+    customClassName: "row-span-1",
   },
 ];

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { uncutSans } from "@/styles/font";
 import "@/styles/globals.css";
+import Navbar from "./components/navigation/navbar-component";
+import FooterSection from "./components/footer-section";
 
 export const metadata: Metadata = {
   title: "LightCity Church",
@@ -17,7 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${uncutSans.className}`}>{children}</body>
+      <body className={`${uncutSans.className}`}>
+        <section className="relative overflow-auto">
+        <Navbar  />
+          {children}
+        <FooterSection />
+        </section>
+      </body>
     </html>
   );
 }

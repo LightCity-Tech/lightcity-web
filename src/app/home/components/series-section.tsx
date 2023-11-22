@@ -5,8 +5,8 @@ import SampleImg from "@/public/assets/images/series-1.png";
 
 const SeriesSection = () => {
   return (
-    <section className="bg-white py-16 px-64">
-      <div className="w-full flex justify-center items-center mb-16">
+    <section className="bg-white py-16 px-64 md:px-2">
+      <div className="w-full flex md:flex md:flex-col justify-center items-center mb-16">
         <div className="border-t border-main-black h-0 w-[12.5rem]"></div>
         <Typography
           variant="body-mid"

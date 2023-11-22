@@ -8,6 +8,18 @@ const nextConfig = {
   
       return config;
     },
+    
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'res.cloudinary.com',
+          port: '',
+          pathname: 'https://res.cloudinary.com/tochukwu/image/upload/v1699543758/lightcity/**',
+        },
+      ],
+    },
+    
   };
   
   module.exports = nextConfig;

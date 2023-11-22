@@ -19,8 +19,8 @@ const SeriesCard = ({
     description
 }:SeriesCardProps) => {
   return (
-    <div className="flex gap-12">
-      <div className="w-4/5 rounded-[1.25rem]">
+    <div className="flex md:flex md:flex-col gap-12">
+      <div className="w-4/5 md:w-full rounded-[1.25rem]">
         <Image
             src={image}
             alt="Sample Image for our current series"
