@@ -8,7 +8,8 @@ import FooterLogo from "/public/assets/svgs/lcc-logo-footer.png";
 
 const FooterSection = () => {
   return (
-    <section className="w-full h-auto px-24 py-14 md:px-6 relative">
+    <section className="w-full h-auto lg:px-20 xl:px-24
+     py-14 px-6 relative">
       <div>
         <Image
           src={bgImage}
@@ -18,9 +19,9 @@ const FooterSection = () => {
         />
       </div>
 
-      <div className="p-12 md:py-8 md:px-6 bg-secondary-main rounded-[3.13rem]">
-        <div className="w-full flex justify-between md:flex-col ">
-          <div className="footer-logo">
+      <div className="p-6 lg:px-12 xl:px-24 bg-secondary-main rounded-[3.13rem]">
+        <div className="w-full flex lg:flex-row justify-between lg:space-x-0 xl:space-x-6 flex-col ">
+          <div className="footer-logo lg:w-1/3 w-full">
             <Image
               src={FooterLogo}
               alt="LightCity logo"
@@ -32,8 +33,8 @@ const FooterSection = () => {
               // }}
             />
           </div>
-          <div className="flex space-x-16 w-3/5 md:w-full md:gap-x-4 md:grid md:grid-cols-2 md:mt-8 md:space-x-0">
-            <section className="space-y-4">
+          <div className="lg:flex lg:space-x-0 lg:w-3/5 w-full gap-x-4 lg:gap-x-0 grid grid-cols-2 lg:mt-0 mt-8">
+            <section className="space-y-4 w-full lg:w-1/3">
               <Typography
                 variant="h5"
                 fontWeight="semi-bold"
@@ -70,7 +71,7 @@ const FooterSection = () => {
                 Location
               </Typography>
             </section>
-            <section className="space-y-4">
+            <section className="space-y-4 w-full lg:w-1/3">
               <Typography
                 variant="h5"
                 fontWeight="semi-bold"
@@ -100,7 +101,7 @@ const FooterSection = () => {
                 Sermon Library
               </Typography>
             </section>
-            <section className="md:mt-8 md:w-max">
+            <section className="mt-8 lg:mt-0 w-max lg:w-1/3">
               <Typography
                 variant="h5"
                 fontWeight="semi-bold"
