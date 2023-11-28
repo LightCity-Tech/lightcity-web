@@ -6,7 +6,7 @@ import PicturesSlide from "./pictures-slide";
 
 const DescriptionSection = () => {
   return (
-    <section className="w-full bg-secondary-25 md:px-3 py-16">
+    <section className="w-full bg-secondary-25 px-4 py-16">
       <div className="w-full flex justify-center items-center mb-16">
         <div className="border-t border-main-black h-0 w-[12.5rem]"></div>
         <Typography
@@ -14,19 +14,19 @@ const DescriptionSection = () => {
           fontWeight="medium"
           align="center"
           color="main-black"
-          customClassName="mx-[1.5rem] md:w-[250px]"
+          customClassName="mx-[1.5rem] w-[250px]"
         >
           WHO WE ARE
         </Typography>
         <div className="border-t border-main-black h-0 w-[12.5rem]"></div>
       </div>
-      <div className="w-[50%] md:w-full mx-auto mb-[5.62rem]">
+      <div className="lg:w-[50%] w-[100%] md:w-full mx-auto mb-[5.62rem]">
         <Typography
           variant="h2"
           fontWeight="semi-bold"
           color="secondary-main"
           align="center"
-          customClassName="md:text-2xl"
+          customClassName="text-2xl xl:text-5xl"
         >
           “ We are a family of God bound together in love. Serving his purpose
           and fulfilling his plans. Heralding his word in all the dark places.

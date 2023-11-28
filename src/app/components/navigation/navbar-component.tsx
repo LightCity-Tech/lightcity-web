@@ -12,8 +12,17 @@ import MLogo from "@/public/assets/svgs/lcc-logo-footer.png";
 import "./style.css";
 import { Spacer } from "../spacer";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const links = [
+export const sizes = {
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
+};
+
+const bigLinks = [
   {
     name: "Home",
     url: "/home",
@@ -38,26 +47,74 @@ const links = [
     name: "Contact Us",
     url: "/contact-us",
   },
-  {
-    name: "Our Gallery",
-    url: "/gallery",
-  },
+  // {
+  //   name: "Our Gallery",
+  //   url: "/gallery",
+  // },
 ];
 
+const smallLinks = [
+   {
+    name: "Home",
+    url: "/home",
+  },
+  {
+    name: "About Us",
+    url: "/about",
+  },
+  {
+    name: "Sermons",
+    url: "/sermons",
+  },
+  {
+    name: "Meetings",
+    url: "/our-meetings",
+  },
+  {
+    name: "Give to Us",
+    url: "/give",
+  },
+  {
+    name: "Contact Us",
+    url: "/contact-us",
+  },
+ 
+]
+
 const Navbar = () => {
+  const [isMobile, setIsMobile] = useState(false)
+ 
+//choose the screen size 
+const handleResize = () => {
+  if (window.innerWidth > 1024 && window.innerWidth < 1250) {
+      setIsMobile(true)
+  } else {
+      setIsMobile(false)
+  }
+}
+
+// create an event listener
+useEffect(() => {
+  window.addEventListener("resize", handleResize)
+})
+
+  console.log(isMobile)
+
+  const links = isMobile ? smallLinks : bigLinks;
+
   const { onNavMenuClick, navOpen, onBodyClick, pathname } = useNavigation();
   const { hasBackground } = useScroll();
 
   return (
     <div>
       <nav
-        className={`${hasBackground ? 'nav-bg' : 'nav-no-bg'} navigation fixed w-full h-[10vh] md:hidden py-4 px-24 flex justify-between items-center`}
+        className={`navigation w-full h-[10vh] hidden py-4 px-24 xl:px-8 lg:flex justify-between items-center`}
       >
         <Logo />
-        <nav className="grow flex justify-between mx-36">
+        <nav className="grow flex justify-between lg:mx-8 mx-36 2xl:mx-16">
           {links.map((link, index) => (
             <div className="text-white nav-links" key={index}>
-              <Link href={link.url} className="text-white text-body-reg">
+              <Link href={link.url} className="text-white text-body-reg xl:text-[12px]">
                 {link.name}
               </Link>
             </div>
@@ -97,7 +154,7 @@ const MobileNavigation = ({
   hasBackground
 }: MobileNavigationProps) => {
   return (
-    <div className={`${hasBackground ? 'nav-bg' : 'nav-no-bg'} mob-nav navigation fixed`}>
+    <div className="mob-nav flex navigation lg:hidden">
       <Image src={MLogo} width={64} height={64} alt="" />
       <button className="unstyle-button c-pointer" onClick={onNavMenuClick}>
         <Navigation />
@@ -140,7 +197,7 @@ const MobileNavigationItem = ({
 export const NavInnerContent = () => (
   <div className="content">
     <ul className="mobile-ul">
-      {links.map((link) => (
+      {bigLinks.map((link) => (
         <li className="nav-links" key={link.url}>
           <Link href={link.url}>{link.name}</Link>
           <Spacer width={40} />

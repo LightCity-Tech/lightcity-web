@@ -6,8 +6,8 @@ import { givingReasons, gridImages } from "./data";
 
 const GiveSection = () => {
   return (
-    <section className="w-full px-24 md:px-2 py-[5.8rem] flex md:flex md:flex-col justify-between gap-28 bg-white">
-      <div className="w-1/2 md:w-full">
+    <section className="w-full lg:px-24 px-4 py-[5.8rem] flex flex-col justify-between gap-28 lg:flex lg:flex-row bg-white">
+      <div className="lg:w-1/2 w-full">
         <div className="flex items-center mb-10">
           <Typography
             variant="h4"
@@ -56,7 +56,7 @@ const GiveSection = () => {
           customClassName="mt-10"
         />
       </div>
-      <div className="grid gap-3 grid-cols-2 grid-rows-3 w-1/2 md:w-full">
+      <div className="grid gap-3 grid-cols-2 grid-rows-3 lg:w-1/2 w-full">
         {gridImages.map((gridImage, index) => (
           <div key={index} className={gridImage.customClassName}>
             <img

@@ -13,11 +13,11 @@ const ServiceSection = () => {
   ];
 
   return (
-    <section className="py-36 px-16 md:px-2 flex justify-end relative bg-gradient-to-l from-secondary-25">
-      <div className="-z-50 absolute inset-0 w-full h-full">
-        <Image src={bgImage} alt="Background Image" layout="fill" objectFit="cover" className="w-full" />
+    <section className="flex flex-col-reverse lg:py-36 lg:px-16 xl:px-24 lg:flex lg:flex-row lg:justify-end relative lg:bg-gradient-to-r lg:from-transparent lg:from-35% lg:via-secondary-25 lg:via-55% lg:to-secondary-25">
+      <div className="lg:-z-50 lg:absolute lg:inset-0 w-full lg:h-full h-[500px]">
+        <Image src={bgImage} alt="Background Image" className="w-full h-full object-cover" />
       </div>
-      <section className="w-1/2 md:w-full h-full flex flex-col gap-6">
+      <section className="lg:w-[45%] w-full p-4 h-full flex bg-secondary-25 flex-col gap-6">
         <Typography
           variant="h2"
           color="secondary-main"
@@ -26,7 +26,7 @@ const ServiceSection = () => {
         >
           We value the physical gathering of the saints together in one place.
         </Typography>
-        <div className="w-3/5 md:w-full flex flex-col gap-2 mt-6">
+        <div className="lg:w-4/5 w-full flex flex-col gap-2 mt-6">
           {services.map((service, index) => (
             <div key={index} className="flex justify-between items-center">
               <div>
