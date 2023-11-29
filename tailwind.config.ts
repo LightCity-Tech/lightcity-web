@@ -60,7 +60,14 @@ const config: Config = {
         "extra-bold": "800",
         black: "900",
       },
-     
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        mono: ['var(--font-roboto-mono)'],
+      },
+      brightness: {
+        25: '.25',
+        175: '1.75',
+      }
     },
   },
   plugins: [],

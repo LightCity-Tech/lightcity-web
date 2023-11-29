@@ -29,7 +29,7 @@ const bigLinks = [
   },
   {
     name: "About Us",
-    url: "/about",
+    url: "/about-us",
   },
   {
     name: "Sermon Library",
@@ -60,7 +60,7 @@ const smallLinks = [
   },
   {
     name: "About Us",
-    url: "/about",
+    url: "/about-us",
   },
   {
     name: "Sermons",
@@ -71,7 +71,7 @@ const smallLinks = [
     url: "/our-meetings",
   },
   {
-    name: "Give to Us",
+    name: "Give",
     url: "/give",
   },
   {
@@ -86,7 +86,7 @@ const Navbar = () => {
  
 //choose the screen size 
 const handleResize = () => {
-  if (window.innerWidth > 1024 && window.innerWidth < 1250) {
+  if (window.innerWidth > 768 && window.innerWidth < 1250) {
       setIsMobile(true)
   } else {
       setIsMobile(false)
@@ -98,23 +98,23 @@ useEffect(() => {
   window.addEventListener("resize", handleResize)
 })
 
-  console.log(isMobile)
-
   const links = isMobile ? smallLinks : bigLinks;
-
+  
   const { onNavMenuClick, navOpen, onBodyClick, pathname } = useNavigation();
   const { hasBackground } = useScroll();
+
+  console.log(pathname.slice(1))
 
   return (
     <div>
       <nav
-        className={`navigation w-full h-[10vh] hidden py-4 px-24 xl:px-8 lg:flex justify-between items-center`}
+        className={`navigation w-full h-[10vh] hidden py-4 md:px-8 lg:px-24 xl:px-24 md:flex justify-between items-center`}
       >
         <Logo />
-        <nav className="grow flex justify-between lg:mx-8 mx-36 2xl:mx-16">
+        <nav className="grow flex justify-between mx-auto md:px-8 lg:mx-8 xl:mx-16 2xl:mx-28">
           {links.map((link, index) => (
-            <div className="text-white nav-links" key={index}>
-              <Link href={link.url} className="text-white text-body-reg xl:text-[12px]">
+            <div className={`${pathname === link.url ? 'nav-active' : 'nav-links'}`} key={index}>
+              <Link href={link.url} className={`${pathname === link.url ? 'text-secondary-200' : 'text-white'}`}>
                 {link.name}
               </Link>
             </div>
@@ -154,7 +154,7 @@ const MobileNavigation = ({
   hasBackground
 }: MobileNavigationProps) => {
   return (
-    <div className="mob-nav flex navigation lg:hidden">
+    <div className="mob-nav flex navigation md:hidden">
       <Image src={MLogo} width={64} height={64} alt="" />
       <button className="unstyle-button c-pointer" onClick={onNavMenuClick}>
         <Navigation />

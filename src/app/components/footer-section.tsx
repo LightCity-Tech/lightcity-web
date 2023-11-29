@@ -19,7 +19,7 @@ const FooterSection = () => {
         />
       </div>
 
-      <div className="p-6 lg:px-12 xl:px-24 bg-secondary-main rounded-[3.13rem]">
+      <div className="px-6 py-12 lg:px-12 xl:px-24 bg-secondary-main rounded-[3.13rem]">
         <div className="w-full flex lg:flex-row justify-between lg:space-x-0 xl:space-x-6 flex-col ">
           <div className="footer-logo lg:w-1/3 w-full">
             <Image

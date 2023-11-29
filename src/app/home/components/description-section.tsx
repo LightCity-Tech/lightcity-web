@@ -26,7 +26,7 @@ const DescriptionSection = () => {
           fontWeight="semi-bold"
           color="secondary-main"
           align="center"
-          customClassName="text-2xl xl:text-5xl"
+          customClassName="text-xl xl:text-5xl"
         >
           “ We are a family of God bound together in love. Serving his purpose
           and fulfilling his plans. Heralding his word in all the dark places.
