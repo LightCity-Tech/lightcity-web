@@ -11,9 +11,16 @@ let data = [{}, {}, {}];
 const Meetings = () => {
   return (
     <section>
-      <HeroSection />
-      <section className="px-28 md:px-2 py-12">
-        <div className="">
+      <HeroSection
+        title="Upcoming Meetings"
+        subtitle="Word Conference"
+        imageUrl="/assets/images/hero-wc.jpg"
+        buttonTitle="Lean More"
+        buttonSvg={""}
+        description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of Gods word and the intense atmospheres of the demonstrations of the Spirit."
+      />
+      <section className="lg:px-32 px-4 py-12 bg-white">
+        <div className="divide-y divide-gray-300 space-y-4">
           <MeetingCard
             title="Word Conference 2023"
             image="https://res.cloudinary.com/tochukwu/image/upload/w_250/v1700481884/lightcity/qek9s7hvd51k4yr0rta9.webp"
@@ -27,7 +34,7 @@ const Meetings = () => {
             year="2023"
             location="ENUGU, NIGERIA"
           />
-           <MeetingCard
+          <MeetingCard
             title="Power Sunday 2024"
             image="https://res.cloudinary.com/tochukwu/image/upload/w_250/v1700481884/lightcity/qek9s7hvd51k4yr0rta9.webp"
             description="We are a people of God with a mandate from God to herald the

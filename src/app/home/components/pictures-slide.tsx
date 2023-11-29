@@ -1,15 +1,8 @@
 "use client";
 
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Slider from "react-slick";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/pagination";
 
-// import required modules
-import { Grid, Pagination } from "swiper/modules";
+import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -34,11 +27,19 @@ const settings = {
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2
+        slidesToScroll: 1,
+        initialSlide: 1
+      }
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        initialSlide: 1
       }
     },
     {
@@ -60,49 +61,49 @@ const PicturesSlide = () => {
           <img
             src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571651/lightcity/w4qj0tjxviw4ccfxuajm.webp"
             alt=""
-            className="rounded md:w-[90%]"
+            className="rounded w-[89%] md:w-[90%]"
           />
         </div>
         <div className="">
           <img
             src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/ohciqtuoi2nndcbnqfhu.webp"
             alt=""
-            className="rounded md:w-[90%]"
+            className="rounded w-[89%] md:w-[90%]"
           />
         </div>
         <div className="">
           <img
             src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543759/lightcity/toewrx3saggzxaw83hfa.webp"
             alt=""
-            className="rounded md:w-[90%]"
+            className="rounded w-[89%] md:w-[90%]"
           />
         </div>
         <div className="">
           <img
             src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571667/lightcity/jggnc8d22ycrzrlsyzo7.webp"
             alt=""
-            className="rounded md:w-[90%]"
+            className="rounded w-[89%] md:w-[90%]"
           />
         </div>
         <div className="">
           <img
             src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571653/lightcity/qds3yp2ujohkuh3usbn3.webp"
             alt=""
-            className="rounded md:w-[90%]"
+            className="rounded w-[89%] md:w-[90%]"
           />
         </div>
         <div className="">
           <img
             src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/rzhwsyjo50hztbi76j5a.webp"
             alt=""
-            className="rounded md:w-[90%]"
+            className="rounded w-[89%] md:w-[90%]"
           />
         </div>
         <div className="">
           <img
             src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699966569/lightcity/qdkoq9ihyuly2fmrelbm.webp"
             alt=""
-            className="rounded md:w-[90%]"
+            className="rounded w-[89%] md:w-[90%]"
           />
         </div>
       </Slider>

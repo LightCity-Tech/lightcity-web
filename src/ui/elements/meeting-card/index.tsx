@@ -30,16 +30,16 @@ const MeetingCard = ({
   year
 }: MeetingProps) => {
   return (
-    <div className="w-auto flex md:flex md:flex-col justify-between gap-16 px-4 py-6 bg-white">
-      <div className="flex md:flex md:flex-col gap-8 w-9/12 md:w-full bg-white">
-        <div className="w-3/5 md:w-full rounded-[1.25rem]">
+    <div className="md:flex md:flex-row flex flex-col md:justify-between md:gap-16 px-4 py-6 bg-white">
+      <div className="md:flex md:flex-row flex flex-col md:items-center gap-8 w-full bg-white">
+        <div className="w-full rounded-[1.25rem]">
           <img
             src={image}
             alt="Sample Image for a Meeting"
-            className="h-full w-full object-fill"
+            className="h-full w-full object-fill rounded-[1.25rem]"
           />
         </div>
-        <div className="flex flex-col md:hidden">
+        <div className="md:flex md:flex-col hidden">
         <Link href={`/our-meetings/${title.replace(" ", "-")}`}>
           <Typography
             variant="h3"
@@ -49,7 +49,7 @@ const MeetingCard = ({
             {title}
           </Typography>
         </Link>
-          <Typography variant="h6" customClassName="">
+          <Typography variant="body-reg" customClassName="">
             {description}
           </Typography>
           <Link href="/" className="w-fit flex items-center mt-auto">
@@ -61,7 +61,7 @@ const MeetingCard = ({
             />
           </Link>
         </div>
-        <div className="hidden md:block">
+        <div className="md:hidden">
         <Typography
             variant="body-reg"
             color="secondary-main"
@@ -83,19 +83,19 @@ const MeetingCard = ({
           </div>
         </div>
       </div>
-      <div className="w-3/12 md:w-full md:hidden md:items-start flex flex-col items-stretch">
-        <Typography variant="caption-mid" align="center" customClassName="grow">
+      <div className="md:w-3/12 hidden md:items-stretch md:flex flex-col">
+        <Typography variant="caption-mid" align="center" customClassName="grow -mb-12">
           {month}
         </Typography>
         <Typography
           color="secondary-main"
           fontWeight="bold"
           align="center"
-          customClassName="!text-[7.5rem] md:hidden grow"
+          customClassName="!text-[7.5rem] hidden md:block grow -mb-12"
         >
           {startDay}
         </Typography>
-        <Typography variant="caption-mid" align="center" customClassName="grow">
+        <Typography variant="caption-mid" align="center" customClassName="grow ml-2">
           {duration}
         </Typography>
         <div className="flex justify-center gap-2 grow">

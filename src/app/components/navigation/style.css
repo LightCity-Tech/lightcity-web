@@ -1,12 +1,12 @@
 .navigation {
   z-index: 10;
-  position: fixed;
+  position: absolute;
   width: 100%;
 }
 
 .nav-links > a {
-  color: #200e32;
-  font-size: 1.18em;
+  font-size: 1rem;
+  font-weight: 400;
   text-decoration: none;
   transition: color 0.12s ease;
   color: white;
@@ -14,9 +14,12 @@
   border-radius: "3px";
 }
 
-/* .has-bg .nav-links > a {
-  color: white;
-} */
+.nav-active > a {
+  color: rgb(232 157 44);
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
 
 .nav-bg {
   background-color: black;
@@ -152,7 +155,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .icon {
     font-size: 20px;
   }
@@ -207,7 +210,6 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    display: flex;
   }
 
   .content {
