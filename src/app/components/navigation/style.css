@@ -5,13 +5,20 @@
 }
 
 .nav-links > a {
-  color: #200e32;
-  font-size: 1.18em;
+  font-size: 1rem;
+  font-weight: 400;
   text-decoration: none;
   transition: color 0.12s ease;
   color: white;
   /* padding: 8px 30px; */
   border-radius: "3px";
+}
+
+.nav-active > a {
+  color: rgb(232 157 44);
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
 }
 
 .nav-bg {
@@ -148,7 +155,7 @@
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 768px) {
   .icon {
     font-size: 20px;
   }

@@ -14,7 +14,7 @@ const SeriesSection = () => {
           align="center"
           customClassName="text-main-black mx-[1.5rem]"
         >
-          CURRENT SERIES
+          LATEST SERIES
         </Typography>
         <div className="border-t border-main-black h-0 w-[6rem] lg:w-[12.5rem]"></div>
       </div>
