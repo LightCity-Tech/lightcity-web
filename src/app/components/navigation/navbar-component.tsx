@@ -7,6 +7,7 @@ import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
 import { useNavigation } from "../../hooks/use_navigation";
 import useScroll from "../../hooks/use_scroll";
 import Navigation from "@/public/assets/svgs/menu.svg";
+import CloseNavigation from "@/public/assets/svgs/close.svg";
 import MLogo from "@/public/assets/svgs/lcc-logo-footer.png";
 
 import "./style.css";
@@ -15,11 +16,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export const sizes = {
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-  '2xl': '1536px',
+  sm: "640px",
+  md: "768px",
+  lg: "1024px",
+  xl: "1280px",
+  "2xl": "1536px",
 };
 
 const bigLinks = [
@@ -54,7 +55,7 @@ const bigLinks = [
 ];
 
 const smallLinks = [
-   {
+  {
     name: "Home",
     url: "/home",
   },
@@ -78,32 +79,29 @@ const smallLinks = [
     name: "Contact Us",
     url: "/contact-us",
   },
- 
-]
+];
 
 const Navbar = () => {
-  const [isMobile, setIsMobile] = useState(false)
- 
-//choose the screen size 
-const handleResize = () => {
-  if (window.innerWidth > 768 && window.innerWidth < 1250) {
-      setIsMobile(true)
-  } else {
-      setIsMobile(false)
-  }
-}
+  const [isMobile, setIsMobile] = useState(false);
 
-// create an event listener
-useEffect(() => {
-  window.addEventListener("resize", handleResize)
-})
+  //choose the screen size
+  const handleResize = () => {
+    if (window.innerWidth > 768 && window.innerWidth < 1250) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  // create an event listener
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  });
 
   const links = isMobile ? smallLinks : bigLinks;
-  
-  const { onNavMenuClick, navOpen, onBodyClick, pathname } = useNavigation();
-  const { hasBackground } = useScroll();
 
-  console.log(pathname.slice(1))
+  const { onNavMenuClick, navOpen, onBodyClick, pathname, setNavOpen } = useNavigation();
+  const { hasBackground } = useScroll();
 
   return (
     <div>
@@ -113,8 +111,18 @@ useEffect(() => {
         <Logo />
         <nav className="grow flex justify-between mx-auto md:px-8 lg:mx-8 xl:mx-16 2xl:mx-28">
           {links.map((link, index) => (
-            <div className={`${pathname === link.url ? 'nav-active' : 'nav-links'}`} key={index}>
-              <Link href={link.url} className={`${pathname === link.url ? 'text-secondary-200' : 'text-white'}`}>
+            <div
+              className={`${
+                pathname === link.url ? "nav-active" : "nav-links"
+              }`}
+              key={index}
+            >
+              <Link
+                href={link.url}
+                className={`${
+                  pathname === link.url ? "text-secondary-200" : "text-white"
+                }`}
+              >
                 {link.name}
               </Link>
             </div>
@@ -133,6 +141,7 @@ useEffect(() => {
         onNavMenuClick={onNavMenuClick}
         navOpen={navOpen}
         hasBackground={hasBackground}
+        setNavOpen={setNavOpen}
       />
     </div>
   );
@@ -145,26 +154,29 @@ interface MobileNavigationProps {
   onNavMenuClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   navOpen?: boolean | any;
   hasBackground: boolean;
+  setNavOpen: any
 }
 
 const MobileNavigation = ({
   onNavMenuClick,
   onBodyClick,
   navOpen,
-  hasBackground
+  hasBackground,
+  setNavOpen
 }: MobileNavigationProps) => {
   return (
     <div className="mob-nav flex navigation md:hidden">
       <Image src={MLogo} width={64} height={64} alt="" />
       <button className="unstyle-button c-pointer" onClick={onNavMenuClick}>
         <Navigation />
-        {/* <Image src={Navigation} width={24} height={24} className="navigation-icon" alt="navigation button" /> */}
       </button>
       {navOpen !== null && (
         <MobileNavigationItem
           className={navOpen ? "nav-open" : "nav-close"}
           onClick={onBodyClick}
           innerContent={<NavInnerContent />}
+          setNavOpen={setNavOpen}
+          onBodyClick={onBodyClick}
         />
       )}
     </div>
@@ -175,19 +187,29 @@ interface MobileNavigationItemProps {
   className?: string;
   onClick?: any;
   innerContent?: any;
+  setNavOpen: any;
+  onBodyClick: any
 }
 
 const MobileNavigationItem = ({
   className,
   onClick,
   innerContent,
+  setNavOpen,
+  onBodyClick
 }: MobileNavigationItemProps) => {
   return (
     <div
-      className={`whole-area ${className || ""}`}
+      className={`whole-area ${className || "overflow-hidden"}`}
       onClick={(e) => onClick(e, false)}
     >
       <div onClick={(e) => onClick(e, true)} className="main-portion">
+        <div className="bg-secondary-main flex justify-between px-10 py-3">
+          <Image src={MLogo} width={64} height={64} alt="" />
+          <button className="unstyle-button c-pointer" onClick={(e) => onClick(e, false)}>
+            <CloseNavigation />
+          </button>
+        </div>
         {innerContent}
       </div>
     </div>
@@ -204,5 +226,12 @@ export const NavInnerContent = () => (
         </li>
       ))}
     </ul>
+    <Button
+      variant="primary"
+      color="primary"
+      label="Join Us Live"
+      customClassName="mb-2"
+      leftIcon={<BrownPlayIcon />}
+    />
   </div>
 );
