@@ -21,5 +21,5 @@ export const useNavigation = () => {
     setNavOpen(null);
   }, [pathname]);
 
-  return { onNavMenuClick, navOpen, onBodyClick, pathname };
+  return { onNavMenuClick, navOpen, onBodyClick, pathname, setNavOpen };
 };
