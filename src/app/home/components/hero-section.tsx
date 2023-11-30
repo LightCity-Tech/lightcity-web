@@ -62,8 +62,8 @@ const HeroSection = ({ title, subtitle, special, description, imageUrl, buttonTi
   ]
 
   return (
-    <section className="w-full h-[90vh] overflow-auto">
-      <div className={`w-full md:w-full absolute lg:px-24 px-4 ${imageUrl ? 'top-[4%] md:top-[9%] lg:top-[8%] xl:top-[7%]' : 'top-[4%] xl:top-[5%]'} z-50 text-white`}>
+    <section className="w-full h-[90vh] overflow-hidden">
+      <div className={`w-full md:w-full absolute lg:px-24 px-4 ${imageUrl ? 'top-[4%] md:top-[9%] lg:top-[8%] xl:top-[7%]' : 'top-[4%] xl:top-[5%]'} z-[1] text-white`}>
         <Typography
           variant="body-mid"
           color="white"
