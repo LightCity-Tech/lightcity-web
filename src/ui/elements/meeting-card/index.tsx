@@ -52,9 +52,9 @@ const MeetingCard = ({
           <Typography variant="body-reg" customClassName="">
             {description}
           </Typography>
-          <Link href="/" className="w-fit flex items-center mt-auto">
+          <Link href={`/our-meetings/${title.replace(" ", "-")}`} className="w-fit flex items-center mt-auto">
             <Button
-              variant="text"
+              variant="no-border"
               label="Learn More"
               color="primary"
               rightIcon={<RedirectIcon />}

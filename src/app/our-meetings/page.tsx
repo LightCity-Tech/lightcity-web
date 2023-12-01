@@ -5,6 +5,7 @@ import MeetingCardComponent from "../components/meeting-card-component";
 import MeetingCard from "@/src/ui/elements/meeting-card";
 import SampleImg from "@/public/assets/images/sample-meeting-img.png";
 import HeroSection from "../home/components/hero-section";
+import ArrowUpIcon from "@/public/assets/svgs/arrow-up-right.svg";
 
 let data = [{}, {}, {}];
 
@@ -13,10 +14,11 @@ const Meetings = () => {
     <section>
       <HeroSection
         title="Upcoming Meetings"
-        subtitle="Word Conference"
+        subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Word Conference </h1>"
         imageUrl="/assets/images/hero-wc.jpg"
-        buttonTitle="Lean More"
-        buttonSvg={""}
+        buttonTitle="Learn More"
+        buttonSvg={<ArrowUpIcon />}
+        buttonIconDirection={'right'}
         description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of Gods word and the intense atmospheres of the demonstrations of the Spirit."
       />
       <section className="lg:px-32 px-4 py-12 bg-white">

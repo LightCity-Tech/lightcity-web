@@ -106,10 +106,10 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        className={`navigation w-full h-[10vh] hidden py-4 md:px-8 lg:px-24 xl:px-24 md:flex justify-between items-center`}
+        className={`navigation w-full h-[10vh] hidden py-4 md:px-10 lg:px-20 xl:px-24 md:flex justify-between items-center`}
       >
         <Logo />
-        <nav className="grow flex justify-between mx-auto md:px-8 lg:mx-8 xl:mx-16 2xl:mx-28">
+        <nav className="grow flex justify-between mx-auto md:px-6 lg:mx-8 xl:mx-16 2xl:mx-28">
           {links.map((link, index) => (
             <div
               className={`${

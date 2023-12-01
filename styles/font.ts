@@ -33,7 +33,7 @@ export const kashuan = Kaushan_Script({
   subsets: ["latin"],
   display: "swap",
   weight: "400",
-  variable: '--font-roboto-mono'
+  variable: '--font-kaushan'
 });
 
 

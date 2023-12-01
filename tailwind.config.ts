@@ -33,6 +33,7 @@ const config: Config = {
         'main-black': "#050300",
         white: "#FAFAFA",
         black: "#000000",
+        blackA: "#32220A"
       },
       fontSize: {
         //Header element styles
@@ -62,7 +63,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)'],
-        mono: ['var(--font-roboto-mono)'],
+        mono: ['var(--font-kaushan)'],
       },
       brightness: {
         25: '.25',
