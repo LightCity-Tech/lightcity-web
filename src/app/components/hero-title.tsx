@@ -8,8 +8,8 @@ type Props = {
 
 const HeroTitle = (props: Props) => {
   return (
-    <h1 className="text-[42px] leading-[48px] mt-3 font-bold">
-      {props.subtitle}{" "}
+    <h1 dangerouslySetInnerHTML={{__html: props.subtitle}} >
+      
       <span
         className={`${kashuan.className} text-[42px] inline-block text-secondary-200`}
       >

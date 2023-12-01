@@ -19,7 +19,7 @@ const SeriesCard = ({
     description
 }:SeriesCardProps) => {
   return (
-    <div className="flex flex-col lg:flex lg:flex-row gap-12">
+    <div className="flex flex-col md:flex md:flex-row gap-12">
       <div className="lg:w-4/5 w-full rounded-[1.25rem]">
         <Image
             src={image}
@@ -48,13 +48,16 @@ const SeriesCard = ({
         >
           {description}
         </Typography>
-        <Button
-            variant="text"
-            label="Listen Online"
-            color="primary"
-            leftIcon = {<BrownPlayIcon/>}
-            customClassName=""
-        />
+      <div className="w-2/5 mt-5">
+         <Button
+        variant="outlined"
+        color="dark-outlined"
+        label="Listen online"
+        leftIcon={<BrownPlayIcon />}
+        customClassName="mb-2"
+      />
+      </div>
+       
       </div>
     </div>
   );

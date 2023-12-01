@@ -14,22 +14,22 @@ const DescriptionSection = () => {
           fontWeight="medium"
           align="center"
           color="main-black"
-          customClassName="mx-[1.5rem] w-[250px]"
+          customClassName="mx-[1.5rem] w-[250px] lg:w-[152px]"
         >
           WHO WE ARE
         </Typography>
         <div className="border-t border-main-black h-0 w-[12.5rem]"></div>
       </div>
-      <div className="lg:w-[50%] w-[100%] md:w-full mx-auto mb-[5.62rem]">
+      <div className="lg:w-[50%] xl:w-[70%] w-[100%] md:w-full mx-auto mb-[5.62rem]">
         <Typography
           variant="h2"
           fontWeight="semi-bold"
           color="secondary-main"
           align="center"
-          customClassName="text-xl xl:text-5xl"
+          customClassName="text-[24px] xl:text-[40px]"
         >
-          “ We are a family of God bound together in love. Serving his purpose
-          and fulfilling his plans. Heralding his word in all the dark places.
+          “ We are a family of God bound together in love.<br className="hidden lg:block"/> Serving his purpose
+          and fulfilling his plans. <br className="hidden lg:block"/> Heralding his word in all the dark places.<br className="hidden lg:block"/> 
           We are LightCity Church ”
         </Typography>
       </div>

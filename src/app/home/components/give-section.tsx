@@ -6,7 +6,7 @@ import { givingReasons, gridImages } from "./data";
 
 const GiveSection = () => {
   return (
-    <section className="w-full lg:px-24 px-4 py-[5.8rem] flex flex-col justify-between gap-28 lg:flex lg:flex-row bg-white">
+    <section className="w-full md:px-8 lg:px-24 px-4 py-[5.8rem] flex flex-col justify-between gap-28 lg:flex lg:flex-row bg-white">
       <div className="lg:w-1/2 w-full">
         <div className="flex items-center mb-10">
           <Typography

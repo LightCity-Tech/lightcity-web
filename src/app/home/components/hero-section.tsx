@@ -15,10 +15,20 @@ type Props = {
   imageUrl?: string;
   description?: string;
   buttonTitle?: string;
-  buttonSvg?: any
+  buttonSvg?: any;
+  buttonIconDirection?: string;
 };
 
-const HeroSection = ({ title, subtitle, special, description, imageUrl, buttonTitle, buttonSvg }: Props) => {
+const HeroSection = ({
+  title,
+  subtitle,
+  special,
+  description,
+  imageUrl,
+  buttonTitle,
+  buttonSvg,
+  buttonIconDirection
+}: Props) => {
   const items = [
     <Image
       key="1"
@@ -51,19 +61,25 @@ const HeroSection = ({ title, subtitle, special, description, imageUrl, buttonTi
 
   const item = [
     <Image
-    key="1"
-    src={imageUrl as string}
-    width={2592}
-    height={1728}
-    alt="1"
-    style={{ width: "100%", height: "100vh" }}
-    className="object-cover brightness-50"
-  />,
-  ]
+      key="1"
+      src={imageUrl as string}
+      width={2592}
+      height={1728}
+      alt="1"
+      style={{ width: "100%", height: "100vh" }}
+      className="object-cover brightness-50"
+    />,
+  ];
 
   return (
     <section className="w-full h-[90vh] overflow-hidden">
-      <div className={`w-full md:w-full absolute lg:px-24 px-4 ${imageUrl ? 'top-[4%] md:top-[9%] lg:top-[8%] xl:top-[7%]' : 'top-[4%] xl:top-[5%]'} z-[1] text-white`}>
+      <div
+        className={`w-full md:w-full absolute sm:px-8 md:px-10 xl:px-20 px-4 ${
+          imageUrl
+            ? "top-[4%] md:top-[9%] lg:top-[8%] xl:top-[7%]"
+            : "top-[4%] xl:top-[5%]"
+        } z-[1] text-white`}
+      >
         <Typography
           variant="body-mid"
           color="white"
@@ -74,16 +90,16 @@ const HeroSection = ({ title, subtitle, special, description, imageUrl, buttonTi
           {title}
         </Typography>
 
-        <div className="lg:w-[70%] w-full">
-          <h1 className="text-[48px] lg:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold">
-            {subtitle}{" "}
-            <span
-              className={`${kashuan.className} text-[48px] lg:text-[84px] text-secondary-200`}
-            >
-              {special}
-            </span>
-          </h1>
-        </div>
+        <div
+          className="w-full inline"
+          dangerouslySetInnerHTML={{ __html: subtitle }}
+        />
+        <span
+          className={`${kashuan.className} text-[48px] lg:text-[60px] xl:text-[84px] text-secondary-200`}
+        >
+          {special}
+        </span>
+
         <div className="py-6 md:w-[50%] w-full">
           <p className="text-sm lg:text-base leading-6">{description}</p>
         </div>
@@ -92,13 +108,14 @@ const HeroSection = ({ title, subtitle, special, description, imageUrl, buttonTi
           variant="primary"
           color="primary"
           label={buttonTitle as any}
-          leftIcon={buttonSvg}
+          leftIcon={buttonIconDirection === 'left' && buttonSvg}
+          rightIcon={buttonIconDirection === 'right' && buttonSvg}
           customClassName="mt-4"
         />
       </div>
 
-       <AutoplayCarousel items={imageUrl ? item : items} />
-   </section>
+      <AutoplayCarousel items={imageUrl ? item : items} />
+    </section>
   );
 };
 

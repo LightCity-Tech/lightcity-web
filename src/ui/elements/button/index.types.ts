@@ -5,10 +5,11 @@ export enum ButtonVariants{
     secondary = 'secondary',
     tertiary = 'tertiary',
     outlined = 'outlined',
-    text = 'text'
+    text = 'text',
+    "no-border" = 'no-border'
 }
 
-export type ButtonColors = "primary" | "secondary" | "yellow" | "pri-outlined" | "sec-outlined" ;
+export type ButtonColors = "primary" | "secondary" | "yellow" | "pri-outlined" | "sec-outlined" | "dark-outlined" ;
 
 
 

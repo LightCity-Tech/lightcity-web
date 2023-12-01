@@ -17,7 +17,7 @@ const ServiceSection = () => {
       <div className="lg:-z-50 lg:absolute lg:inset-0 w-full lg:h-full h-[500px]">
         <Image src={bgImage} alt="Background Image" className="w-full h-full object-cover" />
       </div>
-      <section className="lg:w-[45%] w-full p-4 h-full flex bg-secondary-25 flex-col gap-6">
+      <section className="lg:w-[45%] w-full p-3 md:px-8 h-full flex bg-secondary-25 flex-col gap-6">
         <Typography
           variant="h2"
           color="secondary-main"
@@ -26,7 +26,7 @@ const ServiceSection = () => {
         >
           We value the physical gathering of the saints together in one place.
         </Typography>
-        <div className="lg:w-4/5 w-full flex flex-col gap-2 mt-6">
+        <div className="lg:w-3/5 w-full flex flex-col gap-2 mt-6">
           {services.map((service, index) => (
             <div key={index} className="flex justify-between items-center">
               <div>
