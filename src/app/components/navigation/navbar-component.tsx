@@ -128,13 +128,16 @@ const Navbar = () => {
             </div>
           ))}
         </nav>
-        <Button
+        <Link href="https://pastortochilightcitychurch.mixlr.com">
+         <Button
           variant="primary"
           color="primary"
           label="Join Us Live"
           customClassName="mb-2"
           leftIcon={<BrownPlayIcon />}
         />
+        </Link>
+       
       </nav>
       <MobileNavigation
         onBodyClick={onBodyClick}

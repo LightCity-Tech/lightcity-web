@@ -9,7 +9,7 @@ import { kashuan } from "@/styles/font";
 import { AutoplayCarousel } from "./carousel";
 
 type Props = {
-  title: string;
+  title?: string;
   subtitle: string;
   special?: string;
   imageUrl?: string;
@@ -27,12 +27,12 @@ const HeroSection = ({
   imageUrl,
   buttonTitle,
   buttonSvg,
-  buttonIconDirection
+  buttonIconDirection,
 }: Props) => {
   const items = [
     <Image
       key="1"
-      src="/assets/images/slide01.jpg"
+      src="/assets/images/slide01.webp"
       width={2592}
       height={1728}
       alt="1"
@@ -41,7 +41,7 @@ const HeroSection = ({
     />,
     <Image
       key="2"
-      src="/assets/images/slide02.jpg"
+      src="/assets/images/slide02.webp"
       width={5472}
       height={3248}
       className="object-cover brightness-50"
@@ -50,7 +50,7 @@ const HeroSection = ({
     />,
     <Image
       key="3"
-      src="/assets/images/slide03.jpg"
+      src="/assets/images/slide03.webp"
       width={5472}
       height={3248}
       alt="3"
@@ -72,46 +72,45 @@ const HeroSection = ({
   ];
 
   return (
-    <section className="w-full h-[90vh] overflow-hidden">
+    <section className="w-full h-[90vh] relative overflow-hidden">
       <div
-        className={`w-full md:w-full absolute sm:px-8 md:px-10 xl:px-20 px-4 ${
-          imageUrl
-            ? "top-[4%] md:top-[9%] lg:top-[8%] xl:top-[7%]"
-            : "top-[4%] xl:top-[5%]"
-        } z-[1] text-white`}
+        className={`w-full md:w-full absolute sm:px-8 md:px-10 xl:px-20 top-[50%] -translate-y-1/2 px-4 z-[1] text-white`}
       >
-        <Typography
-          variant="body-mid"
-          color="white"
-          fontWeight="medium"
-          align="left"
-          customClassName="uppercase"
-        >
-          {title}
-        </Typography>
+        <div className="relative">
+          <Typography
+            variant="body-mid"
+            color="white"
+            fontWeight="medium"
+            align="left"
+            customClassName="uppercase"
+          >
+            {title}
+          </Typography>
 
-        <div
-          className="w-full inline"
-          dangerouslySetInnerHTML={{ __html: subtitle }}
-        />
-        <span
-          className={`${kashuan.className} text-[48px] lg:text-[60px] xl:text-[84px] text-secondary-200`}
-        >
-          {special}
-        </span>
+          <div
+            className="w-full inline"
+            dangerouslySetInnerHTML={{ __html: subtitle }}
+          />
+          <span
+            className={`${kashuan.className} text-[45px] lg:text-[60px] xl:text-[84px] text-secondary-200`}
+          >
+            {special}
+          </span>
 
-        <div className="py-6 md:w-[50%] w-full">
-          <p className="text-sm lg:text-base leading-6">{description}</p>
+          <div className="py-6 md:w-[50%] w-full">
+            <p className="text-sm lg:text-base leading-6">{description}</p>
+          </div>
+          {buttonTitle && (
+            <Button
+              variant="primary"
+              color="primary"
+              label={buttonTitle as any}
+              leftIcon={buttonIconDirection === "left" && buttonSvg}
+              rightIcon={buttonIconDirection === "right" && buttonSvg}
+              customClassName="mt-4"
+            />
+          )}
         </div>
-
-        <Button
-          variant="primary"
-          color="primary"
-          label={buttonTitle as any}
-          leftIcon={buttonIconDirection === 'left' && buttonSvg}
-          rightIcon={buttonIconDirection === 'right' && buttonSvg}
-          customClassName="mt-4"
-        />
       </div>
 
       <AutoplayCarousel items={imageUrl ? item : items} />
