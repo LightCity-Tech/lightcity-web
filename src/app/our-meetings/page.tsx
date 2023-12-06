@@ -15,7 +15,7 @@ const Meetings = () => {
       <HeroSection
         title="Upcoming Meetings"
         subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Word Conference </h1>"
-        imageUrl="/assets/images/hero-wc.jpg"
+        imageUrl="/assets/images/hero-wc.webp"
         buttonTitle="Learn More"
         buttonSvg={<ArrowUpIcon />}
         buttonIconDirection={'right'}
