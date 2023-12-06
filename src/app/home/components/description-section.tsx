@@ -26,7 +26,7 @@ const DescriptionSection = () => {
           fontWeight="semi-bold"
           color="secondary-main"
           align="center"
-          customClassName="text-[24px] xl:text-[40px]"
+          customClassName="lg:text-[24px] xl:text-[40px] text-[16px]"
         >
           “ We are a family of God bound together in love.<br className="hidden lg:block"/> Serving his purpose
           and fulfilling his plans. <br className="hidden lg:block"/> Heralding his word in all the dark places.<br className="hidden lg:block"/> 
