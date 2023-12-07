@@ -102,11 +102,11 @@ const Navbar = () => {
 
   const { onNavMenuClick, navOpen, onBodyClick, pathname, setNavOpen } = useNavigation();
   const { hasBackground } = useScroll();
-
+  console.log(pathname)
   return (
     <div>
       <nav
-        className={`navigation w-full h-[10vh] hidden py-4 md:px-10 lg:px-20 xl:px-24 md:flex justify-between items-center`}
+        className={`${pathname === '/sermons' ? 'nav-bg' : 'nav-no-bg'} navigation w-full h-[10vh] hidden py-4 md:px-10 lg:px-20 xl:px-24 md:flex justify-between items-center`}
       >
         <Logo />
         <nav className="grow flex justify-between mx-auto md:px-6 lg:mx-8 xl:mx-16 2xl:mx-28">
@@ -121,7 +121,7 @@ const Navbar = () => {
                 href={link.url}
                 className={`${
                   pathname === link.url ? "text-secondary-200" : "text-white"
-                }`}
+                } ${pathname == '/sermons' ? 'text-black' : 'text-white'}`}
               >
                 {link.name}
               </Link>
