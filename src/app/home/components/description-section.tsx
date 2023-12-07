@@ -2,7 +2,7 @@
 
 import { Typography } from "@/src/ui";
 
-import PicturesSlide from "./pictures-slide";
+import PicturesSlide from "./picture-slide";
 
 const DescriptionSection = () => {
   return (
@@ -20,18 +20,14 @@ const DescriptionSection = () => {
         </Typography>
         <div className="border-t border-main-black h-0 w-[12.5rem]"></div>
       </div>
-      <div className="lg:w-[50%] xl:w-[70%] w-[100%] md:w-full mx-auto mb-[5.62rem]">
-        <Typography
-          variant="h2"
-          fontWeight="semi-bold"
-          color="secondary-main"
-          align="center"
-          customClassName="lg:text-[24px] xl:text-[40px] text-[16px]"
+      <div className="lg:w-[50%] xl:w-[70%] text-center w-[100%] md:w-[80%] mx-auto mb-[5.62rem]">
+        <h2
+          className="lg:text-[24px] md:text-[20px] xl:text-[40px] font-semibold text-[18px]"
         >
           “ We are a family of God bound together in love.<br className="hidden lg:block"/> Serving his purpose
-          and fulfilling his plans. <br className="hidden lg:block"/> Heralding his word in all the dark places.<br className="hidden lg:block"/> 
+          and fulfilling his plans. <br className="hidden lg:block"/> Heralding his word in all the dark places. <br className="hidden lg:block"/> 
           We are LightCity Church ”
-        </Typography>
+        </h2>
       </div>
       <section className="mt-12">
         <PicturesSlide />

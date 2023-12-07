@@ -2,12 +2,14 @@
 
 import { Typography, SeriesCard } from "@/src/ui";
 import SampleImg from "@/public/assets/images/series-1.png";
+import FeaturedImage1 from "@/public/assets/images/featured1.png"
+import FeaturedImage2 from "@/public/assets/images/featured2.png"
 
 const SeriesSection = () => {
   return (
-    <section className="bg-white py-16 md:px-8 lg:px-20 xl:px-56 2xl:px-40 px-4">
+    <section className="bg-white py-16 md:px-8 lg:px-20 xl:px-24 2xl:px-40 px-5">
       <div className="w-full flex flex-row justify-center items-center mb-16">
-        <div className="border-t border-main-black h-0 w-[6rem] lg:w-[12.5rem]"></div>
+        <div className="border-t border-main-black h-0 w-[5rem] lg:w-[12.5rem]"></div>
         <Typography
           variant="body-mid"
           fontWeight="medium"
@@ -16,14 +18,29 @@ const SeriesSection = () => {
         >
           LATEST SERIES
         </Typography>
-        <div className="border-t border-main-black h-0 w-[6rem] lg:w-[12.5rem]"></div>
+        <div className="border-t border-main-black h-0 w-[5rem] lg:w-[12.5rem]"></div>
       </div>
-      <div>
+      <div className="space-y-8">
         <SeriesCard
-         image={SampleImg}
-         title="A Living Sacrifice"
+         image={'/assets/images/featured1.png'}
+         title="Built to Last"
+         subtitle="(God’s Wisdom for Healthy Relationships)"
+         description="In a post-modern world that is constantly redefining identity, meaning, etc… which consequently has influenced how people relate,
+
+         We have to search the Holy Scriptures, being God’s unchanging word in an ever changing world for our relationship ethos,
+         
+         Why relationships?
+         How do I nurture relationships in a healthy way?
+         "
+        />
+         <SeriesCard
+         image={'/assets/images/featured2.png'}
+         title="Gaurd your Heart"
          subtitle="(Serving the Lord effectively in a simple way)"
-         description="We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail."
+         description="In an information age, where information accessibility and it's consequent overload is at an all time high, we need now more than ever to heed the instructions of Scriptures...
+
+         So this Sunday we examine this instruction as we answer, the 'what', 'why' and 'how' of the same, 
+         "
         />
       </div>
     </section>

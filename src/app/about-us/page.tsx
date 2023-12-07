@@ -13,19 +13,19 @@ const AboutUs = (props: Props) => {
         imageUrl="/assets/images/hero-about.webp"
         description="We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail.  "
       />
-      <div className="mx-auto px-6 lg:px-24 lg:py-12 ">
-        <div>
+      <div className="mx-autol lg:py-12 ">
+        <div className="px-5 lg:px-24 ">
           <div className="flex mt-20 text-[#A6A2A2]">
-            <span className="block w-[10%]"> OUR VISION</span>
+            <span className="block w-[80%] md:w-[10%]"> OUR VISION</span>
             <span className="relative w-full -top-1.5 -left-5 border-b-black/20 border-b block"></span>
           </div>
 
           <div className="md:flex md:flex-row items-center md:space-x-4 space-x-0 flex flex-col">
-            <div className="w-full px-4 md:w-1/2">
-              <h3 className="mt-8 text-[40px] font-semibold">
+            <div className="w-full md:w-1/2">
+              <h3 className="mt-8 text-[24px] md:text-[40px] font-semibold">
                 To see the whole earth filled with the knowledge of God
               </h3>
-              <p className="text-[#7E7A7A] text-[24px] py-6">
+              <p className="text-[#7E7A7A] text-[14px] md:text-[24px] py-6">
                 We at Light City Church in partnership with God via his word and
                 his Spirit envision all the nations of the earth filled with the
                 knowledge of the Son of God, just as the waters covers the sea ~
@@ -38,31 +38,31 @@ const AboutUs = (props: Props) => {
                 alt=""
                 width={608}
                 height={488}
-                className="rounded-3xl"
+                className="rounded-[12.91px]"
               />
             </div>
           </div>
         </div>
-        <div className="py-12">
-          <div className="flex mt-20 text-[#A6A2A2]">
-            <span className="block w-[10%]"> OUR MISSION</span>
+        <div className="py-6 px-5 lg:px-24 ">
+          <div className="flex mt-6 text-[#A6A2A2]">
+            <span className="block w-[90%] md:w-[12%]"> OUR MISSION</span>
             <span className="relative -top-1.5 -left-8 border-b-black/20 border-b w-full block"></span>
           </div>
-          <div className="md:flex md:flex-row items-center md:mt-12 flex flex-col">
+          <div className="md:flex md:flex-row items-center md:mt-12 flex flex-col-reverse">
             <div className="w-full md:w-1/2">
               <Image
                 src="/assets/images/vision-pic.webp"
                 alt=""
                 width={608}
                 height={488}
-                className="rounded-3xl"
+                className="rounded-[12.91px]"
               />
             </div>
             <div className="md:w-1/2 w-full lg:p-10">
-              <h3 className="mt-8 text-[40px] font-semibold">
+              <h3 className="mt-8 text-[24px] md:text-[40px] font-semibold">
                 Giving your life eternal relevance
               </h3>
-              <p className="text-[#7E7A7A] text-[24px] py-6">
+              <p className="text-[#7E7A7A] text-[14px] md:text-[24px] py-6">
                 Through God&apos;s word taught in clarity and simplicity and our
                 discipleship structures at LightCity Church, ministry is
                 discovered, developed and deployed as is God&apos;s plan for
@@ -71,23 +71,42 @@ const AboutUs = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="lg:flex lg:flex-row flex flex-col-reverse w-full justify-between lg:mt-28 mt-10">
-          <div className="lg:w-2/5 w-full mt-6 lg:mt-0">
+        <div className="lg:flex lg:flex-row flex flex-col-reverse w-full justify-between lg:items-center lg:mt-28 mt-10 bg-black text-white px-24">
+          <div className="lg:w-[45%] w-full lg:h lg:mt-0 px-5 py-20">
             <h3
-              className={`${kashuan.className} text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
+              className={`${kashuan.className} hidden md:block text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
             >
               From our Pastor&apos;s Desk
             </h3>
-            <p className="mt-6">Here goes a placeholder text for our mission statement. It should not be more than five lines as used in template placeholder text message. Here goes a placeholder text for our mission statement. It should not be more than five lines as used in template placeholder text message.  Here goes a placeholder text for our mission statement. It should not be more than five lines as used in template placeholder text</p>
+            <p className="py-6 text-[14px] lg:text-[24px] leading-[25.68px] md:leading-[43.2px]">
+              On behalf of LightCity Church, you are welcome. The word taught is
+              our mandate in all the earth. We trust that God&apos;s
+              word found here brings you clarity of your role in God&apos;s grand
+              plan, renewed faith in God, wholeness, stability and eternal
+              relevance. We pray and receive this as your experience here. Don&apos;t
+              just surf through. Deliberately study to know here and also tell
+              your friends! I call you blessed !!!
+            </p>
+            <div className={`${kashuan.className} text-secondary-200 mt-4`}>
+              <p className="text-[24px]">Dr. Tochi Davies Madubuobi</p>
+              <p className="text-[16px]">Pastor, LightCity Church.</p>
+            </div>
           </div>
-          <div className="lg:w-1/2 w-full">
-            <Image
-              src="/assets/images/pastor.webp"
-              width={424}
-              height={346}
-              alt=""
-              className="rounded-3xl"
-            />
+          <div className="lg:w-1/2 w-full p-5">
+            <h3
+              className={`${kashuan.className} md:hidden py-5 mt-2 text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
+            >
+              From our Pastor&apos;s Desk
+            </h3>
+            <div
+              className="rounded-[17.11px] h-[300px] lg:h-[600px]"
+              style={{
+                backgroundImage: `url('/assets/images/pastor.webp')`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "",
+              }}
+            ></div>
           </div>
         </div>
       </div>
