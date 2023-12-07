@@ -6,11 +6,11 @@ import { givingReasons, gridImages } from "./data";
 
 const GiveSection = () => {
   return (
-    <section className="w-full md:px-8 lg:px-24 px-4 py-[5.8rem] flex flex-col justify-between gap-28 lg:flex lg:flex-row bg-white">
+    <section className="w-full md:px-8 lg:px-24 px-6 py-[5.8rem] flex flex-col items-center h-full justify-center gap-28 lg:flex lg:flex-row bg-white">
       <div className="lg:w-1/2 w-full">
         <div className="flex items-center mb-10">
           <Typography
-            variant="h4"
+            variant="h6"
             color="main-black"
             fontWeight="medium"
             align="left"
@@ -20,8 +20,8 @@ const GiveSection = () => {
           </Typography>
           <div className="border-t border-main-black h-0 w-[12.5rem]"></div>
         </div>
-        <div className="flex flex-col gap-10">
-          {givingReasons.map((reason, index) => (
+        <div className="flex">
+          {/* {givingReasons.map((reason, index) => (
             <div key={index} className="flex gap-3">
               <div className="pt-2">
                 <BulletPoint />
@@ -47,7 +47,9 @@ const GiveSection = () => {
                 </Typography>
               </div>
             </div>
-          ))}
+          ))} */}
+          <h3 className="text-[40px] font-semibold">We give in obedience to God word to support the work of ministry in our local church.</h3>
+          
         </div>
         <Button
           variant="primary"

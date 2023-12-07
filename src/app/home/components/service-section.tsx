@@ -13,11 +13,11 @@ const ServiceSection = () => {
   ];
 
   return (
-    <section className="flex flex-col-reverse lg:py-36 lg:px-16 xl:px-24 lg:flex lg:flex-row lg:justify-end relative lg:bg-gradient-to-r lg:from-transparent lg:from-35% lg:via-secondary-25 lg:via-55% lg:to-secondary-25">
+    <section className="flex flex-col-reverse lg:py-36 xl:px-12 lg:flex lg:flex-row lg:justify-end relative lg:bg-gradient-to-r lg:from-transparent lg:from-35% lg:via-secondary-25 lg:via-55% lg:to-secondary-25">
       <div className="lg:-z-50 lg:absolute lg:inset-0 w-full lg:h-full h-[500px]">
         <Image src={bgImage} alt="Background Image" className="w-full h-full object-cover" />
       </div>
-      <section className="lg:w-[45%] w-full p-3 md:px-8 h-full flex bg-secondary-25 flex-col gap-6">
+      <section className="lg:w-[45%] w-full py-3 px-5 h-full flex bg-secondary-25 flex-col gap-6">
         <Typography
           variant="h2"
           color="secondary-main"
@@ -39,7 +39,7 @@ const ServiceSection = () => {
                   {service.service}
                 </Typography>
               </div>
-              <div className="p-3 rounded bg-black">
+              <div className="py-3 px-5 rounded bg-black">
                 <Typography
                   variant="h6"
                   color="secondary-25"

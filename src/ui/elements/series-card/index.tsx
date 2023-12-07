@@ -6,7 +6,7 @@ import { Typography, Button } from "..";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
 
 interface SeriesCardProps{
-    image: StaticImageData;
+    image: string;
     title: string;
     subtitle: string;
     description: string;
@@ -19,15 +19,23 @@ const SeriesCard = ({
     description
 }:SeriesCardProps) => {
   return (
-    <div className="flex flex-col md:flex md:flex-row gap-12">
-      <div className="lg:w-4/5 w-full rounded-[1.25rem]">
-        <Image
+    <div className="flex flex-col md:flex md:flex-row md:gap-12">
+      <div className="md:w-2/5 w-full rounded-[1.25rem]" style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top',
+        height: '300px',
+      }}>
+        {/* <Image
             src={image}
             alt="Sample Image for our current series"
-            className="h-full w-full object-fill"
-        />
+            className="object-cover"
+            width={300}
+            height={300}
+        /> */}
       </div>
-      <div className="py-[0.75rem] flex flex-col justify-between">
+      <div className="md:w-3/5 py-[0.75rem] mt-3 md:mt-0 flex flex-col justify-between">
         <Typography
             variant="h3"
             color="secondary-main"
@@ -48,7 +56,7 @@ const SeriesCard = ({
         >
           {description}
         </Typography>
-      <div className="w-2/5 mt-5">
+      <div className="w-3/5 mt-5">
          <Button
         variant="outlined"
         color="dark-outlined"

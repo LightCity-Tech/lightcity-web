@@ -41,8 +41,8 @@ const bigLinks = [
     url: "/our-meetings",
   },
   {
-    name: "Give to Us",
-    url: "/give",
+    name: "Partner with us",
+    url: "/partnership",
   },
   {
     name: "Contact Us",
@@ -72,8 +72,8 @@ const smallLinks = [
     url: "/our-meetings",
   },
   {
-    name: "Give",
-    url: "/give",
+    name: "Partner",
+    url: "/partnership",
   },
   {
     name: "Contact Us",
