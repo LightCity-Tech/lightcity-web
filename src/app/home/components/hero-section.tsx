@@ -72,7 +72,7 @@ const HeroSection = ({
   ];
 
   return (
-    <section className="w-full h-[90vh] relative overflow-hidden">
+    <section className="w-full h-[100vh] relative overflow-hidden">
       <div
         className={`w-full md:w-full absolute sm:px-8 md:px-10 xl:px-20 top-[50%] -translate-y-1/2 px-4 z-[1] text-white`}
       >
@@ -107,7 +107,7 @@ const HeroSection = ({
               label={buttonTitle as any}
               leftIcon={buttonIconDirection === "left" && buttonSvg}
               rightIcon={buttonIconDirection === "right" && buttonSvg}
-              customClassName="mt-4"
+              customClassName=""
             />
           )}
         </div>
