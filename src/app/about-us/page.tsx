@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import HeroSection from "../home/components/hero-section";
 import Image from "next/image";
 import { kashuan } from "@/styles/font";
+import TestimonialSlide from "../components/testimonial-slide";
 
 type Props = {};
 
@@ -71,14 +74,20 @@ const AboutUs = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="lg:flex lg:flex-row flex flex-col-reverse w-full justify-between lg:items-center lg:mt-28 mt-10 bg-black text-white px-24">
-          <div className="lg:w-[45%] w-full lg:h lg:mt-0 px-5 py-20">
+        <section className="py-10 lg:py-20 bg-white">
+          <div className="py-5 text-center px-5 lg:px-24">
+          <h3 className="font-bold text-[24px] md:text-[40px]">My LightCity Experience</h3>
+          </div>
+          <TestimonialSlide />
+        </section>
+        <div className="lg:flex lg:flex-row flex flex-col-reverse w-full justify-between lg:items-center lg:mt-28 py-10 lg:py-20 bg-black text-white lg:px-24">
+          <div className="lg:w-[45%] w-full lg:mt-0 px-5">
             <h3
               className={`${kashuan.className} hidden md:block text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
             >
               From our Pastor&apos;s Desk
             </h3>
-            <p className="py-6 text-[14px] lg:text-[24px] leading-[25.68px] md:leading-[43.2px]">
+            <p className="lg:py-6 mt-8 lg:mt-0 text-[14px] lg:text-[24px] leading-[25.68px] md:leading-[43.2px]">
               On behalf of LightCity Church, you are welcome. The word taught is
               our mandate in all the earth. We trust that God&apos;s
               word found here brings you clarity of your role in God&apos;s grand
@@ -87,14 +96,14 @@ const AboutUs = (props: Props) => {
               just surf through. Deliberately study to know here and also tell
               your friends! I call you blessed !!!
             </p>
-            <div className={`${kashuan.className} text-secondary-200 mt-4`}>
+            <div className={`${kashuan.className} text-secondary-200 mt-5`}>
               <p className="text-[24px]">Dr. Tochi Davies Madubuobi</p>
               <p className="text-[16px]">Pastor, LightCity Church.</p>
             </div>
           </div>
-          <div className="lg:w-1/2 w-full p-5">
+          <div className="lg:w-1/2 w-full px-5">
             <h3
-              className={`${kashuan.className} md:hidden py-5 mt-2 text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
+              className={`${kashuan.className} lg:hidden py-3 text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
             >
               From our Pastor&apos;s Desk
             </h3>
