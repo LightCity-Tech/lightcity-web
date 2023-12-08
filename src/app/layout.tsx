@@ -1,9 +1,14 @@
+// "use client";
+
 import type { Metadata } from "next";
 import { uncutSans } from "@/styles/font";
 import "@/styles/globals.css";
 import Navbar from "./components/navigation/navbar-component";
 import FooterSection from "./components/footer-section";
 import Head from "./head";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState } from "react";
 
 export const metadata: Metadata = {
   title: "LightCity Church",
@@ -18,7 +23,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // const [queryClient] = useState(() => new QueryClient());
   return (
+    // <QueryClientProvider client={queryClient}>
     <html lang="en">
        <Head />
       <body className={`${uncutSans.className}`}>
@@ -29,5 +36,6 @@ export default function RootLayout({
         </section>
       </body>
     </html>
+    // </QueryClientProvider>
   );
 }

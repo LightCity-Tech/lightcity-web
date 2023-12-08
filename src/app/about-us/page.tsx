@@ -10,24 +10,34 @@ type Props = {};
 
 const AboutUs = (props: Props) => {
   return (
-    <section className="bg-white">
-      <div className="bg-white px-5 h-full lg:px-24">
-        <div className="text-center lg:max-w-[90%] lg:py-12 mx-auto">
-          <h3 className="text-[48px] font-bold text-blackA md:px-24 md:text-[72px]">
+    <section className="bg-[#fff">
+      <div className="bg-[#fff] px-5 h-full">
+        <div className="text-center w-full xl:max-w-full lg:py-6 mt-5 lg:mt-4 mx-auto">
+          <h3 className="text-[48px] leading-[48px] lg:leading-[67.68px] font-bold text-blackA md:px-4 md:text-[72px]">
             Welcome to LightCity Church
           </h3>
-          <p className="text-[rgb(126, 122, 122)] py-8 lg:w-[50%] mx-auto">
+          <p className="text-[rgb(126, 122, 122)] py-8 lg:w-[50%] leading-[31.2px] mx-auto">
             We are a people of God with a mandate from God to herald the
             glorious message of Jesus; teaching and preaching until the whole
             earth is filled with his gospel as the waters cover the sea, and by
             God, we will not fail.{" "}
           </p>
         </div>
-        <div className="w-[100%] lg:hidden h-[405px]">
-          <Image src="/assets/images/about-hero.webp" width={400} height={500} className="w-full h-full rounded-[10px]" alt="" />
+        <div className="w-[100%] lg:hidden h-[405px] relative">
+          <Image
+            src="/assets/images/about-hero.webp"
+            fill
+            className="w-full h-full object-cover rounded-[10px]"
+            alt=""
+          />
         </div>
-        <div className="lg:block hidden">
-          <Image src="/assets/images/about-hero.webp" width={400} height={300} className="w-full object-contain rounded-[10px]" alt="" />
+        <div className="lg:block hidden max-w-[1549px] mx-auto h-[625px] relative">
+          <Image
+            src="/assets/images/about-hero.webp"
+            fill
+            className="w-full object-cover rounded-[10px]"
+            alt=""
+          />
         </div>
       </div>
       <div className="mx-auto ">
@@ -104,19 +114,25 @@ const AboutUs = (props: Props) => {
               From our Pastor&apos;s Desk
             </h3>
             <p className="lg:py-6 mt-8 lg:mt-0 text-[14px] lg:text-[24px] leading-[25.68px] md:leading-[43.2px]">
-              On behalf of LightCity Church, I welcome you. Here, we are very
-              much committed to the teaching of God&apos; word and in the
-              training of the same. We have a mandate from God to take the
-              Gospel of his Son to the ends of the Earth. We trust that
-              God&apos;s word taught here gives you clarity in your role in
-              God&apos;s grand plan for the world. Don&apos;t just surf through;
-              come to church, deliberately join in what God is doing and we trust God to see growth
-              in your christian work and stability in the same. I call you
-              blessed !!!
+              On behalf of LightCity Church, I welcome you. <br />
+              Here, we are very much committed to the teaching of God&apos;s
+              word and in the training of the same.
+              <br />
+              We have a mandate from God to take the Gospel of his Son to the
+              ends of the Earth. We trust <br /> that God&apos;s word taught
+              here gives you clarity in your role in God&apos;s grand plan for
+              the world. <br />
+              Don&apos;t just surf through; come to church, deliberately study
+              and we trust God to see growth in <br /> your Christian work and
+              stability in the same. <br />I call you blessed !!!
             </p>
             <div className={`${kashuan.className} text-secondary-200 mt-5`}>
-              <p className="text-[24px]">Dr. Tochi Davies Madubuobi</p>
-              <p className="text-[16px]">Pastor, LightCity Church.</p>
+              <p className="text-[12px] md:text-[24px]">
+                Dr. Tochi Davies Madubuobi
+              </p>
+              <p className="text-[8px] md:text-[16px]">
+                Pastor, LightCity Church.
+              </p>
             </div>
           </div>
           <div className="lg:w-1/2 w-full px-5">

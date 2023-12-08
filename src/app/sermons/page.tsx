@@ -37,7 +37,7 @@ const SermonLibrary = (props: Props) => {
 
   return (
     <section className="">
-      <div className="w-full bg-[#f2f2f2] h-[500px] sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-20 flex items-center">
+      <div className="w-full bg-[#f2f2f2] h-[500px] px-5 sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-20 flex items-center">
         <div>
           <p className="text-[16px] py-3 text-blackA font-bold">
             OUR TEACHINGS
@@ -66,16 +66,24 @@ const SermonLibrary = (props: Props) => {
             />
           </div>
         </div>
-        <div className="w-full py-8">
+        <div className="w-full py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {series.map((serie: any, i: number) => (
-            <div className="bg-black p-4" key={serie._id}>
-              <span className="h-4 bg-secondary-200 block max-w-[70%] mx-auto ">
-                fff
-              </span>
-                
-              <span className="h-4 bg-secondary-200 block max-w-[70%] mx-auto ">
-                fff
-              </span>
+            <div
+              className="bg-black p-4 rounded-tl-md rounded-tr-md h-[200px] relative"
+              key={serie._id}
+            >
+              <div className="h-1 bg-secondary-200 block w-[90%] top-4 absolute mx-auto text-white "></div>
+              <div className="flex items-center justify-center">
+                <div className="p-4 text-center">
+                  {" "}
+                  <h3 className="text-white text-[20px]">{serie.title}</h3>
+                 
+                </div>
+              </div>
+              <div className="bg-secondary-200 p-2 mt-4 text-center mx-auto absolute bottom-6">
+                    <p>Pastor Tochi Madubuobi</p>
+                  </div>
+              <div className="h-1 bg-secondary-200 block w-[90%] bottom-4 absolute mx-auto "></div>
             </div>
           ))}
         </div>
