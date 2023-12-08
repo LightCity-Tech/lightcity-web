@@ -46,7 +46,7 @@ const bigLinks = [
   },
   {
     name: "Partner with us",
-    url: "/partnership",
+    url: "#partnership",
   },
   {
     name: "Contact Us",
@@ -77,7 +77,7 @@ const smallLinks = [
   },
   {
     name: "Partner",
-    url: "/partnership",
+    url: "#partnership",
   },
   {
     name: "Contact Us",
