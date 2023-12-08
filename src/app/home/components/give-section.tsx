@@ -48,7 +48,7 @@ const GiveSection = () => {
               </div>
             </div>
           ))} */}
-          <h3 className="text-[40px] font-semibold">We give in obedience to God word to support the work of ministry in our local church.</h3>
+          <h3 className="text-[24px] md:text-[40px] font-semibold">We give in obedience to God word to support the work of ministry in our local church.</h3>
           
         </div>
         <Button
@@ -61,11 +61,11 @@ const GiveSection = () => {
       <div className="grid gap-3 grid-cols-2 grid-rows-3 lg:w-1/2 w-full">
         {gridImages.map((gridImage, index) => (
           <div key={index} className={gridImage.customClassName}>
-            <img
+            <Image
               src={gridImage.imageSrc}
               alt="Grid Image"
-              // width={250}
-              // height={250}
+              width={250}
+              height={250}
               className="rounded-md w-full h-full object-cover"
             />
           </div>
