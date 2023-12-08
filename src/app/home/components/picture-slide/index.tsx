@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./slick.css";
+import Image from "next/image";
 
 const settings = {
   dots: true,
@@ -95,52 +96,66 @@ const PicturesSlide = () => {
       <div className="hidden lg:block">
         <Slider {...settings} className="hidden lg:block w-full">
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571651/lightcity/w4qj0tjxviw4ccfxuajm.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/ohciqtuoi2nndcbnqfhu.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543759/lightcity/toewrx3saggzxaw83hfa.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571667/lightcity/jggnc8d22ycrzrlsyzo7.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571653/lightcity/qds3yp2ujohkuh3usbn3.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/rzhwsyjo50hztbi76j5a.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699966569/lightcity/qdkoq9ihyuly2fmrelbm.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
+              width={400}
+              height={300}
             />
           </div>
         </Slider>
@@ -149,52 +164,66 @@ const PicturesSlide = () => {
       <div className="lg:hidden">
         <Slider {...settingsMobile} className="lg:hidden">
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571651/lightcity/w4qj0tjxviw4ccfxuajm.webp"
               alt=""
               className="rounded"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/ohciqtuoi2nndcbnqfhu.webp"
               alt=""
               className="rounded"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543759/lightcity/toewrx3saggzxaw83hfa.webp"
               alt=""
               className="rounded "
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571667/lightcity/jggnc8d22ycrzrlsyzo7.webp"
               alt=""
               className="rounded"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571653/lightcity/qds3yp2ujohkuh3usbn3.webp"
               alt=""
               className="rounded"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/rzhwsyjo50hztbi76j5a.webp"
               alt=""
               className="rounded"
+              width={400}
+              height={300}
             />
           </div>
           <div className="">
-            <img
+            <Image
               src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699966569/lightcity/qdkoq9ihyuly2fmrelbm.webp"
               alt=""
               className="rounded"
+              width={400}
+              height={300}
             />
           </div>
         </Slider>
