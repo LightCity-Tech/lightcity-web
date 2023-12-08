@@ -101,7 +101,7 @@ const FooterSection = () => {
                 Sermon Library
               </Typography>
             </section>
-            <section className="mt-8 lg:mt-0 w-max lg:w-1/3">
+            <section className="mt-8 lg:mt-0 w-max lg:w-1/3" id="partnership">
               <Typography
                 variant="h5"
                 fontWeight="semi-bold"
@@ -131,7 +131,7 @@ const FooterSection = () => {
                 >
                   Bank - GT Bank
                 </Typography>
-                <div className="relative top-6">
+                {/* <div className="relative top-6">
                   <Button
                     variant="tertiary"
                     label="Give Online"
@@ -140,7 +140,7 @@ const FooterSection = () => {
                   >
                     Give Online
                   </Button>
-                </div>
+                </div> */}
               </div>
             </section>
           </div>
