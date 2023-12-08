@@ -7,6 +7,7 @@ import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
 import { useNavigation } from "../../hooks/use_navigation";
 import useScroll from "../../hooks/use_scroll";
 import Navigation from "@/public/assets/svgs/menu.svg";
+import NavigationBlack from "@/public/assets/svgs/menu-black.svg";
 import CloseNavigation from "@/public/assets/svgs/close.svg";
 import MLogo from "@/public/assets/svgs/lcc-logo-footer.png";
 
@@ -14,6 +15,9 @@ import "./style.css";
 import { Spacer } from "../spacer";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import LogoBlack from "../../logo-black";
+import { usePathname } from "next/navigation";
+import MobileLogoBlack from "../../mobile-logo-black";
 
 export const sizes = {
   sm: "640px",
@@ -100,50 +104,54 @@ const Navbar = () => {
 
   const links = isMobile ? smallLinks : bigLinks;
 
-  const { onNavMenuClick, navOpen, onBodyClick, pathname, setNavOpen } = useNavigation();
+  const { onNavMenuClick, navOpen, onBodyClick, pathname, setNavOpen } =
+    useNavigation();
   const { hasBackground } = useScroll();
-  console.log(pathname)
+
+  const [hasBg, setHasBg] = useState(false);
+  useEffect(() => {
+    if (pathname === "/sermons" || pathname === "/about-us") {
+      setHasBg(true);
+      
+    } else {
+      setHasBg(false)
+    }
+  }, [pathname]);
+
   return (
     <div>
       <nav
-        className={`${pathname === '/sermons' ? 'nav-bg' : 'nav-no-bg'} navigation w-full h-[10vh] hidden py-4 md:px-10 lg:px-20 xl:px-24 md:flex justify-between items-center`}
+        className={`${hasBg ? "nav-bg relative" : "nav-no-bg"
+        } navigation w-full h-[10vh] hidden py-4 md:px-10 lg:px-20 xl:px-24 md:flex justify-between items-center`}
       >
-        <Logo />
+        {hasBg ? <LogoBlack /> : <Logo />}
         <nav className="grow flex justify-between mx-auto md:px-6 lg:mx-8 xl:mx-16 2xl:mx-28">
           {links.map((link, index) => (
             <div
               className={`${
-                pathname === link.url ? "nav-active" : "nav-links"
+                pathname === link.url ? "nav-active" : hasBg ? "text-black" : "text-white nav-links"
               }`}
               key={index}
             >
-              <Link
-                href={link.url}
-                className={`${
-                  pathname === link.url ? "text-secondary-200" : "text-white"
-                } ${pathname == '/sermons' ? 'text-black' : 'text-white'}`}
-              >
-                {link.name}
-              </Link>
+              <Link href={link.url}>{link.name}</Link>
             </div>
           ))}
         </nav>
         <Link href="https://pastortochilightcitychurch.mixlr.com">
-         <Button
-          variant="primary"
-          color="primary"
-          label="Join Us Live"
-          customClassName="mb-2"
-          leftIcon={<BrownPlayIcon />}
-        />
+          <Button
+            variant="primary"
+            color="primary"
+            label="Join Us Live"
+            customClassName="mb-2"
+            leftIcon={<BrownPlayIcon />}
+          />
         </Link>
-       
       </nav>
       <MobileNavigation
         onBodyClick={onBodyClick}
         onNavMenuClick={onNavMenuClick}
         navOpen={navOpen}
-        hasBackground={hasBackground}
+        hasBackground={hasBg}
         setNavOpen={setNavOpen}
       />
     </div>
@@ -157,7 +165,7 @@ interface MobileNavigationProps {
   onNavMenuClick: React.MouseEventHandler<HTMLButtonElement> | undefined;
   navOpen?: boolean | any;
   hasBackground: boolean;
-  setNavOpen: any
+  setNavOpen: any;
 }
 
 const MobileNavigation = ({
@@ -165,13 +173,16 @@ const MobileNavigation = ({
   onBodyClick,
   navOpen,
   hasBackground,
-  setNavOpen
+  setNavOpen,
 }: MobileNavigationProps) => {
+
+  const pathname = usePathname()
   return (
-    <div className="mob-nav flex navigation md:hidden">
-      <Image src={MLogo} width={64} height={64} alt="" />
+    <div className={`${hasBackground ? 'nav-bg relative' : 'nav-no-bg' } mob-nav flex navigation md:hidden`}>
+      { (pathname === '/sermons' || pathname==='/about-us' ) ?  <MobileLogoBlack /> : <Image src={MLogo} width={64} height={64} alt="" /> }
+      {/* <Image src={MLogo} width={64} height={64} alt="" /> */}
       <button className="unstyle-button c-pointer" onClick={onNavMenuClick}>
-        <Navigation />
+       {pathname === '/sermons' || pathname==='/about-us' ? <NavigationBlack /> : <Navigation />} 
       </button>
       {navOpen !== null && (
         <MobileNavigationItem
@@ -191,7 +202,7 @@ interface MobileNavigationItemProps {
   onClick?: any;
   innerContent?: any;
   setNavOpen: any;
-  onBodyClick: any
+  onBodyClick: any;
 }
 
 const MobileNavigationItem = ({
@@ -199,7 +210,7 @@ const MobileNavigationItem = ({
   onClick,
   innerContent,
   setNavOpen,
-  onBodyClick
+  onBodyClick,
 }: MobileNavigationItemProps) => {
   return (
     <div
@@ -209,7 +220,10 @@ const MobileNavigationItem = ({
       <div onClick={(e) => onClick(e, true)} className="main-portion">
         <div className="bg-secondary-main flex justify-between px-10 py-3">
           <Image src={MLogo} width={64} height={64} alt="" />
-          <button className="unstyle-button c-pointer" onClick={(e) => onClick(e, false)}>
+          <button
+            className="unstyle-button c-pointer"
+            onClick={(e) => onClick(e, false)}
+          >
             <CloseNavigation />
           </button>
         </div>

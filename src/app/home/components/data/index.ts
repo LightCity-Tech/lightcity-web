@@ -28,10 +28,11 @@ export const gridImages = [
     customClassName: "row-span-1",
   },
   {
-    imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699629183/lightcity/kyks82djcul0pc5ozpvj.webp",
+    imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699572996/lightcity/kdybqtwm1xn6ky8uda6t.webp",
     customClassName: "row-span-2",
   },
   {
+    
     imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699629182/lightcity/le3zmv1r76mrrdgtojmo.webp",
     customClassName: "row-span-1",
   },
