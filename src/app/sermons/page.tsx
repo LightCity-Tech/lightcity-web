@@ -28,8 +28,7 @@ const SermonLibrary = (props: Props) => {
     const fetchSeries = async () => {
       try {
         const res = await getAllSeries(1);
-        console.log(res?.data);
-        setSeries(res?.data?.data.series);
+        setSeries(res?.data.series);
       } catch (error) {}
     };
     fetchSeries();
