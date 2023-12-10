@@ -19,7 +19,7 @@ const SermonLibrary = (props: Props) => {
   const [nextPage, setNextPage] = useState(0);
   const [prevPage, setPrevPage] = useState(0);
   const [total, setTotal] = useState(0);
-  const [search, setSearch] = useState(null);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const fetchSeries = async () => {
@@ -50,7 +50,9 @@ const SermonLibrary = (props: Props) => {
     }
   }
 
-  const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
+  const searchSeries = debounce((e: any) => {
+    if (search != '') setSearch(e.target.value)
+  }, 700);
 
   return (
     <section className="">
