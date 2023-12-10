@@ -79,10 +79,10 @@ const smallLinks = [
     name: "Partner",
     url: "#partnership",
   },
-  {
-    name: "Contact Us",
-    url: "/contact-us",
-  },
+  // {
+  //   name: "Contact Us",
+  //   url: "/contact-us",
+  // },
 ];
 
 const Navbar = () => {
