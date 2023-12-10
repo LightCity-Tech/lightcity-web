@@ -110,7 +110,7 @@ const Navbar = () => {
 
   const [hasBg, setHasBg] = useState(false);
   useEffect(() => {
-    if (pathname === "/sermons" || pathname === "/about-us") {
+    if (pathname.includes("/sermons")  || pathname === "/about-us") {
       setHasBg(true);
       
     } else {
@@ -129,7 +129,7 @@ const Navbar = () => {
           {links.map((link, index) => (
             <div
               className={`${
-                pathname === link.url ? "nav-active" : hasBg ? "text-black" : "text-white nav-links"
+                pathname.includes(link.url) ? "nav-active" : hasBg ? "text-black" : "text-white nav-links"
               }`}
               key={index}
             >
@@ -179,10 +179,10 @@ const MobileNavigation = ({
   const pathname = usePathname()
   return (
     <div className={`${hasBackground ? 'nav-bg relative' : 'nav-no-bg' } mob-nav flex navigation md:hidden`}>
-      { (pathname === '/sermons' || pathname==='/about-us' ) ?  <MobileLogoBlack /> : <Image src={MLogo} width={64} height={64} alt="" /> }
+      { (pathname.includes('/sermons') || pathname==='/about-us' ) ?  <MobileLogoBlack /> : <Image src={MLogo} width={64} height={64} alt="" /> }
       {/* <Image src={MLogo} width={64} height={64} alt="" /> */}
       <button className="unstyle-button c-pointer" onClick={onNavMenuClick}>
-       {pathname === '/sermons' || pathname==='/about-us' ? <NavigationBlack /> : <Navigation />} 
+       {pathname.includes('/sermons') || pathname==='/about-us' ? <NavigationBlack /> : <Navigation />} 
       </button>
       {navOpen !== null && (
         <MobileNavigationItem

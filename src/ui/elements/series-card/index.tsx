@@ -4,19 +4,22 @@ import Image, { StaticImageData } from "next/image";
 
 import { Typography, Button } from "..";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
+import Link from "next/link";
 
 interface SeriesCardProps{
     image: string;
     title: string;
     subtitle: string;
     description: string;
+    url: string
 }
 
 const SeriesCard = ({
     image,
     title,
     subtitle,
-    description
+    description,
+    url
 }:SeriesCardProps) => {
   return (
     <div className="flex flex-col md:flex md:flex-row md:gap-12">
@@ -57,6 +60,7 @@ const SeriesCard = ({
           {description}
         </Typography>
       <div className="w-3/5 mt-5">
+        <Link href={`/sermons/${url}`}>
          <Button
         variant="outlined"
         color="dark-outlined"
@@ -64,6 +68,8 @@ const SeriesCard = ({
         leftIcon={<BrownPlayIcon />}
         customClassName="mb-2"
       />
+        </Link>
+        
       </div>
        
       </div>

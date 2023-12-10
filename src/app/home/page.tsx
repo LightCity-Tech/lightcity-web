@@ -17,6 +17,7 @@ const HomePage = () => {
         buttonTitle="Listen Online"
         buttonSvg={<BrownPlayIcon />}
         buttonIconDirection={'left'}
+        link={'/sermons'}
       />
       <DescriptionSection />
       <SeriesSection />

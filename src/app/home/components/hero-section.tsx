@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Spacer } from "../../components/spacer";
 import { kashuan } from "@/styles/font";
 import { AutoplayCarousel } from "./carousel";
+import Link from "next/link";
 
 type Props = {
   title?: string;
@@ -17,6 +18,7 @@ type Props = {
   buttonTitle?: string;
   buttonSvg?: any;
   buttonIconDirection?: string;
+  link?: string;
 };
 
 const HeroSection = ({
@@ -28,6 +30,7 @@ const HeroSection = ({
   buttonTitle,
   buttonSvg,
   buttonIconDirection,
+  link
 }: Props) => {
   const items = [
     <Image
@@ -101,6 +104,7 @@ const HeroSection = ({
             <p className="text-sm lg:text-base leading-6">{description}</p>
           </div>
           {buttonTitle && (
+            <Link href={link as string || ''}>
             <Button
               variant="primary"
               color="primary"
@@ -109,7 +113,9 @@ const HeroSection = ({
               rightIcon={buttonIconDirection === "right" && buttonSvg}
               customClassName=""
             />
+             </Link>
           )}
+         
         </div>
       </div>
 

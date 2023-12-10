@@ -90,10 +90,10 @@ const AboutUs = (props: Props) => {
                 Giving your life eternal relevance
               </h3>
               <p className="text-[#7E7A7A] text-[14px] md:text-[24px] py-6">
-                Through God&apos;s word taught in clarity and simplicity and our
-                discipleship structures at LightCity Church, ministry is
-                discovered, developed and deployed as is God&apos;s plan for
-                you.
+                LightCity Church is a discipleship centre where we discover,
+                train and deploy ministers of the Gospel. Through the systematic
+                teaching of God&apos;s word and discipleship structures at LightCity
+                Church, we help you fulfil God&apos;s plan for your life
               </p>
             </div>
           </div>
