@@ -19,7 +19,7 @@ const Meetings = () => {
         buttonTitle="Learn More"
         buttonSvg={<ArrowUpIcon />}
         buttonIconDirection={'right'}
-        description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of Gods word and the intense atmospheres of the demonstrations of the Spirit."
+        description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of God's word and the intense atmospheres of the demonstrations of the Spirit."
       />
       <section className="lg:px-32 px-4 py-12 bg-white">
         <div className="divide-y divide-gray-300 space-y-4">

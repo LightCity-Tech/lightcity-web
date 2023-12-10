@@ -20,7 +20,7 @@ const Meeting = (props: Props) => {
         buttonSvg={<ArrowUpIcon />}
         buttonIconDirection={'right'}
         link={''}
-        description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of Gods word and the intense atmospheres of the demonstrations of the Spirit."
+        description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of God's word and the intense atmospheres of the demonstrations of the Spirit."
       />
       <div className="lg:px-24 px-5 md:py-16 md:flex md:flex-row flex flex-col-reverse md:space-x-6 space-x-0">
         <div className="md:w-2/5">
@@ -47,7 +47,7 @@ const Meeting = (props: Props) => {
             </Typography>
           </div>
           <div>
-            <Title text="DATE" />
+            <Title text="CONTACT" />
             <Typography
               variant="body-reg"
               color="secondary-main"
