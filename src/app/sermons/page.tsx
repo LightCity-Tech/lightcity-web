@@ -106,13 +106,13 @@ const SermonLibrary = (props: Props) => {
                 </Link>
               ))}
             </div>
-            <div className="flex justify-end space-x-4">
-              <div className="flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE]" onClick={() => setPage(prevPage)}>
+            <div className="flex justify-center space-x-4 md:justify-end">
+                <div className="flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE] hover:cursor-pointer" onClick={() => setPage(prevPage)}>
                 <ButtonLeftIcon />
                 <p>Previous</p>
               </div>
 
-              <div className="flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE]" onClick={() => setPage(nextPage)}>
+                <div className="flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE] hover:cursor-pointer" onClick={() => setPage(nextPage)}>
                 <p>Next</p>
                 <ButtonRightIcon />
               </div>

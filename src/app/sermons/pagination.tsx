@@ -15,7 +15,7 @@ console.log(page)
         color="primary"
         label={"Previous"}
         leftIcon={<ButtonLeft />}
-        customClassName="bg-white rounded-md border-[#DEDEDE]"
+        customClassName="bg-white rounded-md border-[#DEDEDE] hover:cursor-pointer"
         onClick={setPage(page - 1)}
       />
   
@@ -24,7 +24,7 @@ console.log(page)
         color="primary"
         label={"Next"}
         rightIcon={<ButtonRight />}
-        customClassName="bg-white rounded-md border-[#DEDEDE]"
+        customClassName="bg-white rounded-md border-[#DEDEDE] hover:cursor-pointer"
         onClick={setPage((prev: number) => {
             prev + 1
         })}
