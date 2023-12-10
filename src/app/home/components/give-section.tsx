@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Typography, BulletPoint, Button } from "@/src/ui";
 import { givingReasons, gridImages } from "./data";
+import Link from "next/link";
 
 const GiveSection = () => {
   return (
@@ -51,12 +52,16 @@ const GiveSection = () => {
           <h3 className="text-[24px] md:text-[40px] font-semibold">We give in obedience to God word to support the work of ministry in our local church.</h3>
           
         </div>
-        <Button
+        <Link href="#partnership">
+         <Button
           variant="primary"
           color="primary"
           label="Give to Us"
           customClassName="mt-10"
+          
         />
+        </Link>
+       
       </div>
       <div className="grid gap-3 grid-cols-2 grid-rows-3 lg:w-1/2 w-full">
         {gridImages.map((gridImage, index) => (

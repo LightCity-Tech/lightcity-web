@@ -4,7 +4,12 @@ import { Button, Typography } from "@/src/ui";
 import Image from "next/image";
 import bgImage from "../home/services-bg.png";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
+import Twitter from "@/public/assets/svgs/twitter.svg";
+import Facebook from "@/public/assets/svgs/facebook.svg";
+import Instagram from "@/public/assets/svgs/instagram.svg";
+import Youtube from "@/public/assets/svgs/youtube.svg";
 import FooterLogo from "/public/assets/svgs/lcc-logo-footer.png";
+import Link from "next/link";
 
 const FooterSection = () => {
   return (
@@ -146,14 +151,21 @@ const FooterSection = () => {
           </div>
         </div>
         <div className="mt-36 md:mt-20">
-          <div>
+          <div className="flex flex-col-reverse space-y-12 lg:flex-row lg:justify-between lg:items-center">
+            <div className="mt-8 lg:mt-0">
             <Button
               variant="primary"
               color="primary"
               label="Join Us Live"
               leftIcon={<BrownPlayIcon />}
             />
-            <div></div>
+            </div>
+            <div className="flex space-x-4">
+              <InstagramIcon />
+              <TwitterIcon />
+              <FacebookIcon />
+             <YoutubeIcon />
+            </div>
           </div>
           <div className="border-secondary-25 border-t h-0 w-full my-8"></div>
           <div className="flex justify-between">
@@ -197,3 +209,39 @@ const FooterSection = () => {
 };
 
 export default FooterSection;
+
+
+const YoutubeIcon = () => {
+  return (
+    <Link href="https://youtube.com/@lightcitychurchmedia2477?si=55shg00UGFq_ySV8" className="">
+      <Youtube />
+    </Link>
+  );
+};
+
+
+const TwitterIcon = () => {
+  return (
+    <Link href="https://x.com/the_lightcity?s=21&t=2ml2yWBwSbMXl3AHtNxACw" className="">
+      <Twitter />
+    </Link>
+  );
+};
+
+
+const FacebookIcon = () => {
+  return (
+    <Link href="https://www.facebook.com/the.lightcityng?mibextid=LQQJ4d" className="">
+      <Facebook />
+    </Link>
+  );
+};
+
+
+const InstagramIcon = () => {
+  return (
+    <Link href="https://instagram.com/the.lightcityng?igshid=OGQ5ZDc2ODk2ZA==" className="">
+      <Instagram />
+    </Link>
+  );
+};
