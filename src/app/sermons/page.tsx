@@ -50,9 +50,7 @@ const SermonLibrary = (props: Props) => {
     }
   }
 
-  const searchSeries = debounce((e: any) => {
-    if (search != '') setSearch(e.target.value)
-  }, 700);
+  const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
 
   return (
     <section className="">
