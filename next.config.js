@@ -10,15 +10,6 @@ const nextConfig = {
   },
 
   images: {
-    // remotePatterns: [
-    //   {
-    //     protocol: "https",
-    //     hostname: ["res.cloudinary.com"],
-    //     port: "",
-    //     pathname:
-    //       "/tochukwu/image/upload/v1699543758/lightcity/**",
-    //   },
-    // ],
     domains: ['res.cloudinary.com']
   },
 

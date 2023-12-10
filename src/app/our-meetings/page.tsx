@@ -7,7 +7,7 @@ import SampleImg from "@/public/assets/images/sample-meeting-img.png";
 import HeroSection from "../home/components/hero-section";
 import ArrowUpIcon from "@/public/assets/svgs/arrow-up-right.svg";
 
-let data = [{}, {}, {}];
+// let data = [{}, {}, {}];
 
 const Meetings = () => {
   return (
@@ -36,7 +36,7 @@ const Meetings = () => {
             year="2023"
             location="ENUGU, NIGERIA"
           />
-          <MeetingCard
+          {/* <MeetingCard
             title="Power Sunday 2024"
             image="https://res.cloudinary.com/tochukwu/image/upload/w_250/v1700481884/lightcity/qek9s7hvd51k4yr0rta9.webp"
             description="We are a people of God with a mandate from God to herald the
@@ -100,7 +100,7 @@ const Meetings = () => {
             duration="TBA"
             year="2024"
             location="ENUGU, NIGERIA"
-          />
+          /> */}
         </div>
       </section>
     </section>
