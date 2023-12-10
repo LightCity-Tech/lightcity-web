@@ -17,7 +17,7 @@ const HomePage = () => {
         buttonTitle="Listen Online"
         buttonSvg={<BrownPlayIcon />}
         buttonIconDirection={'left'}
-        link={'https://pastortochilightcitychurch.mixlr.com'}
+        link={'/sermons'}
       />
       <DescriptionSection />
       <SeriesSection />
