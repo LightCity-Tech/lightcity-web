@@ -48,10 +48,10 @@ const bigLinks = [
     name: "Partner with us",
     url: "#partnership",
   },
-  {
-    name: "Contact Us",
-    url: "/contact-us",
-  },
+  // {
+  //   name: "Contact Us",
+  //   url: "/contact-us",
+  // },
   // {
   //   name: "Our Gallery",
   //   url: "/gallery",
