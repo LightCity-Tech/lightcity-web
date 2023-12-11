@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { getAllSeries } from "../services/api";
 
 import { InfinitySpin } from "react-loader-spinner";
@@ -19,11 +19,13 @@ const SermonLibrary = (props: Props) => {
   const [nextPage, setNextPage] = useState(0);
   const [prevPage, setPrevPage] = useState(0);
   const [total, setTotal] = useState(0);
+  const [search, setSearch] = useState('');
+
   useEffect(() => {
     const fetchSeries = async () => {
       try {
         setLoading(true);
-        const res = await getAllSeries(page);
+        const res = await getAllSeries(page, search);
         setSeries(res?.data.series);
         setTotal(res?.meta.total);
         setPrevPage(res?.meta.prevPage)
@@ -33,10 +35,22 @@ const SermonLibrary = (props: Props) => {
       } catch (error) {}
     };
     fetchSeries();
-  }, [page]);
+  }, [page, search]);
 
   const data = Math.ceil(total / 12);
   const pages = Array.from(Array(data).keys());
+
+  // debounce search functionality
+  const debounce = (callback: Function, delay: number) => {
+    let timeoutId: any;
+
+    return  function(...args: any){
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() =>  callback(...args), delay);
+    }
+  }
+
+  const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
 
   return (
     <section className="">
@@ -66,6 +80,7 @@ const SermonLibrary = (props: Props) => {
               type="text"
               className="inline-block p-2 w-full focus:outline-0"
               placeholder="Type here"
+              onChange={searchSeries}
             />
           </div>
         </div>
