@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Button } from "@/src/ui";
 import ButtonLeft from "@/public/assets/svgs/button-icon-left.svg";
 import ButtonRight from "@/public/assets/svgs/button-icon-right.svg";
+import CloseIcon from '@/public/assets/svgs/close.svg';
 
 type Props = {};
 
@@ -50,7 +51,15 @@ const SermonLibrary = (props: Props) => {
     }
   }
 
+  const searchBox = useRef(null);
+
   const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
+  
+  const clearSearchBar = () => {
+    setSearch('');
+    // clear the text in the input
+    searchBox.current.value = '';
+  };
 
   return (
     <section className="">
@@ -76,12 +85,20 @@ const SermonLibrary = (props: Props) => {
         <div className="w-full bg-[#fff]">
           <div className="rounded-md bg-[#fff] shadow-md lg:w-4/5 mx-auto p-4 border border-[rgba(222, 222, 222, 1)]">
             <span className="block px-2">Sermon Title</span>
-            <input
-              type="text"
-              className="inline-block p-2 w-full focus:outline-0"
-              placeholder="Type here"
-              onChange={searchSeries}
-            />
+            <div className="flex flex-row gap-x-2 items-center justify-center">
+              <input
+                type="text"
+                className="inline-block p-2 w-full focus:outline-0"
+                placeholder="Type here"
+                onChange={searchSeries}
+                ref={searchBox}
+              />
+              <span onClick={clearSearchBar} className={`${search != '' ? 'block hover:cursor-pointer' : 'hidden'}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
 
