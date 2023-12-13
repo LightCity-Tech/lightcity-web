@@ -9,7 +9,7 @@ const ServiceSection = () => {
   const services = [
     { service: "Sunday Service", time: "08:00AM" },
     { service: "Wednesday Service", time: "05:00PM" },
-    { service: "Friday Prayers", time: "05:30PM" },
+    { service: "Friday(Prayer Meeting)", time: "05:30PM" },
   ];
 
   return (

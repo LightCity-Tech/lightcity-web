@@ -21,6 +21,7 @@ const SermonLibrary = (props: Props) => {
   const [prevPage, setPrevPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [search, setSearch] = useState('');
+  const searchBox = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const fetchSeries = async () => {
@@ -37,7 +38,7 @@ const SermonLibrary = (props: Props) => {
     };
     fetchSeries();
   }, [page, search]);
-
+  
   const data = Math.ceil(total / 12);
   const pages = Array.from(Array(data).keys());
 
@@ -51,14 +52,13 @@ const SermonLibrary = (props: Props) => {
     }
   }
 
-  const searchBox = useRef(null);
 
   const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
-  
+
   const clearSearchBar = () => {
     setSearch('');
     // clear the text in the input
-    searchBox.current.value = '';
+    searchBox.current!.value = '';
   };
 
   return (
