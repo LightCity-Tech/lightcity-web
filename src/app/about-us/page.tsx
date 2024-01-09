@@ -13,7 +13,7 @@ const AboutUs = (props: Props) => {
     <section className="bg-[#fff">
       <div className="bg-[#fff] px-5 h-full">
         <div className="text-center w-full xl:max-w-full lg:py-6 mt-5 lg:mt-4 mx-auto">
-          <h3 className="text-[48px] leading-[48px] lg:leading-[67.68px] font-bold text-blackA md:px-4 md:text-[72px]">
+          <h3 className="text-[48px] leading-[48px] lg:leading-[67.68px] font-bold text-secondary-main md:px-4 md:text-[72px]">
             Welcome to LightCity Church
           </h3>
           <p className="text-[rgb(126, 122, 122)] py-8 lg:w-[50%] leading-[31.2px] mx-auto">

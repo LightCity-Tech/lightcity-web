@@ -11,7 +11,7 @@ const button = cva("", {
             primary: 'bg-primary-main border-0 px-[1.5rem] rounded-[6.25rem] hover:bg-primary-700 active:border-2 active:border-[rgba(252, 199, 117, 0.98)]',
             secondary: 'bg-secondary-25 border-0 px-[1.5rem] rounded-[6.25rem] hover:bg-secondary-50 active:border-2 active:border-secondary-50',
             tertiary: 'bg-secondary-25 border-0 px-[1.5rem] rounded hover:bg-secondary-50',
-            outlined: 'bg-transparent border-2 px-[1.5rem] rounded-[6.25rem]',
+            outlined: 'bg-transparent border-2 px-[1.5rem] rounded-[6.25rem] hover:bg-secondary-main hover:text-white',
             text: 'bg-transparent border-0 px-[1.5rem]',
             "no-border": "bg-transparent border-0"
         },
@@ -38,7 +38,7 @@ const button = cva("", {
         {
             variant: "outlined",
             color: "dark-outlined",
-            class: "border-blackA text-blackA"
+            class: "border-secondary-main text-secondary-main"
         }
     ]
 })
@@ -54,7 +54,7 @@ const Button:React.FC<ButtonProps> = (props) => {
     } =  props;
 
     const className = clsx(
-        'flex justify-content items-center py-[0.75rem] text-center font-medium',
+        'button flex justify-content items-center py-[0.75rem] text-center font-medium',
         uncutSans.className,
         customClassName,
         styles['text-white']
@@ -70,6 +70,7 @@ const Button:React.FC<ButtonProps> = (props) => {
                 color,
                 
             })}
+            id = "button"
         >
             {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
             {label}

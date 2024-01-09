@@ -65,10 +65,10 @@ const SermonLibrary = (props: Props) => {
     <section className="">
       <div className="lg:w-[1700px] w-full md:bg-[url('/assets/images/sermons.png')] bg-[url('/assets/images/sermons-mobile.png')] bg-center bg-cover bg-no-repeat h-[600px] object-cover px-5 sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-24 flex items-start lg:items-center">
         <div className="mt-12 lg:mt-0">
-          <p className="text-[16px] py-3 text-blackA font-bold">
+          <p className="text-[16px] py-3 text-secondary-main font-bold">
             OUR TEACHINGS
           </p>
-          <h3 className="text-[45px] inline lg:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold text-blackA">
+          <h3 className="text-[45px] inline lg:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold text-secondary-main">
             Sermon Library
           </h3>
           <div className="w-full md:w-[40%] py-8">
