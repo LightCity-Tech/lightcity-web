@@ -54,7 +54,7 @@ const Button:React.FC<ButtonProps> = (props) => {
     } =  props;
 
     const className = clsx(
-        'button flex justify-content items-center py-[0.75rem] text-center font-medium',
+        'flex justify-content items-center py-[0.75rem] text-center font-medium',
         uncutSans.className,
         customClassName,
         styles['text-white']
@@ -70,7 +70,6 @@ const Button:React.FC<ButtonProps> = (props) => {
                 color,
                 
             })}
-            id = "button"
         >
             {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
             {label}

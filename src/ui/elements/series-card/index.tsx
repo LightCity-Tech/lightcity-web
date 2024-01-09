@@ -66,8 +66,8 @@ const SeriesCard = ({
               variant="outlined"
               color="dark-outlined"
               label="Listen online"
-              leftIcon={<BrownPlayIcon />}
-              customClassName="mb-2"
+              leftIcon={<BrownPlayIcon  className = "fill-secondary-main group-hover:fill-white" />}
+              customClassName="mb-2 group"
             />
           </Link>
         </div>

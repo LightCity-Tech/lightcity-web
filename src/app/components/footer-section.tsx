@@ -148,7 +148,7 @@ const FooterSection = () => {
                 variant="primary"
                 color="primary"
                 label="Join Us Live"
-                leftIcon={<BrownPlayIcon />}
+                leftIcon={<BrownPlayIcon className = "fill-secondary-main"/>}
               />
             </div>
             <div className="flex space-x-4">
