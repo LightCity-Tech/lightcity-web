@@ -48,10 +48,10 @@ const bigLinks = [
     name: "Partner with us",
     url: "#partnership",
   },
-  {
-    name: "Contact Us",
-    url: "/contact-us",
-  },
+  // {
+  //   name: "Contact Us",
+  //   url: "/contact-us",
+  // },
   // {
   //   name: "Our Gallery",
   //   url: "/gallery",
@@ -79,10 +79,10 @@ const smallLinks = [
     name: "Partner",
     url: "#partnership",
   },
-  {
-    name: "Contact Us",
-    url: "/contact-us",
-  },
+  // {
+  //   name: "Contact Us",
+  //   url: "/contact-us",
+  // },
 ];
 
 const Navbar = () => {
@@ -143,7 +143,7 @@ const Navbar = () => {
             color="primary"
             label="Join Us Live"
             customClassName="mb-2"
-            leftIcon={<BrownPlayIcon />}
+            leftIcon={<BrownPlayIcon className = "fill-secondary-main" />}
           />
         </Link>
       </nav>
