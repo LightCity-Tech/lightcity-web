@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Button } from "@/src/ui";
 import ButtonLeft from "@/public/assets/svgs/button-icon-left.svg";
 import ButtonRight from "@/public/assets/svgs/button-icon-right.svg";
+import CloseIcon from '@/public/assets/svgs/close.svg';
 
 type Props = {};
 
@@ -20,6 +21,7 @@ const SermonLibrary = (props: Props) => {
   const [prevPage, setPrevPage] = useState(0);
   const [total, setTotal] = useState(0);
   const [search, setSearch] = useState('');
+  const searchBox = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const fetchSeries = async () => {
@@ -36,7 +38,7 @@ const SermonLibrary = (props: Props) => {
     };
     fetchSeries();
   }, [page, search]);
-
+  
   const data = Math.ceil(total / 12);
   const pages = Array.from(Array(data).keys());
 
@@ -50,16 +52,23 @@ const SermonLibrary = (props: Props) => {
     }
   }
 
+
   const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
+
+  const clearSearchBar = () => {
+    setSearch('');
+    // clear the text in the input
+    searchBox.current!.value = '';
+  };
 
   return (
     <section className="">
       <div className="lg:w-[1700px] w-full md:bg-[url('/assets/images/sermons.png')] bg-[url('/assets/images/sermons-mobile.png')] bg-center bg-cover bg-no-repeat h-[600px] object-cover px-5 sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-24 flex items-start lg:items-center">
         <div className="mt-12 lg:mt-0">
-          <p className="text-[16px] py-3 text-blackA font-bold">
+          <p className="text-[16px] py-3 text-secondary-main font-bold">
             OUR TEACHINGS
           </p>
-          <h3 className="text-[45px] inline lg:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold text-blackA">
+          <h3 className="text-[45px] inline lg:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold text-secondary-main">
             Sermon Library
           </h3>
           <div className="w-full md:w-[40%] py-8">
@@ -76,12 +85,20 @@ const SermonLibrary = (props: Props) => {
         <div className="w-full bg-[#fff]">
           <div className="rounded-md bg-[#fff] shadow-md lg:w-4/5 mx-auto p-4 border border-[rgba(222, 222, 222, 1)]">
             <span className="block px-2">Sermon Title</span>
-            <input
-              type="text"
-              className="inline-block p-2 w-full focus:outline-0"
-              placeholder="Type here"
-              onChange={searchSeries}
-            />
+            <div className="flex flex-row gap-x-2 items-center justify-center">
+              <input
+                type="text"
+                className="inline-block p-2 w-full focus:outline-0"
+                placeholder="Type here"
+                onChange={searchSeries}
+                ref={searchBox}
+              />
+              <span onClick={clearSearchBar} className={`${search != '' ? 'block hover:cursor-pointer' : 'hidden'}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
 

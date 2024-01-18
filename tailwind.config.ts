@@ -33,7 +33,6 @@ const config: Config = {
         'main-black': "#050300",
         white: "#FAFAFA",
         black: "#000000",
-        blackA: "#32220A"
       },
       fontSize: {
         //Header element styles

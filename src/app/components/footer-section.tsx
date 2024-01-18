@@ -12,9 +12,38 @@ import FooterLogo from "/public/assets/svgs/lcc-logo-footer.png";
 import Link from "next/link";
 
 const FooterSection = () => {
+  const socials = [
+    {
+      icon: <Instagram />,
+      href: "https://instagram.com/the.lightcityng?igshid=OGQ5ZDc2ODk2ZA==",
+    },
+    {
+      icon: <Twitter />,
+      href: "https://x.com/the_lightcity?s=21&t=2ml2yWBwSbMXl3AHtNxACw",
+    },
+    {
+      icon: <Facebook />,
+      href: "https://www.facebook.com/the.lightcityng?mibextid=LQQJ4d",
+    },
+    {
+      icon: <Youtube />,
+      href: "https://youtube.com/@lightcitychurchmedia2477?si=55shg00UGFq_ySV8",
+    },
+  ];
+
+  const infoLinks = [
+    { href: "/home", text: "Home" },
+    { href: "/about-us", text: "About Us" },
+    { href: "", text: "Contact Us" },
+  ];
+
+  const quickLinks = [
+    { href: "/our-meetings", text: "Meetings" },
+    { href: "/sermons", text: "Sermons Library" },
+  ];
+
   return (
-    <section className="w-full h-auto lg:px-20 xl:px-24
-     py-14 px-6 relative">
+    <section className="w-full h-auto lg:px-20 xl:px-24 py-14 px-6 relative">
       <div>
         <Image
           src={bgImage}
@@ -27,16 +56,7 @@ const FooterSection = () => {
       <div className="px-6 py-12 lg:px-12 xl:px-24 bg-secondary-main rounded-[3.13rem]">
         <div className="w-full flex lg:flex-row justify-between lg:space-x-0 xl:space-x-6 flex-col ">
           <div className="footer-logo lg:w-1/3 w-full">
-            <Image
-              src={FooterLogo}
-              alt="LightCity logo"
-              // width={273}
-              // height={171}
-              // style={{
-              //   width: '100%',
-              //   height: 'auto',
-              // }}
-            />
+            <Image src={FooterLogo} alt="LightCity logo" />
           </div>
           <div className="lg:flex lg:space-x-0 lg:w-3/5 w-full gap-x-4 lg:gap-x-0 grid grid-cols-2 lg:mt-0 mt-8">
             <section className="space-y-4 w-full lg:w-1/3">
@@ -47,34 +67,21 @@ const FooterSection = () => {
               >
                 Get to know us
               </Typography>
-              <Typography
-                variant="body-mid"
-                color="secondary-25"
-                fontWeight="regular"
-              >
-                Home
-              </Typography>
-              <Typography
-                variant="body-mid"
-                color="secondary-25"
-                fontWeight="regular"
-              >
-                About us
-              </Typography>
-              <Typography
-                variant="body-mid"
-                color="secondary-25"
-                fontWeight="regular"
-              >
-                Contact us
-              </Typography>
-              <Typography
-                variant="body-mid"
-                color="secondary-25"
-                fontWeight="regular"
-              >
-                Location
-              </Typography>
+              {infoLinks.map((infoLink, index) => (
+                <Typography
+                  variant="body-mid"
+                  color="secondary-25"
+                  fontWeight="regular"
+                  key={index}
+                >
+                  <Link
+                    href={infoLink.href}
+                    className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary-25 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"
+                  >
+                    {infoLink.text}
+                  </Link>
+                </Typography>
+              ))}
             </section>
             <section className="space-y-4 w-full lg:w-1/3">
               <Typography
@@ -84,27 +91,21 @@ const FooterSection = () => {
               >
                 Quick Links
               </Typography>
-              <Typography
-                variant="body-mid"
-                color="secondary-25"
-                fontWeight="regular"
-              >
-                Foundation class
-              </Typography>
-              <Typography
-                variant="body-mid"
-                color="secondary-25"
-                fontWeight="regular"
-              >
-                Meetings
-              </Typography>
-              <Typography
-                variant="body-mid"
-                color="secondary-25"
-                fontWeight="regular"
-              >
-                Sermon Library
-              </Typography>
+              {quickLinks.map((quickLink, index) => (
+                <Typography
+                  variant="body-mid"
+                  color="secondary-25"
+                  fontWeight="regular"
+                  key={index}
+                >
+                  <Link
+                    href={quickLink.href}
+                    className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary-25 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"
+                  >
+                    {quickLink.text}
+                  </Link>
+                </Typography>
+              ))}
             </section>
             <section className="mt-8 lg:mt-0 w-max lg:w-1/3" id="partnership">
               <Typography
@@ -136,16 +137,6 @@ const FooterSection = () => {
                 >
                   Bank - GT Bank
                 </Typography>
-                {/* <div className="relative top-6">
-                  <Button
-                    variant="tertiary"
-                    label="Give Online"
-                    color="primary"
-                    className="mt-12"
-                  >
-                    Give Online
-                  </Button>
-                </div> */}
               </div>
             </section>
           </div>
@@ -153,18 +144,23 @@ const FooterSection = () => {
         <div className="mt-36 md:mt-20">
           <div className="flex flex-col-reverse space-y-12 lg:flex-row lg:justify-between lg:items-center">
             <div className="mt-8 lg:mt-0">
-            <Button
-              variant="primary"
-              color="primary"
-              label="Join Us Live"
-              leftIcon={<BrownPlayIcon />}
-            />
+              <Button
+                variant="primary"
+                color="primary"
+                label="Join Us Live"
+                leftIcon={<BrownPlayIcon className = "fill-secondary-main"/>}
+              />
             </div>
             <div className="flex space-x-4">
-              <InstagramIcon />
-              <TwitterIcon />
-              <FacebookIcon />
-             <YoutubeIcon />
+              {socials.map((social, index) => (
+                <Link
+                  href={social.href}
+                  key={index}
+                  className="transition ease-in-out delay-150 duration-150 hover:-translate-y-1"
+                >
+                  {social.icon}
+                </Link>
+              ))}
             </div>
           </div>
           <div className="border-secondary-25 border-t h-0 w-full my-8"></div>
@@ -178,29 +174,6 @@ const FooterSection = () => {
                 © 2023 LightCity Church. All rights reserved.
               </Typography>
             </div>
-            <div className="flex gap-4">
-              <Typography
-                color="secondary-25"
-                fontWeight="regular"
-                customClassName="!text-[0.75rem]"
-              >
-                Terms
-              </Typography>
-              <Typography
-                color="secondary-25"
-                fontWeight="regular"
-                customClassName="!text-[0.75rem]"
-              >
-                Privacy
-              </Typography>
-              <Typography
-                color="secondary-25"
-                fontWeight="regular"
-                customClassName="!text-[0.75rem]"
-              >
-                Cookies
-              </Typography>
-            </div>
           </div>
         </div>
       </div>
@@ -209,39 +182,3 @@ const FooterSection = () => {
 };
 
 export default FooterSection;
-
-
-const YoutubeIcon = () => {
-  return (
-    <Link href="https://youtube.com/@lightcitychurchmedia2477?si=55shg00UGFq_ySV8" className="">
-      <Youtube />
-    </Link>
-  );
-};
-
-
-const TwitterIcon = () => {
-  return (
-    <Link href="https://x.com/the_lightcity?s=21&t=2ml2yWBwSbMXl3AHtNxACw" className="">
-      <Twitter />
-    </Link>
-  );
-};
-
-
-const FacebookIcon = () => {
-  return (
-    <Link href="https://www.facebook.com/the.lightcityng?mibextid=LQQJ4d" className="">
-      <Facebook />
-    </Link>
-  );
-};
-
-
-const InstagramIcon = () => {
-  return (
-    <Link href="https://instagram.com/the.lightcityng?igshid=OGQ5ZDc2ODk2ZA==" className="">
-      <Instagram />
-    </Link>
-  );
-};

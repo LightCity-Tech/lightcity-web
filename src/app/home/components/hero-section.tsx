@@ -27,10 +27,6 @@ const HeroSection = ({
   special,
   description,
   imageUrl,
-  buttonTitle,
-  buttonSvg,
-  buttonIconDirection,
-  link
 }: Props) => {
   const items = [
     <Image
@@ -77,7 +73,7 @@ const HeroSection = ({
   return (
     <section className="w-full h-[100vh] relative overflow-hidden">
       <div
-        className={`w-full md:w-full absolute sm:px-8 md:px-10 xl:px-20 top-[50%] -translate-y-1/2 px-4 z-[1] text-white`}
+        className={`w-full h-auto md:w-full absolute sm:px-8 md:px-10 xl:px-20 top-[50%] -translate-y-1/2 px-4 z-[1] text-white`}
       >
         <div className="relative">
           <Typography
@@ -103,19 +99,14 @@ const HeroSection = ({
           <div className="py-6 md:w-[50%] w-full">
             <p className="text-sm lg:text-base leading-6">{description}</p>
           </div>
-          {buttonTitle && (
-            <Link href={link as string || ''}>
-            <Button
+          <Link href="/sermons">
+            <Button 
+              label="Listen Online"
               variant="primary"
               color="primary"
-              label={buttonTitle as any}
-              leftIcon={buttonIconDirection === "left" && buttonSvg}
-              rightIcon={buttonIconDirection === "right" && buttonSvg}
-              customClassName=""
+              leftIcon={<BrownPlayIcon  className = "fill-secondary-main" />}
             />
-             </Link>
-          )}
-         
+          </Link>
         </div>
       </div>
 
