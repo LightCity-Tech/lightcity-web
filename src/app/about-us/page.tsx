@@ -12,11 +12,11 @@ const AboutUs = (props: Props) => {
   return (
     <section className="bg-[#fff">
       <div className="bg-[#fff] px-5 h-full">
-        <div className="text-center w-full xl:max-w-full lg:py-6 mt-5 lg:mt-4 mx-auto">
-          <h3 className="text-[48px] leading-[48px] lg:leading-[67.68px] font-bold text-secondary-main md:px-4 md:text-[72px]">
+        <div className="text-center w-full 2xl:max-w-7xl lg:py-6 mt-5 lg:mt-4 mx-auto">
+          <h3 className="text-[48px] leading-[48px] lg:leading-[67.68px] font-bold text-blackA md:px-4 md:text-[72px]">
             Welcome to LightCity Church
           </h3>
-          <p className="text-[rgb(126, 122, 122)] py-8 lg:w-[50%] leading-[31.2px] mx-auto">
+          <p className="text-[#7E7A7A] font-normal text-[24px] py-8 lg:w-[100%] px-36 leading-[31.2px] mx-auto">
             We are a people of God with a mandate from God to herald the
             glorious message of Jesus; teaching and preaching until the whole
             earth is filled with his gospel as the waters cover the sea, and by
@@ -31,7 +31,7 @@ const AboutUs = (props: Props) => {
             alt=""
           />
         </div>
-        <div className="lg:block hidden max-w-[1549px] mx-auto h-[625px] relative">
+        <div className="lg:block hidden 2xl:max-w-[1500px] xl:mx-16 lg:mx-12 h-[625px] relative">
           <Image
             src="/assets/images/about-hero.webp"
             fill
@@ -41,7 +41,7 @@ const AboutUs = (props: Props) => {
         </div>
       </div>
       <div className="mx-auto ">
-        <div className="px-5 lg:px-24">
+        <div className="px-5 lg:px-16 xl:px-20 mx-auto">
           <div className="flex mt-8 lg:py-10 text-[#A6A2A2]">
             <span className="block w-[80%] md:w-[10%]"> OUR VISION</span>
             <span className="relative w-full -top-1.5 -left-5 border-b-black/20 border-b block"></span>
@@ -70,7 +70,7 @@ const AboutUs = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="py-6 px-5 lg:px-24 ">
+        <div className="py-6 px-5 lg:px-16 xl:px-20 ">
           <div className="flex mt-6 text-[#A6A2A2]">
             <span className="block w-[90%] md:w-[12%]"> OUR MISSION</span>
             <span className="relative -top-1.5 -left-8 border-b-black/20 border-b w-full block"></span>
@@ -113,7 +113,7 @@ const AboutUs = (props: Props) => {
             >
               From our Pastor&apos;s Desk
             </h3>
-            <p className="lg:py-6 mt-8 lg:mt-0 text-[14px] lg:text-[24px] leading-[25.68px] md:leading-[43.2px]">
+            <p className="lg:py-6 mt-8 lg:mt-0 text-[14px] lg:text-[18px] font-regular leading-[25.68px] md:leading-[43.2px]">
               On behalf of LightCity Church, I welcome you. <br />
               Here, we are very much committed to the teaching of God&apos;s
               word and in the training of the same.
