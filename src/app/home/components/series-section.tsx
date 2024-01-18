@@ -2,8 +2,8 @@
 
 import { Typography, SeriesCard } from "@/src/ui";
 import SampleImg from "@/public/assets/images/series-1.png";
-import FeaturedImage1 from "@/public/assets/images/featured1.png"
-import FeaturedImage2 from "@/public/assets/images/featured2.png"
+import FeaturedImage1 from "@/public/assets/images/featured1.png";
+import FeaturedImage2 from "@/public/assets/images/featured2.png";
 import Link from "next/link";
 
 const SeriesSection = () => {
@@ -22,13 +22,12 @@ const SeriesSection = () => {
         <div className="border-t border-main-black h-0 w-[5rem] lg:w-[12.5rem]"></div>
       </div>
       <div className="space-y-8 flex flex-col gap-y-12">
-        <Link href={`/sermons/656d5d12134a3228cf3e5ecb`} >
         <SeriesCard
-         image={'/assets/images/featured1.png'}
-         url={"656d5d12134a3228cf3e5ecb"}
-         title="Built to Last"
-         subtitle="(God’s Wisdom for Healthy Relationships)"
-         description="In a post-modern world that is constantly redefining identity, meaning, etc… which consequently has influenced how people relate,
+          image={"/assets/images/featured1.png"}
+          url={"656d5d12134a3228cf3e5ecb"}
+          title="Built to Last"
+          subtitle="(God’s Wisdom for Healthy Relationships)"
+          description="In a post-modern world that is constantly redefining identity, meaning, etc… which consequently has influenced how people relate,
 
          We have to search the Holy Scriptures, being God’s unchanging word in an ever changing world for our relationship ethos,
          
@@ -36,19 +35,15 @@ const SeriesSection = () => {
          How do I nurture relationships in a healthy way?
          "
         />
-        </Link>
-        <Link href={`/sermons/656d5d12134a3228cf3e5ee9`} >
-         <SeriesCard
-         image={'/assets/images/featured2.png'}
-         url={"656d5d12134a3228cf3e5ee9"}
-         title="Guard your Heart"
-         subtitle="(Serving the Lord effectively in a simple way)"
-         description="In an information age, where information accessibility and it's consequent overload is at an all time high, we need now more than ever to heed the instructions of Scriptures...
-
+        <SeriesCard
+          image={"/assets/images/featured2.png"}
+          url={"656d5d12134a3228cf3e5ee9"}
+          title="Guard your Heart"
+          subtitle="(Serving the Lord effectively in a simple way)"
+          description="In an information age, where information accessibility and it's consequent overload is at an all time high, we need now more than ever to heed the instructions of Scriptures.
          So this Sunday we examine this instruction as we answer, the 'what', 'why' and 'how' of the same, 
          "
         />
-        </Link>
       </div>
     </section>
   );

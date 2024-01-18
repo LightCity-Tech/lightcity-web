@@ -143,7 +143,7 @@ const Navbar = () => {
             color="primary"
             label="Join Us Live"
             customClassName="mb-2"
-            leftIcon={<BrownPlayIcon />}
+            leftIcon={<BrownPlayIcon className = "fill-secondary-main" />}
           />
         </Link>
       </nav>
