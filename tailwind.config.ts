@@ -67,7 +67,7 @@ const config: Config = {
       brightness: {
         25: '.25',
         175: '1.75',
-      }
+      },
     },
   },
   plugins: [],
