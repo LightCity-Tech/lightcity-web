@@ -91,6 +91,7 @@ const Meetings = () => {
         buttonTitle="Register Online"
         buttonIconDirection="right"
         description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of God's word and the intense atmospheres of the demonstrations of the Spirit."
+        link="/our-meetings/registration"
       />
       <section className="lg:px-32 px-4 py-12 bg-white">
         <div className="divide-y divide-gray-300 space-y-4">
