@@ -97,7 +97,7 @@ const PicturesSlide = () => {
         <Slider {...settings} className="hidden lg:block w-full">
           <div className="">
             <Image
-              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571651/lightcity/w4qj0tjxviw4ccfxuajm.webp"
+              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571651/lightcity/IMG_7328.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
               width={400}
@@ -106,7 +106,7 @@ const PicturesSlide = () => {
           </div>
           <div className="">
             <Image
-              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/ohciqtuoi2nndcbnqfhu.webp"
+              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/IMG_7820.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
               width={400}
@@ -115,7 +115,7 @@ const PicturesSlide = () => {
           </div>
           <div className="">
             <Image
-              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543759/lightcity/toewrx3saggzxaw83hfa.webp"
+              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543759/lightcity/IMG_7309.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
               width={400}
@@ -124,7 +124,7 @@ const PicturesSlide = () => {
           </div>
           <div className="">
             <Image
-              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571667/lightcity/jggnc8d22ycrzrlsyzo7.webp"
+              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571667/lightcity/IMG_7244.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
               width={400}
@@ -133,7 +133,7 @@ const PicturesSlide = () => {
           </div>
           <div className="">
             <Image
-              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699571653/lightcity/qds3yp2ujohkuh3usbn3.webp"
+              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/lightcity/IMG_7229.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
               width={400}
@@ -142,7 +142,7 @@ const PicturesSlide = () => {
           </div>
           <div className="">
             <Image
-              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/rzhwsyjo50hztbi76j5a.webp"
+              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699543758/lightcity/IMG_7920.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
               width={400}
@@ -151,7 +151,7 @@ const PicturesSlide = () => {
           </div>
           <div className="">
             <Image
-              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699966569/lightcity/qdkoq9ihyuly2fmrelbm.webp"
+              src="https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699966569/lightcity/w4qj0tjxviw4ccfxuajm.webp"
               alt=""
               className="rounded w-[89%] md:w-[90%]"
               width={400}
