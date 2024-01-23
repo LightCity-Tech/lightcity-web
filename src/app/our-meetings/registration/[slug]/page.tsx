@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Typography, Button } from "@/src/ui";
-import HeroSection from "@/src/app/home/components/hero-section";
+import { Typography, Button, Input } from "@/src/ui";
 
 const meetingDLC = [
   { heading: "Date", description: "16th - 18th February, 2024" },
@@ -75,16 +74,46 @@ const UpcomingMeeting = () => {
               color="black"
               variant="h2"
               fontWeight="semi-bold"
-              customClassName="text-5xl"
+              customClassName="text-5xl mb-8"
             >
               Complete your registration
             </Typography>
-
+            <form className="flex flex-col w-full">
+              <Input
+                name="fullname"
+                label="full name"
+                type="text"
+                placeholder="Enter here"
+              />
+              <Input
+                name="email"
+                type="email"
+                label="email address"
+                placeholder="Enter here"
+              />
+              <fieldset className="flex flex-col">
+                <Input
+                  name="location"
+                  label="location"
+                  type="text"
+                  placeholder="Enter here"
+                  fieldCustomClassName="mb-0"
+                />
+                <Typography
+                  align="left"
+                  variant="caption-reg"
+                  fontWeight="regular"
+                  customClassName="text-[#818181]"
+                >
+                  Where are you coming from?
+                </Typography>
+              </fieldset>
+            </form>
             <Button
               variant="primary"
               color="primary"
               label="Submit"
-              customClassName="w-full flex justify-center items-center"
+              customClassName="w-full flex justify-center items-center mt-8"
             />
           </div>
         </div>
