@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Typography, Button, Input } from "@/src/ui";
+import { Typography, Button, Input, InputSelect } from "@/src/ui";
 
 const meetingDLC = [
   { heading: "Date", description: "16th - 18th February, 2024" },
@@ -10,18 +10,31 @@ const meetingDLC = [
     description: " 179 Ziks Avenue (Second Floor), Uwani. Enugu State",
   },
   { heading: "Contact", description: "08141748947, 08138720239" },
-];
+]; //DLC stands for Date, Location and Contact
+
+const optionsData = [
+    {label: "Abakpa", value: "abakpa"},
+    {label: "Agbani/One-Day", value: "agbani/one-day"},
+    {label: "Maryland/Ugwuaji", value: "maryland/ugwuaji"},
+    {label: "Obiagu", value:"obiagu"},
+    {label: "Ologo", value: "ologo"},
+    {label: "UNEC", value: "unec"},
+    {label: "UNN/Nsukka", value: "unn/nsukka"},
+    {label: "Uwani", value: "uwani"},
+    {label: "Other", value: "other"},
+]
 
 const UpcomingMeeting = () => {
   return (
     <section>
       <section className="w-full h-[100vh] relative overflow-hidden bg-[url('/assets/images/hero-wc.webp')] bg-cover flex items-center justify-center brightness-80">
-        <div className="w-2/5">
+        <div className="">
           <Typography
             align="center"
             color="white"
             fontWeight="semi-bold"
             variant="h1"
+            customClassName=""
           >
             Faith Seminar
           </Typography>
@@ -43,9 +56,9 @@ const UpcomingMeeting = () => {
           </Typography>
         </div>
       </section>
-      <section className="bg-white flex justify-start items-center px-24 py-16">
-        <div className="flex divide-x-2 divide-secondary-main">
-          <div className="pr-10">
+      <section className="bg-white flex justify-start items-center px-24 py-16 max-lg:px-12 ">
+        <div className="flex divide-x-2 divide-secondary-main max-sm:flex-col max-sm:divide-x-0">
+          <div className="pr-10 max-sm:mb-4">
             {meetingDLC.map((item, index) => (
               <div key={index}>
                 <Typography
@@ -68,7 +81,7 @@ const UpcomingMeeting = () => {
               </div>
             ))}
           </div>
-          <div className="px-4">
+          <div className="px-4 max-sm:p-0">
             <Typography
               align="left"
               color="black"
@@ -90,6 +103,10 @@ const UpcomingMeeting = () => {
                 type="email"
                 label="email address"
                 placeholder="Enter here"
+              />
+              <InputSelect
+                label = "circuit"
+                options = {optionsData}
               />
               <fieldset className="flex flex-col">
                 <Input
