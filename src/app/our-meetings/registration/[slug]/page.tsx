@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Typography, Button, Input, InputSelect } from "@/src/ui";
+import { Typography, Button, Input, InputSelect, InputPhoneNumber } from "@/src/ui";
 
 const meetingDLC = [
   { heading: "Date", description: "16th - 18th February, 2024" },
@@ -104,6 +104,7 @@ const UpcomingMeeting = () => {
                 label="email address"
                 placeholder="Enter here"
               />
+              <InputPhoneNumber label="Mobile Number"/>
               <InputSelect
                 label = "circuit"
                 options = {optionsData}
