@@ -21,4 +21,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     leftIcon?: React.ReactNode;
     customClassName?: string;
     color: ButtonColors;
+    buttonType?: "button" | "submit" | "reset" | undefined
 }

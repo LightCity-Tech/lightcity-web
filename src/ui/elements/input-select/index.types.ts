@@ -1,13 +1,11 @@
-
-interface Options{
-    value: string;
-    label: string;
+interface Options {
+  value: string;
+  label: string;
 }
 
-
-export interface SelectProps{
-    label?: string;
-    placeholder?: string;
-    customClassName?: string;
-    options: Options[]
+export interface SelectProps {
+  label?: string;
+  customClassName?: string;
+  options: Options[];
+  name: string;
 }

@@ -50,7 +50,9 @@ const Button:React.FC<ButtonProps> = (props) => {
         label = '',
         rightIcon,
         leftIcon,
-        customClassName
+        customClassName,
+        buttonType,
+        ...rest
     } =  props;
 
     const className = clsx(
@@ -63,13 +65,13 @@ const Button:React.FC<ButtonProps> = (props) => {
 
     return (
         <button
-            type='button'
+            type={buttonType}
             className= {button({
                 className,
                 variant,
                 color,
-                
             })}
+            {...rest}
         >
             {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
             {label}

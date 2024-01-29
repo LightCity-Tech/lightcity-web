@@ -86,12 +86,12 @@ const Meetings = () => {
     <section>
       <HeroSection
         title="Upcoming Meetings"
-        subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Word Conference </h1>"
+        subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Faith Seminar </h1>"
         imageUrl="/assets/images/hero-wc.webp"
         buttonTitle="Register Online"
         buttonIconDirection="right"
-        description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of God's word and the intense atmospheres of the demonstrations of the Spirit."
-        link="/our-meetings/registration"
+        description="We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail."
+        link="/our-meetings/registration/faith-seminar"
       />
       <section className="lg:px-32 px-4 py-12 bg-white">
         <div className="divide-y divide-gray-300 space-y-4">
