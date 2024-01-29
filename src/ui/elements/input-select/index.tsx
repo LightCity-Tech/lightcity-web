@@ -1,15 +1,16 @@
 "use client";
 
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useFormContext, Controller } from "react-hook-form";
 import Select from "react-select";
 import { SelectProps } from "./index.types";
 
 const InputSelect: React.FC<SelectProps> = (props) => {
   const {
+    register,
     formState: { errors },
     control,
-  } = useForm();
+  } = useFormContext();
   const { label, options, customClassName, name } = props;
   const errMessage = errors[name]?.message;
   
@@ -52,6 +53,7 @@ const InputSelect: React.FC<SelectProps> = (props) => {
               options={options}
               styles={customStyles}
               isClearable
+              {...register(name)}
             />
           );
         }}

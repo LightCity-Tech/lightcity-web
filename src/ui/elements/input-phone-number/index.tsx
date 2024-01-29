@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import PhoneInput, { isValidPhoneNumber, isPossiblePhoneNumber } from "react-phone-number-input";
 import { useForm, Controller } from "react-hook-form";
 import "react-phone-number-input/style.css";
 import styles from "./index.module.scss";
@@ -16,7 +16,6 @@ const InputPhoneNumber: React.FC<InputPhoneNumberProps> = ({ label, name }) => {
     control,
     formState: { errors },
   } = useForm();
-  // const [value, setValue] = useState<any>();
   const errMessage = errors[name]?.message;
 
   return (
@@ -31,7 +30,7 @@ const InputPhoneNumber: React.FC<InputPhoneNumberProps> = ({ label, name }) => {
         name={name}
         control={control}
         rules={{
-          validate: (value) => isValidPhoneNumber(value),
+          validate: (value) => isPossiblePhoneNumber(`${value}`)
         }}
         render={({ field: { onChange, value } }) => (
           <PhoneInput

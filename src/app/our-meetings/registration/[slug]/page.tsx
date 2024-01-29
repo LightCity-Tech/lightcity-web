@@ -7,7 +7,7 @@ import {
   Button,
   Input,
   InputSelect,
-  InputPhoneNumber,
+  InputPhone
 } from "@/src/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerMeetingSchema } from "../_schema/schema";
@@ -16,7 +16,8 @@ import { registerMeeting } from "@/src/app/services/api";
 export type FormData = {
   fullname: string;
   email: string;
-  phonenumber: any;
+  dialCode: number;
+  number: number;
   circuit: {value: string, label:string};
   location: string;
   meetingId: string;
@@ -46,7 +47,7 @@ const optionsData = [
 const UpcomingMeeting = () => {
   const methods = useForm<FormData>({
     mode: "onChange",
-    resolver: yupResolver(registerMeetingSchema),
+    // resolver: yupResolver(registerMeetingSchema),
   });
   const {register} = methods;
 
@@ -143,8 +144,8 @@ const UpcomingMeeting = () => {
                   label="email address"
                   placeholder="Enter here"
                 />
-                <InputPhoneNumber label="Mobile Number" {...register("phonenumber")}/>
-                <InputSelect label="circuit" options={optionsData}  {...register("circuit")}/>
+                <InputPhone name = "number" label = "mobile number"/>
+                <InputSelect label="circuit" options={optionsData} name="circuit"/>
                 <fieldset className="flex flex-col">
                   <Input
                     name="location"

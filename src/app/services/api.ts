@@ -29,7 +29,8 @@ export const registerMeeting = async (registrationDetails: {
   fullname: string;
   email: string;
   location: string;
-  phonenumber: string;
+  number: number;
+  dialCode: number;
   circuit: { value: string, label: string };
 }) => {
   try {

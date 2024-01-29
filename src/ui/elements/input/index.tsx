@@ -40,6 +40,7 @@ const Input: FC<InputProps> = (props) => {
         placeholder={placeholder}
         {...rest}
         {...register(name)}
+        id={name}
       />
       {errMessage && typeof errMessage === "string" && (
         <div className="text-caption-reg text-red-500">{errMessage}</div>

@@ -7,5 +7,5 @@ export interface SelectProps {
   label?: string;
   customClassName?: string;
   options: Options[];
-  name: string;
+  name?: any;
 }

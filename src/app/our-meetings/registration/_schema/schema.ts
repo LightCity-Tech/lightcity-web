@@ -10,7 +10,9 @@ export const registerMeetingSchema = Yup.object({
     .required("Please enter your phone number")
     .min(8, "Phone number must be at least 8 characters"),
   circuit: Yup.object({
-    value: Yup.string().required("Please select a circuit"),
-    label: Yup.string().required("Please select a label")
+    value: Yup.string(),
+    label: Yup.string()
   })
+  .nullable()
+  .required("Please this field is required")
 });
