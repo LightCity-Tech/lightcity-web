@@ -1,8 +1,9 @@
 .customSelect{
-    width: 25%;
+    width: 100%;
 }
 
 .customSelect select{
+    cursor: pointer;
     appearance: none;
     padding: 1rem;
     background-color: transparent;
@@ -12,6 +13,7 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: 25px;
+    width: inherit;
 }
 
 .customSelect select:focus{

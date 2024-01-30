@@ -42,14 +42,14 @@ const InputPhone: FC<PhoneProps> = (props) => {
       <div className="flex justify-start items-center gap-4">
         <div className={styles.customSelect}>
           <select
-            className="cursor-pointer"
+            className="cursor-pointer w-full"
             {...register("dialCode", { required: true })}
           >
             {countries.map((country, index) => {
               return (
                 <option
                   key={index}
-                  style={{ backgroundImage: `url(${country.flags.svg})` }}
+                  style={{ backgroundImage: `url(${country.flags.svg})`}}
                   value={`+${country.callingCodes[0]}`}
                   selected={true ? country.callingCodes[0] === "234" : false}
                 >
@@ -59,7 +59,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
             })}
           </select>
         </div>
-        <div className="w-full">
+        <div className="grow">
           <input
             type="number"
             className={clsx(

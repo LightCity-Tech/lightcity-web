@@ -29,9 +29,8 @@ export const registerMeeting = async (registrationDetails: {
   fullname: string;
   email: string;
   location: string;
-  number: number;
-  dialCode: number;
-  circuit: { value: string, label: string };
+  phonenumber: number;
+  circuit: string;
 }) => {
   try {
     registrationDetails.meetingId = "65a537c873a412f0ed2c4163";

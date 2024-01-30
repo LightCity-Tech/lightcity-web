@@ -1,64 +1,81 @@
 "use client";
 
-import React from "react";
+import React, {useState} from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import {
-  Typography,
-  Button,
-  Input,
-  InputSelect,
-  InputPhone
-} from "@/src/ui";
+import { Typography, Button, Input, InputDropdown, InputPhone } from "@/src/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerMeetingSchema } from "../_schema/schema";
 import { registerMeeting } from "@/src/app/services/api";
+import { useStateManager } from "react-select";
+
 
 export type FormData = {
   fullname: string;
   email: string;
-  dialCode: number;
-  number: number;
-  circuit: {value: string, label:string};
+  dialCode: any;
+  number: any;
+  circuit: string;
   location: string;
-  meetingId: string;
 };
 
 const meetingDLC = [
-  { heading: "Date", description: "16th - 18th February, 2024" },
+  { heading: "Date", description: "23rd - 24th February, 2024" },
   {
     heading: "Location",
-    description: " 179 Ziks Avenue (Second Floor), Uwani. Enugu State",
+    description: " 179 Ziks Avenue (Second Floor), Uwani, Enugu State.",
   },
   { heading: "Contact", description: "08141748947, 08138720239" },
 ]; //DLC stands for Date, Location and Contact
 
 const optionsData = [
-  { label: "Abakpa", value: "abakpa" },
-  { label: "Agbani/One-Day", value: "agbani/one-day" },
-  { label: "Maryland/Ugwuaji", value: "maryland/ugwuaji" },
-  { label: "Obiagu", value: "obiagu" },
-  { label: "Ologo", value: "ologo" },
-  { label: "UNEC", value: "unec" },
-  { label: "UNN/Nsukka", value: "unn/nsukka" },
-  { label: "Uwani", value: "uwani" },
-  { label: "Other", value: "other" },
+  { label: "Abakpa", value: "Abakpa" },
+  { label: "Agbani/One-Day", value: "Agbani/One-day" },
+  { label: "Maryland/Ugwuaji", value: "Maryland/Ugwuaji" },
+  { label: "Obiagu", value: "Obiagu" },
+  { label: "Ologo", value: "Ologo" },
+  { label: "UNEC", value: "Unec" },
+  { label: "UNN/Nsukka", value: "Unn/Nsukka" },
+  { label: "Uwani", value: "Uwani" },
+  { label: "Other", value: "Other" },
 ];
 
 const UpcomingMeeting = () => {
-  const methods = useForm<FormData>({
+  const [isFocused, setIsFocused] = useState<boolean>(false)
+  const [isRegistered, setIsRegistered] = useState<boolean>(false)
+
+  const methods = useForm({
     mode: "onChange",
-    // resolver: yupResolver(registerMeetingSchema),
+    resolver: yupResolver(registerMeetingSchema),
   });
-  const {register} = methods;
 
   const onSubmit = async (data: FormData) => {
-    try{
-      await registerMeeting(data)
-      console.log(data)
-      // console.log('form submitted')
-    }catch(error){
-      console.error('Error submittting:', error)
+    const convertToMobile = (code: number, number: number) => {
+      let mobileStr = code.toString().concat(number.toString());
+      let mobileNum = +mobileStr;
+      return mobileNum;
+    };
+
+    const phonenumber = convertToMobile(data.dialCode, data.number);
+    const { dialCode, number, ...rest } = data;
+
+    const newData = { ...rest, phonenumber, meetingId:"" }; //Please, not that meetingId is static for now, we would eventually pull it from the urlParams
+
+    try {
+      await registerMeeting(newData);
+      console.log(newData);
+      setIsRegistered(true);
+      methods.reset();
+    } catch (error) {
+      console.error("Error submittting:", error);
     }
+  };
+
+  //Function to handle focus
+  const handleFocus = () => {
+    setIsFocused(true)
+    setTimeout(() => {
+      setIsFocused(false)
+    }, 2000)
   }
 
   return (
@@ -81,7 +98,7 @@ const UpcomingMeeting = () => {
               fontWeight="medium"
               variant="h3"
             >
-              179 Ziks Avenue (Second Floor), Uwani. Enugu State
+              179 Ziks Avenue (Second Floor), Uwani, Enugu State.
             </Typography>
             <Typography
               align="center"
@@ -89,12 +106,12 @@ const UpcomingMeeting = () => {
               fontWeight="medium"
               variant="h3"
             >
-              08th - 10th February, 2024
+              23rd- 24th February, 2024
             </Typography>
           </div>
         </section>
         <section className="bg-white flex justify-start items-center px-24 py-16 max-lg:px-12 ">
-          <div className="flex divide-x-2 divide-secondary-main max-sm:flex-col max-sm:divide-x-0">
+          <div className="w-full flex divide-x-2 divide-secondary-main max-sm:flex-col max-sm:divide-x-0">
             <div className="pr-10 max-sm:mb-4">
               {meetingDLC.map((item, index) => (
                 <div key={index}>
@@ -118,7 +135,7 @@ const UpcomingMeeting = () => {
                 </div>
               ))}
             </div>
-            <div className="px-4 max-sm:p-0">
+            <div className=" px-4 max-sm:p-0">
               <Typography
                 align="left"
                 color="black"
@@ -144,8 +161,8 @@ const UpcomingMeeting = () => {
                   label="email address"
                   placeholder="Enter here"
                 />
-                <InputPhone name = "number" label = "mobile number"/>
-                <InputSelect label="circuit" options={optionsData} name="circuit"/>
+                <InputPhone name="number" label="mobile number" />
+                <InputDropdown name="circuit" label="circuit" options={optionsData} />
                 <fieldset className="flex flex-col">
                   <Input
                     name="location"
@@ -168,9 +185,19 @@ const UpcomingMeeting = () => {
                   color="primary"
                   label="Submit"
                   buttonType="submit"
-                  customClassName="w-full flex justify-center items-center mt-8"
+                  customClassName={`w-full flex justify-center items-center mt-8 ${isFocused ? "ring ring-secondary-main ring-offset-2" : "ring-0"}`}
+                  onClick={handleFocus}
                 />
               </form>
+              {isFocused && isRegistered &&
+                <Typography
+                  variant = "caption-mid"
+                  align="left"
+                  customClassName="mt-3 text-green-600"
+                >
+                  You have succesfully registered for this meeting.
+              </Typography>
+              }
             </div>
           </div>
         </section>
