@@ -41,7 +41,7 @@ const SeriesSection = () => {
           title="Guard your Heart"
           subtitle=""
           description="In an information age, where information accessibility and it's consequent overload is at an all time high, we need now more than ever to heed the instructions of Scriptures.
-         So this Sunday we examine this instruction as we answer, the 'what', 'why' and 'how' of the same, 
+         So in this teaching, we examine this instruction as we answer, the 'what', 'why' and 'how' of the same, 
          "
         />
       </div>
