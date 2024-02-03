@@ -49,7 +49,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
               return (
                 <option
                   key={index}
-                  style={{ backgroundImage: `url(${country.flags.svg})`}}
+                  style={{ backgroundImage: `url(${country.flags.svg})` }}
                   value={`+${country.callingCodes[0]}`}
                   selected={true ? country.callingCodes[0] === "234" : false}
                 >

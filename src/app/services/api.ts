@@ -25,12 +25,12 @@ export const getASeries = async (id: string) => {
 };
 
 export const registerMeeting = async (registrationDetails: {
-  meetingId: string;
-  fullname: string;
-  email: string;
-  location: string;
-  phonenumber: number;
-  circuit: string;
+  meetingId: string,
+  fullname: string,
+  email: string,
+  location: string,
+  phonenumber: string,
+  circuit: string,
 }) => {
   try {
     registrationDetails.meetingId = "65a537c873a412f0ed2c4163";
@@ -38,7 +38,8 @@ export const registerMeeting = async (registrationDetails: {
       `${baseUrl}/meetings/register`,
       registrationDetails
     );
-    console.log(response.data?.message);
+    // console.log(response.data?.message);
+    return response.status
   } catch (error:any) {
     console.log(error?.message);
   }
