@@ -13,7 +13,7 @@ export type FormData = {
   email: string,
   dialCode: any;
   number: any,
-  circuit: string,
+  circuit: any,
   location: string,
 };
 
@@ -32,8 +32,8 @@ const optionsData = [
   { label: "Maryland/Ugwuaji", value: "Maryland/Ugwuaji" },
   { label: "Obiagu", value: "Obiagu" },
   { label: "Ologo", value: "Ologo" },
-  { label: "UNEC", value: "Unec" },
-  { label: "UNN/Nsukka", value: "Unn/Nsukka" },
+  { label: "UNEC", value: "UNEC" },
+  { label: "UNN/Nsukka", value: "UNN/Nsukka" },
   { label: "Uwani", value: "Uwani" },
   { label: "Other", value: "Other" },
 ];
@@ -61,8 +61,8 @@ const UpcomingMeeting = () => {
 
     try {
       const statusCode = await registerMeeting(newData);
-      console.log(newData);
-      if(statusCode === 200){
+      // console.log(newData);
+      if(statusCode === 201){
         setIsRegistered(true);
         methods.reset();
       }
@@ -196,7 +196,7 @@ const UpcomingMeeting = () => {
                   align="left"
                   customClassName="mt-3 text-green-600"
                 >
-                  You have succesfully registered for this meeting.
+                  You have succesfully registered for this meeting. 🥳
               </Typography>
               }
             </div>

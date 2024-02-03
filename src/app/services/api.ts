@@ -30,15 +30,15 @@ export const registerMeeting = async (registrationDetails: {
   email: string,
   location: string,
   phonenumber: string,
-  circuit: string,
+  circuit: any,
 }) => {
   try {
-    registrationDetails.meetingId = "65a537c873a412f0ed2c4163";
+    registrationDetails.meetingId = "65b417da2a42204f5102e45c";
     const response = await axios.post(
       `${baseUrl}/meetings/register`,
       registrationDetails
     );
-    // console.log(response.data?.message);
+    console.log(response.data);
     return response.status
   } catch (error:any) {
     console.log(error?.message);
