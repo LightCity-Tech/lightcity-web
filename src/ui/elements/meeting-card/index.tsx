@@ -86,7 +86,7 @@ const MeetingCard = ({
         </div>
       </div>
       <div className="md:w-3/12 hidden md:items-stretch md:flex flex-col">
-        <Typography variant="caption-mid" align="center" customClassName="grow -mb-12">
+        <Typography variant="caption-mid" align="center" customClassName="grow -mb-12 uppercase">
           {month}
         </Typography>
         <Typography

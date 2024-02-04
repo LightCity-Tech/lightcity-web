@@ -34,7 +34,7 @@ const FooterSection = () => {
   const infoLinks = [
     { href: "/home", text: "Home" },
     { href: "/about-us", text: "About Us" },
-    { href: "", text: "Contact Us" },
+    { href: "/contact-us", text: "Contact Us" },
   ];
 
   const quickLinks = [

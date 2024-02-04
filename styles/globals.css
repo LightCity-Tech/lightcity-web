@@ -15,12 +15,10 @@ html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
-  /* transition: all .1s ease-in-out; */
 }
 
 body {
   background: transparent;
-  /* background: #000; */
 }
 
 .footer-logo {

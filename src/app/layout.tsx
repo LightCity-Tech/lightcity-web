@@ -14,8 +14,14 @@ export const metadata: Metadata = {
   title: "LightCity Church",
   description: "...giving your life eternal value",
   icons: {
-    icon: [{url: "../../public/favicon/favicon.png", sizes: "32x32", type: "image/png"}]
-  }
+    icon: [
+      {
+        url: "../../public/favicon/favicon.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -27,12 +33,12 @@ export default function RootLayout({
   return (
     // <QueryClientProvider client={queryClient}>
     <html lang="en">
-       <Head />
+      <Head />
       <body className={`${uncutSans.className}`}>
         <section className="relative overflow-auto">
-        <Navbar  />
+          <Navbar />
           {children}
-        <FooterSection />
+          <FooterSection />
         </section>
       </body>
     </html>

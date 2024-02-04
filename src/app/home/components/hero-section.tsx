@@ -2,12 +2,12 @@
 
 import { Typography, Button } from "@/src/ui";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
-import bgImage from "../services-bg.png";
+import ArrowUpIcon from "@/public/assets/svgs/arrow-up-right.svg";
 import Image from "next/image";
-import { Spacer } from "../../components/spacer";
 import { kashuan } from "@/styles/font";
 import { AutoplayCarousel } from "./carousel";
 import Link from "next/link";
+import { UrlObject } from "url";
 
 type Props = {
   title?: string;
@@ -17,8 +17,8 @@ type Props = {
   description?: string;
   buttonTitle?: string;
   buttonSvg?: any;
-  buttonIconDirection?: string;
-  link?: string;
+  buttonIconDirection?: string | undefined;
+  link?: string | UrlObject;
 };
 
 const HeroSection = ({
@@ -27,6 +27,9 @@ const HeroSection = ({
   special,
   description,
   imageUrl,
+  buttonTitle,
+  buttonIconDirection,
+  link,
 }: Props) => {
   const items = [
     <Image
@@ -99,17 +102,28 @@ const HeroSection = ({
           <div className="py-6 md:w-[50%] w-full">
             <p className="text-sm lg:text-base leading-6">{description}</p>
           </div>
-          <Link href="/sermons">
-            <Button 
-              label="Listen Online"
+          <Link
+            className="inline-block"
+            href={typeof link === "undefined" ? "" : link}
+          >
+            <Button
+              label={buttonTitle}
               variant="primary"
               color="primary"
-              leftIcon={<BrownPlayIcon  className = "fill-secondary-main" />}
+              leftIcon={
+                buttonIconDirection === "left" && (
+                  <BrownPlayIcon className="fill-secondary-main" />
+                )
+              }
+              rightIcon={
+                buttonIconDirection === "right" && (
+                  <ArrowUpIcon className="fill-secondary-main" />
+                )
+              }
             />
           </Link>
         </div>
       </div>
-
       <AutoplayCarousel items={imageUrl ? item : items} />
     </section>
   );
