@@ -7,7 +7,6 @@ import DownloadIcon from "@/public/assets/svgs/save-icon.svg";
 import { getASeries } from "../../services/api";
 import { useParams } from "next/navigation";
 import ReactPlayer from "react-player";
-import ReactPlayer from "react-player";
 
 import { InfinitySpin } from "react-loader-spinner";
 import Link from "next/link";
@@ -38,12 +37,6 @@ const SermonDetail = (props: Props) => {
     </div>
   ) : (
     <section className="h-auto ">
-  return loading ? (
-    <div className="w-full flex mt-16 justify-center h-full items-center">
-      <InfinitySpin width="300" color="rgb(232 157 44)" />
-    </div>
-  ) : (
-    <section className="py-8">
       <div className="w-full bg-[#fff] px-5 sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-20 flex">
         <Link href="/sermons">
           <Button
@@ -106,13 +99,6 @@ const SermonDetail = (props: Props) => {
     <source src="https://drive.google.com/uc?export=open&id=1THABamhMVnm33kNeBjwCv-iH9-A6SN80" type="audio/mp3" />    
 </audio> */}
             {/* <ReactPlayer /> */}
-            <audio controls className="mt-4 w-full">
-              <source
-                src="https://drive.google.com/uc?export=open&id=1THABamhMVnm33kNeBjwCv-iH9-A6SN80"
-                type="audio/mp3"
-              />
-            </audio>
-            {/* <ReactPlayer /> */}
           </div>
         </div>
       </div>
@@ -122,7 +108,6 @@ const SermonDetail = (props: Props) => {
 
 export default SermonDetail;
 
-const DownloadButton = ({ link }: any) => {
 const DownloadButton = ({ link }: any) => {
   return (
     
@@ -134,11 +119,5 @@ const DownloadButton = ({ link }: any) => {
         <DownloadIcon />
       </a>
    
-    <a
-      href={`https://drive.google.com/uc?export=download&id=${link}`}
-      download="cv"
-    >
-      <DownloadIcon />
-    </a>
   );
 };
