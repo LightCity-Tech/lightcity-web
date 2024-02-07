@@ -7,6 +7,7 @@ import DownloadIcon from "@/public/assets/svgs/save-icon.svg";
 import { getASeries } from "../../services/api";
 import { useParams } from "next/navigation";
 import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 
 import { InfinitySpin } from "react-loader-spinner";
 import Link from "next/link";
@@ -36,6 +37,12 @@ const SermonDetail = (props: Props) => {
       <InfinitySpin width="300" color="rgb(232 157 44)" />
     </div>
   ) : (
+    <section className="h-auto ">
+  return loading ? (
+    <div className="w-full flex mt-16 justify-center h-full items-center">
+      <InfinitySpin width="300" color="rgb(232 157 44)" />
+    </div>
+  ) : (
     <section className="py-8">
       <div className="w-full bg-[#fff] px-5 sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-20 flex">
         <Link href="/sermons">
@@ -46,10 +53,17 @@ const SermonDetail = (props: Props) => {
             leftIcon={<ButtonLeft />}
             customClassName="bg-[#fff]"
           />
+          <Button
+            variant="no-border"
+            color="primary"
+            label={"Back to All Messages"}
+            leftIcon={<ButtonLeft />}
+            customClassName="bg-[#fff]"
+          />
         </Link>
       </div>
-      <div className="flex lg:mt-12 items-center mx-auto lg:max-w-[980px] xl:max-w-[1180px] lg:py-6 px-5">
-        <div className="lg:flex lg:flex-row mt-4 flex flex-col space-x-0 lg:space-x-12">
+      <div className="flex w-full lg:mt-12 items-center mx-auto lg:max-w-[980px] xl:max-w-[1180px] lg:py-6 px-5">
+        <div className="w-full lg:flex lg:flex-row mt-4 flex flex-col space-x-0 lg:space-x-12">
           <div
             className="bg-black lg:p-4 lg:w-[48%] w-full rounded-tl-md rounded-tr-md h-[200px] relative"
             key={series._id}
@@ -75,16 +89,23 @@ const SermonDetail = (props: Props) => {
             <h3 className="text-[20px] mt-4 lg:mt-0 py-3 lg:text-[28px] font-semibold">
               {series.title}
             </h3>
+            <h3 className="text-[20px] mt-4 lg:mt-0 py-3 lg:text-[28px] font-semibold">
+              {series.title}
+            </h3>
             <div className="py-4 space-y-4">
               {series?.tracks?.map((track: any, i: number) => (
-                <div key={track._id} className="flex space-x-5">
+                <div key={track._id} className="flex justify-between items-center space-x-5 mb-4 relative">
                   <p>{track.title}</p>
-                  <div className="-mt-4 self-end">
+                  <div className="flex justify-start items-start">
                     <DownloadButton link={track.fileId} />
                   </div>
                 </div>
               ))}
             </div>
+            {/* <audio controls>    
+    <source src="https://drive.google.com/uc?export=open&id=1THABamhMVnm33kNeBjwCv-iH9-A6SN80" type="audio/mp3" />    
+</audio> */}
+            {/* <ReactPlayer /> */}
             <audio controls className="mt-4 w-full">
               <source
                 src="https://drive.google.com/uc?export=open&id=1THABamhMVnm33kNeBjwCv-iH9-A6SN80"
@@ -102,7 +123,17 @@ const SermonDetail = (props: Props) => {
 export default SermonDetail;
 
 const DownloadButton = ({ link }: any) => {
+const DownloadButton = ({ link }: any) => {
   return (
+    
+      <a
+        href={`https://drive.google.com/uc?export=download&id=${link}`}
+        download="cv"
+        className=""
+      >
+        <DownloadIcon />
+      </a>
+   
     <a
       href={`https://drive.google.com/uc?export=download&id=${link}`}
       download="cv"

@@ -37,7 +37,7 @@ const config: Config = {
       fontSize: {
         //Header element styles
         "h-1": ["5.25rem", { lineHeight: "114.286%", fontWeight: 700 }],
-        "h-2": ["2.5rem", { lineHeight: "120%", fontWeight: 600 }],
+        "h-2": ["2.5rem", { lineHeight: "128%", fontWeight: 600 }],
         "h-3": ["1.75rem", { lineHeight: "128.571%", fontWeight: 600 }],
         "h-4": ["1.5rem", { lineHeight: "150%", fontWeight: 500 }],
         "h-5": ["1.25rem", { lineHeight: "140%", fontWeight: 500 }],
@@ -67,7 +67,7 @@ const config: Config = {
       brightness: {
         25: '.25',
         175: '1.75',
-      }
+      },
     },
   },
   plugins: [],

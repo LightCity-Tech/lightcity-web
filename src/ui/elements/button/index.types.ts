@@ -16,9 +16,10 @@ export type ButtonColors = "primary" | "secondary" | "yellow" | "pri-outlined" |
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     variant: keyof typeof ButtonVariants;
-    label: string;
+    label: string | undefined;
     rightIcon?: React.ReactNode;
     leftIcon?: React.ReactNode;
     customClassName?: string;
     color: ButtonColors;
+    buttonType?: "button" | "submit" | "reset" | undefined
 }

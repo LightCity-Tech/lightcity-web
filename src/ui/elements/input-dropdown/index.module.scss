@@ -1,0 +1,22 @@
+.customSelect{
+    width: 100%;
+}
+
+.customSelect select{
+    cursor: pointer;
+    appearance: none;
+    padding: 1rem;
+    background-color: transparent;
+    border: 2px solid #DEDEDE;
+    border-radius: 5rem;
+    background: url("../../../../public/assets/images/Icon-right.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 25px;
+    width: inherit;
+}
+
+.customSelect select:focus{
+    outline: none;
+    border-color: #FAAB30;
+}
