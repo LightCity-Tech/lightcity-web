@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useFormContext, Controller } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import { SelectProps } from "./index.types";
 
@@ -10,7 +10,7 @@ const InputSelect: React.FC<SelectProps> = (props) => {
     register,
     formState: { errors },
     control,
-  } = useFormContext();
+  } = useForm();
   const { label, options, customClassName, name } = props;
   const errMessage = errors[name]?.message;
   

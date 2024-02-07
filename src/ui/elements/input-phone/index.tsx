@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, FC } from "react";
 import clsx from "clsx";
-import { useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import countriesData from "@/src/data/country-codes.json";
 import styles from "./index.module.scss";
 
@@ -20,7 +20,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useForm();
   const [countries, setCountries] = useState<CountryType[]>([]);
 
   useEffect(() => {
