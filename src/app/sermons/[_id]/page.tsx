@@ -46,13 +46,6 @@ const SermonDetail = (props: Props) => {
             leftIcon={<ButtonLeft />}
             customClassName="bg-[#fff]"
           />
-          <Button
-            variant="no-border"
-            color="primary"
-            label={"Back to All Messages"}
-            leftIcon={<ButtonLeft />}
-            customClassName="bg-[#fff]"
-          />
         </Link>
       </div>
       <div className="flex w-full lg:mt-12 items-center mx-auto lg:max-w-[980px] xl:max-w-[1180px] lg:py-6 px-5">
@@ -79,9 +72,6 @@ const SermonDetail = (props: Props) => {
             <div className="h-1 bg-secondary-200 block w-[90%] bottom-4 absolute mx-auto "></div>
           </div>
           <div>
-            <h3 className="text-[20px] mt-4 lg:mt-0 py-3 lg:text-[28px] font-semibold">
-              {series.title}
-            </h3>
             <h3 className="text-[20px] mt-4 lg:mt-0 py-3 lg:text-[28px] font-semibold">
               {series.title}
             </h3>
