@@ -29,7 +29,7 @@ const SermonDetail = (props: Props) => {
       } catch (error) {}
     };
     fetchSeries();
-  });
+  }, [_id]);
 
   return loading ? (
     <div className="w-full flex mt-16 justify-center h-full items-center">
