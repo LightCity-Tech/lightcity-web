@@ -1,0 +1,44 @@
+.dropdown{
+    width: 100%;
+    background: transparent;
+    position: relative;
+    user-select: none;
+}
+
+.dropdown-btn{
+    border: 2px solid #DEDEDE;
+    border-radius: 5rem;
+    color: #979797;
+    padding: 1rem;
+    background: url("../../../../public/assets/images/Icon-right.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    cursor: pointer;
+}
+
+.dropdown-content{
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    box-shadow: 3px 3px 10px 6px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.dropdown-item{
+    padding: .5rem 1rem;
+    cursor: pointer;
+    background: #FFFEE8;
+    color: #32220A;
+    transition: all .2s;
+}
+
+.dropdown-item:hover{
+    background: #FAAB30;
+}
+
+.selected{
+    background: #32220A;
+    color: #FFFEE8;
+}

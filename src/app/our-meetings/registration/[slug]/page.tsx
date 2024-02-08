@@ -2,7 +2,7 @@
 
 import React, {useState} from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { Typography, Button, Input, InputDropdown, InputPhone } from "@/src/ui";
+import { Typography, Button, Input, InputDropdown, InputPhone, Select } from "@/src/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerMeetingSchema } from "../_schema/schema";
 import { registerMeeting } from "@/src/app/services/api";
@@ -39,15 +39,17 @@ const optionsData = [
 ];
 
 const UpcomingMeeting = () => {
-  const [isFocused, setIsFocused] = useState<boolean>(false)
-  const [isRegistered, setIsRegistered] = useState<boolean>(false)
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isRegistered, setIsRegistered] = useState<boolean>(false);
+  
 
   const methods = useForm({
     mode: "onChange",
     resolver: yupResolver(registerMeetingSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: FormData, e:any) => {
+    e.preventDefault();
     const convertToMobile = (code: number, number: number) => {
       let mobileStr = code.toString().concat(number.toString());
       let mobileNum = mobileStr
@@ -61,7 +63,7 @@ const UpcomingMeeting = () => {
 
     try {
       const statusCode = await registerMeeting(newData);
-      // console.log(newData);
+      console.log(newData);
       if(statusCode === 201){
         setIsRegistered(true);
         methods.reset();
@@ -163,7 +165,8 @@ const UpcomingMeeting = () => {
                   placeholder="Enter here"
                 />
                 <InputPhone name="number" label="mobile number" />
-                <InputDropdown name="circuit" label="circuit" options={optionsData} />
+                {/* <InputDropdown name="circuit" label="circuit" options={optionsData} /> */}
+                <Select label = "circuit" options = {optionsData} name = "circuit"/>
                 <fieldset className="flex flex-col">
                   <Input
                     name="location"
