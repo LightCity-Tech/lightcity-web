@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, useRef, useEffect } from "react";
-import { useFormContext } from "react-hook-form";
+import { useFormContext,  } from "react-hook-form";
 import styles from "./index.module.scss";
 
 interface Options {
@@ -20,6 +20,7 @@ const Select: FC<SelectProps> = (props) => {
 
   const {
     register,
+    setValue,
     formState: { errors },
   } = useFormContext();
 
@@ -30,11 +31,13 @@ const Select: FC<SelectProps> = (props) => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [selected, setSelected] = useState<string>("Select");
 
+  //Toggle the dropdown on click
   const toggleSelect = (e: any) => {
     e.preventDefault();
     setIsActive(!isActive);
   };
-
+ 
+  //Function to select an option
   const selectOption = (optionIndex: number) => {
     const option = options[optionIndex].value;
     setSelected(option);
@@ -44,9 +47,11 @@ const Select: FC<SelectProps> = (props) => {
     if (selectedOptionRef) {
       selectedOptionRef.classList.add(styles.selected);
     }
+    setValue(name, option) //assigning an option to the 'circuit' key
   };
 
-  const handleClickOutside: any = (e: MouseEvent) => {
+  //Blur function to close the dropdown
+  const handleBlur: any = (e: MouseEvent) => {
     if (
       dropdownRef.current &&
       !dropdownRef.current.contains(e.target as Node)
@@ -55,10 +60,11 @@ const Select: FC<SelectProps> = (props) => {
     }
   };
 
+  //Removes the circuit dropdown if it is active, when you click elsewhere on the page
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleBlur);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleBlur);
     };
   }, []);
 

@@ -1,14 +1,21 @@
 "use client";
 
-import React, { useState, useEffect, FC } from "react";
+import React, { FC, useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 import { useFormContext } from "react-hook-form";
 import countriesData from "@/src/data/country-codes.json";
+import Image from "next/image";
 import styles from "./index.module.scss";
+
+type FlagObj = {
+  svg: string
+  png: string;
+}
 
 type CountryType = {
   callingCodes: string[];
-  flags: any;
+  flags: FlagObj;
+  name: string;
 };
 
 interface PhoneProps {
@@ -17,19 +24,52 @@ interface PhoneProps {
 }
 
 const InputPhone: FC<PhoneProps> = (props) => {
+  const { label, name } = props;
+
   const {
     register,
     formState: { errors },
   } = useFormContext();
+  const errMessage = errors[name]?.message;
+
   const [countries, setCountries] = useState<CountryType[]>([]);
+
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const [selectedCode, setSelectedCode] = useState<string>("+234");
+  const [selectedFlag, setSelectedFlag] = useState<string>("https://flagcdn.com/ng.svg");
+
+  const dialCodeRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const dialCodeDropdownRef = useRef<HTMLDivElement>(null);
+
+  //Toggle the dropdown on click
+  const toggleSelect = (e: any) => {
+    e.preventDefault();
+    setIsActive(!isActive);
+  };
+
+  //Blur function to close the dropdown
+  const handleBlur: any = (e: MouseEvent) => {
+    if (
+      dialCodeDropdownRef.current &&
+      !dialCodeDropdownRef.current.contains(e.target as Node)
+    ) {
+      setIsActive(false);
+    }
+  };
 
   useEffect(() => {
     setCountries(countriesData);
   }, []);
 
-  const { label, name } = props;
+  //Removes the dial codes dropdown if it is active, when you click elsewhere on the page
+  useEffect(() => {
+    document.addEventListener("mousedown", handleBlur);
+    return () => {
+      document.removeEventListener("mousedown", handleBlur);
+    };
+  }, []);
 
-  const errMessage = errors[name]?.message;
+  const selectOption = () => {};
 
   return (
     <div className="flex flex-col mb-3">
@@ -40,7 +80,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
         {label}
       </label>
       <div className="flex justify-start items-center gap-4">
-        <div className={styles.customSelect}>
+        {/* <div className={styles.customSelect}>
           <select
             className="cursor-pointer w-full"
             {...register("dialCode", { required: true })}
@@ -58,6 +98,40 @@ const InputPhone: FC<PhoneProps> = (props) => {
               );
             })}
           </select>
+        </div> */}
+        <div className={styles.dropdown}>
+          <div className={styles["dropdown-btn"]} onClick={toggleSelect}>
+            <Image
+              src={selectedFlag}
+              alt="Selected Country's Flag"
+              width={25}
+              height={25}
+              className="mr-1.5"
+            />
+            <p>{selectedCode}</p>
+          </div>
+          {isActive && (
+            <div
+              className={styles["dropdown-content"]}
+              ref={dialCodeDropdownRef}
+            >
+              {countries.map((country, index) => (
+                <div
+                  className={styles["dropdown-item"]}
+                  key={index}
+                  ref={(element) => (dialCodeRefs.current[index] = element)}
+                >
+                  <Image
+                    src={country.flags.svg}
+                    alt="Country's Flag"
+                    width={40}
+                    height={40}
+                  />
+                  <p>+{country.callingCodes[0]}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         <div className="grow">
           <input
