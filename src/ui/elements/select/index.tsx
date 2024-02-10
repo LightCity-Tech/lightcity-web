@@ -83,7 +83,9 @@ const Select: FC<SelectProps> = (props) => {
           id={name}
           {...register(name)}
         >
-          {selected}
+          {
+            selected === "Select" ?  <p className="text-[#979797]">{selected}</p> : <p className="text-black">{selected}</p>
+          }
         </div>
         {isActive && (
           <div className={styles["dropdown-content"]} ref={dropdownRef}>
