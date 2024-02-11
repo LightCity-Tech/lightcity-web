@@ -10,7 +10,7 @@ export const registerMeetingSchema = Yup.object({
     .email("The email address is invalid")
     .required("Please enter your email address"),
   location: Yup.string().required("Please enter your location"),
-  dialCode: Yup.string().required(),
+ // dialCode: Yup.string().required(),
   number: Yup.string().required("Please enter your phone number").matches(phoneNumberRegExp, 'Phone number entered is not valid'),
   circuit: Yup.string().oneOf(circuitOptions, "Please select the circuit you belong to").required()
 });

@@ -4,7 +4,6 @@ export * from "./meeting-card";
 export * from "./series-card";
 export * from "./bullet-point";
 export * from "./input";
-export * from "./input-select";
-export * from "./input-phone-number";
 export * from "./input-phone";
 export * from "./input-dropdown";
+export * from "./select";

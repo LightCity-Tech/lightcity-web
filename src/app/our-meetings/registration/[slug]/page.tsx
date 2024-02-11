@@ -2,7 +2,7 @@
 
 import React, {useState} from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { Typography, Button, Input, InputDropdown, InputPhone } from "@/src/ui";
+import { Typography, Button, Input, InputPhone, Select } from "@/src/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerMeetingSchema } from "../_schema/schema";
 import { registerMeeting } from "@/src/app/services/api";
@@ -11,8 +11,8 @@ import { registerMeeting } from "@/src/app/services/api";
 export type FormData = {
   fullname: string,
   email: string,
-  dialCode: any;
-  number: any,
+  //dialCode: string,
+  number: string,
   circuit: any,
   location: string,
 };
@@ -28,7 +28,7 @@ const meetingDLC = [
 
 const optionsData = [
   { label: "Abakpa", value: "Abakpa" },
-  { label: "Agbani/One-Day", value: "Agbani/One-day" },
+  { label: "Agbani/One-Day", value: "Agbani/One-Day" },
   { label: "Maryland/Ugwuaji", value: "Maryland/Ugwuaji" },
   { label: "Obiagu", value: "Obiagu" },
   { label: "Ologo", value: "Ologo" },
@@ -39,8 +39,9 @@ const optionsData = [
 ];
 
 const UpcomingMeeting = () => {
-  const [isFocused, setIsFocused] = useState<boolean>(false)
-  const [isRegistered, setIsRegistered] = useState<boolean>(false)
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isRegistered, setIsRegistered] = useState<boolean>(false);
+  
 
   const methods = useForm({
     mode: "onChange",
@@ -48,20 +49,20 @@ const UpcomingMeeting = () => {
   });
 
   const onSubmit = async (data: FormData) => {
-    const convertToMobile = (code: number, number: number) => {
-      let mobileStr = code.toString().concat(number.toString());
-      let mobileNum = mobileStr
-      return mobileNum;
-    };
+    const concatNumber = (dialCode:string, number:string) => {
+      return dialCode.concat(number)
+    }
 
-    const phonenumber = convertToMobile(data.dialCode, data.number);
-    const { dialCode, number, ...rest } = data;
+    // const phonenumber = concatNumber(data.dialCode, data.number);
+    const {  number, ...rest } = data;
+
+    const phonenumber = data.number;
 
     const newData = { ...rest, phonenumber, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
+    console.log(newData);
 
     try {
       const statusCode = await registerMeeting(newData);
-      // console.log(newData);
       if(statusCode === 201){
         setIsRegistered(true);
         methods.reset();
@@ -163,7 +164,7 @@ const UpcomingMeeting = () => {
                   placeholder="Enter here"
                 />
                 <InputPhone name="number" label="mobile number" />
-                <InputDropdown name="circuit" label="circuit" options={optionsData} />
+                <Select label = "circuit" options = {optionsData} name = "circuit"/>
                 <fieldset className="flex flex-col">
                   <Input
                     name="location"
