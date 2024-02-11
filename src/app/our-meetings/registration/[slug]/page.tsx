@@ -11,7 +11,7 @@ import { registerMeeting } from "@/src/app/services/api";
 export type FormData = {
   fullname: string,
   email: string,
-  dialCode: string,
+  //dialCode: string,
   number: string,
   circuit: any,
   location: string,
@@ -39,7 +39,6 @@ const optionsData = [
 ];
 
 const UpcomingMeeting = () => {
-  
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
   
@@ -50,13 +49,14 @@ const UpcomingMeeting = () => {
   });
 
   const onSubmit = async (data: FormData) => {
-    
     const concatNumber = (dialCode:string, number:string) => {
       return dialCode.concat(number)
     }
 
-    const phonenumber = concatNumber(data.dialCode, data.number);
-    const { dialCode, number, ...rest } = data;
+    // const phonenumber = concatNumber(data.dialCode, data.number);
+    const {  number, ...rest } = data;
+
+    const phonenumber = data.number;
 
     const newData = { ...rest, phonenumber, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
     console.log(newData);

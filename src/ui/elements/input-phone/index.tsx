@@ -70,11 +70,11 @@ const InputPhone: FC<PhoneProps> = (props) => {
     };
   }, []);
 
-  const selectOption = (selectedCountry: CountryType) => {
-    setSelectedFlag(selectedCountry.flags.svg);
-    setSelectedCode(`+${selectedCountry.callingCodes[0]}`);
-    setIsActive(false);
-  };
+  // const selectOption = (selectedCountry: CountryType) => {
+  //   setSelectedFlag(selectedCountry.flags.svg);
+  //   setSelectedCode(`+${selectedCountry.callingCodes[0]}`);
+  //   setIsActive(false);
+  // };
 
   return (
     <div className="flex flex-col mb-3">
@@ -85,7 +85,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
         {label}
       </label>
       <div className="flex justify-start items-center gap-4">
-        <div className={styles.dropdown}>
+        {/* <div className={styles.dropdown}>
           <div className={styles["dropdown-btn"]} onClick={toggleSelect}>
             <Image
               src={selectedFlag}
@@ -118,11 +118,11 @@ const InputPhone: FC<PhoneProps> = (props) => {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
 
         <div className="grow">
           <input
-            type="text"
+            type="tel"
             placeholder="Enter here"
             className={clsx(
               `block w-full rounded-full border-2 border-[#DEDEDE] bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main`
