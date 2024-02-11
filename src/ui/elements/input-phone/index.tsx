@@ -2,7 +2,7 @@
 
 import React, { FC, useState, useEffect, useRef } from "react";
 import clsx from "clsx";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import countriesData from "@/src/data/country-codes.json";
 import Image from "next/image";
 import styles from "./index.module.scss";
