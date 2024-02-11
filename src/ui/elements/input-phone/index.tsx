@@ -123,7 +123,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
         <div className="grow">
           <input
             type="tel"
-            placeholder="Enter here"
+            placeholder="+234 XXX XXX XXXX"
             className={clsx(
               `block w-full rounded-full border-2 border-[#DEDEDE] bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main`
             )}

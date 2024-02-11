@@ -1,8 +1,12 @@
 import * as Yup from "yup";
 
-const phoneNumberRegExp = /^[0-9]{9,}$|^0$/;
+// const phoneNumberRegExp = /^[0-9]{9,}$|^0$/;
 
-const circuitOptions = ["Abakpa", "Agbani/One-day", "Maryland/Ugwuaji","Obiagu", "Ologo", "UNEC", "UNN/Nsukka", "Uwani", "Other"]
+const phoneNumberRegExp = /^(\+\s?\d{1,3}\s?)?(\(\d{1,4}\)\s?)?[0-9\s]{9,}$/
+
+
+
+const circuitOptions = ["Abakpa", "Agbani/One-Day", "Maryland/Ugwuaji","Obiagu", "Ologo", "UNEC", "UNN/Nsukka", "Uwani", "Other"]
 
 export const registerMeetingSchema = Yup.object({
   fullname: Yup.string().required("Please enter your full name"),

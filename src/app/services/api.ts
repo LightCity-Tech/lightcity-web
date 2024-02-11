@@ -38,7 +38,6 @@ export const registerMeeting = async (registrationDetails: {
       `${baseUrl}/meetings/register`,
       registrationDetails
     );
-    console.log(response.data);
     return response.status
   } catch (error:any) {
     console.log(error?.message);

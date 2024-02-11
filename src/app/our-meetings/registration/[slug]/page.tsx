@@ -59,7 +59,6 @@ const UpcomingMeeting = () => {
     const phonenumber = data.number;
 
     const newData = { ...rest, phonenumber, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
-    console.log(newData);
 
     try {
       const statusCode = await registerMeeting(newData);
