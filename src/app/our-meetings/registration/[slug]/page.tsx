@@ -11,8 +11,7 @@ import { registerMeeting } from "@/src/app/services/api";
 export type FormData = {
   fullname: string,
   email: string,
-  //dialCode: string,
-  number: string,
+  phonenumber: string,
   circuit: any,
   location: string,
 };
@@ -49,16 +48,9 @@ const UpcomingMeeting = () => {
   });
 
   const onSubmit = async (data: FormData) => {
-    const concatNumber = (dialCode:string, number:string) => {
-      return dialCode.concat(number)
-    }
+    const { ...rest } = data;
 
-    // const phonenumber = concatNumber(data.dialCode, data.number);
-    const {  number, ...rest } = data;
-
-    const phonenumber = data.number;
-
-    const newData = { ...rest, phonenumber, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
+    const newData = { ...rest, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
 
     try {
       const statusCode = await registerMeeting(newData);
@@ -162,7 +154,7 @@ const UpcomingMeeting = () => {
                   label="email address"
                   placeholder="Enter here"
                 />
-                <InputPhone name="number" label="mobile number" />
+                <InputPhone name="phonenumber" label="mobile number" />
                 <Select label = "circuit" options = {optionsData} name = "circuit"/>
                 <fieldset className="flex flex-col">
                   <Input
