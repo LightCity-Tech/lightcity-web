@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, useRef, useEffect } from "react";
-import { useFormContext,  } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import styles from "./index.module.scss";
 
 interface Options {
@@ -22,6 +22,7 @@ const Select: FC<SelectProps> = (props) => {
     register,
     setValue,
     formState: { errors },
+    clearErrors
   } = useFormContext();
 
   const errMessage = errors[name]?.message;
@@ -36,7 +37,7 @@ const Select: FC<SelectProps> = (props) => {
     e.preventDefault();
     setIsActive(!isActive);
   };
- 
+
   //Function to select an option
   const selectOption = (optionIndex: number) => {
     const option = options[optionIndex].value;
@@ -47,7 +48,8 @@ const Select: FC<SelectProps> = (props) => {
     if (selectedOptionRef) {
       selectedOptionRef.classList.add(styles.selected);
     }
-    setValue(name, option) //assigning an option to the 'circuit' key
+    setValue(name, option); //assigning an option to the 'circuit' key
+    clearErrors(name)
   };
 
   //Blur function to close the dropdown
@@ -81,9 +83,18 @@ const Select: FC<SelectProps> = (props) => {
           className={styles["dropdown-btn"]}
           onClick={toggleSelect}
           id={name}
-          {...register(name)}
+          {...register(name, {
+            required: {
+              value: true,
+              message: "Please select the circuit you belong to",
+            },
+          })}
         >
-          {selected}
+          {selected === "Select" ? (
+            <p className="text-[#979797]">{selected}</p>
+          ) : (
+            <p className="text-black">{selected}</p>
+          )}
         </div>
         {isActive && (
           <div className={styles["dropdown-content"]} ref={dropdownRef}>
@@ -103,7 +114,7 @@ const Select: FC<SelectProps> = (props) => {
         )}
       </div>
       {errMessage && typeof errMessage === "string" && (
-        <div className="text-caption-reg text-red-500">{errMessage}</div>
+        <div className="text-caption-reg text-red-500">Please select the circuit you belong to</div>
       )}
     </div>
   );
