@@ -80,5 +80,5 @@ const Button:React.FC<ButtonProps> = (props) => {
     );
 }
  
-export {Button};
+export { Button };
 export * from './index.types';

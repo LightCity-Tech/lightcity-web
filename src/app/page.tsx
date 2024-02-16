@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Logo from "./logo";
+import dynamic from "next/dynamic";
+
+
+const HomeSection = dynamic(() => import('./home/page'))
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-center items-center pt-20">
-      <Logo />
-      <Link href="/components" className="m-10 underline hover:text-blue-700">
-        Go to Components Page
-      </Link>
-    </main>
+  <main>
+    <HomeSection />
+  </main>
   );
 }

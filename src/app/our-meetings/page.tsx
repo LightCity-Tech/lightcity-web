@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import MeetingCard from "@/src/ui/elements/meeting-card";
-import SampleImg from "@/public/assets/images/sample-meeting-img.png";
-import HeroSection from "../home/components/hero-section";
-import ArrowUpIcon from "@/public/assets/svgs/arrow-up-right.svg";
+import dynamic from "next/dynamic";
+
+const MeetingCard = dynamic(() => import('@/src/ui/elements/meeting-card'))
+const HeroSection = dynamic(() => import('../home/components/hero-section'))
 
 const meetingsMockData = [
   {

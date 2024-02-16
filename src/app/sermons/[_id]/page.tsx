@@ -2,14 +2,15 @@
 
 import { Button } from "@/src/ui";
 import React, { useEffect, useState } from "react";
-import ButtonLeft from "@/public/assets/svgs/button-icon-left.svg";
-import DownloadIcon from "@/public/assets/svgs/save-icon.svg";
 import { getASeries } from "../../services/api";
 import { useParams } from "next/navigation";
-import ReactPlayer from "react-player";
-
 import { InfinitySpin } from "react-loader-spinner";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+
+const ButtonLeft = dynamic(() => import('@/public/assets/svgs/button-icon-left.svg'))
+const DownloadIcon= dynamic(() => import('@/public/assets/svgs/save-icon.svg'))
 
 type Props = {};
 
