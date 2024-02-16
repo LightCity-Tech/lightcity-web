@@ -9,13 +9,13 @@ import CalenderDate from "@/public/assets/svgs/calendar-date.svg";
 import Location from "@/public/assets/svgs/icon.svg";
 
 interface MeetingProps {
-  image: string;
+  image?: string;
   title: string;
   description: string;
   month: string;
   startDay: string;
   year: string;
-  duration: string;
+  duration?: string;
   location: string;
 }
 
@@ -34,11 +34,11 @@ const MeetingCard = ({
       <div className="md:flex md:flex-row flex flex-col md:items-center gap-8 w-full bg-white">
         <div className="w-full rounded-[1.25rem]">
         <Link href={`/our-meetings/${title.replace(" ", "-")}`}>
-          <img
+         { image && <img
             src={image}
             alt="Sample Image for a Meeting"
             className="h-full w-full object-fill rounded-[1.25rem]"
-          />
+          />}
           </Link>
         </div>
         <div className="md:flex md:flex-col hidden">
@@ -74,7 +74,7 @@ const MeetingCard = ({
           <div className="flex space-x-4">
             <CalenderDate />
               <p>
-                {duration} {month} {year}
+                {duration && duration} {month} {year}
               </p>
           </div>
           <div className="flex space-x-4">
