@@ -2,12 +2,18 @@
 
 import React, { FC } from "react";
 import clsx from "clsx";
+<<<<<<< HEAD
 import { useFormContext } from "react-hook-form";
 
 type FlagObj = {
   svg: string;
   png: string;
 };
+=======
+import { useForm } from "react-hook-form";
+import countriesData from "@/src/data/country-codes.json";
+import styles from "./index.module.scss";
+>>>>>>> fc7d269 (resolved dependency issues and page build errors)
 
 type CountryType = {
   callingCodes: string[];
@@ -26,7 +32,19 @@ const InputPhone: FC<PhoneProps> = (props) => {
   const {
     register,
     formState: { errors },
+<<<<<<< HEAD
   } = useFormContext();
+=======
+  } = useForm();
+  const [countries, setCountries] = useState<CountryType[]>([]);
+
+  useEffect(() => {
+    setCountries(countriesData);
+  }, []);
+
+  const { label, name } = props;
+
+>>>>>>> fc7d269 (resolved dependency issues and page build errors)
   const errMessage = errors[name]?.message;
 
   return (
