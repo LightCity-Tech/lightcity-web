@@ -33,7 +33,7 @@ const MeetingCard = ({
     <div className="md:flex md:flex-row flex flex-col md:justify-between md:gap-16 px-4 py-6 bg-white">
       <div className="md:flex md:flex-row flex flex-col md:items-center gap-8 w-full bg-white">
         <div className="w-full rounded-[1.25rem]">
-        {image && <Link href={`/our-meetings/${title.replace(" ", "-")}`}>
+        { image && <Link href={`/our-meetings/${title.replace(" ", "-")}`}>
           <img
             src={image}
             alt="Sample Image for a Meeting"
