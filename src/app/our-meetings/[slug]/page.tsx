@@ -2,11 +2,12 @@
 
 import { Button, Typography } from "@/src/ui";
 import React from "react";
-import HeroSection from "../../home/components/hero-section";
-import ArrowUpIcon from "@/public/assets/svgs/arrow-up-right.svg";
 import Link from "next/link";
-import ButtonLeft from "@/public/assets/svgs/button-icon-left.svg";
+import dynamic from "next/dynamic";
 
+const HeroSection = dynamic(() => import('../../home/components/hero-section'))
+const ArrowUpIcon = dynamic(() => import('@/public/assets/svgs/arrow-up-right.svg'))
+const ButtonLeft = dynamic(() => import('@/public/assets/svgs/button-icon-left.svg'))
 type Props = {};
 
 const Meeting = (props: Props) => {

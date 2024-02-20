@@ -1,11 +1,21 @@
 "use client";
 
-import HeroSection from "./components/hero-section";
-import DescriptionSection from "./components/description-section";
-import SeriesSection from "./components/series-section";
-import ServiceSection from "./components/service-section";
-import GiveSection from "./components/give-section";
-import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
+import dynamic from 'next/dynamic';
+
+// import HeroSection from "./components/hero-section";
+// import DescriptionSection from "./components/description-section";
+// import SeriesSection from "./components/series-section";
+// import ServiceSection from "./components/service-section";
+// import GiveSection from "./components/give-section";
+// import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
+// import dynamic from "next/dynamic";
+
+const HeroSection = dynamic(() => import('./components/hero-section'))
+const DescriptionSection = dynamic(() => import('./components/description-section'))
+const SeriesSection = dynamic(() => import('./components/series-section'))
+const ServiceSection = dynamic(() => import('./components/service-section'))
+const GiveSection = dynamic(() => import('./components/give-section'))
+const BrownPlayIcon = dynamic(() => import('./components/hero-section'))
 
 const HomePage = () => {
   return (

@@ -5,13 +5,13 @@ import React, { FC } from "react";
 import clsx from "clsx";
 
 import { InputProps } from "..";
-import { useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const Input: FC<InputProps> = (props) => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useForm();
   const {
     name,
     label,
