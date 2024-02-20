@@ -51,11 +51,15 @@ const UpcomingMeeting = () => {
     const { ...rest } = data;
 
     const newData = { ...rest, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
+    console.log(newData)
 
     try {
       const statusCode = await registerMeeting(newData);
       if(statusCode === 201){
         setIsRegistered(true);
+        setTimeout(() => {
+          setIsRegistered(false)
+        }, 2000)
         methods.reset();
       }
     } catch (error) {
@@ -68,7 +72,7 @@ const UpcomingMeeting = () => {
     setIsFocused(true)
     setTimeout(() => {
       setIsFocused(false)
-    }, 2000)
+    }, 1000)
   }
 
   return (
@@ -182,7 +186,7 @@ const UpcomingMeeting = () => {
                   onClick={handleFocus}
                 />
               </form>
-              {isFocused && isRegistered &&
+              {isRegistered &&
                 <Typography
                   variant = "caption-mid"
                   align="left"
