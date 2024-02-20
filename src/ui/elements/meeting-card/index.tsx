@@ -98,7 +98,7 @@ const MeetingCard = ({
           {startDay}
         </Typography>
         <Typography variant="caption-mid" align="center" customClassName="grow ml-2">
-          {duration}
+          {duration && duration}
         </Typography>
         <div className="flex justify-center gap-2 grow">
           <LocationIcon />
