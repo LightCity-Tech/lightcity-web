@@ -37,11 +37,10 @@ const optionsData = [
   { label: "Other", value: "Other" },
 ];
 
-const UpcomingMeeting = () => {
+const UpcomingMeeting = () => {  
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
   
-
   const methods = useForm({
     mode: "onChange",
     resolver: yupResolver(registerMeetingSchema),

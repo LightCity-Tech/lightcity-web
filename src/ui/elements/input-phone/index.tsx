@@ -4,17 +4,6 @@ import React, { FC } from "react";
 import clsx from "clsx";
 import { useFormContext } from "react-hook-form";
 
-type FlagObj = {
-  svg: string;
-  png: string;
-};
-
-type CountryType = {
-  callingCodes: string[];
-  flags: FlagObj;
-  name: string;
-};
-
 interface PhoneProps {
   label: string;
   name: string;
