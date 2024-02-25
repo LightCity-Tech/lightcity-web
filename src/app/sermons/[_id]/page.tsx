@@ -109,6 +109,5 @@ const DownloadButton = ({ link }: any) => {
       >
         <DownloadIcon />
       </a>
-   
   );
 };
