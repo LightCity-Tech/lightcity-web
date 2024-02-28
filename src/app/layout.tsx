@@ -6,6 +6,7 @@ import "@/styles/globals.css";
 import Navbar from "./components/navigation/navbar-component";
 import FooterSection from "./components/footer-section";
 import Head from "./head";
+import { Toaster } from 'sonner'
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
@@ -40,6 +41,7 @@ export default function RootLayout({
           {children}
           <FooterSection />
         </section>
+        <Toaster richColors={true} position="top-center" expand={true} />
       </body>
     </html>
     // </QueryClientProvider>
