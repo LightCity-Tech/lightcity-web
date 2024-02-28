@@ -1,3 +1,5 @@
+const { hostname } = require("os");
+
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
@@ -10,7 +12,26 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['res.cloudinary.com']
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/tochukwu/image/upload/*"
+      },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+        port: "",
+        pathname: "/uc?export=download&id="
+      },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+        port: "",
+        pathname: "/file/*"
+      }
+    ]
   },
 
   // redirects() {
