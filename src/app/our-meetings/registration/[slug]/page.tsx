@@ -6,6 +6,7 @@ import { Typography, Button, Input, InputPhone, Select } from "@/src/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerMeetingSchema } from "../_schema/schema";
 import { registerMeeting } from "@/src/app/services/api";
+import MeetingForm from "@/src/app/components/meeting-form";
 
 
 export type FormData = {
@@ -17,7 +18,7 @@ export type FormData = {
 };
 
 const meetingDLC = [
-  { heading: "Date", description: "23rd - 24th February, 2024" },
+  { heading: "Date", description: "8th - 11th April, 2024" },
   {
     heading: "Location",
     description: " 179 Ziks Avenue (Second Floor), Uwani, Enugu State.",
@@ -101,7 +102,7 @@ const UpcomingMeeting = () => {
               fontWeight="medium"
               variant="h3"
             >
-              23rd- 24th February, 2024
+              8th- 11th April, 2024
             </Typography>
           </div>
         </section>
@@ -140,7 +141,7 @@ const UpcomingMeeting = () => {
               >
                 Complete your registration
               </Typography>
-              <form
+              {/* <form
                 className="flex flex-col w-full"
                 onSubmit={methods.handleSubmit(onSubmit)}
               >
@@ -192,7 +193,8 @@ const UpcomingMeeting = () => {
                 >
                   You have succesfully registered for this meeting. 🥳
               </Typography>
-              }
+              } */}
+              <MeetingForm />
             </div>
           </div>
         </section>
