@@ -37,11 +37,12 @@ const meetingsMockData = [
     //   "https://res.cloudinary.com/tochukwu/image/upload/w_250/v1700481884/lightcity/qek9s7hvd51k4yr0rta9.webp",
     description:
       "This is a meeting put together specially by the Spirit of God for this times and seasons to have believers grounded in the rudiments of the faith walk. This meeting will make walking in faith an everyday part of your life.",
-    month: "January",
-    startDay: "TBA",
-    duration: "TBA",
+    month: "April",
+    startDay: "8",
+    duration: "8th - 11th",
     year: "2024",
     location: "ENUGU, NIGERIA",
+    link: ""
   },
   {
     title: "Fire Conference 2024",

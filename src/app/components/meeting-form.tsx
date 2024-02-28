@@ -3,16 +3,20 @@ import React, { useState } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { isAxiosError } from "axios";
-import { useForm } from "react-hook-form";
 import { registerMeeting } from "../services/api";
 import { toast } from "sonner";
+import { useForm } from "react-hook-form";
 
 const registrationSchema = z.object({
   fullname: z.string().min(5, "The fullname field cannot be left empty"),
   email: z.string().email("Please enter a valid email address"),
-  phonenumber: z.string().min(11, "Your phonenumber must be greater than or equal to 11 digits"),
+  phonenumber: z
+    .string()
+    .min(11, "Your phonenumber must be greater than or equal to 11 digits"),
   location: z.string().min(3, "You must enter your location"),
-  circuit: z.string().min(1, "Please select a ciruit from the available options"),
+  circuit: z
+    .string()
+    .min(1, "Please select a ciruit from the available options"),
 });
 
 type Props = {};
@@ -29,16 +33,18 @@ const MeetingForm = (props: Props) => {
     resolver: zodResolver(registrationSchema),
   });
 
-  const handleFormSubmission = async (data: z.infer<typeof registrationSchema>) => {
+  const handleFormSubmission = async (
+    data: z.infer<typeof registrationSchema>
+  ) => {
     try {
       // set submitting to true
       setSubmitting(true);
       // handle the form submission
       const res = await registerMeeting({
         ...data,
-        meetingId: ""
-      })
-      if(res === 201){
+        meetingId: "",
+      });
+      if (res === 201) {
         setSubmitting(false);
         reset();
         toast.success("You have successfully registered");
@@ -67,7 +73,7 @@ const MeetingForm = (props: Props) => {
               id="fullname"
               {...register("fullname", { required: true })}
               className="block w-full rounded-[10rem] border-0 py-2.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-[#DEDEDE] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#DEDEDE] sm:text-sm sm:leading-6"
-              aria-invalid={errors.fullname ? "true": "false"}
+              aria-invalid={errors.fullname ? "true" : "false"}
             />
             {errors.fullname && (
               <p className="mt-1 text-sm text-red-500">
@@ -89,15 +95,13 @@ const MeetingForm = (props: Props) => {
               id="email"
               {...register("email", { required: true })}
               className="block w-full rounded-[10rem] border-0 py-2.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-[#DEDEDE] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#DEDEDE] sm:text-sm sm:leading-6"
-              aria-invalid={errors.email? "true": "false"}
+              aria-invalid={errors.email ? "true" : "false"}
             />
-            {
-              errors.email && (
-                <p className="mt-1 text-sm text-red-500">
-                  {errors.email.message}
-                </p>
-              )
-            }
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-500">
+                {errors.email.message}
+              </p>
+            )}
           </div>
         </div>
         <div className="mt-3">
@@ -113,15 +117,13 @@ const MeetingForm = (props: Props) => {
               id="mobile"
               {...register("phonenumber", { required: true })}
               className="block w-full rounded-[10rem] border-0 py-2.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-[#DEDEDE] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#DEDEDE] sm:text-sm sm:leading-6"
-              aria-invalid={errors.phonenumber ? "true": "false"}
+              aria-invalid={errors.phonenumber ? "true" : "false"}
             />
-            {
-              errors.phonenumber && (
-                <p className="mt-1 text-sm text-red-500">
-                  {errors.phonenumber.message}
-                </p>
-              )
-            }
+            {errors.phonenumber && (
+              <p className="mt-1 text-sm text-red-500">
+                {errors.phonenumber.message}
+              </p>
+            )}
           </div>
         </div>
         <div className="mt-3">
@@ -136,7 +138,7 @@ const MeetingForm = (props: Props) => {
               id="circuit"
               className="peer h-full w-full rounded-full border border-[#DEDEDE] bg-transparent px-3 py-2 pr-4"
               {...register("circuit", { required: true })}
-              aria-invalid={errors.circuit? "true": "false"}
+              aria-invalid={errors.circuit ? "true" : "false"}
             >
               <option>Select</option>
               <option value="Abakpa">Abakpa</option>
@@ -149,13 +151,11 @@ const MeetingForm = (props: Props) => {
               <option value="Uwani">Uwani</option>
               <option value="Other">Other</option>
             </select>
-            {
-              errors.circuit && (
-                <p className="mt-1 text-sm text-red-500">
-                  {errors.circuit.message}
-                </p>
-              )
-            }
+            {errors.circuit && (
+              <p className="mt-1 text-sm text-red-500">
+                {errors.circuit.message}
+              </p>
+            )}
           </div>
         </div>
         <div className="mt-3">
@@ -171,16 +171,14 @@ const MeetingForm = (props: Props) => {
               id="location"
               {...register("location", { required: true })}
               className="block w-full rounded-[10rem] border-0 py-2.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-[#DEDEDE] placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#DEDEDE] sm:text-sm sm:leading-6"
-              aria-invalid={errors.location ? "true": "false"}
+              aria-invalid={errors.location ? "true" : "false"}
             />
             <small className="mt-1">Where are you coming from</small>
-            {
-              errors.location && (
-                <p className="mt-1 text-sm text-red-500">
-                  {errors.location.message}
-                </p>
-              )
-            }
+            {errors.location && (
+              <p className="mt-1 text-sm text-red-500">
+                {errors.location.message}
+              </p>
+            )}
           </div>
         </div>
         <button
@@ -188,7 +186,7 @@ const MeetingForm = (props: Props) => {
           type="submit"
           disabled={submitting}
         >
-          <span className={`mr-2 ${submitting ? 'flex' : 'hidden'}`}>
+          <span className={`mr-2 ${submitting ? "flex" : "hidden"}`}>
             <svg
               width={24}
               height={24}
