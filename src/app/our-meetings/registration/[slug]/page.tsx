@@ -1,20 +1,18 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { Typography, Button, Input, InputPhone, Select } from "@/src/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerMeetingSchema } from "../_schema/schema";
-import { registerMeeting } from "@/src/app/services/api";
 import MeetingForm from "@/src/app/components/meeting-form";
 
-
 export type FormData = {
-  fullname: string,
-  email: string,
-  phonenumber: string,
-  circuit: any,
-  location: string,
+  fullname: string;
+  email: string;
+  phonenumber: string;
+  circuit: any;
+  location: string;
 };
 
 const meetingDLC = [
@@ -38,41 +36,41 @@ const optionsData = [
   { label: "Other", value: "Other" },
 ];
 
-const UpcomingMeeting = () => {  
+const UpcomingMeeting = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
-  
+
   const methods = useForm({
     mode: "onChange",
     resolver: yupResolver(registerMeetingSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    const { ...rest } = data;
+  // const onSubmit = async (data: FormData) => {
+  //   const { ...rest } = data;
 
-    const newData = { ...rest, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
+  //   const newData = { ...rest, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
 
-    try {
-      const statusCode = await registerMeeting(newData);
-      if(statusCode === 201){
-        setIsRegistered(true);
-        setTimeout(() => {
-          setIsRegistered(false)
-        }, 2000)
-        methods.reset();
-      }
-    } catch (error) {
-      console.error("Error submittting:", error);
-    }
-  };
+  //   try {
+  //     const statusCode = await registerMeeting(newData);
+  //     if(statusCode === 201){
+  //       setIsRegistered(true);
+  //       setTimeout(() => {
+  //         setIsRegistered(false)
+  //       }, 2000)
+  //       methods.reset();
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submittting:", error);
+  //   }
+  // };
 
   //Function to handle focus
-  const handleFocus = () => {
-    setIsFocused(true)
-    setTimeout(() => {
-      setIsFocused(false)
-    }, 1000)
-  }
+  // const handleFocus = () => {
+  //   setIsFocused(true)
+  //   setTimeout(() => {
+  //     setIsFocused(false)
+  //   }, 1000)
+  // }
 
   return (
     <section>

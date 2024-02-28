@@ -29,11 +29,14 @@ const MeetingCard = ({
   location,
   year
 }: MeetingProps) => {
+
+  const href = (title === "Faith Seminar") ? "registration/faith-seminar" : title.replace(" ", "-");
+
   return (
     <div className="md:flex md:flex-row flex flex-col md:justify-between md:gap-16 px-4 py-6 bg-white">
       <div className="md:flex md:flex-row flex flex-col md:items-center gap-8 w-full bg-white">
         <div className="w-full rounded-[1.25rem]">
-        <Link href={`/our-meetings/${title.replace(" ", "-")}`}>
+        <Link href={`/our-meetings/${href}`}>
          { image && <img
             src={image}
             alt="Sample Image for a Meeting"
@@ -42,7 +45,7 @@ const MeetingCard = ({
           </Link>
         </div>
         <div className="md:flex md:flex-col hidden">
-        <Link href={`/our-meetings/${title.replace(" ", "-")}`}>
+        <Link href={`/our-meetings/${href}`}>
           <Typography
             variant="h3"
             color="secondary-main"
@@ -54,7 +57,7 @@ const MeetingCard = ({
           <Typography variant="body-reg" customClassName="">
             {description}
           </Typography>
-          <Link href={`/our-meetings/${title.replace(" ", "-")}`} className="w-fit flex items-center mt-auto">
+          <Link href={`/our-meetings/${href}`} className="w-fit flex items-center mt-auto">
             <Button
               variant="no-border"
               label="Learn More"
