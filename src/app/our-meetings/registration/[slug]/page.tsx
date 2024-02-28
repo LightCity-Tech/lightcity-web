@@ -1,23 +1,22 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { Typography, Button, Input, InputPhone, Select } from "@/src/ui";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerMeetingSchema } from "../_schema/schema";
-import { registerMeeting } from "@/src/app/services/api";
-
+import MeetingForm from "@/src/app/components/meeting-form";
 
 export type FormData = {
-  fullname: string,
-  email: string,
-  phonenumber: string,
-  circuit: any,
-  location: string,
+  fullname: string;
+  email: string;
+  phonenumber: string;
+  circuit: any;
+  location: string;
 };
 
 const meetingDLC = [
-  { heading: "Date", description: "23rd - 24th February, 2024" },
+  { heading: "Date", description: "8th - 11th April, 2024" },
   {
     heading: "Location",
     description: " 179 Ziks Avenue (Second Floor), Uwani, Enugu State.",
@@ -37,41 +36,41 @@ const optionsData = [
   { label: "Other", value: "Other" },
 ];
 
-const UpcomingMeeting = () => {  
+const UpcomingMeeting = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [isRegistered, setIsRegistered] = useState<boolean>(false);
-  
+
   const methods = useForm({
     mode: "onChange",
     resolver: yupResolver(registerMeetingSchema),
   });
 
-  const onSubmit = async (data: FormData) => {
-    const { ...rest } = data;
+  // const onSubmit = async (data: FormData) => {
+  //   const { ...rest } = data;
 
-    const newData = { ...rest, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
+  //   const newData = { ...rest, meetingId:"" }; //Please, note that meetingId is static for now, we would eventually pull it from the urlParams
 
-    try {
-      const statusCode = await registerMeeting(newData);
-      if(statusCode === 201){
-        setIsRegistered(true);
-        setTimeout(() => {
-          setIsRegistered(false)
-        }, 2000)
-        methods.reset();
-      }
-    } catch (error) {
-      console.error("Error submittting:", error);
-    }
-  };
+  //   try {
+  //     const statusCode = await registerMeeting(newData);
+  //     if(statusCode === 201){
+  //       setIsRegistered(true);
+  //       setTimeout(() => {
+  //         setIsRegistered(false)
+  //       }, 2000)
+  //       methods.reset();
+  //     }
+  //   } catch (error) {
+  //     console.error("Error submittting:", error);
+  //   }
+  // };
 
   //Function to handle focus
-  const handleFocus = () => {
-    setIsFocused(true)
-    setTimeout(() => {
-      setIsFocused(false)
-    }, 1000)
-  }
+  // const handleFocus = () => {
+  //   setIsFocused(true)
+  //   setTimeout(() => {
+  //     setIsFocused(false)
+  //   }, 1000)
+  // }
 
   return (
     <section>
@@ -101,7 +100,7 @@ const UpcomingMeeting = () => {
               fontWeight="medium"
               variant="h3"
             >
-              23rd- 24th February, 2024
+              8th- 11th April, 2024
             </Typography>
           </div>
         </section>
@@ -140,7 +139,7 @@ const UpcomingMeeting = () => {
               >
                 Complete your registration
               </Typography>
-              <form
+              {/* <form
                 className="flex flex-col w-full"
                 onSubmit={methods.handleSubmit(onSubmit)}
               >
@@ -192,7 +191,8 @@ const UpcomingMeeting = () => {
                 >
                   You have succesfully registered for this meeting. 🥳
               </Typography>
-              }
+              } */}
+              <MeetingForm />
             </div>
           </div>
         </section>
