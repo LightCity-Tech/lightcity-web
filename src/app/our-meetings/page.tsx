@@ -38,8 +38,8 @@ const meetingsMockData = [
     description:
       "This is a meeting put together specially by the Spirit of God for this times and seasons to have believers grounded in the rudiments of the faith walk. This meeting will make walking in faith an everyday part of your life.",
     month: "April",
-    startDay: "8",
-    duration: "8th - 11th",
+    startDay: "11",
+    duration: "11th to 13th",
     year: "2024",
     location: "ENUGU, NIGERIA",
     link: ""
