@@ -100,7 +100,7 @@ const UpcomingMeeting = () => {
               fontWeight="medium"
               variant="h3"
             >
-              8th- 11th April, 2024
+              11th - 13th April, 2024
             </Typography>
           </div>
         </section>
