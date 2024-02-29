@@ -38,8 +38,8 @@ const meetingsMockData = [
     description:
       "This is a meeting put together specially by the Spirit of God for this times and seasons to have believers grounded in the rudiments of the faith walk. This meeting will make walking in faith an everyday part of your life.",
     month: "April",
-    startDay: "8",
-    duration: "8th - 11th",
+    startDay: "11",
+    duration: "11th to 13th",
     year: "2024",
     location: "ENUGU, NIGERIA",
     link: ""
@@ -88,7 +88,7 @@ const Meetings = () => {
       <HeroSection
         title="Upcoming Meetings"
         subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Faith Seminar </h1>"
-        imageUrl="/assets/images/hero-wc.webp"
+        imageUrl="/assets/images/wc-hero.jpg"
         buttonTitle="Register Online"
         buttonIconDirection="right"
         description="We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail."

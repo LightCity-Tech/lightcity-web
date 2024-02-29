@@ -75,7 +75,7 @@ const UpcomingMeeting = () => {
   return (
     <section>
       <FormProvider {...methods}>
-        <section className="w-full h-[100vh] relative overflow-hidden bg-[url('/assets/images/hero-wc.webp')] bg-cover flex items-center justify-center brightness-80">
+        <section className="w-full h-[100vh] relative overflow-hidden bg-[url('/assets/images/hero-wc.jpg')] bg-cover flex items-center justify-center brightness-80">
           <div className="">
             <Typography
               align="center"
@@ -100,7 +100,7 @@ const UpcomingMeeting = () => {
               fontWeight="medium"
               variant="h3"
             >
-              8th- 11th April, 2024
+              11th - 13th April, 2024
             </Typography>
           </div>
         </section>

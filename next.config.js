@@ -1,3 +1,5 @@
+const { hostname } = require("os");
+
 const nextConfig = {
   webpack(config) {
     config.module.rules.push({
