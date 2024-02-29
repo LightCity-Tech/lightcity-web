@@ -6,13 +6,13 @@ import React, { FC } from "react";
 import clsx from "clsx";
 
 import { InputProps } from "..";
-import { useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const Input: FC<InputProps> = (props) => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useForm();
   const {
     name,
     label,
@@ -22,6 +22,7 @@ const Input: FC<InputProps> = (props) => {
     ...rest
   } = props;
   const errMessage = errors[name]?.message;
+  
 
   return (
     <div className={clsx(`flex flex-col mb-3`, fieldCustomClassName)}>
