@@ -12,26 +12,7 @@ const nextConfig = {
   },
 
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-        port: "",
-        pathname: "/tochukwu/image/upload/*"
-      },
-      {
-        protocol: "https",
-        hostname: "drive.google.com",
-        port: "",
-        pathname: "/uc?export=download&id="
-      },
-      {
-        protocol: "https",
-        hostname: "drive.google.com",
-        port: "",
-        pathname: "/file/*"
-      }
-    ]
+    domains: ['res.cloudinary.com', 'drive.google.com'],
   },
 
   // redirects() {
