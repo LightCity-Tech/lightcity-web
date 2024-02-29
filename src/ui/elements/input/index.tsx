@@ -22,7 +22,6 @@ const Input: FC<InputProps> = (props) => {
     ...rest
   } = props;
   const errMessage = errors[name]?.message;
-  
 
   return (
     <div className={clsx(`flex flex-col mb-3`, fieldCustomClassName)}>
