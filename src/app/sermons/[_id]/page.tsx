@@ -1,16 +1,20 @@
 "use client";
 
-import { Button } from "@/src/ui";
+import { Button, Typography } from "@/src/ui";
 import React, { useEffect, useState } from "react";
 import { getASeries } from "../../services/api";
 import { useParams } from "next/navigation";
 import { InfinitySpin } from "react-loader-spinner";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import styles from "./styles.module.scss";
 
-
-const ButtonLeft = dynamic(() => import('@/public/assets/svgs/button-icon-left.svg'))
-const DownloadIcon= dynamic(() => import('@/public/assets/svgs/save-icon.svg'))
+const ButtonLeft = dynamic(
+  () => import("@/public/assets/svgs/button-icon-left.svg")
+);
+const DownloadIcon = dynamic(
+  () => import("@/public/assets/svgs/save-icon.svg")
+);
 
 type Props = {};
 
@@ -49,38 +53,39 @@ const SermonDetail = (props: Props) => {
           />
         </Link>
       </div>
-      <div className="flex w-full lg:mt-12 items-center mx-auto lg:max-w-[980px] xl:max-w-[1180px] lg:py-6 px-5">
-        <div className="w-full lg:flex lg:flex-row mt-4 flex flex-col space-x-0 lg:space-x-12">
-          <div
-            className="bg-black lg:p-4 lg:w-[48%] w-full rounded-tl-md rounded-tr-md h-[200px] relative"
-            key={series._id}
-          >
-            <div className="h-1 bg-secondary-200 block w-[90%] top-4 absolute mx-auto text-white "></div>
-            <div className="flex items-center justify-center">
-              <div className="px-4 py-6 text-center">
-                {" "}
-                <h3 className="text-white text-[14px] lg:text-[16px] uppercase">
-                  {series.title}
-                </h3>
-                {series?.tracks?.length > 0 && <p>(A Series)</p>}
-              </div>
+      <div className="flex w-full mb-4 lg:mt-4 items-center mx-auto lg:max-w-[980px] xl:max-w-[1180px] px-5">
+        <div className="w-full lg:flex lg:flex-row flex flex-col space-x-0 lg:space-x-12">
+          <div className="w-full h-[250px] p-4 bg-black flex flex-col justify-between rounded-t-lg mt-4">
+            <span className="block h-1 bg-secondary-200 w-full"></span>
+            <div>
+              <Typography variant="h3" color="white" align="center">
+                {series.title}
+              </Typography>
+              {series?.tracks?.length > 1 && (
+                <Typography variant="caption-mid" color="white" align="center">
+                  (A Series)
+                </Typography>
+              )}
             </div>
-            <div className=" p-2 mt-4 left-0 w-[70%] text-center right-0 mx-auto absolute bottom-8">
-              <p className="text-secondary-200 uppercase text-[12px]">
-                Pastor Tochi Madubuobi
-              </p>
-            </div>
-            <div className="h-1 bg-secondary-200 block w-[90%] bottom-4 absolute mx-auto "></div>
+            <Typography variant="body-reg" color="primary-main" align="center">
+              Pastor Tochi Madubuobi
+            </Typography>
+            <span className="block h-1 bg-secondary-200 w-full"></span>
           </div>
-          <div>
+          <div className="w-full">
             <h3 className="text-[20px] mt-4 lg:mt-0 py-3 lg:text-[28px] font-semibold">
               {series.title}
             </h3>
-            <div className="py-4 space-y-4">
-              {series?.tracks?.map((track: any, i: number) => (
-                <div key={track._id} className="flex justify-between items-center space-x-5 mb-4 relative">
+            <div className="">
+              {series?.tracks?.map((track: any, index: number) => (
+                <div
+                  key={track._id}
+                  className={`group w-full py-2 px-4 flex justify-between items-center relative transition duration-300 hover:bg-secondary-25 `}
+                >
                   <p>{track.title}</p>
-                  <div className="flex justify-start items-start">
+                  <div
+                    className={`flex justify-center items-center ${styles.download}`}
+                  >
                     <DownloadButton link={track.fileId} />
                   </div>
                 </div>
@@ -101,13 +106,12 @@ export default SermonDetail;
 
 const DownloadButton = ({ link }: any) => {
   return (
-    
-      <a
-        href={`https://drive.google.com/uc?export=download&id=${link}`}
-        download="cv"
-        className=""
-      >
-        <DownloadIcon />
-      </a>
+    <a
+      href={`https://drive.google.com/uc?export=download&id=${link}`}
+      download="cv"
+      className=""
+    >
+      <DownloadIcon />
+    </a>
   );
 };

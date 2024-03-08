@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, useRef, useEffect } from "react";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useForm } from "react-hook-form";
 import styles from "./index.module.scss";
 
 interface Options {
@@ -18,14 +18,9 @@ interface SelectProps {
 const Select: FC<SelectProps> = (props) => {
   const { label, options, name } = props;
 
-  const {
-    register,
-    setValue,
-    formState: { errors },
-    clearErrors
-  } = useFormContext();
+  const methods = useForm();
 
-  const errMessage = errors[name]?.message;
+  const errMessage = methods.formState.errors[name]?.message;
 
   const optionRefs = useRef<Array<HTMLDivElement | null>>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -48,8 +43,8 @@ const Select: FC<SelectProps> = (props) => {
     if (selectedOptionRef) {
       selectedOptionRef.classList.add(styles.selected);
     }
-    setValue(name, option); //assigning an option to the 'circuit' key
-    clearErrors(name)
+    methods.setValue(name, option); //assigning an option to the 'circuit' key
+    methods.clearErrors(name);
   };
 
   //Blur function to close the dropdown
@@ -83,7 +78,7 @@ const Select: FC<SelectProps> = (props) => {
           className={styles["dropdown-btn"]}
           onClick={toggleSelect}
           id={name}
-          {...register(name, {
+          {...methods.register(name, {
             required: {
               value: true,
               message: "Please select the circuit you belong to",

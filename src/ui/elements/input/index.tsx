@@ -1,18 +1,14 @@
-
 "use client";
 
 import React, { FC } from "react";
-
 import clsx from "clsx";
-
 import { InputProps } from "..";
-import { useForm } from "react-hook-form";
+import { useFormContext, useForm } from "react-hook-form";
 
 const Input: FC<InputProps> = (props) => {
-  const {
-    register,
-    formState: { errors },
-  } = useForm();
+
+  const methods = useForm();
+
   const {
     name,
     label,
@@ -21,7 +17,7 @@ const Input: FC<InputProps> = (props) => {
     fieldCustomClassName,
     ...rest
   } = props;
-  const errMessage = errors[name]?.message;
+  const errMessage = methods.formState.errors[name]?.message;
 
   return (
     <div className={clsx(`flex flex-col mb-3`, fieldCustomClassName)}>
@@ -38,8 +34,9 @@ const Input: FC<InputProps> = (props) => {
         )}
         placeholder={placeholder}
         {...rest}
-        {...register(name)}
+        {...methods.register(name, {required: true})}
         id={name}
+        aria-invalid = {methods.formState.errors[name] ? "true" : "false"}
       />
       {errMessage && typeof errMessage === "string" && (
         <div className="text-caption-reg text-red-500">{errMessage}</div>

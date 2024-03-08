@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 import clsx from "clsx";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useForm } from "react-hook-form";
 
 interface PhoneProps {
   label: string;
@@ -12,11 +12,9 @@ interface PhoneProps {
 const InputPhone: FC<PhoneProps> = (props) => {
   const { label, name } = props;
 
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-  const errMessage = errors[name]?.message;
+  const methods = useForm();
+
+  const errMessage = methods.formState.errors[name]?.message;
 
   return (
     <div className="flex flex-col mb-3">
@@ -34,7 +32,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
             className={clsx(
               `block w-full rounded-full border-2 border-[#DEDEDE] bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main`
             )}
-            {...register(name)}
+            {...methods.register(name, {required: true})}
             id={name}
           />
         </div>
