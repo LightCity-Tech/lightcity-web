@@ -18,9 +18,11 @@ interface SelectProps {
 const Select: FC<SelectProps> = (props) => {
   const { label, options, name } = props;
 
-  const methods = useForm();
+  // const methods = useForm();
 
-  const errMessage = methods.formState.errors[name]?.message;
+  const {register, setValue, clearErrors, formState: {errors}} = useFormContext();
+
+  const errMessage = errors[name]?.message;
 
   const optionRefs = useRef<Array<HTMLDivElement | null>>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -43,8 +45,8 @@ const Select: FC<SelectProps> = (props) => {
     if (selectedOptionRef) {
       selectedOptionRef.classList.add(styles.selected);
     }
-    methods.setValue(name, option); //assigning an option to the 'circuit' key
-    methods.clearErrors(name);
+    setValue(name, option); //assigning an option to the 'circuit' key
+    clearErrors(name);
   };
 
   //Blur function to close the dropdown
@@ -73,12 +75,12 @@ const Select: FC<SelectProps> = (props) => {
       >
         {label}
       </label>
-      <div className={styles.dropdown}>
+      <div className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${errMessage ? " border-red-400" : "border-[#DEDEDE]"}`}>
         <div
           className={styles["dropdown-btn"]}
           onClick={toggleSelect}
           id={name}
-          {...methods.register(name, {
+          {...register(name, {
             required: {
               value: true,
               message: "Please select the circuit you belong to",

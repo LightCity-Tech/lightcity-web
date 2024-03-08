@@ -79,7 +79,7 @@ const UpcomingMeeting = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-6 px-0 lg:mt-0 lg:px-4">
+            <div className="mt-6 px-0 lg:mt-0 lg:px-4 lg:pl-8">
               <Typography
                 align="left"
                 color="black"

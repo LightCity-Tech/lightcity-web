@@ -7,7 +7,9 @@ import { useFormContext, useForm } from "react-hook-form";
 
 const Input: FC<InputProps> = (props) => {
 
-  const methods = useForm();
+  // const methods = useForm();
+
+  const {register, formState: {errors}} = useFormContext();
 
   const {
     name,
@@ -17,7 +19,7 @@ const Input: FC<InputProps> = (props) => {
     fieldCustomClassName,
     ...rest
   } = props;
-  const errMessage = methods.formState.errors[name]?.message;
+  const errMessage = errors[name]?.message;
 
   return (
     <div className={clsx(`flex flex-col mb-3`, fieldCustomClassName)}>
@@ -29,14 +31,14 @@ const Input: FC<InputProps> = (props) => {
       </label>
       <input
         className={clsx(
-          `block w-full rounded-full border-2 border-[#DEDEDE] bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main`,
+          `block w-full rounded-full border-2  bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${errMessage ? "border-red-400" : "border-[#DEDEDE]"}`,
           customClassName
         )}
         placeholder={placeholder}
         {...rest}
-        {...methods.register(name, {required: true})}
+        {...register(name, {required: true})}
         id={name}
-        aria-invalid = {methods.formState.errors[name] ? "true" : "false"}
+        aria-invalid = {errors[name] ? "true" : "false"}
       />
       {errMessage && typeof errMessage === "string" && (
         <div className="text-caption-reg text-red-500">{errMessage}</div>

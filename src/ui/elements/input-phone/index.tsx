@@ -12,9 +12,11 @@ interface PhoneProps {
 const InputPhone: FC<PhoneProps> = (props) => {
   const { label, name } = props;
 
-  const methods = useForm();
+  // const methods = useForm();
 
-  const errMessage = methods.formState.errors[name]?.message;
+  const {register, formState: {errors}} = useFormContext();
+
+  const errMessage = errors[name]?.message;
 
   return (
     <div className="flex flex-col mb-3">
@@ -30,9 +32,9 @@ const InputPhone: FC<PhoneProps> = (props) => {
             type="tel"
             placeholder="+234 XXX XXX XXXX"
             className={clsx(
-              `block w-full rounded-full border-2 border-[#DEDEDE] bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main`
+              `block w-full rounded-full border-2 bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${errMessage ? "border-red-400" : "border-[#DEDEDE]"}`
             )}
-            {...methods.register(name, {required: true})}
+            {...register(name, {required: true})}
             id={name}
           />
         </div>
