@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, useRef, useEffect } from "react";
-import { useFormContext, useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import styles from "./index.module.scss";
 
 interface Options {
@@ -18,9 +18,12 @@ interface SelectProps {
 const Select: FC<SelectProps> = (props) => {
   const { label, options, name } = props;
 
-  // const methods = useForm();
-
-  const {register, setValue, clearErrors, formState: {errors}} = useFormContext();
+  const {
+    register,
+    setValue,
+    clearErrors,
+    formState: { errors },
+  } = useFormContext();
 
   const errMessage = errors[name]?.message;
 
@@ -75,7 +78,11 @@ const Select: FC<SelectProps> = (props) => {
       >
         {label}
       </label>
-      <div className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${errMessage ? " border-red-400" : "border-[#DEDEDE]"}`}>
+      <div
+        className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${
+          errMessage ? " border-red-400" : "border-[#DEDEDE]"
+        }`}
+      >
         <div
           className={styles["dropdown-btn"]}
           onClick={toggleSelect}
@@ -111,7 +118,9 @@ const Select: FC<SelectProps> = (props) => {
         )}
       </div>
       {errMessage && typeof errMessage === "string" && (
-        <div className="text-caption-reg text-red-500">Please select the circuit you belong to</div>
+        <div className="text-caption-reg text-red-500">
+          Please select the circuit you belong to
+        </div>
       )}
     </div>
   );

@@ -12,9 +12,10 @@ interface PhoneProps {
 const InputPhone: FC<PhoneProps> = (props) => {
   const { label, name } = props;
 
-  // const methods = useForm();
-
-  const {register, formState: {errors}} = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   const errMessage = errors[name]?.message;
 
@@ -32,9 +33,11 @@ const InputPhone: FC<PhoneProps> = (props) => {
             type="tel"
             placeholder="+234 XXX XXX XXXX"
             className={clsx(
-              `block w-full rounded-full border-2 bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${errMessage ? "border-red-400" : "border-[#DEDEDE]"}`
+              `block w-full rounded-full border-2 bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${
+                errMessage ? "border-red-400" : "border-[#DEDEDE]"
+              }`
             )}
-            {...register(name, {required: true})}
+            {...register(name, { required: true })}
             id={name}
           />
         </div>

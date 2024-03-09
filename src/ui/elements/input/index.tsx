@@ -3,13 +3,13 @@
 import React, { FC } from "react";
 import clsx from "clsx";
 import { InputProps } from "..";
-import { useFormContext, useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 const Input: FC<InputProps> = (props) => {
-
-  // const methods = useForm();
-
-  const {register, formState: {errors}} = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
   const {
     name,
@@ -31,14 +31,16 @@ const Input: FC<InputProps> = (props) => {
       </label>
       <input
         className={clsx(
-          `block w-full rounded-full border-2  bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${errMessage ? "border-red-400" : "border-[#DEDEDE]"}`,
+          `block w-full rounded-full border-2  bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${
+            errMessage ? "border-red-400" : "border-[#DEDEDE]"
+          }`,
           customClassName
         )}
         placeholder={placeholder}
         {...rest}
-        {...register(name, {required: true})}
+        {...register(name, { required: true })}
         id={name}
-        aria-invalid = {errors[name] ? "true" : "false"}
+        aria-invalid={errors[name] ? "true" : "false"}
       />
       {errMessage && typeof errMessage === "string" && (
         <div className="text-caption-reg text-red-500">{errMessage}</div>
