@@ -20,7 +20,7 @@ const Components = () => {
       <TypographyComponent />
       <ButtonComponent />
       <MeetingCardComponent/>
-      <InputComponent/>
+      {/* <InputComponent/> */}
     </main>
   );
 };
