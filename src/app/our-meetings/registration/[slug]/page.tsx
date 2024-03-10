@@ -54,7 +54,7 @@ const UpcomingMeeting = () => {
             </Typography>
           </div>
         </section>
-        <section className="bg-white flex justify-start items-center px-24 py-16 max-lg:px-12 ">
+        <section className="bg-white flex justify-start items-center p-10 md:py-10 md:px-14 lg:px-24 lg:py-16">
           <div className="w-full flex flex-col lg:flex-row lg:divide-x-2 divide-secondary-main ">
             <div className="pr-10 max-sm:mb-4">
               {meetingDLC.map((item, index) => (
@@ -85,7 +85,7 @@ const UpcomingMeeting = () => {
                 color="black"
                 variant="h2"
                 fontWeight="semi-bold"
-                customClassName="text-5xl mb-4 lg:mb-8"
+                customClassName="mb-4 lg:mb-8"
               >
                 Complete your registration
               </Typography>

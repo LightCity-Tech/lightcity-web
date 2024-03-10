@@ -81,7 +81,7 @@ const Select: FC<SelectProps> = (props) => {
       <div
         className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${
           errMessage ? " border-red-400" : "border-[#DEDEDE]"
-        }`}
+        } ${isActive ? "border-primary-main" : "border-[#DEDEDE]"}`}
       >
         <div
           className={styles["dropdown-btn"]}
