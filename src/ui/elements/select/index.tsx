@@ -21,8 +21,8 @@ const Select: FC<SelectProps> = (props) => {
   const {
     register,
     setValue,
+    clearErrors,
     formState: { errors },
-    clearErrors
   } = useFormContext();
 
   const errMessage = errors[name]?.message;
@@ -49,7 +49,7 @@ const Select: FC<SelectProps> = (props) => {
       selectedOptionRef.classList.add(styles.selected);
     }
     setValue(name, option); //assigning an option to the 'circuit' key
-    clearErrors(name)
+    clearErrors(name);
   };
 
   //Blur function to close the dropdown
@@ -78,7 +78,11 @@ const Select: FC<SelectProps> = (props) => {
       >
         {label}
       </label>
-      <div className={styles.dropdown}>
+      <div
+        className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${
+          errMessage ? " border-red-400" : "border-[#DEDEDE]"
+        } ${isActive ? "border-primary-main" : "border-[#DEDEDE]"}`}
+      >
         <div
           className={styles["dropdown-btn"]}
           onClick={toggleSelect}
@@ -114,7 +118,9 @@ const Select: FC<SelectProps> = (props) => {
         )}
       </div>
       {errMessage && typeof errMessage === "string" && (
-        <div className="text-caption-reg text-red-500">Please select the circuit you belong to</div>
+        <div className="text-caption-reg text-red-500">
+          Please select the circuit you belong to
+        </div>
       )}
     </div>
   );

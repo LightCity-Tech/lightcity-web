@@ -5,5 +5,4 @@ export * from "./series-card";
 export * from "./bullet-point";
 export * from "./input";
 export * from "./input-phone";
-export * from "./input-dropdown";
 export * from "./select";

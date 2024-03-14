@@ -6,7 +6,6 @@ import { Typography } from "@/src/ui";
 import { TypographyComponent } from "./typography-component";
 import { ButtonComponent } from "./button-component";
 import MeetingCardComponent from "./meeting-card-component";
-import InputComponent from "./input-component";
 
 const Components = () => {
   return (
@@ -20,7 +19,6 @@ const Components = () => {
       <TypographyComponent />
       <ButtonComponent />
       <MeetingCardComponent/>
-      <InputComponent/>
     </main>
   );
 };
