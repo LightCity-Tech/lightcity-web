@@ -110,7 +110,7 @@ const SermonLibrary = (props: Props) => {
           <div>
             <div className="w-full py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
               {series.map((serie: any, i: number) => (
-                <Link href={`/sermons/${serie._id}`} key={serie._id}>
+                <Link href={`/sermons/${serie._id}`} className="group" key={serie._id}>
                   <div
                     className="bg-black p-4 rounded-tl-md rounded-tr-md h-[200px] relative"
                     key={serie._id}
@@ -132,7 +132,7 @@ const SermonLibrary = (props: Props) => {
                     </div>
                     <div className="h-1 bg-secondary-200 block w-[90%] bottom-4 absolute mx-auto "></div>
                   </div>
-                  <div className="px-4 bg-white py-3 h-[100px] rounded-br-md rounded-bl-md">
+                  <div className="px-4 bg-white py-3 h-[100px] rounded-br-md rounded-bl-md group-hover:bg-secondary-25">
                     <p className="font-semibold">{serie.title}</p>
                   </div>
                 </Link>

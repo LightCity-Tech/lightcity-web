@@ -68,6 +68,10 @@ const config: Config = {
         25: '.25',
         175: '1.75',
       },
+      screens: {
+        'mobile': {'max': '767px'},
+        // => @media (max-width: 767px) { ... }
+      }
     },
   },
   plugins: [],

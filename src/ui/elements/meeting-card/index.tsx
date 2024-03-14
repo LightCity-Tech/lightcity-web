@@ -7,6 +7,7 @@ import LocationIcon from "@/public/assets/svgs/location.svg";
 import RedirectIcon from "@/public/assets/svgs/redirect-icon.svg";
 import CalenderDate from "@/public/assets/svgs/calendar-date.svg";
 import Location from "@/public/assets/svgs/icon.svg";
+import styles from "./styles.module.scss";
 
 interface MeetingProps {
   image?: string;
@@ -27,47 +28,57 @@ const MeetingCard = ({
   startDay,
   duration,
   location,
-  year
+  year,
 }: MeetingProps) => {
-
-  const href = (title === "Faith Seminar") ? "registration/faith-seminar" : title.replace(" ", "-");
+  const href =
+    title === "Faith Seminar"
+      ? "registration/faith-seminar"
+      : title.replace(" ", "-");
 
   return (
     <div className="md:flex md:flex-row flex flex-col md:justify-between md:gap-16 px-4 py-6 bg-white">
       <div className="md:flex md:flex-row flex flex-col md:items-center gap-8 w-full bg-white">
         <div className="w-full rounded-[1.25rem]">
-        <Link href={`/our-meetings/${href}`}>
-         { image && <img
-            src={image}
-            alt="Sample Image for a Meeting"
-            className="h-full w-full object-fill rounded-[1.25rem]"
-          />}
+          <Link href={`/our-meetings/${href}`}>
+            {image && (
+              <Image
+                src={image}
+                alt="Sample Image for a Meeting"
+                width={500}
+                height={500}
+                className="h-full w-full object-fill rounded-[1.25rem]"
+              />
+            )}
           </Link>
         </div>
         <div className="md:flex md:flex-col hidden">
-        <Link href={`/our-meetings/${href}`}>
-          <Typography
-            variant="h3"
-            color="secondary-main"
-            customClassName="mb-4 md:text-[24px]"
-          >
-            {title}
-          </Typography>
-        </Link>
+          <Link href={`/our-meetings/${href}`}>
+            <Typography
+              variant="h3"
+              color="secondary-main"
+              customClassName="mb-4 md:text-[24px]"
+            >
+              {title}
+            </Typography>
+          </Link>
           <Typography variant="body-reg" customClassName="">
             {description}
           </Typography>
-          <Link href={`/our-meetings/${href}`} className="w-fit flex items-center mt-auto">
+          <Link
+            href={`/our-meetings/${href}`}
+            className="w-fit flex items-center mt-auto"
+          >
             <Button
               variant="no-border"
               label="Learn More"
               color="primary"
               rightIcon={<RedirectIcon />}
+              customClassName={`hover:text-[#D69429] ${styles.btn}`}
             />
           </Link>
         </div>
         <div className="md:hidden">
-        <Typography
+          <Typography
             variant="body-reg"
             color="secondary-main"
             customClassName="mb-4 md:text-[24px] uppercase"
@@ -76,20 +87,22 @@ const MeetingCard = ({
           </Typography>
           <div className="flex space-x-4">
             <CalenderDate />
-              <p>
-                {duration && duration} {month} {year}
-              </p>
+            <p>
+              {duration && duration} {month} {year}
+            </p>
           </div>
           <div className="flex space-x-4">
             <Location />
-              <div>
-                {location}
-              </div>
+            <div>{location}</div>
           </div>
         </div>
       </div>
       <div className="md:w-3/12 hidden md:items-stretch md:flex flex-col">
-        <Typography variant="caption-mid" align="center" customClassName="grow -mb-12 uppercase">
+        <Typography
+          variant="caption-mid"
+          align="center"
+          customClassName="grow -mb-12 uppercase"
+        >
           {month}
         </Typography>
         <Typography
@@ -100,7 +113,11 @@ const MeetingCard = ({
         >
           {startDay}
         </Typography>
-        <Typography variant="caption-mid" align="center" customClassName="grow ml-2">
+        <Typography
+          variant="caption-mid"
+          align="center"
+          customClassName="grow ml-2"
+        >
           {duration && duration}
         </Typography>
         <div className="flex justify-center gap-2 grow">
@@ -112,4 +129,4 @@ const MeetingCard = ({
   );
 };
 
-export default MeetingCard
+export default MeetingCard;

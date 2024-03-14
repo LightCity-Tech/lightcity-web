@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 import clsx from "clsx";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useForm } from "react-hook-form";
 
 interface PhoneProps {
   label: string;
@@ -16,6 +16,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
     register,
     formState: { errors },
   } = useFormContext();
+
   const errMessage = errors[name]?.message;
 
   return (
@@ -32,9 +33,11 @@ const InputPhone: FC<PhoneProps> = (props) => {
             type="tel"
             placeholder="+234 XXX XXX XXXX"
             className={clsx(
-              `block w-full rounded-full border-2 border-[#DEDEDE] bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main`
+              `block w-full rounded-full border-2 bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${
+                errMessage ? "border-red-400" : "border-[#DEDEDE]"
+              }`
             )}
-            {...register(name)}
+            {...register(name, { required: true })}
             id={name}
           />
         </div>

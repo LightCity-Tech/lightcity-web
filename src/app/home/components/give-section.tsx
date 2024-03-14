@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Typography, BulletPoint, Button } from "@/src/ui";
-import { givingReasons, gridImages } from "./data";
+import { Typography, Button } from "@/src/ui";
+import { gridImages } from "./data";
 import Link from "next/link";
 
 const GiveSection = () => {
@@ -22,46 +22,19 @@ const GiveSection = () => {
           <div className="border-t border-main-black h-0 w-[12.5rem]"></div>
         </div>
         <div className="flex">
-          {/* {givingReasons.map((reason, index) => (
-            <div key={index} className="flex gap-3">
-              <div className="pt-2">
-                <BulletPoint />
-              </div>
-
-              <div>
-                <Typography
-                  variant="h4"
-                  color="secondary-main"
-                  fontWeight="medium"
-                  align="left"
-                  customClassName="mb-3"
-                >
-                  {reason.title}
-                </Typography>
-                <Typography
-                  variant="h6"
-                  color="main-black"
-                  fontWeight="medium"
-                  align="left"
-                >
-                  {reason.reason}
-                </Typography>
-              </div>
-            </div>
-          ))} */}
-          <h3 className="text-[24px] md:text-[40px] font-semibold">We give in obedience to God word to support the work of ministry in our local church.</h3>
-          
+          <h3 className="text-[24px] md:text-[40px] font-semibold">
+            We give in obedience to God word to support the work of ministry in
+            our local church.
+          </h3>
         </div>
         <Link href="#partnership">
-         <Button
-          variant="primary"
-          color="primary"
-          label="Give to Us"
-          customClassName="mt-10"
-          
-        />
+          <Button
+            variant="primary"
+            color="primary"
+            label="Give to Us"
+            customClassName="mt-10"
+          />
         </Link>
-       
       </div>
       <div className="grid gap-3 grid-cols-2 grid-rows-3 lg:w-1/2 w-full">
         {gridImages.map((gridImage, index) => (
