@@ -13,7 +13,7 @@ export type FormData = {
 };
 
 const meetingDLC = [
-  { heading: "Date", description: "11th - 13th April, 2024" },
+  { heading: "Date", description: "11th - 14th April, 2024" },
   {
     heading: "Location",
     description: " 179 Ziks Avenue (Second Floor), Uwani, Enugu State.",
@@ -50,7 +50,7 @@ const UpcomingMeeting = () => {
               fontWeight="medium"
               variant="h3"
             >
-              11th - 13th April, 2024
+              11th - 14th April, 2024
             </Typography>
           </div>
         </section>
