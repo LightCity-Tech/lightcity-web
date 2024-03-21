@@ -1,7 +1,5 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
-
 import { Typography, Button } from "..";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
 import Link from "next/link";
