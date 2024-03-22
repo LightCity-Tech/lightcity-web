@@ -13,6 +13,7 @@ import "./testimonial-slide.css";
 // import required modules
 import { Pagination } from "swiper/modules";
 import SwiperButtonPrevious from "../previousButton";
+import SwiperButtonNext from "../nextButton";
 
 const testimonials = [
   {
@@ -75,9 +76,9 @@ export default function TestimonialSlide() {
           <SwiperButtonPrevious>
             <ArrowLeft />
           </SwiperButtonPrevious>
-          <SwiperButtonPrevious>
+          <SwiperButtonNext>
             <ArrowRight />
-          </SwiperButtonPrevious>
+          </SwiperButtonNext>
         </div>
       </Swiper>
     </>
