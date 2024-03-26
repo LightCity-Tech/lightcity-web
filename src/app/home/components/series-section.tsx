@@ -10,6 +10,23 @@ const SeriesSection = () => {
   const [latestSeries, setLatestSeries] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+  const latestSermons = [
+    {
+      image: "/assets/images/featured1.png",
+      url: "656d5d12134a3228cf3e5ecb",
+      title: "Built to Last",
+      subtitle: "(God's Wisdom for Healthy Relationships)",
+      description: "In a post-modern world that is constantly redefining identity, meaning, etc… which consequently has influenced how people relate, We have to search the Holy Scriptures, being God's unchanging word in an ever changing world for our relationship ethos, Why relationships? How do I nurture relationships in a healthy way?"
+    },
+    {
+      image: "/assets/images/featured2.png",
+      url: "656d5d12134a3228cf3e5ee9",
+      title: "Guard your Heart",
+      subtitle: "",
+      description: "In an information age, where information accessibility and it's consequent overload is at an all time high, we need now more than ever to heed the instructions of Scriptures. So in this teaching, we examine this instruction as we answer, the 'what', 'why' and 'how' of the same."
+    }
+  ];
+
   useEffect(() => {
     const fetchLatestSeries = async () => {
       try {
@@ -40,7 +57,7 @@ const SeriesSection = () => {
         <div className="border-t border-main-black h-0 w-[5rem] lg:w-[12.5rem]"></div>
       </div>
       <div className="space-y-8 flex flex-col gap-y-12">
-        {!error ? (
+        {/* {!error ? (
           <div>
             {latestSeries.map((series: any) => (
               <SeriesCard
@@ -73,7 +90,17 @@ const SeriesSection = () => {
               </Link>
             </div>
           </div>
-        )}
+        )} */}
+        {latestSermons.map((latestSermon, index) => (
+          <SeriesCard
+            title = {latestSermon.title}
+            subtitle = {latestSermon.subtitle}
+            image = {latestSermon.image}
+            description = {latestSermon.description}
+            url = {latestSermon.url}
+            key = {index}
+          />
+        ))}
       </div>
     </section>
   );

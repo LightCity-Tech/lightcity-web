@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Typography, Button } from "..";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
 import Link from "next/link";
@@ -29,6 +30,7 @@ const SeriesCard = ({
           backgroundRepeat: "no-repeat",
           backgroundPosition: "top",
           height: "300px",
+          maxWidth: "100%"
         }}
       >
       </div>
