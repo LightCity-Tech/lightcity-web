@@ -14,7 +14,7 @@ export type FormData = {
 };
 
 const meetingDLC = [
-  { heading: "Date", description: "8th - 11th April, 2024" },
+  { heading: "Date", description: "11th - 14th April, 2024" },
   {
     heading: "Location",
     description: " 179 Ziks Avenue (Second Floor), Uwani, Enugu State.",
