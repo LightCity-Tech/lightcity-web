@@ -8,8 +8,8 @@ import FooterSection from "./components/footer-section";
 import Head from "./head";
 import { Toaster } from 'sonner'
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useState } from "react";
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { useState } from "react";
 
 export const metadata: Metadata = {
   title: "LightCity Church",

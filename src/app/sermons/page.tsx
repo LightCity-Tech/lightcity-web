@@ -9,7 +9,7 @@ import Link from "next/link";
 import { Button } from "@/src/ui";
 import ButtonLeft from "@/public/assets/svgs/button-icon-left.svg";
 import ButtonRight from "@/public/assets/svgs/button-icon-right.svg";
-import CloseIcon from '@/public/assets/svgs/close.svg';
+import CloseIcon from "@/public/assets/svgs/close.svg";
 
 type Props = {};
 
@@ -20,7 +20,7 @@ const SermonLibrary = (props: Props) => {
   const [nextPage, setNextPage] = useState(0);
   const [prevPage, setPrevPage] = useState(0);
   const [total, setTotal] = useState(0);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const searchBox = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -30,15 +30,15 @@ const SermonLibrary = (props: Props) => {
         const res = await getAllSeries(page, search);
         setSeries(res?.data.series);
         setTotal(res?.meta.total);
-        setPrevPage(res?.meta.prevPage)
-        setNextPage(res?.meta.nextPage)
+        setPrevPage(res?.meta.prevPage);
+        setNextPage(res?.meta.nextPage);
         console.log(res);
         setLoading(false);
       } catch (error) {}
     };
     fetchSeries();
   }, [page, search]);
-  
+
   const data = Math.ceil(total / 12);
   const pages = Array.from(Array(data).keys());
 
@@ -46,24 +46,23 @@ const SermonLibrary = (props: Props) => {
   const debounce = (callback: Function, delay: number) => {
     let timeoutId: any;
 
-    return  function(...args: any){
+    return function (...args: any) {
       clearTimeout(timeoutId);
-      timeoutId = setTimeout(() =>  callback(...args), delay);
-    }
-  }
-
+      timeoutId = setTimeout(() => callback(...args), delay);
+    };
+  };
 
   const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
 
   const clearSearchBar = () => {
-    setSearch('');
+    setSearch("");
     // clear the text in the input
-    searchBox.current!.value = '';
+    searchBox.current!.value = "";
   };
 
   return (
-    <section className="">
-      <div className="lg:w-[1700px] w-full md:bg-[url('/assets/images/sermons.png')] bg-[url('/assets/images/sermons-mobile.png')] bg-center bg-cover bg-no-repeat h-[600px] object-cover px-5 sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-24 flex items-start lg:items-center">
+    <section className="overflow-x-hidden">
+      <div className=" w-full h-[600px] flex items-start bg-[url('/assets/images/sermons-mobile.png')] bg-center bg-cover bg-no-repeat mx-auto object-cover px-5 sm:px-8 md:bg-[url('/assets/images/sermons.png')] md:px-10 lg:items-center lg:w-[1700px] lg:px-24 xl:px-24">
         <div className="mt-12 lg:mt-0">
           <p className="text-[16px] py-3 text-secondary-main font-bold">
             OUR TEACHINGS
@@ -93,9 +92,25 @@ const SermonLibrary = (props: Props) => {
                 onChange={searchSeries}
                 ref={searchBox}
               />
-              <span onClick={clearSearchBar} className={`${search != '' ? 'block hover:cursor-pointer' : 'hidden'}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <span
+                onClick={clearSearchBar}
+                className={`${
+                  search != "" ? "block hover:cursor-pointer" : "hidden"
+                }`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </span>
             </div>
@@ -110,12 +125,16 @@ const SermonLibrary = (props: Props) => {
           <div>
             <div className="w-full py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
               {series.map((serie: any, i: number) => (
-                <Link href={`/sermons/${serie._id}`} className="group" key={serie._id}>
+                <Link
+                  href={`/sermons/${serie._id}`}
+                  className="group"
+                  key={serie._id}
+                >
                   <div
-                    className="bg-black p-4 rounded-tl-md rounded-tr-md h-[200px] relative"
+                    className="w-full h-[200px] bg-black p-4 rounded-tl-md rounded-tr-md flex flex-col justify-between items-center"
                     key={serie._id}
                   >
-                    <div className="h-1 bg-secondary-200 block w-[90%] top-4 absolute mx-auto text-white "></div>
+                    <span className="block h-1 w-full bg-secondary-200"></span>
                     <div className="flex items-center justify-center">
                       <div className="px-4 py-6 text-center">
                         {" "}
@@ -125,12 +144,12 @@ const SermonLibrary = (props: Props) => {
                         {serie.tracks.length > 0 && <p>(A Series)</p>}
                       </div>
                     </div>
-                    <div className=" p-2 mt-4 left-0 w-[70%] text-center right-0 mx-auto absolute bottom-8">
+                    <div className="">
                       <p className="text-secondary-200 uppercase text-[12px]">
                         Pastor Tochi Madubuobi
                       </p>
                     </div>
-                    <div className="h-1 bg-secondary-200 block w-[90%] bottom-4 absolute mx-auto "></div>
+                    <span className="block h-1 w-full bg-secondary-200"></span>
                   </div>
                   <div className="px-4 bg-white py-3 h-[100px] rounded-br-md rounded-bl-md group-hover:bg-secondary-25">
                     <p className="font-semibold">{serie.title}</p>
@@ -139,12 +158,18 @@ const SermonLibrary = (props: Props) => {
               ))}
             </div>
             <div className="flex justify-end space-x-4">
-              <div className="flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE]" onClick={() => setPage(prevPage)}>
+              <div
+                className="cursor-pointer flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE] hover:bg-secondary-25"
+                onClick={() => setPage(prevPage)}
+              >
                 <ButtonLeftIcon />
                 <p>Previous</p>
               </div>
 
-              <div className="flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE]" onClick={() => setPage(nextPage)}>
+              <div
+                className="cursor-pointer flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE] hover:bg-secondary-25"
+                onClick={() => setPage(nextPage)}
+              >
                 <p>Next</p>
                 <ButtonRightIcon />
               </div>
@@ -159,18 +184,18 @@ const SermonLibrary = (props: Props) => {
 
 export default SermonLibrary;
 
-const ButtonRightIcon  = () => {
-    return (
-      <Link href="/" className="">
-        <ButtonRight  />
-      </Link>
-    );
-  };
+const ButtonRightIcon = () => {
+  return (
+    <Link href="/" className="">
+      <ButtonRight />
+    </Link>
+  );
+};
 
-  const ButtonLeftIcon  = () => {
-    return (
-      <Link href="/" className="">
-        <ButtonLeft  />
-      </Link>
-    );
-  };
+const ButtonLeftIcon = () => {
+  return (
+    <Link href="/" className="">
+      <ButtonLeft />
+    </Link>
+  );
+};

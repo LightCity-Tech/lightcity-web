@@ -26,7 +26,7 @@ const ServiceSection = () => {
         >
           We value the physical gathering of the saints together in one place.
         </Typography>
-        <div className="lg:w-3/5 w-full flex flex-col gap-2 mt-6">
+        <div className="lg:w-3/4 w-full flex flex-col gap-2 mt-6">
           {services.map((service, index) => (
             <div key={index} className="flex justify-between items-center">
               <div>
