@@ -23,7 +23,7 @@ const GiveSection = () => {
         </div>
         <div className="flex">
           <h3 className="text-[24px] md:text-[40px] font-semibold">
-            We give in obedience to God word to support the work of ministry in
+            We give in obedience to God&apos;s word to support the work of ministry in
             our local church.
           </h3>
         </div>

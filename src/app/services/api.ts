@@ -40,6 +40,15 @@ export const registerMeeting = async (registrationDetails: {
     );
     return response.status
   } catch (error:any) {
-    console.log(error?.message);
+    throw new Error(error?.message);
+  }
+};
+
+export const getLatestSermons = async() => {
+  try{
+    const {data} = await axios.get(`${baseUrl}/series/latest`);
+    return data.data.latestSeries
+  }catch(error:any){
+    throw new Error(error?.message)
   }
 };

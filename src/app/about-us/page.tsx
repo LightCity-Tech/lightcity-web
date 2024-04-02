@@ -23,7 +23,7 @@ const AboutUs = (props: Props) => {
             God, we will not fail.{" "}
           </p>
         </div>
-        <div className="w-[100%] lg:hidden h-[405px] relative">
+        <div className="w-full lg:hidden h-[405px] relative">
           <Image
             src="/assets/images/about-hero.webp"
             fill
