@@ -46,10 +46,6 @@ export default function TestimonialSlide() {
         slidesPerView={"auto"}
         centeredSlides={true}
         spaceBetween={60}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        // modules={[Pagination]}
         className="mySwiper"
       >
         {testimonials.map((testimony, i) => (

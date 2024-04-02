@@ -56,7 +56,7 @@ const UpcomingMeeting = () => {
       </section>
       <section className="relative">
         <div className="absolute w-full h-full bg-black bg-opacity-50 z-[100] flex justify-center items-center">
-          <div className="w-full h-1/2 mx-4 bg-secondary-25 rounded-lg border-r-2 p-10 flex flex-col justify-start items-center md:w-3/5 lg:w-1/2 lg:p-20">
+          <div className="w-full h-auto mx-4 bg-white rounded-lg border-r-2 p-10 flex flex-col justify-start items-center md:w-3/5 lg:w-1/2 lg:p-20">
             <Typography
               variant="h3"
               align="center"
@@ -65,7 +65,7 @@ const UpcomingMeeting = () => {
             >
               Registration Closed
             </Typography>
-            <div className="mt-10 mb-2">
+            <div className="mt-10 mb-4">
               <Typography
                 variant="h5"
                 color="secondary-main"
@@ -73,15 +73,6 @@ const UpcomingMeeting = () => {
                 fontWeight="semi-bold"
               >
                 Sorry, registration for this meeting is already closed.
-              </Typography>
-              <Typography
-                variant="h5"
-                color="secondary-main"
-                align="center"
-                fontWeight="semi-bold"
-              >
-                But, you can follow our social media accounts to stay up to date
-                any further developments.
               </Typography>
             </div>
             <Typography
@@ -92,7 +83,7 @@ const UpcomingMeeting = () => {
               customClassName="cursor-pointer hover:text-secondary-200 hover:underline underline-offset-[5px]"
             >
               <Link href="/our-meetings">
-                You check the other meetings we have coming up here.
+                Click here to view other upcoming meetings.
               </Link>
             </Typography>
           </div>
