@@ -63,7 +63,7 @@ const UpcomingMeeting = () => {
               fontWeight="semi-bold"
               customClassName="text-red-600"
             >
-              Registration Closed
+              Currently Unavailable for Registration
             </Typography>
             <div className="mt-10 mb-4">
               <Typography
@@ -72,7 +72,7 @@ const UpcomingMeeting = () => {
                 align="center"
                 fontWeight="semi-bold"
               >
-                Sorry, registration for this meeting is already closed.
+                Sorry, registration is currently not ongoing
               </Typography>
             </div>
             <Typography
