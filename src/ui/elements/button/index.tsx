@@ -59,12 +59,18 @@ const Button: React.FC<ButtonProps> = (props) => {
     ...rest
   } = props;
 
+//Hover Effect for the back button
+const backIconHoverEffect = customClassName?.includes("hover:text-[#D69429]") ? styles.backIconHover : null;
+
   const className = clsx(
     "flex justify-content items-center py-[0.75rem] text-center font-medium cursor-pointer",
     uncutSans.className,
     customClassName,
-    styles["text-white"]
+    styles["text-white"],
+    backIconHoverEffect ? styles.backIcon : ""
   );
+
+  const iconClass = clsx(styles.icon, backIconHoverEffect)
 
   return (
     <button
@@ -76,9 +82,8 @@ const Button: React.FC<ButtonProps> = (props) => {
       })}
       {...rest}
     >
-      {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
+      {leftIcon && <span className={iconClass}>{leftIcon}</span>}
       {label}
-      {rightIcon && <span className={styles.icon}>{rightIcon}</span>}
     </button>
   );
 };

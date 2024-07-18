@@ -1,3 +1,14 @@
+
+//Hovering on the back icon label
+.backIcon:hover span > svg > path{
+    stroke: #D69429;
+}
+
+//Hovering directly on the back icon
+.backIconHover:hover svg path{
+    stroke: #D69429;
+}
+
 .icon{
     margin: 0 .5rem;   
 }

@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import { Kaushan_Script } from "next/font/google";
 
-//Uncut Sans Font Family Setup
+//Uncut Sans Font Setup
 export const uncutSans = localFont({
   src: [
     {
@@ -28,7 +28,7 @@ export const uncutSans = localFont({
   display: "swap",
 });
 
-//Kaushan Script Font Family Script Setup
+//Kaushan Script Font Setup
 export const kashuan = Kaushan_Script({
   subsets: ["latin"],
   display: "swap",
