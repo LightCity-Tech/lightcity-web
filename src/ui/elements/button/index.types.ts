@@ -9,6 +9,7 @@ export enum ButtonVariants{
     "no-border" = 'no-border'
 }
 
+
 export type ButtonColors = "primary" | "secondary" | "yellow" | "pri-outlined" | "sec-outlined" | "dark-outlined" ;
 
 
@@ -21,5 +22,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     leftIcon?: React.ReactNode;
     customClassName?: string;
     color: ButtonColors;
-    buttonType?: "button" | "submit" | "reset" | undefined
+    buttonType?: "button" | "submit" | "reset" | undefined;
 }

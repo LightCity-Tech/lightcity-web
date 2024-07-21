@@ -44,11 +44,11 @@ const FooterSection = () => {
 
   return (
     <section className="w-full h-auto lg:px-20 xl:px-24 py-14 px-6 relative">
-      <div>
+      <div className="relative w-full h-auto">
         <Image
           src={bgImage}
           alt="Background Image"
-          layout="fill"
+          fill
           className="w-full -z-50 object-cover"
         />
       </div>
@@ -148,7 +148,7 @@ const FooterSection = () => {
                 variant="primary"
                 color="primary"
                 label="Join Us Live"
-                leftIcon={<BrownPlayIcon className = "fill-secondary-main"/>}
+                leftIcon={<BrownPlayIcon className="fill-secondary-main" />}
               />
             </div>
             <div className="flex space-x-4">

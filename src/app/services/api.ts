@@ -3,7 +3,6 @@ import axios from "axios";
 const baseUrl = "https://api.lightcitychurch.ng/api/v1";
 
 export const getAllSeries = async (page: number, search?: string) => {
-  console.log("here:", page);
   const url = search
     ? `${baseUrl}/series?page=${page}&search=${search}`
     : `${baseUrl}/series?page=${page}`;
@@ -24,6 +23,7 @@ export const getASeries = async (id: string) => {
   return data;
 };
 
+//API call for registering for special meetings
 export const registerMeeting = async (registrationDetails: {
   meetingId: string,
   fullname: string,
@@ -44,6 +44,7 @@ export const registerMeeting = async (registrationDetails: {
   }
 };
 
+//API call to fetch latest sermons/series for the Home Page
 export const getLatestSermons = async() => {
   try{
     const {data} = await axios.get(`${baseUrl}/series/latest`);

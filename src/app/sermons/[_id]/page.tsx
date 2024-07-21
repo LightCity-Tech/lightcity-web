@@ -49,7 +49,7 @@ const SermonDetail = (props: Props) => {
             color="primary"
             label={"Back to All Messages"}
             leftIcon={<ButtonLeft />}
-            customClassName="bg-[#fff]"
+            customClassName="bg-[#fff] hover:text-[#D69429]"
           />
         </Link>
       </div>
