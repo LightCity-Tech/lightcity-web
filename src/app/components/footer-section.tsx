@@ -11,6 +11,11 @@ import Youtube from "@/public/assets/svgs/youtube.svg";
 import FooterLogo from "/public/assets/svgs/lcc-logo-footer.png";
 import Link from "next/link";
 
+interface InfoLink {
+  href: string;
+  text: string;
+}
+
 const FooterSection = () => {
   const socials = [
     {
@@ -31,10 +36,14 @@ const FooterSection = () => {
     },
   ];
 
-  const infoLinks = [
+  const infoLinks: InfoLink[] = [
     { href: "/home", text: "Home" },
     { href: "/about-us", text: "About Us" },
-    { href: "/contact-us", text: "Contact Us" },
+    { href: "#", text: "Contact Us"},
+    {
+      href: "https://www.google.com/maps/place/LightCity+Church/@6.4207336,7.4840509,17z/data=!4m6!3m5!1s0x1044a194ae359ad7:0x9b96dca3bf9c316c!8m2!3d6.4207336!4d7.4866312!16s%2Fg%2F11nmj129jk?authuser=0&entry=ttui",
+      text: "Worship with Us",
+    },
   ];
 
   const quickLinks = [
@@ -77,6 +86,7 @@ const FooterSection = () => {
                   <Link
                     href={infoLink.href}
                     className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary-25 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"
+                    target = {infoLink.href.includes("maps") ? "_blank" : "_self"}
                   >
                     {infoLink.text}
                   </Link>
