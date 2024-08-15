@@ -70,7 +70,7 @@ const backIconHoverEffect = customClassName?.includes("hover:text-[#D69429]") ? 
     backIconHoverEffect ? styles.backIcon : ""
   );
 
-  const iconClass = clsx(styles.icon, backIconHoverEffect)
+  const iconClass = clsx(styles.icon, backIconHoverEffect); //This is to make sure the icons change colour on hover too.
 
   return (
     <button
