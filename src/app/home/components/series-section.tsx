@@ -13,14 +13,14 @@ const SeriesSection = () => {
   const latestSermons = [
     {
       image: "/assets/images/featured1.png",
-      url: "656d5d12134a3228cf3e5ecb",
+      url: "66dab79f6a760af2c3b03963",
       title: "Built to Last",
       subtitle: "(God's Wisdom for Healthy Relationships)",
       description: "In a post-modern world that is constantly redefining identity, meaning, etc… which consequently has influenced how people relate, We have to search the Holy Scriptures, being God's unchanging word in an ever changing world for our relationship ethos, Why relationships? How do I nurture relationships in a healthy way?"
     },
     {
       image: "/assets/images/featured2.png",
-      url: "656d5d12134a3228cf3e5ee9",
+      url: "/66dab79f6a760af2c3b03982",
       title: "Guard your Heart",
       subtitle: "",
       description: "In an information age, where information accessibility and it's consequent overload is at an all time high, we need now more than ever to heed the instructions of Scriptures. So in this teaching, we examine this instruction as we answer, the 'what', 'why' and 'how' of the same."
