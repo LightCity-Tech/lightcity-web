@@ -65,7 +65,7 @@ const SeriesCard = ({
             <Button
               variant="outlined"
               color="dark-outlined"
-              label="Listen online"
+              label="Download here"
               leftIcon={<BrownPlayIcon className = "fill-secondary-main group-hover:fill-white" />}
               customClassName="mb-2 group"
             />
