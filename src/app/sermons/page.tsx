@@ -1,25 +1,16 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { getAllSeries } from "../services/api";
-
+import { getAllSeriesNonPaginated} from "../services/api";
+import { SeriesDropdown } from "@/src/ui";
 import { InfinitySpin } from "react-loader-spinner";
-import Pagination from "./pagination";
-import Link from "next/link";
-import { Button } from "@/src/ui";
-import ButtonLeft from "@/public/assets/svgs/button-icon-left.svg";
-import ButtonRight from "@/public/assets/svgs/button-icon-right.svg";
-import CloseIcon from "@/public/assets/svgs/close.svg";
 
 type Props = {};
 
 const SermonLibrary = (props: Props) => {
-  const [page, setPage] = useState(1);
   const [series, setSeries] = useState<ISeries[] | any>([]);
+  const [filteredSeries, setFilteredSeries] = useState<ISeries[]>([]); 
   const [loading, setLoading] = useState(false);
-  const [nextPage, setNextPage] = useState(0);
-  const [prevPage, setPrevPage] = useState(0);
-  const [total, setTotal] = useState(0);
   const [search, setSearch] = useState("");
   const searchBox = useRef<HTMLInputElement>(null);
 
@@ -27,20 +18,17 @@ const SermonLibrary = (props: Props) => {
     const fetchSeries = async () => {
       try {
         setLoading(true);
-        const res = await getAllSeries(page, search);
+        const res = await getAllSeriesNonPaginated()
         setSeries(res?.data.series);
-        setTotal(res?.meta.total);
-        setPrevPage(res?.meta.prevPage);
-        setNextPage(res?.meta.nextPage);
-        console.log(res);
+        setFilteredSeries(res?.data.series);
         setLoading(false);
-      } catch (error) {}
+      } catch (error) {
+        setLoading(false);
+        console.error("Error fetching series:", error);
+      }
     };
     fetchSeries();
-  }, [page, search]);
-
-  const data = Math.ceil(total / 12);
-  const pages = Array.from(Array(data).keys());
+  }, []);
 
   // debounce search functionality
   const debounce = (callback: Function, delay: number) => {
@@ -52,13 +40,45 @@ const SermonLibrary = (props: Props) => {
     };
   };
 
-  const searchSeries = debounce((e: any) => setSearch(e.target.value), 700);
+  const searchSeries = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value.toLowerCase(); // Case-insensitive search
+    setSearch(query);
+
+    if (query === "") {
+      setFilteredSeries(series); // Show all sermons if search is cleared
+    } else {
+      const filtered = series.filter((sermon: { title: string; }) =>
+        sermon.title.toLowerCase().includes(query)
+      );
+      setFilteredSeries(filtered); // Update with filtered results
+    }
+  }, 700);
+
 
   const clearSearchBar = () => {
     setSearch("");
     // clear the text in the input
     searchBox.current!.value = "";
+    setFilteredSeries(series); 
   };
+
+  const sortSermonYears = (sermons:ISeries[]) => {
+    const groupedByYear: {[key: string]: ISeries[]} = {}
+
+    sermons.forEach((series) => {
+      const yearTaught = series.yearTaught
+
+      if(!groupedByYear[yearTaught]){
+        groupedByYear[yearTaught] = [];
+      }
+
+      groupedByYear[yearTaught].push(series)
+    })
+
+    return groupedByYear
+  }
+
+  const groupedSermons = sortSermonYears(filteredSeries)
 
   return (
     <section className="overflow-x-hidden">
@@ -80,7 +100,7 @@ const SermonLibrary = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#fff] px-5 md:px-10 mx-auto py-20 lg:px-24 xl:px-20 w-full">
+      <div className="bg-[#fff] px-5 mx-auto py-20 pb-10 w-full lg:px-24 md:px-10 xl:px-20">
         <div className="w-full bg-[#fff]">
           <div className="rounded-md bg-[#fff] shadow-md lg:w-4/5 mx-auto p-4 border border-[rgba(222, 222, 222, 1)]">
             <span className="block px-2">Sermon Title</span>
@@ -121,60 +141,17 @@ const SermonLibrary = (props: Props) => {
           <div className="w-full flex mt-16 justify-center h-full items-center">
             <InfinitySpin width="300" color="rgb(232 157 44)" />
           </div>
-        ) : (
+        ) : filteredSeries.length === 0 ? (
           <div>
-            <div className="w-full py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
-              {series.map((serie: any, i: number) => (
-                <Link
-                  href={`/sermons/${serie._id}`}
-                  className="group"
-                  key={serie._id}
-                >
-                  <div
-                    className="w-full h-[200px] bg-black p-4 rounded-tl-md rounded-tr-md flex flex-col justify-between items-center"
-                    key={serie._id}
-                  >
-                    <span className="block h-1 w-full bg-secondary-200"></span>
-                    <div className="flex items-center justify-center">
-                      <div className="px-4 py-6 text-center">
-                        {" "}
-                        <h3 className="text-white text-[16px] uppercase">
-                          {serie.title}
-                        </h3>
-                        {serie.tracks.length > 0 && <p>(A Series)</p>}
-                      </div>
-                    </div>
-                    <div className="">
-                      <p className="text-secondary-200 uppercase text-[12px]">
-                        Pastor Tochi Madubuobi
-                      </p>
-                    </div>
-                    <span className="block h-1 w-full bg-secondary-200"></span>
-                  </div>
-                  <div className="px-4 bg-white py-3 h-[100px] rounded-br-md rounded-bl-md group-hover:bg-secondary-25">
-                    <p className="font-semibold">{serie.title}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div className="flex justify-end space-x-4">
-              <div
-                className="cursor-pointer flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE] hover:bg-secondary-25"
-                onClick={() => setPage(prevPage)}
-              >
-                <ButtonLeftIcon />
-                <p>Previous</p>
+            <p>Sermon matching your search isn't available</p>
+          </div>
+        ) : (
+          <div className="mt-10 grid grid-cols-3 gap-8">
+            {Object.keys(groupedSermons).map((year) => (
+              <div key={year} >
+                <SeriesDropdown title={`Sermons from ${year}`} sermons={groupedSermons[year]} />
               </div>
-
-              <div
-                className="cursor-pointer flex items-center space-x-4 border p-3 rounded-[8px] border-[#DEDEDE] hover:bg-secondary-25"
-                onClick={() => setPage(nextPage)}
-              >
-                <p>Next</p>
-                <ButtonRightIcon />
-              </div>
-              {/* <div onClick={forward}>ypp</div> */}
-            </div>
+            ))}
           </div>
         )}
       </div>
@@ -184,18 +161,4 @@ const SermonLibrary = (props: Props) => {
 
 export default SermonLibrary;
 
-const ButtonRightIcon = () => {
-  return (
-    <Link href="/" className="">
-      <ButtonRight />
-    </Link>
-  );
-};
 
-const ButtonLeftIcon = () => {
-  return (
-    <Link href="/" className="">
-      <ButtonLeft />
-    </Link>
-  );
-};

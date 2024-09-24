@@ -6,3 +6,4 @@ export * from "./bullet-point";
 export * from "./input";
 export * from "./input-phone";
 export * from "./select";
+export * from "./series-dropdown";
