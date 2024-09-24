@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Typography, Button } from "..";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
+import { IoCloudDownloadOutline } from "react-icons/io5";
 import Link from "next/link";
 
 interface SeriesCardProps {
@@ -66,7 +67,7 @@ const SeriesCard = ({
               variant="outlined"
               color="dark-outlined"
               label="Download here"
-              leftIcon={<BrownPlayIcon className = "fill-secondary-main group-hover:fill-white" />}
+              leftIcon={<IoCloudDownloadOutline className = "fill-secondary-main group-hover:fill-white" size={30} />}
               customClassName="mb-2 group"
             />
           </Link>
