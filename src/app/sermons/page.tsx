@@ -1,29 +1,33 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { getAllSeriesNonPaginated} from "../services/api";
-import { SeriesDropdown } from "@/src/ui";
+import { getAllSeriesNonPaginated } from "../services/api";
+import { SeriesDropdown, Typography } from "@/src/ui";
 import { InfinitySpin } from "react-loader-spinner";
+import { HiChevronRight, HiChevronLeft } from "react-icons/hi2";
 
 type Props = {};
 
 const SermonLibrary = (props: Props) => {
   const [series, setSeries] = useState<ISeries[] | any>([]);
-  const [filteredSeries, setFilteredSeries] = useState<ISeries[]>([]); 
+  const [filteredSeries, setFilteredSeries] = useState<ISeries[]>([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const searchBox = useRef<HTMLInputElement>(null);
+  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
     const fetchSeries = async () => {
       try {
         setLoading(true);
-        const res = await getAllSeriesNonPaginated()
+        const res = await getAllSeriesNonPaginated();
         setSeries(res?.data.series);
         setFilteredSeries(res?.data.series);
         setLoading(false);
+        setInitialLoad(false);
       } catch (error) {
         setLoading(false);
+        setInitialLoad(false);
         console.error("Error fetching series:", error);
       }
     };
@@ -47,38 +51,61 @@ const SermonLibrary = (props: Props) => {
     if (query === "") {
       setFilteredSeries(series); // Show all sermons if search is cleared
     } else {
-      const filtered = series.filter((sermon: { title: string; }) =>
+      const filtered = series.filter((sermon: { title: string }) =>
         sermon.title.toLowerCase().includes(query)
       );
       setFilteredSeries(filtered); // Update with filtered results
     }
   }, 700);
 
-
   const clearSearchBar = () => {
     setSearch("");
     // clear the text in the input
     searchBox.current!.value = "";
-    setFilteredSeries(series); 
+    setFilteredSeries(series);
   };
 
-  const sortSermonYears = (sermons:ISeries[]) => {
-    const groupedByYear: {[key: string]: ISeries[]} = {}
+  const sortSermonYears = (sermons: ISeries[]) => {
+    const groupedByYear: { [key: string]: ISeries[] } = {};
 
     sermons.forEach((series) => {
-      const yearTaught = series.yearTaught
+      let yearTaught: string;
 
-      if(!groupedByYear[yearTaught]){
+      if (!series.yearTaught || series.yearTaught === "Word") {
+        const dateUploaded = new Date(series.dateUploaded);
+        yearTaught = dateUploaded.getFullYear().toString();
+      } else {
+        yearTaught = series.yearTaught;
+      }
+
+      if (!groupedByYear[yearTaught]) {
         groupedByYear[yearTaught] = [];
       }
 
-      groupedByYear[yearTaught].push(series)
-    })
+      groupedByYear[yearTaught].push(series);
+    });
 
-    return groupedByYear
-  }
+    return groupedByYear;
+  };
 
-  const groupedSermons = sortSermonYears(filteredSeries)
+  const groupedSermons = sortSermonYears(filteredSeries);
+
+  const [sliceIndex, setSliceIndex] = useState<number>(0);
+
+  const paginateToPrevious = () => {
+    if (sliceIndex > 0) {
+      setSliceIndex(sliceIndex - 6);
+    }
+  };
+
+  const paginateToNext = () => {
+    if (sliceIndex + 6 < Object.keys(groupedSermons).length) {
+      setSliceIndex(sliceIndex + 6);
+    }
+  };
+
+  const prevDisabled = sliceIndex === 0;
+  const nextDisabled = sliceIndex + 6 >= Object.keys(groupedSermons).length;
 
   return (
     <section className="overflow-x-hidden">
@@ -141,17 +168,57 @@ const SermonLibrary = (props: Props) => {
           <div className="w-full flex mt-16 justify-center h-full items-center">
             <InfinitySpin width="300" color="rgb(232 157 44)" />
           </div>
-        ) : filteredSeries.length === 0 ? (
-          <div>
-            <p>Sermon matching your search isn't available</p>
+        ) : !loading && !initialLoad && filteredSeries.length === 0 ? (
+          <div className="w-full h-[25rem] flex justify-center items-center">
+            <Typography variant="h2" align="center" color="primary-700">
+              Sermon matching your search isn't available
+            </Typography>
           </div>
         ) : (
-          <div className="mt-10 grid grid-cols-3 gap-8">
-            {Object.keys(groupedSermons).map((year) => (
-              <div key={year} >
-                <SeriesDropdown title={`Sermons from ${year}`} sermons={groupedSermons[year]} />
-              </div>
-            ))}
+          <div>
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-full">
+              {Object.keys(groupedSermons)
+                .slice(sliceIndex, sliceIndex + 6)
+                .map((year) => (
+                  <div key={year}>
+                    <SeriesDropdown
+                      title={`Sermons from ${year}`}
+                      sermons={groupedSermons[year]}
+                    />
+                  </div>
+                ))}
+            </div>
+
+            <div className="mt-20 flex justify-end gap-4">
+              <button
+                className={`w-[6rem] border-2 rounded flex justify-center items-center p-2 ${
+                  prevDisabled
+                    ? "opacity-50 cursor-not-allowed border-[#848884]"
+                    : "border-secondary-main hover:bg-[#feefd6] hover:border-[#feefd6]"
+                }`}
+                onClick={paginateToPrevious}
+                disabled={prevDisabled}
+              >
+                <HiChevronLeft
+                  size={30}
+                  color={prevDisabled ? "#848884" : "#32220A"}
+                />
+              </button>
+              <button
+                className={`w-[6rem] border-2 rounded flex justify-center items-center p-2 ${
+                  nextDisabled
+                    ? "opactiy-50 cursor-not-allowed border-[#848884]"
+                    : "border-secondary-main hover:bg-[#feefd6] hover:border-[#feefd6]"
+                }`}
+                onClick={paginateToNext}
+                disabled={nextDisabled}
+              >
+                <HiChevronRight
+                  size={30}
+                  color={nextDisabled ? "#848884" : "#32220A"}
+                />
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -160,5 +227,3 @@ const SermonLibrary = (props: Props) => {
 };
 
 export default SermonLibrary;
-
-

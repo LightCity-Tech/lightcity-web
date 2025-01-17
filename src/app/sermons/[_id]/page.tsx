@@ -60,7 +60,7 @@ const SermonDetail = (props: Props) => {
             <span className="block h-1 bg-secondary-200 w-full"></span>
             <div>
               <Typography variant="h3" color="white" align="center">
-                {series.title}
+                {series?.title}
               </Typography>
               {series?.tracks?.length > 1 && (
                 <Typography variant="caption-mid" color="white" align="center">
@@ -75,19 +75,19 @@ const SermonDetail = (props: Props) => {
           </div>
           <div className="w-full">
             <h3 className="text-[20px] mt-4 lg:mt-0 py-3 lg:text-[28px] font-semibold">
-              {series.title}
+              {series?.title}
             </h3>
             <div className="">
               {series?.tracks?.map((track: any, index: number) => (
                 <div
-                  key={track._id}
+                  key={track?._id}
                   className={`group w-full py-2 px-4 flex justify-between items-center relative transition duration-300 hover:bg-secondary-25 `}
                 >
-                  <p>{track.title}</p>
+                  <p>{track?.title}</p>
                   <div
                     className={`flex justify-center items-center ${styles.download}`}
                   >
-                    <DownloadButton link={track.fileId} />
+                    <DownloadButton link={track?.fileId} />
                   </div>
                 </div>
               ))}
