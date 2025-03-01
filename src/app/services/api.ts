@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://api.lightcitychurch.ng/api/v1";
+const baseUrl = "https://lightcity-platform-backend.onrender.com/api/v1";
 
 export const getAllSeries = async (page: number, search?: string) => {
   console.log("here:", page);
