@@ -13,10 +13,10 @@ const AboutUs = (props: Props) => {
     <section className="bg-[#fff">
       <div className="bg-[#fff] px-5 h-full">
         <div className="text-center w-full 2xl:max-w-7xl lg:py-6 mt-5 lg:mt-4 mx-auto">
-          <h3 className="text-[48px] leading-[48px] lg:leading-[67.68px] font-bold text-blackA md:px-4 md:text-[72px]">
+          <h3 className="text-[48px] leading-[64px] lg:leading-[67.68px] font-bold text-black md:px-4 md:text-[72px]">
             Welcome to LightCity Church
           </h3>
-          <p className="text-[#7E7A7A] font-normal text-[24px] py-8 lg:w-[100%] px-36 leading-[31.2px] mx-auto">
+          <p className="text-[#7E7A7A] font-normal text-[24px] py-8 lg:w-[100%] px-8 leading-[31.2px] mx-auto">
             We are a people of God with a mandate from God to herald the
             glorious message of Jesus; teaching and preaching until the whole
             earth is filled with his gospel as the waters cover the sea, and by

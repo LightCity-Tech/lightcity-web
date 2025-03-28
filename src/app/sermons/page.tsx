@@ -170,8 +170,12 @@ const SermonLibrary = (props: Props) => {
           </div>
         ) : !loading && !initialLoad && filteredSeries.length === 0 ? (
           <div className="w-full h-[25rem] flex justify-center items-center">
-            <Typography variant="h2" align="center" color="primary-700">
-              Sermon matching your search isn't available
+            <Typography
+              variant="h2"
+              align="center"
+              color="secondary-200"
+            >
+              Sermon matching your search isn&apos;t available
             </Typography>
           </div>
         ) : (
@@ -207,7 +211,7 @@ const SermonLibrary = (props: Props) => {
               <button
                 className={`w-[6rem] border-2 rounded flex justify-center items-center p-2 ${
                   nextDisabled
-                    ? "opactiy-50 cursor-not-allowed border-[#848884]"
+                    ? "opacity-50 cursor-not-allowed border-[#848884]"
                     : "border-secondary-main hover:bg-[#feefd6] hover:border-[#feefd6]"
                 }`}
                 onClick={paginateToNext}
