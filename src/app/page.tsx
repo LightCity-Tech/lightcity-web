@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Logo from "./logo";
 import dynamic from "next/dynamic";
 
 

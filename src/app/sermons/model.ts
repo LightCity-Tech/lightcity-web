@@ -1,4 +1,5 @@
 interface ISeries {
+    dateUploaded: string;
     _id: string;
     title: string;
     yearTaught: string;

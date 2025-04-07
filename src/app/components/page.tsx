@@ -6,6 +6,7 @@ import { Typography } from "@/src/ui";
 import { TypographyComponent } from "./typography-component";
 import { ButtonComponent } from "./button-component";
 import MeetingCardComponent from "./meeting-card-component";
+import SeriesDropdownComponent from "./series-dropdown";
 
 const Components = () => {
   return (
@@ -19,6 +20,7 @@ const Components = () => {
       <TypographyComponent />
       <ButtonComponent />
       <MeetingCardComponent/>
+      <SeriesDropdownComponent/>
     </main>
   );
 };

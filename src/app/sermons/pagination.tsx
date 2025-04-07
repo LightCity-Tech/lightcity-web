@@ -7,7 +7,7 @@ type Props = {};
 
 const Pagination = ({ page, setPage, pages }: any) => {
     
-console.log(page)
+
   return (
     <div className="flex justify-end space-x-4">
       <Button

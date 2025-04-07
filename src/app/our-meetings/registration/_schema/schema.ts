@@ -5,7 +5,7 @@ const circuitOptions = ["Abakpa", "Agbani/One-Day", "Maryland/Ugwuaji", "Obiagu"
 
 export const registerMeetingSchema = z.object({
   fullname: z.string().min(1, { message: "Please enter your full name" }),
-  email: z.string().email({ message: "Please enter your email address in the format: yourname@example.com" }),
+  email: z.string().email({ message: "Please enter your email address in the format: text@example.com" }),
   location: z.string().min(1, { message: "Please enter your location" }),
   phonenumber: z.string().regex(phoneNumberRegExp, { message: 'Phone number entered is not valid' }),
   circuit: z.string().min(1).refine(value => circuitOptions.includes(value), { message: "Please select the circuit you belong to" }),
