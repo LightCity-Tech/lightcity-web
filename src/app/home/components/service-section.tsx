@@ -4,6 +4,7 @@ import { Typography } from "@/src/ui";
 import Image from "next/image";
 import LocationIcon from "@/public/assets/svgs/location.svg";
 import bgImage from "../services-bg.png";
+import Link from "next/link";
 
 const ServiceSection = () => {
   const services = [
@@ -59,8 +60,14 @@ const ServiceSection = () => {
             color="secondary-main"
             fontWeight="medium"
             align="left"
+            customClassName="relative after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary-main after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"
           >
+            <Link 
+              href = "https://www.google.com/maps/place/LightCity+Church/@6.4207336,7.4840509,17z/data=!4m6!3m5!1s0x1044a194ae359ad7:0x9b96dca3bf9c316c!8m2!3d6.4207336!4d7.4866312!16s%2Fg%2F11nmj129jk?authuser=0&entry=ttui"
+              target = "_blank">
             179 Ziks Avenue, Uwani Enugu State (Second Floor)
+            </Link>
+            
           </Typography>
         </div>
       </section>

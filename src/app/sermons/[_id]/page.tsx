@@ -6,6 +6,7 @@ import { getASeries } from "../../services/api";
 import { useParams } from "next/navigation";
 import { InfinitySpin } from "react-loader-spinner";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import styles from "./styles.module.scss";
 
@@ -19,17 +20,18 @@ const DownloadIcon = dynamic(
 type Props = {};
 
 const SermonDetail = (props: Props) => {
+  const router = useRouter();
+
   const [series, setSeries] = useState<ISeries[] | any>([]);
   const [loading, setLoading] = useState(false);
   const { _id } = useParams();
-  console.log(_id);
+
   useEffect(() => {
     const fetchSeries = async () => {
       try {
         setLoading(true);
         const res = await getASeries(_id as string);
         setSeries(res?.data.series);
-        console.log(res);
         setLoading(false);
       } catch (error) {}
     };
@@ -43,15 +45,14 @@ const SermonDetail = (props: Props) => {
   ) : (
     <section className="h-auto ">
       <div className="w-full bg-[#fff] px-5 sm:px-8 md:px-10 mx-auto lg:px-24 xl:px-20 flex">
-        <Link href="/sermons">
-          <Button
-            variant="no-border"
-            color="primary"
-            label={"Back to All Messages"}
-            leftIcon={<ButtonLeft />}
-            customClassName="bg-[#fff]"
-          />
-        </Link>
+        <Button
+          variant="no-border"
+          color="primary"
+          label={"Back to All Messages"}
+          leftIcon={<ButtonLeft />}
+          customClassName="bg-[#fff] hover:text-[#D69429]"
+          onClick={() => router.back()}
+        />
       </div>
       <div className="flex w-full mb-4 lg:mt-4 items-center mx-auto lg:max-w-[980px] xl:max-w-[1180px] px-5">
         <div className="w-full lg:flex lg:flex-row flex flex-col space-x-0 lg:space-x-12">
@@ -59,7 +60,7 @@ const SermonDetail = (props: Props) => {
             <span className="block h-1 bg-secondary-200 w-full"></span>
             <div>
               <Typography variant="h3" color="white" align="center">
-                {series.title}
+                {series?.title}
               </Typography>
               {series?.tracks?.length > 1 && (
                 <Typography variant="caption-mid" color="white" align="center">
@@ -74,19 +75,19 @@ const SermonDetail = (props: Props) => {
           </div>
           <div className="w-full">
             <h3 className="text-[20px] mt-4 lg:mt-0 py-3 lg:text-[28px] font-semibold">
-              {series.title}
+              {series?.title}
             </h3>
             <div className="">
               {series?.tracks?.map((track: any, index: number) => (
                 <div
-                  key={track._id}
+                  key={track?._id}
                   className={`group w-full py-2 px-4 flex justify-between items-center relative transition duration-300 hover:bg-secondary-25 `}
                 >
-                  <p>{track.title}</p>
+                  <p>{track?.title}</p>
                   <div
                     className={`flex justify-center items-center ${styles.download}`}
                   >
-                    <DownloadButton link={track.fileId} />
+                    <DownloadButton link={track?.fileId} />
                   </div>
                 </div>
               ))}

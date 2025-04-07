@@ -11,7 +11,6 @@ export const useNavigation = () => {
   };
 
   const onBodyClick = (e: any, value: boolean) => {
-    // console.log({ value })
     setNavOpen(value);
     e.stopPropagation();
   };

@@ -50,9 +50,9 @@ const meetingsMockData = [
     //   "https://res.cloudinary.com/tochukwu/image/upload/w_250/v1700481884/lightcity/qek9s7hvd51k4yr0rta9.webp",
     description:
       "This is a meeting where the fire of God's Spirit will be regnited and made to burn much more in the hearts of believers to the end that they are much more effective in the ministry of the word and the Spirit",
-    month: "May/June",
-    startDay: "TBA",
-    duration: "TBA",
+    month: "July",
+    startDay: "26",
+    duration: "26th to 27th",
     year: "2024",
     location: "ENUGU, NIGERIA",
   },

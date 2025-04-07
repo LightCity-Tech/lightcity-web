@@ -71,7 +71,16 @@ const config: Config = {
       screens: {
         'mobile': {'max': '767px'},
         // => @media (max-width: 767px) { ... }
-      }
+      },
+      keyframes:{
+        'slide': {
+          '0%': {transform: 'translateY(0)', color: 'red'},
+          '100%': {transform: 'translateY(-100px)', color: 'blue'}
+        },
+      },
+      animation: {
+        'sliding': 'slide 1s cubic-bezier(0.250, 0.460, 0.450, 0.940 infinite',
+      },
     },
   },
   plugins: [],

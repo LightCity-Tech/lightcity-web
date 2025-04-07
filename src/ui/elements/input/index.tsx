@@ -33,7 +33,7 @@ const Input: FC<InputProps> = (props) => {
         className={clsx(
           `block w-full rounded-full border-2  bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${
             errMessage ? "border-red-400" : "border-[#DEDEDE]"
-          }`,
+          }`, 
           customClassName
         )}
         placeholder={placeholder}

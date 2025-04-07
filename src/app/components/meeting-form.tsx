@@ -106,7 +106,7 @@ const MeetingForm = () => {
           buttonType="submit"
           customClassName={`w-full flex justify-center items-center mt-8`}
           leftIcon={<SpinnerIcon />}
-          disabled = {submitting}
+          disabled={submitting}
         />
       </form>
     </FormProvider>
