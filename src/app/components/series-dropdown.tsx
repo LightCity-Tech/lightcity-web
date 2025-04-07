@@ -3,7 +3,56 @@
 import { SeriesDropdown } from "@/src/ui";
 
 const SeriesDropdownComponent = () => {
-  const sermons = ["Immersion Retreat 2021", "Bible Seminar", "Believer's Authority", "Immersion Retreat 2021", "Bible Seminar", "Believer's Authority"]
+  const sermons: ISeries[] = [
+    {
+      title: "Immersion Retreat 2021",
+      dateUploaded: "",
+      _id: "",
+      yearTaught: "",
+      thumbnail: null,
+      tracks: [],
+    },
+    {
+      title: "Bible Seminar",
+      dateUploaded: "",
+      _id: "",
+      yearTaught: "",
+      thumbnail: null,
+      tracks: [],
+    },
+    {
+      title: "Believer's Authority",
+      dateUploaded: "",
+      _id: "",
+      yearTaught: "",
+      thumbnail: null,
+      tracks: [],
+    },
+    {
+      title: "Immersion Retreat 2021",
+      dateUploaded: "",
+      _id: "",
+      yearTaught: "",
+      thumbnail: null,
+      tracks: [],
+    },
+    {
+      title: "Bible Seminar",
+      dateUploaded: "",
+      _id: "",
+      yearTaught: "",
+      thumbnail: null,
+      tracks: [],
+    },
+    {
+      title: "Believer's Authority",
+      dateUploaded: "",
+      _id: "",
+      yearTaught: "",
+      thumbnail: null,
+      tracks: [],
+    },
+  ];
 
   return (
     <details className="w-full">
