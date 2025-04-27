@@ -10,14 +10,15 @@ import Location from "@/public/assets/svgs/icon.svg";
 import styles from "./styles.module.scss";
 
 interface MeetingProps {
-  image?: string;
   title: string;
   description: string;
   month: string;
   startDay: string;
   year: string;
-  duration?: string;
   location: string;
+  duration?: string;
+  image?: string;
+
 }
 
 const MeetingCard = ({
@@ -33,7 +34,7 @@ const MeetingCard = ({
   const href =
     title === "Faith Seminar"
       ? "registration/faith-seminar"
-      : title.replace(" ", "-");
+      : title.toLowerCase().replace(/\s+/g, '-');
 
   return (
     <div className="md:flex md:flex-row flex flex-col md:justify-between md:gap-16 px-4 py-6 bg-white">

@@ -108,7 +108,9 @@ const Select: FC<SelectProps> = (props) => {
                   selected === option.value ? styles.selected : ""
                 }`}
                 key={index}
-                ref={(element) => (optionRefs.current[index] = element)}
+                ref={(element) => {
+                  optionRefs.current[index] = element;
+                }}
                 onClick={() => selectOption(index)}
               >
                 {option.value}

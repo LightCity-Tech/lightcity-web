@@ -14,10 +14,10 @@ export type FormData = {
 };
 
 const meetingDLC = [
-  { heading: "Date", description: "11th - 14th April, 2024" },
+  { heading: "Date", description: "28th - 31st August, 2025" },
   {
     heading: "Location",
-    description: " 179 Ziks Avenue (Second Floor), Uwani, Enugu State.",
+    description: "Anglican Girls Secondary School, Uwani, Enugu State.",
   },
   { heading: "Contact", description: "08141748947, 08138720239" },
 ]; //DLC stands for Date, Location and Contact
@@ -34,7 +34,7 @@ const UpcomingMeeting = () => {
             variant="h1"
             customClassName=""
           >
-            Faith Seminar
+            Camp Meeting
           </Typography>
           <Typography
             align="center"
@@ -42,7 +42,7 @@ const UpcomingMeeting = () => {
             fontWeight="medium"
             variant="h3"
           >
-            179 Ziks Avenue (Second Floor), Uwani, Enugu State.
+            Anglican Girls Secondary School, Uwani, Enugu State.
           </Typography>
           <Typography
             align="center"
@@ -50,13 +50,13 @@ const UpcomingMeeting = () => {
             fontWeight="medium"
             variant="h3"
           >
-            11th - 13th April, 2024
+            28th - 31st August, 2025
           </Typography>
         </div>
       </section>
-      <section className="relative">
-        <div className="absolute w-full h-full bg-black bg-opacity-50 z-[100] flex justify-center items-center">
-          <div className="w-full h-auto mx-4 bg-white rounded-lg border-r-2 p-10 flex flex-col justify-start items-center md:w-3/5 lg:w-1/2 lg:p-20">
+      <section className="">
+        <div className="absolute w-full top-[120px] h-full bg-black bg-opacity-50 z-[100] flex justify-center items-center">
+          <div className="w-9/10 absolute h-auto top-0 mx-4 bg-white rounded-lg border-r-2 p-10 flex flex-col justify-start items-center md:w-3/5 lg:w-1/2 lg:p-20">
             <Typography
               variant="h3"
               align="center"

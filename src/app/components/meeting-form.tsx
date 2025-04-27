@@ -99,6 +99,27 @@ const MeetingForm = () => {
           type="text"
           placeholder="Enter here"
         />
+        <Input
+          name="church"
+          label="Local Church"
+          type="text"
+          placeholder="Enter here"
+        />
+        <Select name="nursing" label="Are you a nursing mother?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
+        <Select name="nursing" label="Any known medical condition?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
+        <Input
+          name="medicalcondition"
+          label="If yes, Indicate"
+          type="text"
+          placeholder="Enter here"
+        />
+        <Select name="pastor" label="Any you a Pastor?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
+
+        <div className="mt-3 text-center">
+          <h3 className="text-2xl font-semibold">For Partnership</h3>
+          <h3 className="text-xl">0672104443</h3>
+          <h3 className="text-xl">GT Bank</h3>
+        </div>
         <Button
           variant="primary"
           color="primary"

@@ -81,7 +81,7 @@ const Typography: React.FC<TypographyProps> = (props) => {
   //Resolved Tag
   const Tag = (tag ||
     variantMapping[variant] ||
-    "p") as keyof JSX.IntrinsicElements;
+    "p") as keyof JSX.IntrinsicElements | any;
 
   const className = clsx(customClassName)
 

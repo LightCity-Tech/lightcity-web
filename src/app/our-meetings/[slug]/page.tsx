@@ -38,13 +38,13 @@ const Meeting = (props: Props) => {
     <section>
       <HeroSection
         title="Upcoming Meetings"
-        subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Word Conference </h1>"
+        subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Camp Meeting </h1>"
         imageUrl="/assets/images/hero-wc.webp"
         buttonTitle="Learn More"
         buttonSvg={<ArrowUpIcon />}
         buttonIconDirection={"right"}
         link={""}
-        description="Word Conference is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of God's word and the intense atmospheres of the demonstrations of the Spirit."
+        description="Camp Meeting is an annual special meeting of LightCity Church put together by the Spirit of God to have believers camp around the teaching of God's word and the intense atmospheres of the demonstrations of the Spirit."
       />
       <div className="lg:px-24 px-5 md:py-16 md:flex md:flex-row flex flex-col-reverse md:space-x-6 space-x-0">
         <div className="md:w-2/5">
@@ -56,7 +56,7 @@ const Meeting = (props: Props) => {
               fontWeight="regular"
               customClassName="mb-4 md:text-[16px] uppercase"
             >
-              08TH - 10TH DECEMBER 2023
+              28TH - 31ST AUGUST 2025
             </Typography>
           </div>
           <div>
@@ -67,7 +67,7 @@ const Meeting = (props: Props) => {
               fontWeight="regular"
               customClassName="mb-4 md:text-[16px] uppercase"
             >
-              Main Hall, University of Nigeria, Enugu Campus (UNEC), Nigeria.
+              Anglican Girls Secondary School, Uwani, Enugu
             </Typography>
           </div>
           <div>
@@ -92,8 +92,8 @@ const Meeting = (props: Props) => {
               sample-meeting-img
               customClassName="mb-4 px-6 text-[24px] hidden md:block"
             >
-              WORD CONFERENCE 2023 <br />
-              One Meeting • 3 Days • 6 Sessions <br />
+              CAMP MEETING 2025 <br />
+              One Meeting • 4 Days • 8 Sessions <br />
               Saints of God gathered in the Name of His Holy Son Jesus, <br />
               The Word of God&apos;s Grace taught, <br />
               The Holy Ghost in His Natural Habitat, <br />
