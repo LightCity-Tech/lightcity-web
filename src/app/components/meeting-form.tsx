@@ -34,18 +34,26 @@ const MeetingForm = () => {
   ) => {
     try {
       // set submitting to true
+      console.log(data)
       setSubmitting(true);
       // handle the form submission
       const res = await registerMeeting({
         ...data,
-        meetingId: "",
+        meetingId: "68205ca639d527c19d4f5ecf",
+        circuit: data.circuit || "", // Ensure circuit is always provided
       });
       if (res === 201) {
         setSubmitting(false);
-        methods.reset();
+        methods.reset({
+          circuit: "",
+          is_nursing_mother: "",
+          is_pastor: "",
+          has_medical_condition: undefined,
+        });
         toast.success("You have successfully registered for this meeting. 🥳");
       }
     } catch (e: any) {
+      setSubmitting(false);
       if (isAxiosError(e)) {
         setSubmitting(false);
         toast.error(e.response!.data.message);
@@ -92,7 +100,7 @@ const MeetingForm = () => {
           placeholder="Enter here"
         />
         <InputPhone name="phonenumber" label="mobile number" />
-        <Select name="circuit" label="circuit" options={optionsData} />
+        <Select name="circuit" label="circuit (For LightCity Church Members Only)" options={optionsData} />
         <Input
           name="location"
           label="Where are you coming from?"
@@ -105,15 +113,15 @@ const MeetingForm = () => {
           type="text"
           placeholder="Enter here"
         />
-        <Select name="nursing" label="Are you a nursing mother?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
-        <Select name="nursing" label="Any known medical condition?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
+        <Select name="is_nursing_mother" label="Are you a nursing mother?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
+        <Select name="has_medical_condition" label="Any known medical condition?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
         <Input
-          name="medicalcondition"
+          name="medical_condition"
           label="If yes, Indicate"
           type="text"
           placeholder="Enter here"
         />
-        <Select name="pastor" label="Any you a Pastor?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
+        <Select name="is_pastor" label="Are you a Pastor?" options={[{ label: 'Yes', value: 'yes' }, { label: 'No', value: 'no' }]} />
 
         <div className="mt-3 text-center">
           <h3 className="text-2xl font-semibold">For Partnership</h3>

@@ -8,5 +8,20 @@ export const registerMeetingSchema = z.object({
   email: z.string().email({ message: "Please enter your email address in the format: text@example.com" }),
   location: z.string().min(1, { message: "Please enter your location" }),
   phonenumber: z.string().regex(phoneNumberRegExp, { message: 'Phone number entered is not valid' }),
-  circuit: z.string().min(1).refine(value => circuitOptions.includes(value), { message: "Please select the circuit you belong to" }),
+  circuit: z.string().optional(),
+  church: z.string(),
+  is_nursing_mother: z.string().min(1, { message: "Please indicate" }),
+  is_pastor: z.string().min(1, { message: "Please indicate if you are a Pastor" }),
+  has_medical_condition: z.enum(["yes", "no"], {
+    errorMap: () => ({ message: "Please select yes or no" }),
+  }),
+  medical_condition: z.string().optional(),
+}).superRefine((data, ctx) => {
+  if (data.has_medical_condition === "yes" && !data.medical_condition?.trim()) {
+    ctx.addIssue({
+      path: ["medical_condition"],
+      code: z.ZodIssueCode.custom,
+      message: "Please state your medical condition",
+    });
+  }
 });

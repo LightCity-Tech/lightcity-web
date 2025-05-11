@@ -88,10 +88,10 @@ const Select: FC<SelectProps> = (props) => {
           onClick={toggleSelect}
           id={name}
           {...register(name, {
-            required: {
-              value: true,
-              message: "Please select the circuit you belong to",
-            },
+            // required: {
+            //   value: true,
+            //   message: "",
+            // },
           })}
         >
           {selected === "Select" ? (
@@ -113,7 +113,7 @@ const Select: FC<SelectProps> = (props) => {
                 }}
                 onClick={() => selectOption(index)}
               >
-                {option.value}
+                {option.label}
               </div>
             ))}
           </div>
@@ -121,7 +121,7 @@ const Select: FC<SelectProps> = (props) => {
       </div>
       {errMessage && typeof errMessage === "string" && (
         <div className="text-caption-reg text-red-500">
-          Please select the circuit you belong to
+          {/* Please select the circuit you belong to */}
         </div>
       )}
     </div>
