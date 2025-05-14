@@ -84,6 +84,7 @@ const backIconHoverEffect = customClassName?.includes("hover:text-[#D69429]") ? 
     >
       {leftIcon && <span className={iconClass}>{leftIcon}</span>}
       {label}
+      {rightIcon && <span className={iconClass}>{rightIcon}</span>}
     </button>
   );
 };

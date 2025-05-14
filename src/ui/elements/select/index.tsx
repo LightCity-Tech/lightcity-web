@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, useRef, useEffect } from "react";
-import { useFormContext } from "react-hook-form";
+import { useFormContext, useWatch } from "react-hook-form";
 import styles from "./index.module.scss";
 
 interface Options {
@@ -23,6 +23,7 @@ const Select: FC<SelectProps> = (props) => {
     setValue,
     clearErrors,
     formState: { errors },
+    control
   } = useFormContext();
 
   const errMessage = errors[name]?.message;
@@ -30,7 +31,15 @@ const Select: FC<SelectProps> = (props) => {
   const optionRefs = useRef<Array<HTMLDivElement | null>>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>("Select");
+  // const [selected, setSelected] = useState<Options | null>(null);
+
+    const selectedValue = useWatch({
+    name,
+    control,
+  });
+
+  const selectedLabel =
+    options.find((opt) => opt.value === selectedValue)?.label || "Select";
 
   //Toggle the dropdown on click
   const toggleSelect = (e: any) => {
@@ -40,17 +49,21 @@ const Select: FC<SelectProps> = (props) => {
 
   //Function to select an option
   const selectOption = (optionIndex: number) => {
-    const option = options[optionIndex].value;
-    setSelected(option);
+    const selectedOption = options[optionIndex];
+    // setSelected(selectedOption); // store full option object
     setIsActive(false);
 
-    const selectedOptionRef = optionRefs.current[optionIndex];
-    if (selectedOptionRef) {
-      selectedOptionRef.classList.add(styles.selected);
-    }
-    setValue(name, option); //assigning an option to the 'circuit' key
+    setValue(name, selectedOption.value); // form value = actual value
     clearErrors(name);
   };
+
+  const formValues = useWatch();
+
+//   useEffect(() => {
+//   if (!formValues[name]) {
+//     setSelected("Select");
+//   }
+// }, [formValues[name]]);
 
   //Blur function to close the dropdown
   const handleBlur: any = (e: MouseEvent) => {
@@ -71,15 +84,15 @@ const Select: FC<SelectProps> = (props) => {
   }, []);
 
   return (
-    <div className="flex flex-col mb-3">
+    <div className="flex flex-col mb-5">
       <label
-        className="cursor-pointer w-fit text-body-reg text-[#3C3C3C] uppercase"
+        className="cursor-pointer w-fit text-body-reg text-[#3C3C3C] capitalize"
         htmlFor={name}
       >
         {label}
       </label>
       <div
-        className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${
+        className={`cursor-pointer rounded-md border-2 ${styles.dropdown} ${
           errMessage ? " border-red-400" : "border-[#DEDEDE]"
         } ${isActive ? "border-primary-main" : "border-[#DEDEDE]"}`}
       >
@@ -94,18 +107,16 @@ const Select: FC<SelectProps> = (props) => {
             // },
           })}
         >
-          {selected === "Select" ? (
-            <p className="text-[#979797]">{selected}</p>
-          ) : (
-            <p className="text-black">{selected}</p>
-          )}
+          <p className={selectedValue ? "text-black" : "text-[#979797]"}>
+            {selectedLabel}
+          </p>
         </div>
         {isActive && (
           <div className={styles["dropdown-content"]} ref={dropdownRef}>
             {options.map((option, index) => (
               <div
                 className={`${styles["dropdown-item"]} ${
-                  selected === option.value ? styles.selected : ""
+                  selectedValue === option.value ? styles.selected : ""
                 }`}
                 key={index}
                 ref={(element) => {

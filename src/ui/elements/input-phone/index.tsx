@@ -20,9 +20,9 @@ const InputPhone: FC<PhoneProps> = (props) => {
   const errMessage = errors[name]?.message;
 
   return (
-    <div className="flex flex-col mb-3">
+    <div className="flex flex-col mb-5">
       <label
-        className="cursor-pointer w-fit text-body-reg text-[#3C3C3C] uppercase"
+        className="cursor-pointer w-fit text-body-reg text-[#3C3C3C] capitalize"
         htmlFor={name}
       >
         {label}
@@ -33,7 +33,7 @@ const InputPhone: FC<PhoneProps> = (props) => {
             type="tel"
             placeholder="+234 XXX XXX XXXX"
             className={clsx(
-              `block w-full rounded-full border-2 bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${
+              `block w-full rounded-md border-2 bg-transparent px-4 py-2 placeholder:text-[#979797] focus:outline-primary-main ${
                 errMessage ? "border-red-400" : "border-[#DEDEDE]"
               }`
             )}

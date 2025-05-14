@@ -22,16 +22,16 @@ const Input: FC<InputProps> = (props) => {
   const errMessage = errors[name]?.message;
 
   return (
-    <div className={clsx(`flex flex-col mb-3`, fieldCustomClassName)}>
+    <div className={clsx(`flex flex-col mb-5`, fieldCustomClassName)}>
       <label
-        className="cursor-pointer w-fit text-body-reg text-[#3C3C3C] uppercase"
+        className="cursor-pointer w-fit text-body-reg text-[#3C3C3C] capitalize"
         htmlFor={name}
       >
         {label}
       </label>
       <input
         className={clsx(
-          `block w-full rounded-full border-2  bg-transparent p-4 placeholder:text-[#979797] focus:outline-primary-main ${
+          `block w-full rounded-md border-2  bg-transparent px-4 py-2 placeholder:text-[#979797] focus:outline-primary-main ${
             errMessage ? "border-red-400" : "border-[#DEDEDE]"
           }`, 
           customClassName
