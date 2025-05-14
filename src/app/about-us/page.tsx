@@ -8,7 +8,7 @@ import TestimonialSlide from "../components/testimonial-slide";
 
 type Props = {};
 
-const AboutUs = (props: Props) => {
+const AboutUs = () => {
   return (
     <section className="bg-[#fff">
       <div className="bg-[#fff] px-5 h-full">
