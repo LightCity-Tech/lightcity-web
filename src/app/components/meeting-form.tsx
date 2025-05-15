@@ -33,7 +33,7 @@ const MeetingForm = () => {
   });
 
   const handleFormSubmission = async (
-    data: z.infer<typeof registerMeetingSchema>
+    data: z.infer<typeof registerMeetingSchema>, 
   ) => {
     try {
       // set submitting to true
@@ -49,11 +49,6 @@ const MeetingForm = () => {
         setSubmitting(false);
         setIsSuccess(true);
         methods.reset()
-        // methods.reset('circuit')
-        // methods.reset('has_medical_condition', null as any)
-        //  methods.resetField('is_nursing_mother', {defaultValue: ''})
-        // methods.setValue('is_nursing_mother', null as any)
-        // toast.success("You have successfully registered for this meeting. 🥳");
       }
     } catch (e: any) {
       setSubmitting(false);
@@ -86,6 +81,13 @@ const MeetingForm = () => {
       </span>
     );
   };
+
+//   const handleSubmitWithBlur = () => {
+//   document.activeElement?.blur(); // force blur input
+//   setTimeout(() => {
+//     formRef.current?.requestSubmit(); // or manually trigger submit
+//   }, 50);
+// };
 
   useEffect(() => {
     if (isSuccess) {

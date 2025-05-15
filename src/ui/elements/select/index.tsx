@@ -13,115 +13,117 @@ interface SelectProps {
   label: string;
   options: Options[];
   name: string;
+  placeholder?: string;
 }
 
-const Select: FC<SelectProps> = (props) => {
-  const { label, options, name } = props;
-
+const Select: FC<SelectProps> = ({
+  label,
+  options,
+  name,
+  placeholder = "Select",
+}) => {
   const {
-    register,
     setValue,
     clearErrors,
     formState: { errors },
-    control
+    control,
+    register,
   } = useFormContext();
 
-  const errMessage = errors[name]?.message;
+  const errMessage = errors[name]?.message as string | undefined;
 
   const optionRefs = useRef<Array<HTMLDivElement | null>>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [isActive, setIsActive] = useState<boolean>(false);
-  // const [selected, setSelected] = useState<Options | null>(null);
 
-    const selectedValue = useWatch({
-    name,
-    control,
-  });
+  const [isActive, setIsActive] = useState(false);
+
+  const value = useWatch({ control, name });
 
   const selectedLabel =
-    options.find((opt) => opt.value === selectedValue)?.label || "Select";
+    options.find((opt) => opt.value === value)?.label || placeholder;
 
-  //Toggle the dropdown on click
-  const toggleSelect = (e: any) => {
+  // Set up focus-outside logic
+  useEffect(() => {
+    const handleBlur = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsActive(false);
+      }
+    };
+    document.addEventListener("mousedown", handleBlur);
+    return () => document.removeEventListener("mousedown", handleBlur);
+  }, []);
+
+  const toggleSelect = (e: React.MouseEvent) => {
     e.preventDefault();
+    document.activeElement instanceof HTMLElement &&
+      document.activeElement.blur(); // fix iOS
     setIsActive(!isActive);
   };
 
-  //Function to select an option
   const selectOption = (optionIndex: number) => {
-    const selectedOption = options[optionIndex];
-    // setSelected(selectedOption); // store full option object
+    const option = options[optionIndex];
+    setValue(name, option.value, { shouldValidate: true, shouldDirty: true });
+    clearErrors(name);
     setIsActive(false);
 
-    setValue(name, selectedOption.value); // form value = actual value
+    const selectedOptionRef = optionRefs.current[optionIndex];
+    if (selectedOptionRef) {
+      selectedOptionRef.classList.add(styles.selected);
+    }
+
+    // ✅ Tell react-hook-form about the change
+    setValue(name, option.value, { shouldValidate: true });
     clearErrors(name);
   };
 
-  const formValues = useWatch();
-
-//   useEffect(() => {
-//   if (!formValues[name]) {
-//     setSelected("Select");
-//   }
-// }, [formValues[name]]);
-
-  //Blur function to close the dropdown
-  const handleBlur: any = (e: MouseEvent) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(e.target as Node)
-    ) {
-      setIsActive(false);
-    }
-  };
-
-  //Removes the circuit dropdown if it is active, when you click elsewhere on the page
-  useEffect(() => {
-    document.addEventListener("mousedown", handleBlur);
-    return () => {
-      document.removeEventListener("mousedown", handleBlur);
-    };
-  }, []);
-
   return (
-    <div className="flex flex-col mb-5">
+    <div className="flex flex-col mb-3">
       <label
-        className="cursor-pointer w-fit text-body-reg text-[#3C3C3C] capitalize"
         htmlFor={name}
+        className="cursor-pointer text-body-reg text-[#3C3C3C] capitalize"
       >
         {label}
       </label>
+
       <div
-        className={`cursor-pointer rounded-md border-2 ${styles.dropdown} ${
-          errMessage ? " border-red-400" : "border-[#DEDEDE]"
-        } ${isActive ? "border-primary-main" : "border-[#DEDEDE]"}`}
+        ref={dropdownRef}
+        className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${
+          errMessage
+            ? "border-red-400"
+            : isActive
+            ? "border-primary-main"
+            : "border-[#DEDEDE]"
+        }`}
       >
         <div
           className={styles["dropdown-btn"]}
           onClick={toggleSelect}
           id={name}
-          {...register(name, {
-            // required: {
-            //   value: true,
-            //   message: "",
-            // },
-          })}
+          {...register(name)} // still register for validation and RHF reset
         >
-          <p className={selectedValue ? "text-black" : "text-[#979797]"}>
+          <p
+            className={
+              selectedLabel === placeholder ? "text-[#979797]" : "text-black"
+            }
+          >
             {selectedLabel}
           </p>
         </div>
+
         {isActive && (
-          <div className={styles["dropdown-content"]} ref={dropdownRef}>
+          <div className={styles["dropdown-content"]}>
             {options.map((option, index) => (
               <div
-                className={`${styles["dropdown-item"]} ${
-                  selectedValue === option.value ? styles.selected : ""
-                }`}
                 key={index}
-                ref={(element) => {
-                  optionRefs.current[index] = element;
+                ref={(el) => {
+                  optionRefs.current[index] = el;
                 }}
+                className={`${styles["dropdown-item"]} ${
+                  value === option.value ? styles.selected : ""
+                }`}
                 onClick={() => selectOption(index)}
               >
                 {option.label}
@@ -130,10 +132,9 @@ const Select: FC<SelectProps> = (props) => {
           </div>
         )}
       </div>
-      {errMessage && typeof errMessage === "string" && (
-        <div className="text-caption-reg text-red-500">
-          {/* Please select the circuit you belong to */}
-        </div>
+
+      {errMessage && (
+        <div className="text-caption-reg text-red-500">{errMessage}</div>
       )}
     </div>
   );

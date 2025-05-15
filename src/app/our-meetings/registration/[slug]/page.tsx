@@ -26,7 +26,7 @@ const UpcomingMeeting = () => {
   return (
     <section>
       <section
-        className="w-full h-[100vh] relative overflow-hidden bg-[url('/assets/images/camp-meeting-hero.webp')] bg-cover flex items-center justify-center brightness-80"
+        className="w-full h-[100vh] relative overflow-hidden bg-[url('/assets/images/camp-meeting-hero.webp')] bg-cover bg-center lg:bg-left flex items-center justify-center brightness-80"
         style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/images/camp-meeting-hero.webp')" }}
       >
         <div className="">
