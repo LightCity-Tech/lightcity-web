@@ -49,7 +49,10 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
         <h2 className="text-xl font-semibold text-[#202121] mt-5">{message}</h2>
         <div className="flex justify-between mt-5">
           <Button
-            onClick={onClose}
+            onClick={() => {
+              onClose();
+              router.refresh()
+            }}
             color="primary"
             variant="outlined"
             label="Close"
@@ -57,8 +60,8 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
           
           <Button
             onClick={() => {
-              router.refresh()
-              onClose();
+            onClose();
+            router.refresh()
             }}
             color="primary"
             variant="primary"
