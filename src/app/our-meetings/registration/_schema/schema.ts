@@ -12,10 +12,10 @@ export const registerMeetingSchema = z
       .email({ message: "Please enter your email address in the format: text@example.com" }),
     location: z.string().min(1, { message: "Please enter your location" }),
     phonenumber: z
-      .string()
-      .regex(/^(\+\s?\d{1,3}\s?)?(\(\d{1,4}\)\s?)?[0-9\s]{9,}$/, {
-        message: "Phone number entered is not valid",
-      }),
+      .string(),
+      // .regex(/^(\+\s?\d{1,3}\s?)?(\(\d{1,4}\)\s?)?[0-9\s]{9,}$/, {
+      //   message: "Phone number entered is not valid",
+      // }),
     circuit: z.string().optional(),
     gender: z.string().min(1, { message: "Please indicate your gender" }),
     church: z.string(),
