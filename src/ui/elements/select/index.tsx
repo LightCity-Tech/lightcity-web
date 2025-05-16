@@ -80,7 +80,7 @@ const Select: FC<SelectProps> = ({
   };
 
   return (
-    <div className="flex flex-col mb-3">
+    <div className="flex flex-col mb-5">
       <label
         htmlFor={name}
         className="cursor-pointer text-body-reg text-[#3C3C3C] capitalize"
@@ -90,7 +90,7 @@ const Select: FC<SelectProps> = ({
 
       <div
         ref={dropdownRef}
-        className={`cursor-pointer rounded-full border-2 ${styles.dropdown} ${
+        className={`cursor-pointer rounded-md border-2 ${styles.dropdown} ${
           errMessage
             ? "border-red-400"
             : isActive
