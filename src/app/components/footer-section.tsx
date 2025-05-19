@@ -39,7 +39,7 @@ const FooterSection = () => {
   const infoLinks: InfoLink[] = [
     { href: "/home", text: "Home" },
     { href: "/about-us", text: "About Us" },
-    { href: "#", text: "Contact Us"},
+    { href: "#", text: "Contact Us" },
     {
       href: "https://www.google.com/maps/place/LightCity+Church/@6.4207336,7.4840509,17z/data=!4m6!3m5!1s0x1044a194ae359ad7:0x9b96dca3bf9c316c!8m2!3d6.4207336!4d7.4866312!16s%2Fg%2F11nmj129jk?authuser=0&entry=ttui",
       text: "Worship with Us",
@@ -86,7 +86,7 @@ const FooterSection = () => {
                   <Link
                     href={infoLink.href}
                     className="relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary-25 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center"
-                    target = {infoLink.href.includes("maps") ? "_blank" : "_self"}
+                    target={infoLink.href.includes("maps") ? "_blank" : "_self"}
                   >
                     {infoLink.text}
                   </Link>
@@ -154,12 +154,15 @@ const FooterSection = () => {
         <div className="mt-36 md:mt-20">
           <div className="flex flex-col-reverse space-y-12 lg:flex-row lg:justify-between lg:items-center">
             <div className="mt-8 lg:mt-0">
-              <Button
-                variant="primary"
-                color="primary"
-                label="Join Us Live"
-                leftIcon={<BrownPlayIcon className="fill-secondary-main" />}
-              />
+              <Link href="/live">
+                {" "}
+                <Button
+                  variant="primary"
+                  color="primary"
+                  label="Join Us Live"
+                  leftIcon={<BrownPlayIcon className="fill-secondary-main" />}
+                />
+              </Link>
             </div>
             <div className="flex space-x-4">
               {socials.map((social, index) => (

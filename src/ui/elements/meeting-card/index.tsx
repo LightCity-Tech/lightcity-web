@@ -45,9 +45,9 @@ const MeetingCard = ({
               <Image
                 src={image}
                 alt="Sample Image for a Meeting"
-                width={500}
-                height={500}
-                className="h-full w-full object-fill rounded-[1.25rem]"
+                width={200}
+                height={200}
+                className="w-full h-[30rem] object-fill rounded-[1.25rem]"
               />
             )}
           </Link>
