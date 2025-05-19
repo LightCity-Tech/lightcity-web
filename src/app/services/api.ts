@@ -43,7 +43,7 @@ export const registerMeeting = async (registrationDetails: {
   circuit: any,
 }) => {
   try {
-    // registrationDetails.meetingId = "65b417da2a42204f5102e45c";
+    registrationDetails.meetingId = "65b417da2a42204f5102e45c";
     const response = await axios.post(
       `${baseUrl}/meetings/register`,
       registrationDetails
