@@ -3,6 +3,9 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import BgImage from "@/public/assets/images/slide02.webp";
+import { Typography } from "@/src/ui";
+import Link from "next/link";
+import { CgUnavailable } from "react-icons/cg";
 
 const Live = () => {
   const [mixlr, setMixlr] = useState<boolean>(true);
@@ -67,12 +70,26 @@ const Live = () => {
           ) : (
             <motion.div
               key="telegram"
-              className="bg-white w-[60%] h-[36rem] border-0 rounded-[20px] shadow-xl mobile:w-[75%] small-mobile:!w-[90%]"
+              className="bg-white w-[60%] h-[36rem] border-0 rounded-[20px] shadow-xl flex flex-col justify-start items-center gap-12 mobile:w-[75%] small-mobile:!w-[90%]"
               initial={{ x: "-100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-            ></motion.div>
+            >
+              <CgUnavailable className="text-secondary-200 mt-16" size={200} />
+              <div className="flex flex-col justify-center items-center">
+                <Typography variant="h3" align="center" color="secondary-200">
+                  Live streaming from Telegram is not available here at this
+                  moment.
+                </Typography>
+                <Link
+                  href="https://t.me/PastorTochi"
+                  className="mt-4 text-secondary-main underline underline-offset-4 text-xl font-medium transition duration-700 ease-in-out hover:no-underline hover:scale-110 hover:text-secondary-100"
+                >
+                  Please, click link to tune in from Telegram
+                </Link>
+              </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
