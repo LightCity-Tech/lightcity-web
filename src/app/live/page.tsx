@@ -5,7 +5,6 @@ import { useState } from "react";
 import BgImage from "@/public/assets/images/slide02.webp";
 import { Typography } from "@/src/ui";
 import Link from "next/link";
-import { CgUnavailable } from "react-icons/cg";
 
 const Live = () => {
   const [mixlr, setMixlr] = useState<boolean>(true);
@@ -18,7 +17,7 @@ const Live = () => {
     setMixlr(false);
   };
 
-  const commonStyles = "p-4 text-medium";
+  const commonStyles = "outline-0 p-4 font-medium transition duration-300 ease-in-out small-mobile:text-sm"; 
 
   const MixlrStyles = mixlr
     ? "text-secondary-main bg-secondary-200 hover:bg-primary-700"
@@ -60,7 +59,7 @@ const Live = () => {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="bg-white w-[60%] h-[36rem] border-0 rounded-[20px] shadow-xl mobile:w-[75%] small-mobile:!w-[90%]"
+              className="bg-white w-[60%] h-[36rem] border-0 rounded-[20px] shadow-xl mobile:w-[75%] mobile:h-[24rem] small-mobile:!w-[90%]"
             >
               <iframe
                 src="https://pastortochilightcitychurch.mixlr.com/embed"
@@ -70,21 +69,35 @@ const Live = () => {
           ) : (
             <motion.div
               key="telegram"
-              className="bg-white w-[60%] h-[36rem] border-0 rounded-[20px] shadow-xl flex flex-col justify-start items-center gap-12 mobile:w-[75%] small-mobile:!w-[90%]"
+              className="bg-white w-[60%] h-[36rem] border-0 rounded-[20px] shadow-xl flex flex-col justify-start items-center gap-12 p-4 mobile:gap-6 mobile:w-[75%] small-mobile:!w-[90%] mobile:h-auto mobile:p-14 small-mobile:p-6"
               initial={{ x: "-100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
             >
-              <CgUnavailable className="text-secondary-200 mt-16" size={200} />
+              <Typography
+                variant="body-reg"
+                align="center"
+                fontWeight="black"
+                color="secondary-main"
+                customClassName="mt-20 text-7xl lg:text-9xl mobile:mt-0 small-mobile:text-4xl"
+              >
+                Ooops!
+              </Typography>
               <div className="flex flex-col justify-center items-center">
-                <Typography variant="h3" align="center" color="secondary-200">
+                <Typography
+                  variant="body-reg"
+                  align="center"
+                  color="secondary-main"
+                  customClassName="text-xl small-mobile:text-base"
+                >
                   Live streaming from Telegram is not available here at this
                   moment.
                 </Typography>
                 <Link
                   href="https://t.me/PastorTochi"
-                  className="mt-4 text-secondary-main underline underline-offset-4 text-xl font-medium transition duration-700 ease-in-out hover:no-underline hover:scale-110 hover:text-secondary-100"
+                  target="_blank"
+                  className="mt-4 text-secondary-main underline underline-offset-4 font-medium transition duration-700 ease-in-out text-center text-base mobile:text-sm hover:no-underline hover:scale-110 hover:text-secondary-100"
                 >
                   Please, click link to tune in from Telegram
                 </Link>
