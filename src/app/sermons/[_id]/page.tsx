@@ -3,9 +3,8 @@
 import { Button, Typography } from "@/src/ui";
 import React, { useEffect, useState } from "react";
 import { getASeries } from "../../services/api";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { InfinitySpin } from "react-loader-spinner";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import styles from "./styles.module.scss";
@@ -24,7 +23,9 @@ const SermonDetail = (props: Props) => {
 
   const [series, setSeries] = useState<ISeries[] | any>([]);
   const [loading, setLoading] = useState(false);
-  const { _id } = useParams();
+
+  const searchParams = useSearchParams();
+  const _id = searchParams.get("id");
 
   useEffect(() => {
     const fetchSeries = async () => {
@@ -78,14 +79,14 @@ const SermonDetail = (props: Props) => {
               {series?.title}
             </h3>
             <div className="">
-              {series?.tracks?.map((track: any, index: number) => (
+              {series?.tracks?.map((track: any) => (
                 <div
                   key={track?._id}
                   className={`group w-full py-2 px-4 flex justify-between items-center relative transition duration-300 hover:bg-secondary-25 `}
                 >
                   <p>{track?.title}</p>
                   <div
-                    className={`flex justify-center items-center ${styles.download}`}
+                    className={`flex justify-center items-center  small-mobile:bg-secondary-25 small-mobile:rounded-lg ${styles.download}`}
                   >
                     <DownloadButton link={track?.fileId} />
                   </div>

@@ -137,7 +137,7 @@ const Navbar = () => {
             </div>
           ))}
         </nav>
-        <Link href="https://pastortochilightcitychurch.mixlr.com">
+        <Link href="/live">
           <Button
             variant="primary"
             color="primary"
@@ -252,3 +252,5 @@ export const NavInnerContent = () => (
     />
   </div>
 );
+
+//https://pastortochilightcitychurch.mixlr.com

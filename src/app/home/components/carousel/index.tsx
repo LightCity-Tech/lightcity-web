@@ -1,12 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
 
 type Props = {
-  items: string[],
-  interval: number
-}
+  items: string[];
+  interval: number;
+};
 
 export const AutoplayCarousel = ({ items, interval = 4000 }: any) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,18 +23,21 @@ export const AutoplayCarousel = ({ items, interval = 4000 }: any) => {
       <div
         style={{
           display: "flex",
-        //   transition: "transform 0.5s ease-in-out",
-          transform: `translateX(-${currentIndex * 100}%)`
+          //   transition: "transform 0.5s ease-in-out",
+          transform: `translateX(-${currentIndex * 100}%)`,
         }}
       >
         {items.map((item: any, index: number) => (
           <div
             key={index}
-            style={{ boxSizing: "border-box" ,  flex: "0 0 100%",
-          
-            height: '100%', width: '100%'}}
+            style={{
+              boxSizing: "border-box",
+              flex: "0 0 100%",
+              height: "100%",
+              width: "100%",
+            }}
           >
-           {item}
+            {item}
           </div>
         ))}
       </div>

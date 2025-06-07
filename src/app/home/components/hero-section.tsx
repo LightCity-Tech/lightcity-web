@@ -1,7 +1,7 @@
 "use client";
 
 import { Typography, Button } from "@/src/ui";
-import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
+import BrownPlayIcon from "/public/assets/svgs/brown-play-icon.svg";
 import ArrowUpIcon from "@/public/assets/svgs/arrow-up-right.svg";
 import Image from "next/image";
 import { kashuan } from "@/styles/font";

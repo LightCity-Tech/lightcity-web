@@ -20,7 +20,7 @@ const HomePage = () => {
         special="eternal relevance!"
         buttonTitle="Listen Online"
         buttonIconDirection="left"
-        link="/sermons"
+        link="/live"
       />
       <DescriptionSection />
       <SeriesSection />

@@ -69,7 +69,8 @@ const config: Config = {
         175: '1.75',
       },
       screens: {
-        'mobile': {'max': '767px'},
+        'small-mobile': {'max': '480px'},
+        'mobile': {'max': '768px'},
         // => @media (max-width: 767px) { ... }
       },
       keyframes:{

@@ -36,7 +36,7 @@ const meetingsMockData: meetingsMockDataType[] = [
   {
     title: "Camp Meeting 2025",
     // image:
-    //   "https://res.cloudinary.com/tochukwu/image/upload/w_250/v1700481884/lightcity/qek9s7hvd51k4yr0rta9.webp",
+    //   "/assets/images/pp2-1.jpg",
     description:
       "This is an annual special meeting put together by the Spirit of God to have believers camp around God's word and intense atmospheres of the demonstration of the Spirit.",
     month: "August",
@@ -57,19 +57,7 @@ const meetingsMockData: meetingsMockDataType[] = [
     year: "2025",
     location: "ENUGU, NIGERIA",
   },
-  // {
-  //   title: "School of Prayer 2024",
-  //   // image:
-  //   //   "https://res.cloudinary.com/tochukwu/image/upload/w_250/v1700481884/lightcity/qek9s7hvd51k4yr0rta9.webp",
-  //   description:
-  //     "This is a meeting where we come for depths and heights in our prayer lives. We come to receive fresh fire on our prayer altars. We come to be used of the Lord much more in the place of prayers.",
-  //   month: "September",
-  //   startDay: "13",
-  //   duration: "13TH - 15TH",
-  //   year: "2024",
-  //   location: "ENUGU, NIGERIA",
-  // },
- 
+
 ];
 
 const Meetings = () => {
@@ -77,12 +65,13 @@ const Meetings = () => {
     <section>
       <HeroSection
         title="Upcoming Meetings"
-        subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Faith Seminar </h1>"
-        imageUrl="/assets/images/wc-hero.jpg"
+        subtitle="<h1 class='text-[48px] inline lg:text-[60px] xl:text-[84px] leading-[48px] lg:leading-[80px] mt-3 font-bold'> Camp Meeting</h1>"
+        imageUrl="/assets/images/pp2-1.jpg"
         buttonTitle="Register Online"
         buttonIconDirection="right"
-        description="We are a people of God with a mandate from God to herald the glorious message of Jesus; teaching and preaching until the whole earth is filled with his gospel as the waters cover the sea, and by God, we will not fail."
-        link="https://bit.ly/faith-seminar-2025"
+        description="This is an annual special meeting put together by the Spirit of God to have believers camp around God's word and intense atmospheres of the demonstration of the Spirit."
+        link="/register"
+      
       />
       <section className="lg:px-32 px-4 py-12 bg-white">
         <div className="divide-y divide-gray-300 space-y-4">
