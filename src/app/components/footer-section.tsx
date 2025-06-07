@@ -169,6 +169,7 @@ const FooterSection = () => {
                 <Link
                   href={social.href}
                   key={index}
+                  target="_blank"
                   className="transition ease-in-out delay-150 duration-150 hover:-translate-y-1"
                 >
                   {social.icon}
