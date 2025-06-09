@@ -28,7 +28,7 @@ const Live = () => {
     : "text-secondary-main bg-secondary-200 hover:bg-primary-700";
 
   return (
-    <section className="relative h-[100vh] w-full flex flex-col justify-center items-center ">
+    <section className="relative h-auto w-full flex flex-col justify-center items-center py-32">
       <div className="z-20 my-[2.5rem] flex justify-center items-center gap-4">
         <button
           onClick={streamMixlr}
@@ -59,7 +59,7 @@ const Live = () => {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="bg-white w-[60%] h-[36rem] border-0 rounded-[20px] shadow-xl mobile:w-[75%] mobile:h-[24rem] small-mobile:!w-[90%]"
+              className="bg-white w-[60%] h-[36rem] h border-0 rounded-[20px] shadow-xl mobile:w-[75%] mobile:h-[24rem] small-mobile:!w-[90%]"
             >
               <iframe
                 src="https://pastortochilightcitychurch.mixlr.com/embed"
@@ -80,7 +80,7 @@ const Live = () => {
                 align="center"
                 fontWeight="black"
                 color="secondary-main"
-                customClassName="mt-20 text-7xl lg:text-9xl mobile:mt-0 small-mobile:text-4xl"
+                customClassName="mt-20 !text-7xl !lg:text-9xl mobile:mt-0 !small-mobile:text-4xl"
               >
                 Ooops!
               </Typography>

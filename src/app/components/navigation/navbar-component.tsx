@@ -110,26 +110,30 @@ const Navbar = () => {
 
   const [hasBg, setHasBg] = useState(false);
   useEffect(() => {
-    if (pathname.includes("/sermons")  || pathname === "/about-us") {
+    if (pathname.includes("/sermons") || pathname === "/about-us") {
       setHasBg(true);
-      
     } else {
-      setHasBg(false)
+      setHasBg(false);
     }
   }, [pathname]);
 
   return (
     <div>
       <nav
-        className={`${hasBg ? "nav-bg relative" : "nav-no-bg"
-        } navigation w-full h-[10vh] hidden py-4 md:px-10 lg:px-20 xl:px-24 md:flex justify-between items-center`}
+        className={`${
+          hasBg ? "nav-bg relative" : "nav-no-bg"
+        } navigation w-full h-[10vh] hidden md:flex py-4 md:px-10 lg:px-20 xl:px-24 justify-between items-center`}
       >
         {hasBg ? <LogoBlack /> : <Logo />}
         <nav className="grow flex justify-between mx-auto md:px-6 lg:mx-8 xl:mx-16 2xl:mx-28">
           {links.map((link, index) => (
             <div
               className={`${
-                pathname.includes(link.url) ? "nav-active" : hasBg ? "text-black" : "text-white nav-links"
+                pathname.includes(link.url)
+                  ? "nav-active"
+                  : hasBg
+                  ? "text-black"
+                  : "text-white nav-links"
               }`}
               key={index}
             >
@@ -143,7 +147,7 @@ const Navbar = () => {
             color="primary"
             label="Join Us Live"
             customClassName="mb-2"
-            leftIcon={<BrownPlayIcon className = "fill-secondary-main" />}
+            leftIcon={<BrownPlayIcon className="fill-secondary-main" />}
           />
         </Link>
       </nav>
@@ -175,14 +179,24 @@ const MobileNavigation = ({
   hasBackground,
   setNavOpen,
 }: MobileNavigationProps) => {
-
-  const pathname = usePathname()
+  const pathname = usePathname();
   return (
-    <div className={`${hasBackground ? 'nav-bg relative' : 'nav-no-bg' } mob-nav flex navigation md:hidden`}>
-      { (pathname.includes('/sermons') || pathname==='/about-us' ) ?  <MobileLogoBlack /> : <Image src={MLogo} width={64} height={64} alt="" /> }
-      {/* <Image src={MLogo} width={64} height={64} alt="" /> */}
+    <div
+      className={`${
+        hasBackground ? "nav-bg relative" : "nav-no-bg"
+      } mob-nav flex navigation md:hidden`}
+    >
+      {pathname.includes("/sermons") || pathname === "/about-us" ? (
+        <MobileLogoBlack />
+      ) : (
+        <Image src={MLogo} width={64} height={64} alt="" />
+      )}
       <button className="unstyle-button c-pointer" onClick={onNavMenuClick}>
-       {pathname.includes('/sermons') || pathname==='/about-us' ? <NavigationBlack /> : <Navigation />} 
+        {pathname.includes("/sermons") || pathname === "/about-us" ? (
+          <NavigationBlack />
+        ) : (
+          <Navigation />
+        )}
       </button>
       {navOpen !== null && (
         <MobileNavigationItem
@@ -243,14 +257,14 @@ export const NavInnerContent = () => (
         </li>
       ))}
     </ul>
-    <Button
-      variant="primary"
-      color="primary"
-      label="Join Us Live"
-      customClassName="mb-2"
-      leftIcon={<BrownPlayIcon />}
-    />
+    <Link href="/live">
+      <Button
+        variant="primary"
+        color="primary"
+        label="Join Us Live"
+        customClassName="mb-2"
+        leftIcon={<BrownPlayIcon />}
+      />
+    </Link>
   </div>
 );
-
-//https://pastortochilightcitychurch.mixlr.com
