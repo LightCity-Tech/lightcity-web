@@ -41,18 +41,30 @@ const SeriesDropdown: React.FC<DropdownProps> = ({ title, sermons }) => {
       </button>
       {isOpen && (
         <div className=" bg-white px-4 py-2 w-full rounded-lg divide-y mt-2 max-h-[20rem] overflow-y-scroll">
-          {sermons.map((sermon, index) => (
-            <div className="cursor-pointer py-2" key = {index}>
-              <Link
-                href={`sermons/${sermon._id}`}
-                className="block p-4 hover:bg-secondary-25 hover:font-medium rounded-lg"
-              >
-                <Typography variant="body-reg" color="secondary-main">
-                  {sermon.title}
-                </Typography>
-              </Link>
-            </div>
-          ))}
+          {sermons.map((sermon, index) => {
+            const { title } = sermon;
+
+            const slugifiedTitle = title
+              .trim()
+              .replace(/\s+/g, "-")
+              .toLowerCase();
+
+            return (
+              <div className="cursor-pointer py-2" key={index}>
+                <Link
+                  href={{
+                    pathname: `sermons/${slugifiedTitle}`,
+                    query: { id: sermon._id },
+                  }}
+                  className="block p-4 hover:bg-secondary-25 hover:font-medium rounded-lg"
+                >
+                  <Typography variant="body-reg" color="secondary-main">
+                    {sermon.title}
+                  </Typography>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

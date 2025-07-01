@@ -10,7 +10,7 @@ type Props = {};
 
 const AboutUs = () => {
   return (
-    <section className="bg-[#fff">
+    <section className="bg-[#fff]">
       <div className="bg-[#fff] px-5 h-full">
         <div className="text-center w-full 2xl:max-w-7xl lg:py-6 mt-5 lg:mt-4 mx-auto">
           <h3 className="text-[48px] leading-[64px] lg:leading-[67.68px] font-bold text-black md:px-4 md:text-[72px]">
