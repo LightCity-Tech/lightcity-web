@@ -184,7 +184,7 @@ const AccommodationForm = () => {
         <p>
           Alternatively, you can decide to split the cost of a room between you
           and another participant that we&apos;d pair you with. Let us know if
-          that&apos;s an option you&apos;ll willing to consider.
+          that&apos;s an option you&apos;re willing to consider.
         </p>
 
         <label className="flex items-center gap-2 cursor-pointer mt-5">
