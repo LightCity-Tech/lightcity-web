@@ -54,6 +54,18 @@ export const registerMeeting = async (registrationDetails: {
   }
 };
 
+export const registerAccommodation = async (registrationDetails: FormData) => {
+  try {
+    const response = await axios.post(
+      `${baseUrl}/accomodation`,
+      registrationDetails
+    );
+    return response.status
+  } catch (error:any) {
+    throw new Error(error?.message);
+  }
+};
+
 //API call to fetch latest sermons/series for the Home Page
 export const getLatestSermons = async() => {
   try{

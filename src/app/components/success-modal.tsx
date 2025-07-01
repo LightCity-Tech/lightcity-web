@@ -7,11 +7,13 @@ interface SuccessModalProps {
   show: boolean;
   onClose: () => void;
   message?: string;
+  again?: string
 }
 
 const SuccessModal: React.FC<SuccessModalProps> = ({
   show,
   onClose,
+  again,
   message = "Submission successful!",
 }) => {
   const router = useRouter()
@@ -65,7 +67,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
             }}
             color="primary"
             variant="primary"
-            label="Register Again"
+            label={again ?? "Submit Again"}
           />
         </div>
       </div>
