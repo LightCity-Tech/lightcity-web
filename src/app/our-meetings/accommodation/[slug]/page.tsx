@@ -20,7 +20,7 @@ const meetingDLC = [
     heading: "Location",
     description: "Anglican Girls Grammar School Awkunanaw Enugu.",
   },
-  { heading: "Contact", description: "08141748947, 08138720239" },
+  { heading: "Contact", description: "08134887174, 07044482079" },
 ]; //DLC stands for Date, Location and Contact
 
 const UpcomingRegistration = () => {
