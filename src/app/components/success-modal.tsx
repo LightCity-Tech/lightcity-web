@@ -7,7 +7,8 @@ interface SuccessModalProps {
   show: boolean;
   onClose: () => void;
   message?: string;
-  again?: string
+  again?: string;
+  submessage?: any;
 }
 
 const SuccessModal: React.FC<SuccessModalProps> = ({
@@ -15,6 +16,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
   onClose,
   again,
   message = "Submission successful!",
+  submessage
 }) => {
   const router = useRouter()
   if (!show) return null;
@@ -49,6 +51,13 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
           <SuccessIcon />
         </div>
         <h2 className="text-xl font-semibold text-[#202121] mt-5">{message}</h2>
+
+        {submessage && (
+          <p className="text-gray-600 text-sm mt-5">
+            {submessage}
+          </p>
+        )}
+
         <div className="flex justify-between mt-5">
           <Button
             onClick={() => {

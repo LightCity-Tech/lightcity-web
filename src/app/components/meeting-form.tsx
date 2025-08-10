@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { registerMeetingSchema } from "../our-meetings/registration/_schema/schema";
 import { Input, InputPhone, Select, Button } from "@/src/ui";
 import SuccessModal from "./success-modal";
+import Link from "next/link";
 
 const optionsData = [
   { label: "Abakpa", value: "Abakpa" },
@@ -33,7 +34,7 @@ const MeetingForm = () => {
   });
 
   const handleFormSubmission = async (
-    data: z.infer<typeof registerMeetingSchema>, 
+    data: z.infer<typeof registerMeetingSchema>
   ) => {
     try {
       // set submitting to true
@@ -48,7 +49,7 @@ const MeetingForm = () => {
       if (res === 201) {
         setSubmitting(false);
         setIsSuccess(true);
-        methods.reset()
+        methods.reset();
       }
     } catch (e: any) {
       setSubmitting(false);
@@ -82,12 +83,12 @@ const MeetingForm = () => {
     );
   };
 
-//   const handleSubmitWithBlur = () => {
-//   document.activeElement?.blur(); // force blur input
-//   setTimeout(() => {
-//     formRef.current?.requestSubmit(); // or manually trigger submit
-//   }, 50);
-// };
+  //   const handleSubmitWithBlur = () => {
+  //   document.activeElement?.blur(); // force blur input
+  //   setTimeout(() => {
+  //     formRef.current?.requestSubmit(); // or manually trigger submit
+  //   }, 50);
+  // };
 
   useEffect(() => {
     if (isSuccess) {
@@ -222,6 +223,20 @@ const MeetingForm = () => {
         show={isSuccess}
         onClose={() => setIsSuccess(false)}
         message="Form submitted successfully!"
+        submessage={
+          <>
+            You registration for camp meeting 2025 has been recorded and a FREE
+            hostel accommodation will be provided for the entire duration of the
+            meeting. However, if you wish to opt for a PAID hotel accommodation,
+            click here to make the reservation.{" "}
+            <Link
+              href="/accommodation"
+              className="text-primary-main hover:underline"
+            >
+              Hotel Reservation
+            </Link>
+          </>
+        }
       />
     </FormProvider>
   );
