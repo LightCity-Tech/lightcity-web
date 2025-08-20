@@ -257,7 +257,7 @@ const AccommodationForm = () => {
           buttonType="submit"
           customClassName={`w-full flex justify-center items-center mt-8`}
           rightIcon={<SpinnerIcon />}
-          disabled={submitting}
+          disabled={true}
         />
       </form>
 

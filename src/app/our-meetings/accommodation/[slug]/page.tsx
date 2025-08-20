@@ -61,7 +61,7 @@ const UpcomingRegistration = () => {
         </div>
       </section>
       <section className="">
-        {/* <div className="absolute w-full top-[120px] h-full bg-black bg-opacity-50 z-[100] flex justify-center items-center">
+        <div className="absolute w-full top-[120px] h-full bg-black bg-opacity-50 z-[100] flex justify-center items-center">
           <div className="w-9/10 absolute h-auto top-0 mx-4 bg-white rounded-lg border-r-2 p-10 flex flex-col justify-start items-center md:w-3/5 lg:w-1/2 lg:p-20">
             <Typography
               variant="h3"
@@ -69,7 +69,7 @@ const UpcomingRegistration = () => {
               fontWeight="semi-bold"
               customClassName="text-red-600"
             >
-              Currently Unavailable for Registration
+              Registration closed
             </Typography>
             <div className="mt-10 mb-4">
               <Typography
@@ -78,10 +78,10 @@ const UpcomingRegistration = () => {
                 align="center"
                 fontWeight="semi-bold"
               >
-                Sorry, registration is currently not ongoing
+                Sorry, registration is currently closed
               </Typography>
             </div>
-            <Typography
+            {/* <Typography
               variant="h5"
               color="secondary-main"
               align="center"
@@ -91,9 +91,9 @@ const UpcomingRegistration = () => {
               <Link href="/our-meetings">
                 Click here to view other upcoming meetings.
               </Link>
-            </Typography>
+            </Typography> */}
           </div>
-        </div> */}
+        </div>
         <div className="bg-white flex justify-start items-center p-6 md:py-10 md:px-14 lg:px-24 lg:py-16">
           <div className="w-full flex flex-col lg:flex-row lg:divide-x-2 divide-secondary-main ">
             <div className="pr-10 max-sm:mb-4">
