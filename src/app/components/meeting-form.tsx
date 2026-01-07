@@ -38,7 +38,6 @@ const MeetingForm = () => {
   ) => {
     try {
       // set submitting to true
-      console.log(data);
       setSubmitting(true);
       // handle the form submission
       const res = await registerMeeting({

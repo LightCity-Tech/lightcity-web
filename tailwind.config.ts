@@ -23,14 +23,14 @@ const config: Config = {
           700: "#FCC438",
           800: "#F58522",
         },
-        secondary:{
+        secondary: {
           main: "#32220A",
           25: "#FEEED6",
           50: "#F8D4A1",
           100: "#F0B868",
-          200: "#E89D2C"
+          200: "#E89D2C",
         },
-        'main-black': "#050300",
+        "main-black": "#050300",
         white: "#FAFAFA",
         black: "#000000",
       },
@@ -61,26 +61,33 @@ const config: Config = {
         black: "900",
       },
       fontFamily: {
-        sans: ['var(--font-inter)'],
-        mono: ['var(--font-kaushan)'],
+        sans: ["var(--font-inter)"],
+        mono: ["var(--font-kaushan)"],
       },
       brightness: {
-        25: '.25',
-        175: '1.75',
+        25: ".25",
+        175: "1.75",
       },
       screens: {
-        'small-mobile': {'max': '480px'},
-        'mobile': {'max': '768px'},
+        "small-mobile": { max: "480px" },
+        mobile: { max: "768px" },
         // => @media (max-width: 767px) { ... }
       },
-      keyframes:{
-        'slide': {
-          '0%': {transform: 'translateY(0)', color: 'red'},
-          '100%': {transform: 'translateY(-100px)', color: 'blue'}
+      keyframes: {
+        slide: {
+          "0%": { transform: "translateY(0)", color: "red" },
+          "100%": { transform: "translateY(-100px)", color: "blue" },
+        },
+        "gradient-sweep": {
+          "0%": { backgroundPosition: "50% 0%" },
+          "33%": { backgroundPosition: "100% 0%" },
+          "66%": { backgroundPosition: "100% 100%" },
+          "100%": { backgroundPosition: "50% 100%" },
         },
       },
       animation: {
-        'sliding': 'slide 1s cubic-bezier(0.250, 0.460, 0.450, 0.940 infinite',
+        sliding: "slide 1s cubic-bezier(0.250, 0.460, 0.450, 0.940 infinite",
+        sweep: "gradient-sweep 0.7s cubic-bezier(0.19, 1, 0.22, 1) forwards",
       },
     },
   },

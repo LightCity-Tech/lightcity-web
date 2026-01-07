@@ -1,12 +1,10 @@
 "use client";
 
 import React from "react";
-import HeroSection from "../home/components/hero-section";
 import Image from "next/image";
 import { kashuan } from "@/styles/font";
 import TestimonialSlide from "../components/testimonial-slide";
-
-type Props = {};
+import {Testimony} from "./components";
 
 const AboutUs = () => {
   return (
@@ -151,6 +149,9 @@ const AboutUs = () => {
               }}
             ></div>
           </div>
+        </div>
+        <div className="bg-secondary-25 py-20 lg:px-[7rem]">
+          <Testimony/>
         </div>
       </div>
     </section>
