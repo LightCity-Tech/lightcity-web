@@ -57,7 +57,7 @@ const Testimony = () => {
               name="email"
               label="Email Address"
               type="email"
-              placeholder="Please, enter your email address"
+              placeholder="Please, enter your email address (optional)"
               testimony={true}
               customClassName="py-4"
             />
