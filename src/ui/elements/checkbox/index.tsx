@@ -37,7 +37,7 @@ const Checkbox = (props: CheckboxProps) => {
           )}
         </div>
       </div>
-      <span className="text-[#6F4B16] font-medium">{label}</span>
+      <span className="text-[#6F4B16] text-xs font-medium sm:text-sm lg:text-base">{label}</span>
     </label>
   );
 };

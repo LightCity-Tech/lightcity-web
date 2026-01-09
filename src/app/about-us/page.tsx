@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { kashuan } from "@/styles/font";
 import TestimonialSlide from "../components/testimonial-slide";
 import {Testimony} from "./components";
 
@@ -107,7 +106,7 @@ const AboutUs = () => {
         <div className="lg:flex lg:flex-row flex flex-col-reverse w-full justify-between lg:items-center py-20 lg:py-20 bg-black text-white lg:px-24">
           <div className="lg:w-[45%] w-full lg:mt-0 px-5">
             <h3
-              className={`${kashuan.className} hidden md:block text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
+              className="font-kaushan hidden md:block text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200"
             >
               From our Pastor&apos;s Desk
             </h3>
@@ -124,7 +123,7 @@ const AboutUs = () => {
               and we trust God to see growth in <br /> your Christian work and
               stability in the same. <br />I call you blessed !!!
             </p>
-            <div className={`${kashuan.className} text-secondary-200 mt-5`}>
+            <div className="font-kaushan text-secondary-200 mt-5">
               <p className="text-[12px] md:text-[24px]">
                 Dr. Tochi Davies Madubuobi
               </p>
@@ -135,7 +134,7 @@ const AboutUs = () => {
           </div>
           <div className="lg:w-1/2 w-full px-5">
             <h3
-              className={`${kashuan.className} lg:hidden py-3 text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200`}
+              className="font-kaushan lg:hidden py-3 text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200"
             >
               From our Pastor&apos;s Desk
             </h3>
@@ -150,7 +149,7 @@ const AboutUs = () => {
             ></div>
           </div>
         </div>
-        <div className="bg-secondary-25 py-20 lg:px-[7rem]">
+        <div className="bg-secondary-25 px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[7rem]">
           <Testimony/>
         </div>
       </div>

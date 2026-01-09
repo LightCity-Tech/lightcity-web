@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { uncutSans } from "@/styles/font";
+import { uncutSans, kashuan } from "@/styles/font";
 import "@/styles/globals.css";
 import Navbar from "./components/navigation/navbar-component";
 import FooterSection from "./components/footer-section";
@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${uncutSans.className} ${kashuan.variable}`}>
       <Head />
-      <body className={`${uncutSans.className}`}>
+      <body>
         <section className="relative overflow-auto">
           <Navbar />
           {children}

@@ -42,7 +42,7 @@ const RichTextEditor = () => {
         types: ["heading", "paragraph"],
       }),      
     ],
-    content: "<p></p>",
+    content: "",
     immediatelyRender: false,
     editorProps: {
       attributes: {
@@ -50,6 +50,10 @@ const RichTextEditor = () => {
           "min-h-[250px] mt-2 p-2 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto rounded-md border-2 border-[#6F4B16] focus:outline-[#C5A069]",
       },
     },
+    onUpdate: ({ editor }) => {
+      // console.log(editor.getHTML())
+      // You can handle the updated HTML content here if needed
+    }
   });
 
   return (
