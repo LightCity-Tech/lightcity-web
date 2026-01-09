@@ -106,7 +106,7 @@ const AboutUs = () => {
         <div className="lg:flex lg:flex-row flex flex-col-reverse w-full justify-between lg:items-center py-20 lg:py-20 bg-black text-white lg:px-24">
           <div className="lg:w-[45%] w-full lg:mt-0 px-5">
             <h3
-              className="font-kaushan hidden md:block text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200"
+              className="font-kaushan hidden text-left text-2xl mb-8 md:text-[32px] lg:block lg:mb-0 lg:text-[34px] xl:text-[44px] text-secondary-200"
             >
               From our Pastor&apos;s Desk
             </h3>
@@ -134,7 +134,7 @@ const AboutUs = () => {
           </div>
           <div className="lg:w-1/2 w-full px-5">
             <h3
-              className="font-kaushan lg:hidden py-3 text-[24px] lg:text-[34px] xl:text-[44px] text-secondary-200"
+              className="font-kaushan text-left text-2xl mb-8 md:text-[32px] lg:mb-0 lg:hidden lg:text-[34px] xl:text-[44px] text-secondary-200"
             >
               From our Pastor&apos;s Desk
             </h3>

@@ -5,7 +5,6 @@ import { Info } from "lucide-react";
 import { useForm, FormProvider } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { kashuan } from "@/styles/font";
 import { Input, Checkbox } from "@/src/ui";
 import { RichTextEditor } from "./richTextEditor";
 
@@ -19,25 +18,31 @@ const Testimony = () => {
       .email("Please enter a valid email")
       .optional()
       .or(z.literal("")),
-    consent: z.boolean().optional(),
+    consent: z.boolean().refine((val) => val === true, {
+      message: "You must agree to continue",
+    }),
   });
 
   const methods = useForm<z.infer<typeof testimonySchema>>({
     resolver: zodResolver(testimonySchema),
     mode: "onChange",
     defaultValues: {
+      name: "",
+      email: "",
       consent: false,
     },
   });
 
-  const {
-    handleSubmit,
-    formState: { isValid },
-  } = methods;
+  const { handleSubmit } = methods;
+
+  const nameValue = methods.watch("name");
+  const consentValue = methods.watch("consent");
 
   const onSubmit = (data: z.infer<typeof testimonySchema>) => {
     console.log("Form data:", data);
   };
+
+  const isValid = nameValue?.length > 0 && consentValue === true;
 
   return (
     <div className="w-full flex flex-col lg:flex-row justify-between items-start ">
@@ -80,7 +85,7 @@ const Testimony = () => {
             <Checkbox
               name="consent"
               label="I confirm that this testimony is a true account of my experience and consent to it been shared publicly."
-              disabled={!isValid}
+              disabled={!nameValue}
             />
             <div
               className={`group relative w-full mt-4 p-[5px] rounded-md  transition-all duration-700 ease-[cubic-bezier(0.13,0,0.39,0)]  ${
