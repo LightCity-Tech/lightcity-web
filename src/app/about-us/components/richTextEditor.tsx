@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect } from "react";
 import { Toggle } from "@/components/ui/toggle";
 import "./styles.scss";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import TextAlign from '@tiptap/extension-text-align';
+import TextAlign from "@tiptap/extension-text-align";
+import { Placeholder } from "@tiptap/extensions";
 import {
   Heading1,
   Heading2,
@@ -22,27 +24,34 @@ import {
   Redo,
 } from "lucide-react";
 
+type RTEprops = {
+  content: string;
+  onChange: (content: string) => void;
+};
 
-const RichTextEditor = () => {
+const RichTextEditor = ({ content, onChange }: RTEprops) => {
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
         bulletList: {
           HTMLAttributes: {
-            class: 'ml-3 list-disc',
+            class: "ml-3 list-disc",
           },
         },
         orderedList: {
           HTMLAttributes: {
-            class: 'ml-3 list-decimal',
+            class: "ml-3 list-decimal",
           },
         },
       }),
       TextAlign.configure({
         types: ["heading", "paragraph"],
-      }),      
+      }),
+      Placeholder.configure({
+        placeholder: "Write something …",
+      }),
     ],
-    content: "",
+    content,
     immediatelyRender: false,
     editorProps: {
       attributes: {
@@ -51,10 +60,19 @@ const RichTextEditor = () => {
       },
     },
     onUpdate: ({ editor }) => {
-      // console.log(editor.getHTML())
-      // You can handle the updated HTML content here if needed
-    }
+      onChange(editor.getHTML());
+      console.log(editor.getHTML())
+    },
   });
+
+  useEffect(() => {
+    if (!editor) return;
+
+    // Avoid infinite loop
+    if (editor.getHTML() !== content) {
+      editor.commands.setContent(content || "", false);
+    }
+  }, [content, editor]);
 
   return (
     <div className="mb-5 ">

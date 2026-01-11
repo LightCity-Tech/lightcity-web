@@ -49,6 +49,7 @@ const FooterSection = () => {
   const quickLinks = [
     { href: "/our-meetings", text: "Meetings" },
     { href: "/sermons", text: "Sermons Library" },
+    { href: "/about-us#share-your-testimony", text: "Share your Testimony" },
   ];
 
   return (

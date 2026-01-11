@@ -2,6 +2,18 @@
   :first-child {
     margin-top: 0;
   }
+  
+  & > p, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
+    color: #6F4B16;
+  }
+
+  p.is-editor-empty:first-child::before {
+    color: #C5A069;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
 
   /* List styles */
   ul,

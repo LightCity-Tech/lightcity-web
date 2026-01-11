@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Controller } from "react-hook-form";
 import { Info } from "lucide-react";
 import { useForm, FormProvider } from "react-hook-form";
 import { z } from "zod";
@@ -9,8 +9,6 @@ import { Input, Checkbox } from "@/src/ui";
 import { RichTextEditor } from "./richTextEditor";
 
 const Testimony = () => {
-  const [testimony, setTestimony] = useState("");
-
   const testimonySchema = z.object({
     name: z.string().min(1, "Name is required"),
     email: z
@@ -18,6 +16,10 @@ const Testimony = () => {
       .email("Please enter a valid email")
       .optional()
       .or(z.literal("")),
+    testimony: z
+      .string()
+      .nonempty("Testimony is required") 
+      .min(18, "Testimony must be above 10 characters"), 
     consent: z.boolean().refine((val) => val === true, {
       message: "You must agree to continue",
     }),
@@ -33,19 +35,37 @@ const Testimony = () => {
     },
   });
 
-  const { handleSubmit } = methods;
+  const { handleSubmit, reset } = methods;
 
   const nameValue = methods.watch("name");
   const consentValue = methods.watch("consent");
+  const testimonyValue = methods.watch("testimony");
 
   const onSubmit = (data: z.infer<typeof testimonySchema>) => {
-    console.log("Form data:", data);
+    setTimeout(() => {
+      console.log("Form data:", data);
+    }, 500);
+
+    reset(
+      {
+        name: "",
+        email: "",
+        testimony: "",
+        consent: false,
+      },
+      { keepErrors: false, keepTouched: false, keepDirty: false },
+    );
   };
 
-  const isValid = nameValue?.length > 0 && consentValue === true;
+  const plainText = testimonyValue?.replace(/<[^>]+>/g, "").trim();
+  const isConsentValid = nameValue?.length > 0 && plainText.length >= 10
+  const isValid = nameValue?.length > 0 && consentValue === true && plainText.length >= 10;
 
   return (
-    <div className="w-full flex flex-col lg:flex-row justify-between items-start ">
+    <div
+      className="w-full flex flex-col lg:flex-row justify-between items-start"
+      id="share-your-testimony"
+    >
       <div className="lg:w-[45%] w-full">
         <h2 className="font-kaushan text-center md:text-left block text-2xl mb-8 md:text-[32px] lg:mb-0 lg:text-[34px] xl:text-[44px] text-[#6F4B16]">
           Leave a testimony at our Pastor&apos;s Desk
@@ -80,12 +100,28 @@ const Testimony = () => {
                 </p>
               </div>
             </div>
-
-            <RichTextEditor />
+            <Controller
+              name="testimony"
+              control={methods.control}
+              defaultValue=""
+              render={({ field, fieldState }) => (
+                <>
+                  <RichTextEditor
+                    content={field.value}
+                    onChange={field.onChange}
+                  />
+                  {fieldState.error && (
+                    <p className="text-sm text-red-500 mb-4 -mt-2">
+                      {fieldState.error.message}
+                    </p>
+                  )}
+                </>
+              )}
+            />
             <Checkbox
               name="consent"
               label="I confirm that this testimony is a true account of my experience and consent to it been shared publicly."
-              disabled={!nameValue}
+              disabled={!isConsentValid}
             />
             <div
               className={`group relative w-full mt-4 p-[5px] rounded-md  transition-all duration-700 ease-[cubic-bezier(0.13,0,0.39,0)]  ${
