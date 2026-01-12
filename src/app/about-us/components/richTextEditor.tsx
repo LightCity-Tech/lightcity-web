@@ -48,7 +48,7 @@ const RichTextEditor = ({ content, onChange }: RTEprops) => {
         types: ["heading", "paragraph"],
       }),
       Placeholder.configure({
-        placeholder: "Write something …",
+        placeholder: "Please, write something…",
       }),
     ],
     content,
@@ -70,7 +70,7 @@ const RichTextEditor = ({ content, onChange }: RTEprops) => {
 
     // Avoid infinite loop
     if (editor.getHTML() !== content) {
-      editor.commands.setContent(content || "", false);
+      editor.commands.setContent(content || "");
     }
   }, [content, editor]);
 

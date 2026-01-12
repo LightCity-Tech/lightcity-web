@@ -156,7 +156,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
-        kaushan: ["var(--font-kaushan)", 'cursive'],
+        kaushan: ["var(--font-kaushan)"],
       },
       brightness: {
         "25": ".25",

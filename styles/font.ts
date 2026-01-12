@@ -35,5 +35,3 @@ export const kashuan = Kaushan_Script({
   weight: "400",
   variable: '--font-kaushan'
 });
-
-

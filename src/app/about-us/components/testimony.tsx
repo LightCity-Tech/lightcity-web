@@ -18,8 +18,20 @@ const Testimony = () => {
       .or(z.literal("")),
     testimony: z
       .string()
-      .nonempty("Testimony is required") 
-      .min(18, "Testimony must be above 10 characters"), 
+      .min(1, "Testimony is required")
+      .refine(
+        (val) => {
+          const plainText = val
+            .replace(/<[^>]*>/g, "")
+            .replace(/&nbsp;/g, "")
+            .trim();
+          return plainText.length >= 10;
+        },
+        {
+          message:
+            "Testimony must be at least 10 characters long (excluding formatting",
+        },
+      ),
     consent: z.boolean().refine((val) => val === true, {
       message: "You must agree to continue",
     }),
@@ -28,18 +40,28 @@ const Testimony = () => {
   const methods = useForm<z.infer<typeof testimonySchema>>({
     resolver: zodResolver(testimonySchema),
     mode: "onChange",
+    reValidateMode: "onSubmit",
     defaultValues: {
       name: "",
       email: "",
+      testimony: "",
       consent: false,
     },
   });
 
-  const { handleSubmit, reset } = methods;
+  const {
+    handleSubmit,
+    reset,
+    formState: { isValid },
+    clearErrors
+  } = methods;
 
   const nameValue = methods.watch("name");
-  const consentValue = methods.watch("consent");
+  // const consentValue = methods.watch("consent");
   const testimonyValue = methods.watch("testimony");
+
+  const plainText = testimonyValue?.replace(/<[^>]+>/g, "").trim();
+  const isConsentValid = nameValue?.length > 0 && plainText.length >= 10;
 
   const onSubmit = (data: z.infer<typeof testimonySchema>) => {
     setTimeout(() => {
@@ -55,11 +77,8 @@ const Testimony = () => {
       },
       { keepErrors: false, keepTouched: false, keepDirty: false },
     );
+    clearErrors("testimony");
   };
-
-  const plainText = testimonyValue?.replace(/<[^>]+>/g, "").trim();
-  const isConsentValid = nameValue?.length > 0 && plainText.length >= 10
-  const isValid = nameValue?.length > 0 && consentValue === true && plainText.length >= 10;
 
   return (
     <div
@@ -90,7 +109,7 @@ const Testimony = () => {
                 type="email"
                 placeholder="Please, enter your email address"
                 testimony={true}
-                customClassName="mb-0"
+                customClassName="py-4 mb-0"
               />
               <div className="flex flex-row justify-start items-center p-3 bg-[#ffd08965] rounded-md text-[#6F4B16]">
                 <Info className="size-4" />
