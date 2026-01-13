@@ -3,13 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import TestimonialSlide from "../components/testimonial-slide";
-import {Testimony} from "./components";
+import { Testimony } from "./components";
+import { AboutUsHero, VisionPic, MissionPic } from "@/public/assets/images";
 
 const AboutUs = () => {
   return (
     <section className="bg-[#fff]">
       <div className="bg-[#fff] px-5 h-full">
-        <div className="text-center w-full 2xl:max-w-7xl lg:py-6 mt-5 lg:mt-4 mx-auto">
+        <div className="text-center w-full 2xl:max-w-7xl lg:py-6 mt-5 lg:mt-4 mx-auto ">
           <h3 className="text-[48px] leading-[64px] lg:leading-[67.68px] font-bold text-black md:px-4 md:text-[72px]">
             Welcome to LightCity Church
           </h3>
@@ -20,20 +21,20 @@ const AboutUs = () => {
             God, we will not fail.{" "}
           </p>
         </div>
-        <div className="w-full lg:hidden h-[405px] relative">
+        <div className="w-full lg:hidden h-[405px] relative ">
           <Image
-            src="/assets/images/about-hero.webp"
+            src={AboutUsHero}
             fill
             className="w-full h-full object-cover rounded-[10px]"
-            alt=""
+            alt="Hero Image for About Us Page"
           />
         </div>
-        <div className="lg:block hidden 2xl:max-w-[1500px] xl:mx-16 lg:mx-12 h-[625px] relative">
+        <div className="lg:block hidden 2xl:max-w-[1500px] lg:mx-auto h-[640px] relative ">
           <Image
-            src="/assets/images/about-hero.webp"
+            src={AboutUsHero}
             fill
             className="w-full object-cover rounded-[10px]"
-            alt=""
+            alt="Hero Image for About Us Page"
           />
         </div>
       </div>
@@ -44,25 +45,23 @@ const AboutUs = () => {
             <span className="relative w-full -top-1.5 -left-5 border-b-black/20 border-b block"></span>
           </div>
 
-          <div className="md:flex md:flex-row items-center md:space-x-4 space-x-0 flex flex-col">
+          <div className="md:flex md:flex-row md:gap-6 justify-between  items-center md:space-x-4 space-x-0 flex flex-col">
             <div className="w-full md:w-1/2">
-              <h3 className="mt-8 text-[24px] md:text-[40px] font-semibold">
+              <h3 className="mt-8 text-[24px] md:text-[32px] lg:text-[40px] font-semibold">
                 To see the whole earth filled with the knowledge of God
               </h3>
-              <p className="text-[#7E7A7A] text-[14px] md:text-[24px] py-6">
+              <p className="text-[#7E7A7A] text-[14px] md:text-[18px] lg:text-[24px] py-6">
                 At LightCity Church, we work in partnership with God to birth
                 his will on the Earth; that is to see that all the Nations of
                 the Earth is filled with the knowledge of the Son of God, as the
                 waters covers the sea.
               </p>
             </div>
-            <div className="md:w-1/2 w-full">
+            <div className="w-full md:w-1/2">
               <Image
-                src="/assets/images/hero-about.webp"
-                alt=""
-                width={608}
-                height={488}
-                className="rounded-[12.91px]"
+                src={VisionPic}
+                alt="Our Vision Image"
+                className="rounded-[12.91px] object-cover"
               />
             </div>
           </div>
@@ -72,21 +71,19 @@ const AboutUs = () => {
             <span className="block w-[90%] md:w-[12%]"> OUR MISSION</span>
             <span className="relative -top-1.5 -left-8 border-b-black/20 border-b w-full block"></span>
           </div>
-          <div className="md:flex md:flex-row items-center md:mt-12 flex flex-col-reverse">
+          <div className="md:flex md:flex-row md:gap-6 items-center md:mt-12 flex flex-col-reverse">
             <div className="w-full md:w-1/2">
               <Image
-                src="/assets/images/vision-pic.webp"
-                alt=""
-                width={608}
-                height={488}
+                src={MissionPic}
+                alt="Our Mission Image"
                 className="rounded-[12.91px]"
               />
             </div>
             <div className="md:w-1/2 w-full lg:p-10">
-              <h3 className="mt-8 text-[24px] md:text-[40px] font-semibold">
+              <h3 className="mt-8 text-[24px] md:text-[32px] lg:text-[40px] font-semibold">
                 Giving your life eternal relevance
               </h3>
-              <p className="text-[#7E7A7A] text-[14px] md:text-[24px] py-6">
+              <p className="text-[#7E7A7A] text-[14px] md:text-[18px] lg:text-[24px] py-6">
                 LightCity Church is a discipleship centre where we discover,
                 train and deploy ministers of the Gospel. Through the systematic
                 teaching of God&apos;s word and discipleship structures at LightCity

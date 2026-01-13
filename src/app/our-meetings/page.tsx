@@ -57,7 +57,6 @@ const meetingsMockData: meetingsMockDataType[] = [
     year: "2025",
     location: "ENUGU, NIGERIA",
   },
-
 ];
 
 const Meetings = () => {
@@ -71,7 +70,6 @@ const Meetings = () => {
         buttonIconDirection="right"
         description="This is an annual special meeting put together by the Spirit of God to have believers camp around God's word and intense atmospheres of the demonstration of the Spirit."
         link="/register"
-      
       />
       <section className="lg:px-32 px-4 py-12 bg-white">
         <div className="divide-y divide-gray-300 space-y-4">

@@ -7,6 +7,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input, Checkbox } from "@/src/ui";
 import { RichTextEditor } from "./richTextEditor";
+import { toast } from "sonner";
 
 const Testimony = () => {
   const testimonySchema = z.object({
@@ -21,6 +22,7 @@ const Testimony = () => {
       .min(1, "Testimony is required")
       .refine(
         (val) => {
+          if (val.trim().length === 0) return true;
           const plainText = val
             .replace(/<[^>]*>/g, "")
             .replace(/&nbsp;/g, "")
@@ -29,7 +31,7 @@ const Testimony = () => {
         },
         {
           message:
-            "Testimony must be at least 10 characters long (excluding formatting",
+            "Testimony must be at least 10 characters long",
         },
       ),
     consent: z.boolean().refine((val) => val === true, {
@@ -52,15 +54,14 @@ const Testimony = () => {
   const {
     handleSubmit,
     reset,
-    formState: { isValid },
-    clearErrors
+    formState: { isValid, errors },
+    clearErrors,
   } = methods;
 
   const nameValue = methods.watch("name");
-  // const consentValue = methods.watch("consent");
   const testimonyValue = methods.watch("testimony");
 
-  const plainText = testimonyValue?.replace(/<[^>]+>/g, "").trim();
+  const plainText = (testimonyValue || "").replace(/<[^>]+>/g, "").trim();
   const isConsentValid = nameValue?.length > 0 && plainText.length >= 10;
 
   const onSubmit = (data: z.infer<typeof testimonySchema>) => {
@@ -77,7 +78,10 @@ const Testimony = () => {
       },
       { keepErrors: false, keepTouched: false, keepDirty: false },
     );
-    clearErrors("testimony");
+    setTimeout(() => clearErrors(), 0);
+    toast.success(
+      "Thank you! Your testimony has been submitted successfully.",
+    );
   };
 
   return (

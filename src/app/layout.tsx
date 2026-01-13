@@ -34,7 +34,7 @@ export default function RootLayout({
           {children}
           <FooterSection />
         </section>
-        <Toaster richColors={true} position="top-center" expand={true} />
+        <Toaster richColors={true} position="top-right" expand={true} />
       </body>
     </html>
   );
