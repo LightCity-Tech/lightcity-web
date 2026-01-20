@@ -53,13 +53,13 @@ const FooterSection = () => {
   ];
 
   return (
-    <section className="w-full h-auto lg:px-20 xl:px-24 py-14 px-6 relative">
-      <div className="relative w-full h-auto">
+    <section className="relative w-full h-auto py-14 px-6 lg:px-20 xl:px-24">
+      <div className="absolute inset-0 -z-10">
         <Image
           src={bgImage}
           alt="Background Image"
           fill
-          className="w-full -z-50 object-cover"
+          className=" object-cover"
         />
       </div>
 

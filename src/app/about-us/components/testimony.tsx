@@ -30,8 +30,7 @@ const Testimony = () => {
           return plainText.length >= 10;
         },
         {
-          message:
-            "Testimony must be at least 10 characters long",
+          message: "Testimony must be at least 10 characters long",
         },
       ),
     consent: z.boolean().refine((val) => val === true, {
@@ -79,21 +78,24 @@ const Testimony = () => {
       { keepErrors: false, keepTouched: false, keepDirty: false },
     );
     setTimeout(() => clearErrors(), 0);
-    toast.success(
-      "Thank you! Your testimony has been submitted successfully.",
-    );
+    toast.success("Thank you! Your testimony has been submitted successfully.");
   };
 
   return (
     <div
-      className="w-full flex flex-col lg:flex-row justify-between items-start"
+      className="w-full flex flex-col lg:flex-row justify-between items-start gap-10"
       id="share-your-testimony"
     >
-      <div className="lg:w-[45%] w-full">
+      <div className="w-full lg:w-1/2">
         <h2 className="font-kaushan text-center md:text-left block text-2xl mb-8 md:text-[32px] lg:mb-0 lg:text-[34px] xl:text-[44px] text-[#6F4B16]">
           Leave a testimony at our Pastor&apos;s Desk
         </h2>
-        <div></div>
+        <div className="mt-10 w-full grid grid-cols-2 grid-rows-2 ">
+          <div className="border-2 border-sky-700 bg-sky-700 w-auto h-56 self-end">1</div>
+          <div className="border-2 border-teal-700 bg-teal-700 w-auto h-32 self-end">2</div>
+          <div className="border-2 border-indigo-700 bg-indigo-700 w-auto h-40 self-start">3</div>
+          <div className="border-2 border-fuchsia-700 bg-fuchsia-700 w-auto h-64 self-start">4</div>
+        </div>
       </div>
       <div className="lg:w-1/2 w-full">
         <FormProvider {...methods}>
