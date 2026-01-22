@@ -10,7 +10,6 @@ import Navigation from "@/public/assets/svgs/menu.svg";
 import NavigationBlack from "@/public/assets/svgs/menu-black.svg";
 import CloseNavigation from "@/public/assets/svgs/close.svg";
 import MLogo from "@/public/assets/svgs/lcc-logo-footer.png";
-
 import "./style.css";
 import { Spacer } from "../spacer";
 import Image from "next/image";

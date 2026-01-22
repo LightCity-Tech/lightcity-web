@@ -53,7 +53,7 @@ const ServiceSection = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-start items-center gap-2">
+        <div className="flex justify-start items-center gap-2 mb-4">
           <LocationIcon />
           <Typography
             variant="h5"

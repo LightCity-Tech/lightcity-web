@@ -39,29 +39,25 @@ const MeetingCard = ({
   return (
     <div className="md:flex md:flex-row flex flex-col md:justify-between md:gap-16 px-4 py-6 bg-white">
       <div className="md:flex md:flex-row flex flex-col md:items-center gap-8 w-full bg-white">
-        <div className="w-full rounded-[1.25rem]">
-          <Link href={`/our-meetings/${href}`}>
+        <div className="md:w-[30%] rounded-[1.25rem]">
             {image && (
               <Image
                 src={image}
                 alt="Sample Image for a Meeting"
                 width={200}
                 height={200}
-                className="w-full h-[30rem] object-fill rounded-[1.25rem]"
+                className="w-full max-h-[20rem] bg-cover bg-top rounded-[1.25rem]"
               />
             )}
-          </Link>
         </div>
-        <div className="md:flex md:flex-col hidden">
-          <Link href={`/our-meetings/${href}`}>
+        <div className="md:flex md:flex-col hidden w-[70%]">
             <Typography
-              variant="h3"
+              variant="h2"
               color="secondary-main"
               customClassName="mb-4 md:text-[24px]"
             >
               {title}
-            </Typography>
-          </Link>
+            </Typography>   
           <Typography variant="body-reg" customClassName="">
             {description}
           </Typography>
@@ -100,9 +96,9 @@ const MeetingCard = ({
       </div>
       <div className="md:w-3/12 hidden md:items-stretch md:flex flex-col">
         <Typography
-          variant="caption-mid"
+          variant="h6"
           align="center"
-          customClassName="grow -mb-12 uppercase"
+          customClassName="grow -mb-12 uppercase !text-lg"
         >
           {month}
         </Typography>

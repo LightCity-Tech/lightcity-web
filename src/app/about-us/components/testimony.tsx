@@ -90,11 +90,19 @@ const Testimony = () => {
         <h2 className="font-kaushan text-center md:text-left block text-2xl mb-8 md:text-[32px] lg:mb-0 lg:text-[34px] xl:text-[44px] text-[#6F4B16]">
           Leave a testimony at our Pastor&apos;s Desk
         </h2>
-        <div className="mt-10 w-full grid grid-cols-2 grid-rows-2 ">
-          <div className="border-2 border-sky-700 bg-sky-700 w-auto h-56 self-end">1</div>
-          <div className="border-2 border-teal-700 bg-teal-700 w-auto h-32 self-end">2</div>
-          <div className="border-2 border-indigo-700 bg-indigo-700 w-auto h-40 self-start">3</div>
-          <div className="border-2 border-fuchsia-700 bg-fuchsia-700 w-auto h-64 self-start">4</div>
+        <div className="mt-10 w-full grid grid-cols-2 grid-rows-3 ">
+          <div className="border-2 border-sky-700 bg-sky-700 row-span-2 col-span-1 rounded">
+            1
+          </div>
+          <div className="border-2 border-teal-700 bg-teal-700 row-span-1 rounded">
+            2
+          </div>
+          <div className="border-2 border-indigo-700 bg-indigo-700 row-span-2 rounded">
+            3
+          </div>
+          <div className="border-2 border-fuchsia-700 bg-fuchsia-700 row-span-1 rounded">
+            4
+          </div>
         </div>
       </div>
       <div className="lg:w-1/2 w-full">
