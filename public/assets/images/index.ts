@@ -14,6 +14,7 @@ import Img10 from "./image 10.jpg";
 import Img11 from "./image 11.jpg";
 import Img12 from "./image 12.jpg";
 import Img13 from "./image 13.jpg";
+import Img14 from "./camp-meeting-hero.webp";
 
 export {
   MissionPic,
@@ -31,5 +32,6 @@ export {
   Img10,
   Img11,
   Img12,
-  Img13
+  Img13,
+  Img14
 }

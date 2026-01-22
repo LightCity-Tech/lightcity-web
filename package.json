@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-toggle": "^1.1.10",
     "@svgr/webpack": "^8.1.0",
     "@tanstack/react-query": "^5.12.2",
@@ -34,6 +35,7 @@
     "eslint-config-next": "^13.5.3",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.562.0",
+    "maplibre-gl": "^5.16.0",
     "motion": "^12.15.0",
     "next": "^14.2.29",
     "postcss": "^8.4.31",

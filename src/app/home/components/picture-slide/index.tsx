@@ -20,6 +20,7 @@ import {
   Img11,
   Img12,
   Img13,
+  Img14
 } from "@/public/assets/images";
 
 const settings = {
@@ -91,6 +92,7 @@ const PicturesSlide = () => {
     Img10,
     Img11,
     Img13,
+    Img14
   ];
 
   return (

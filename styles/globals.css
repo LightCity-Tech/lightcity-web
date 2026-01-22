@@ -115,8 +115,6 @@ body {
   }
 }
 
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -171,9 +169,15 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+  .maplibregl-popup-content {
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+  }
+  .maplibregl-popup-tip {
+    @apply hidden!;
+    @apply hidden!;
+  }
 }
-
-
 
 @layer base {
   * {
