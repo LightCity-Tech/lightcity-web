@@ -5,6 +5,7 @@ import Image from "next/image";
 import LocationIcon from "@/public/assets/svgs/location.svg";
 import bgImage from "../services-bg.png";
 import Link from "next/link";
+import ChurchMap from "@/src/app/components/churchMap";
 
 const ServiceSection = () => {
   const services = [
@@ -53,7 +54,7 @@ const ServiceSection = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-start items-center gap-2">
+        <div className="flex justify-start items-center gap-2 mb-4">
           <LocationIcon />
           <Typography
             variant="h5"
@@ -67,9 +68,9 @@ const ServiceSection = () => {
               target = "_blank">
             179 Ziks Avenue, Uwani Enugu State (Second Floor)
             </Link>
-            
           </Typography>
         </div>
+        <ChurchMap/>
       </section>
     </section>
   );

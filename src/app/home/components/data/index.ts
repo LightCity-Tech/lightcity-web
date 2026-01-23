@@ -1,4 +1,5 @@
-import BgImg from "../../../../../public/assets/images/gridImage1.png"
+import BgImg from "../../../../../public/assets/images/gridImage1.png";
+import {Img12} from "@/public/assets/images"
 
 export const givingReasons = [
   {
@@ -20,7 +21,7 @@ export const givingReasons = [
 
 export const gridImages = [
   {
-    imageSrc: "https://res.cloudinary.com/tochukwu/image/upload/w_500/v1699629253/lightcity/b61gdasutioumny8cy8h.webp",
+    imageSrc: Img12,
     customClassName: "row-span-2 col-span-1 rounded h-full",
   },
   {

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { uncutSans } from "@/styles/font";
+import { uncutSans, kashuan } from "@/styles/font";
 import "@/styles/globals.css";
 import Navbar from "./components/navigation/navbar-component";
 import FooterSection from "./components/footer-section";
 import Head from "./head";
-import { Toaster } from 'sonner'
+import { Toaster } from 'sonner';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "LightCity Church",
@@ -26,15 +27,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${uncutSans.className} ${kashuan.variable}`}>
       <Head />
-      <body className={`${uncutSans.className}`}>
+      <body>
         <section className="relative overflow-auto">
           <Navbar />
           {children}
           <FooterSection />
         </section>
-        <Toaster richColors={true} position="top-center" expand={true} />
+        <Toaster richColors={true} position="top-right" expand={true} />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -3,4 +3,5 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>{
     label: string;
     fieldCustomClassName?: string;
     customClassName?: string;
+    testimony?: boolean;
 }
