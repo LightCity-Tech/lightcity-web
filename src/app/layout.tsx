@@ -4,7 +4,8 @@ import "@/styles/globals.css";
 import Navbar from "./components/navigation/navbar-component";
 import FooterSection from "./components/footer-section";
 import Head from "./head";
-import { Toaster } from 'sonner'
+import { Toaster } from 'sonner';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "LightCity Church",
@@ -35,6 +36,7 @@ export default function RootLayout({
           <FooterSection />
         </section>
         <Toaster richColors={true} position="top-right" expand={true} />
+        <SpeedInsights />
       </body>
     </html>
   );
