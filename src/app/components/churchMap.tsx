@@ -12,7 +12,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Img14 } from "@/public/assets/images";
-import { Star, Navigation, Clock, ExternalLink } from "lucide-react";
+import { Star, Navigation, Clock } from "lucide-react";
 import Link from "next/link";
 
 const ChurchMap = () => {
@@ -32,13 +32,27 @@ const ChurchMap = () => {
     },
   ];
 
+  if(navigator.geolocation){
+    
+  }
+
   return (
-    <Card className="w-full h-[500px] p-0 overflow-hidden rounded-md">
+    <Card className="w-full h-[400px] p-0 overflow-hidden rounded-md relative">
       <Map center={[7.525, 6.425]} zoom={11}>
+        <MapControls
+          showLocate
+          showFullscreen
+          showZoom
+          className="absolute bottom-4 left-4"
+        />
         {places.map((place) => (
           <MapMarker key={place.id} longitude={place.lng} latitude={place.lat}>
             <MarkerContent>
-              <div className="size-5 rounded-full bg-secondary-200 border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
+              <div className="relative flex size-5">
+                <div className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary-200 opacity-75"></div>
+                <div className="relative inline-flex size-5 rounded-full bg-secondary-200 border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition-transform"></div>
+              </div>
+
               <MarkerLabel>{place.label}</MarkerLabel>
             </MarkerContent>
             <MarkerPopup className="p-0 w-[250px]">
@@ -91,7 +105,6 @@ const ChurchMap = () => {
             </MarkerPopup>
           </MapMarker>
         ))}
-        <MapControls position="bottom-right" showLocate showFullscreen />
       </Map>
     </Card>
   );

@@ -81,31 +81,61 @@ const Testimony = () => {
     toast.success("Thank you! Your testimony has been submitted successfully.");
   };
 
+  const testimonialImages = [
+    {
+      image: "assets/images/image 1.jpg",
+      passage: "",
+    },
+    {
+      image: "assets/images/image 11.jpg",
+      passage: "",
+    },
+    {
+      image: "assets/images/image 6.webp",
+      passage: "",
+    },
+    {
+      image: "assets/images/image 13.jpg",
+      passage: "",
+    },
+  ];
+
   return (
     <div
       className="w-full flex flex-col lg:flex-row justify-between items-start gap-10"
       id="share-your-testimony"
     >
-      <div className="w-full lg:w-1/2">
-        <h2 className="font-kaushan text-center md:text-left block text-2xl mb-8 md:text-[32px] lg:mb-0 lg:text-[34px] xl:text-[44px] text-[#6F4B16]">
-          Leave a testimony at our Pastor&apos;s Desk
-        </h2>
-        <div className="mt-10 w-full grid grid-cols-2 grid-rows-3 ">
-          <div className="border-2 border-sky-700 bg-sky-700 row-span-2 col-span-1 rounded">
-            1
-          </div>
-          <div className="border-2 border-teal-700 bg-teal-700 row-span-1 rounded">
-            2
-          </div>
-          <div className="border-2 border-indigo-700 bg-indigo-700 row-span-2 rounded">
-            3
-          </div>
-          <div className="border-2 border-fuchsia-700 bg-fuchsia-700 row-span-1 rounded">
-            4
-          </div>
+      <div className="w-full lg:w-[55%]">
+        <div className="w-full grid grid-cols-2 grid-rows-3 gap-2">
+          {testimonialImages.map((image, index) => {
+            let specificStyle;
+
+            if (index === 0) {
+              specificStyle = "";
+            } else if (index === 1) {
+              specificStyle = "";
+            } else if (index === 2) {
+              specificStyle = "";
+            } else {
+              specificStyle = "";
+            }
+
+            return (
+              <div
+                className={` rounded h-[300px] ${specificStyle}`}
+                key={index}
+                style={{
+                  backgroundImage: `url('/${image.image}')`,
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "",
+                }}
+              ></div>
+            );
+          })}
         </div>
       </div>
-      <div className="lg:w-1/2 w-full">
+      <div className="w-full lg:w-[45%]">
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Input
@@ -123,7 +153,8 @@ const Testimony = () => {
                 type="email"
                 placeholder="Please, enter your email address"
                 testimony={true}
-                customClassName="py-4 mb-0"
+                customClassName="py-4"
+                fieldCustomClassName="!mb-2"
               />
               <div className="flex flex-row justify-start items-center p-3 bg-[#ffd08965] rounded-md text-[#6F4B16]">
                 <Info className="size-4" />
