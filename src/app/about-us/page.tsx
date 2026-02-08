@@ -120,10 +120,10 @@ const AboutUs = () => {
               stability in the same. <br />I call you blessed !!!
             </p>
             <div className="font-kaushan text-secondary-200 mt-5">
-              <p className="text-[12px] md:text-[24px]">
+              <p className="text-base md:text-2xl">
                 Dr. Tochi Davies Madubuobi
               </p>
-              <p className="text-[8px] md:text-[16px]">
+              <p className="text-xs md:text-base">
                 Pastor, LightCity Church.
               </p>
             </div>

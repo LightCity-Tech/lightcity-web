@@ -84,7 +84,7 @@ const ChurchMap = () => {
   ];
 
   return (
-    <Card className="w-full h-[400px] p-0 overflow-hidden rounded-md relative">
+    <Card className="w-full h-[480px] p-0 overflow-hidden rounded-md relative">
       <Map center={[7.525, 6.425]} zoom={11}>
         <MapControls
           showLocate

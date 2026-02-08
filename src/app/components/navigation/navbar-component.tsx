@@ -257,14 +257,14 @@ export const NavInnerContent = () => (
         </li>
       ))}
     </ul>
-    <Button
-      variant="primary"
-      color="primary"
-      label="Join Us Live"
-      customClassName="mb-2"
-      leftIcon={<BrownPlayIcon />}
-    />
+    <Link href="/live">
+      <Button
+        variant="primary"
+        color="primary"
+        label="Join Us Live"
+        customClassName="mb-2"
+        leftIcon={<BrownPlayIcon />}
+      />
+    </Link>
   </div>
 );
-
-//https://pastortochilightcitychurch.mixlr.com
