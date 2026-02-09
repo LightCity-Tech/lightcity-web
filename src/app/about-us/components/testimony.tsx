@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Controller } from "react-hook-form";
 import { Info } from "lucide-react";
 import { useForm, FormProvider } from "react-hook-form";
@@ -8,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input, Checkbox } from "@/src/ui";
 import { RichTextEditor } from "./richTextEditor";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const Testimony = () => {
   const testimonySchema = z.object({
@@ -81,22 +83,55 @@ const Testimony = () => {
     toast.success("Thank you! Your testimony has been submitted successfully.");
   };
 
+  interface MouseCoordinates {
+    x: number;
+    y: number;
+  }
+
+  interface MousePositionMap {
+    [key: number]: MouseCoordinates;
+  }
+
+  const [mousePosition, setMousePosition] = useState<MousePositionMap>({});
+  const [hoveringImage, setHoveringImage] = useState<number | null>(null);
+
+  const handleMouseMove = (
+    e: React.MouseEvent<HTMLDivElement>,
+    index: number,
+  ): void => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePosition((prev: MousePositionMap) => ({
+      ...prev,
+      [index]: {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      },
+    }));
+  };
+
   const testimonialImages = [
     {
       image: "assets/images/image 1.jpg",
-      passage: "",
+      passage:
+        "They overcame him by the blood of the Lamb and by the word of their testimony",
+      reference: "Revelation 12:11",
     },
     {
       image: "assets/images/image 11.jpg",
-      passage: "",
+      passage:
+        "Come and hear, all you who fear God; let me tell you what he has done for me",
+      reference: "Psalm 66:16",
     },
     {
       image: "assets/images/image 6.webp",
-      passage: "",
+      passage: "Let the redeemed of the Lord tell their story",
+      reference: "Psalm 107:2",
     },
     {
       image: "assets/images/image 13.jpg",
-      passage: "",
+      passage:
+        "Go home to your own people and tell them how much the Lord has done for you",
+      reference: "Mark 5:19",
     },
   ];
 
@@ -106,31 +141,82 @@ const Testimony = () => {
       id="share-your-testimony"
     >
       <div className="w-full lg:w-[55%]">
-        <div className="w-full grid grid-cols-2 grid-rows-3 gap-2">
+        <div className="w-full grid grid-cols-2 grid-rows-4 gap-2 auto-rows-fr h-[500px]">
           {testimonialImages.map((image, index) => {
             let specificStyle;
 
             if (index === 0) {
-              specificStyle = "";
+              specificStyle = "row-span-2";
             } else if (index === 1) {
-              specificStyle = "";
+              specificStyle = "row-span-3";
             } else if (index === 2) {
-              specificStyle = "";
+              specificStyle = "row-span-3";
             } else {
-              specificStyle = "";
+              specificStyle = "row-span-2";
             }
+
+            const mousePos = mousePosition[index] || { x: 0, y: 0 };
+            const isHovering = hoveringImage === index;
 
             return (
               <div
-                className={` rounded h-[300px] ${specificStyle}`}
+                className={`rounded min-h-[150px] relative overflow-hidden cursor-none ${specificStyle}`}
                 key={index}
-                style={{
-                  backgroundImage: `url('/${image.image}')`,
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "",
-                }}
-              ></div>
+                onMouseMove={(e) => handleMouseMove(e, index)}
+                onMouseEnter={() => setHoveringImage(index)}
+                onMouseLeave={() => setHoveringImage(null)}
+              >
+                {/* Background Image */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `url('/${image.image}')`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                />
+
+                {/* Text + Background Layer - Only visible in spotlight */}
+                <motion.div
+                  className="absolute inset-0 bg-secondary-25 flex items-center justify-center pointer-events-none p-4"
+                  style={{
+                    clipPath: isHovering
+                      ? `circle(80px at ${mousePos.x}px ${mousePos.y}px)`
+                      : "circle(0px at 50% 50%)",
+                    WebkitClipPath: isHovering
+                      ? `circle(80px at ${mousePos.x}px ${mousePos.y}px)`
+                      : "circle(0px at 50% 50%)",
+                  }}
+                  animate={{
+                    opacity: isHovering ? 1 : 0,
+                  }}
+                  transition={{ opacity: { duration: 0.2 } }}
+                >
+                  <div className="text-center">
+                    <p className="font-sans text-secondary-main text-sm md:text-base font-medium italic leading-relaxed">
+                      &quot;{image.passage}&quot;
+                    </p>
+                    <p className="font-sans text-secondary-main text-xs md:text-sm mt-2">
+                      {image.reference}
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Blurred Edge Effect */}
+                {isHovering && (
+                  <motion.div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: `radial-gradient(circle 80px at ${mousePos.x}px ${mousePos.y}px,`,
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </div>
             );
           })}
         </div>
