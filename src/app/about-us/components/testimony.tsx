@@ -182,10 +182,10 @@ const Testimony = () => {
                   className="absolute inset-0 bg-secondary-25 flex items-center justify-center pointer-events-none p-4"
                   style={{
                     clipPath: isHovering
-                      ? `circle(80px at ${mousePos.x}px ${mousePos.y}px)`
+                      ? `circle(60px at ${mousePos.x}px ${mousePos.y}px)`
                       : "circle(0px at 50% 50%)",
                     WebkitClipPath: isHovering
-                      ? `circle(80px at ${mousePos.x}px ${mousePos.y}px)`
+                      ? `circle(60px at ${mousePos.x}px ${mousePos.y}px)`
                       : "circle(0px at 50% 50%)",
                   }}
                   animate={{
@@ -208,7 +208,7 @@ const Testimony = () => {
                   <motion.div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                      background: `radial-gradient(circle 80px at ${mousePos.x}px ${mousePos.y}px,`,
+                      background: `radial-gradient(circle 60px at ${mousePos.x}px ${mousePos.y}px,`,
                     }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
