@@ -581,8 +581,8 @@ function MarkerLabel({
   return (
     <div
       className={cn(
-        "absolute left-1/2 -translate-x-1/2 whitespace-nowrap",
-        "text-[10px] font-medium text-foreground",
+        "absolute bg-secondary-50 px-2 py-1 left-1/2 -translate-x-1/2 whitespace-nowrap",
+        "text-[10px] font-medium text-secondary-main",
         positionClasses[position],
         className
       )}
@@ -618,7 +618,7 @@ const positionClasses = {
 
 function ControlGroup({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col rounded-md border border-border bg-background shadow-sm overflow-hidden [&>button:not(:last-child)]:border-b [&>button:not(:last-child)]:border-border">
+    <div className="flex flex-col rounded-md border border-border bg-secondary-25 p-1 shadow-sm overflow-hidden [&>button:not(:last-child)]:border-b [&>button:not(:last-child)]:border-border">
       {children}
     </div>
   );

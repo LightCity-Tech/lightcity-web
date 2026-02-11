@@ -86,8 +86,9 @@ const AboutUs = () => {
               <p className="text-[#7E7A7A] text-[14px] md:text-[18px] lg:text-[24px] py-6">
                 LightCity Church is a discipleship centre where we discover,
                 train and deploy ministers of the Gospel. Through the systematic
-                teaching of God&apos;s word and discipleship structures at LightCity
-                Church, we help you fulfil God&apos;s plan for your life
+                teaching of God&apos;s word and discipleship structures at
+                LightCity Church, we help you fulfil God&apos;s plan for your
+                life
               </p>
             </div>
           </div>
@@ -102,9 +103,7 @@ const AboutUs = () => {
         </section>
         <div className="lg:flex lg:flex-row flex flex-col-reverse w-full justify-between lg:items-center py-20 lg:py-20 bg-black text-white lg:px-24">
           <div className="lg:w-[45%] w-full lg:mt-0 px-5">
-            <h3
-              className="font-kaushan hidden text-left text-2xl mb-8 md:text-[32px] lg:block lg:mb-0 lg:text-[34px] xl:text-[44px] text-secondary-200"
-            >
+            <h3 className="font-kaushan hidden text-left text-2xl mb-8 md:text-[32px] lg:block lg:mb-0 lg:text-[34px] xl:text-[44px] text-secondary-200">
               From our Pastor&apos;s Desk
             </h3>
             <p className="lg:py-6 mt-8 lg:mt-0 text-[14px] lg:text-[18px] font-regular leading-[25.68px] md:leading-[43.2px]">
@@ -121,18 +120,16 @@ const AboutUs = () => {
               stability in the same. <br />I call you blessed !!!
             </p>
             <div className="font-kaushan text-secondary-200 mt-5">
-              <p className="text-[12px] md:text-[24px]">
+              <p className="text-base md:text-2xl">
                 Dr. Tochi Davies Madubuobi
               </p>
-              <p className="text-[8px] md:text-[16px]">
+              <p className="text-xs md:text-base">
                 Pastor, LightCity Church.
               </p>
             </div>
           </div>
           <div className="lg:w-1/2 w-full px-5">
-            <h3
-              className="font-kaushan text-left text-2xl mb-8 md:text-[32px] lg:mb-0 lg:hidden lg:text-[34px] xl:text-[44px] text-secondary-200"
-            >
+            <h3 className="font-kaushan text-left text-2xl mb-8 md:text-[32px] lg:mb-0 lg:hidden lg:text-[34px] xl:text-[44px] text-secondary-200">
               From our Pastor&apos;s Desk
             </h3>
             <div
@@ -146,8 +143,13 @@ const AboutUs = () => {
             ></div>
           </div>
         </div>
-        <div className="bg-secondary-25 px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[7rem]">
-          <Testimony/>
+        <div className="bg-secondary-25 px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem]">
+          <h2 className="font-kaushan text-center md:text-left block text-2xl mb-8 md:text-[32px] lg:mb-0 lg:text-[34px] xl:text-[44px] text-[#6F4B16]">
+            Leave a testimony at our Pastor&apos;s Desk
+          </h2>
+          <div className="mt-10">
+            <Testimony />
+          </div>
         </div>
       </div>
     </section>
