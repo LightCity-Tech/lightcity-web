@@ -155,7 +155,7 @@ const config: Config = {
         black: "900",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
+        sans: ["var(--font-uncut)"],
         kaushan: ["var(--font-kaushan)"],
       },
       brightness: {
@@ -188,7 +188,7 @@ const config: Config = {
         },
       },
       animation: {
-        sliding: "slide 1s cubic-bezier(0.250, 0.460, 0.450, 0.940 infinite",
+        sliding: "slide 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite",
         'shimmer-infinite': 'shimmer 10s ease-in-out infinite alternate'
       },
       borderRadius: {

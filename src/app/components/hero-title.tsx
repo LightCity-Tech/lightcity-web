@@ -1,4 +1,4 @@
-import { kashuan } from "@/styles/font";
+import { kaushan } from "@/styles/font";
 import React from "react";
 
 type Props = {
@@ -11,7 +11,7 @@ const HeroTitle = (props: Props) => {
     <h1 dangerouslySetInnerHTML={{__html: props.subtitle}} >
       
       <span
-        className={`${kashuan.className} text-[42px] inline-block text-secondary-200`}
+        className={`${kaushan.className} text-[42px] inline-block text-secondary-200`}
       >
        {props.special}
       </span>
