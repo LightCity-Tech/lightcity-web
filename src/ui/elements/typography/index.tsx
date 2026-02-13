@@ -2,7 +2,7 @@ import React from "react";
 import { TypographyProps, variantMapping } from "./index.types";
 import clsx from "clsx";
 import { cva } from "class-variance-authority";
-import { uncutSans, kashuan } from "@/styles/font";
+import { uncutSans, kaushan } from "@/styles/font";
 
 const typography = cva("", {
   variants: {
@@ -20,7 +20,7 @@ const typography = cva("", {
     },
     font: {
       uncutSans: uncutSans.className,
-      kashuan: kashuan.className,
+      kaushan: kaushan.className,
     },
     color: {
       white: "text-white",

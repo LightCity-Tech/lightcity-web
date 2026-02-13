@@ -33,7 +33,7 @@ export type TypographyColors =
   | "black"
   | "main-black";
 
-export type TypographyFont = "uncutSans" | "kashuan";
+export type TypographyFont = "uncutSans" | "kaushan";
 
 export type TypographyAlign =
   | "left"

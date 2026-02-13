@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { uncutSans, kashuan } from "@/styles/font";
+import { uncutSans, kaushan } from "@/styles/font";
 import "@/styles/globals.css";
 import Navbar from "./components/navigation/navbar-component";
 import FooterSection from "./components/footer-section";
-import Head from "./head";
-import { Toaster } from 'sonner';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "LightCity Church",
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "../../public/favicon/favicon.png",
+        url: "/favicon/favicon.png",
         sizes: "32x32",
         type: "image/png",
       },
@@ -27,8 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${uncutSans.className} ${kashuan.variable}`}>
-      <Head />
+    <html lang="en" className={`${uncutSans.variable} ${kaushan.variable}`}>
       <body>
         <section className="relative overflow-auto">
           <Navbar />
