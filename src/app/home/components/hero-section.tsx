@@ -4,7 +4,7 @@ import { Typography, Button } from "@/src/ui";
 import BrownPlayIcon from "/public/assets/svgs/brown-play-icon.svg";
 import ArrowUpIcon from "@/public/assets/svgs/arrow-up-right.svg";
 import Image from "next/image";
-import { kashuan } from "@/styles/font";
+import { kaushan } from "@/styles/font";
 import { AutoplayCarousel } from "./carousel";
 import Link from "next/link";
 import { UrlObject } from "url";
@@ -94,7 +94,7 @@ const HeroSection = ({
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
           <span
-            className={`${kashuan.className} text-[45px] lg:text-[60px] xl:text-[84px] text-secondary-200`}
+            className={`${kaushan.className} text-[45px] lg:text-[60px] xl:text-[84px] text-secondary-200`}
           >
             {special}
           </span>
