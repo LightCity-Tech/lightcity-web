@@ -39,7 +39,6 @@ const FooterSection = () => {
   const infoLinks: InfoLink[] = [
     { href: "/home", text: "Home" },
     { href: "/about-us", text: "About Us" },
-    { href: "#", text: "Contact Us" },
     {
       href: "https://www.google.com/maps/place/LightCity+Church/@6.4207336,7.4840509,17z/data=!4m6!3m5!1s0x1044a194ae359ad7:0x9b96dca3bf9c316c!8m2!3d6.4207336!4d7.4866312!16s%2Fg%2F11nmj129jk?authuser=0&entry=ttui",
       text: "Worship with Us",
@@ -50,6 +49,7 @@ const FooterSection = () => {
     { href: "/our-meetings", text: "Meetings" },
     { href: "/sermons", text: "Sermons Library" },
     { href: "/about-us#share-your-testimony", text: "Share your Testimony" },
+    { href: "/about-us#read-the-bible-with-us", text: "Bible Reading Plan" },
   ];
 
   return (
