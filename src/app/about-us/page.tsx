@@ -7,6 +7,24 @@ import { Testimony } from "./components";
 import { AboutUsHero, VisionPic, MissionPic } from "@/public/assets/images";
 
 const AboutUs = () => {
+  const biblePlans = [
+    {
+      link: "/assets/files/LightCity Bible Journey '26 - 3 months plan.pdf",
+      text: "3 Months Plan",
+      download: "LightCity Bible Journey '26 - 3 months plan",
+    },
+    {
+      link: "/assets/files/LightCity Bible Journey '26 - 6 months plan.pdf",
+      text: "6 Months Plan",
+      download: "LightCity Bible Journey '26 - 6 months plan",
+    },
+    {
+      link: "/assets/files/LightCity Bible Journey '26 - 1 year plan.pdf",
+      text: "1 Year Plan",
+      download: "LightCity Bible Journey '26 - 1 year plan",
+    },
+  ];
+
   return (
     <section className="bg-[#fff]">
       <div className="bg-[#fff] px-5 h-full">
@@ -123,9 +141,7 @@ const AboutUs = () => {
               <p className="text-base md:text-2xl">
                 Dr. Tochi Davies Madubuobi
               </p>
-              <p className="text-xs md:text-base">
-                Pastor, LightCity Church.
-              </p>
+              <p className="text-xs md:text-base">Pastor, LightCity Church.</p>
             </div>
           </div>
           <div className="lg:w-1/2 w-full px-5">
@@ -151,6 +167,42 @@ const AboutUs = () => {
             <Testimony />
           </div>
         </div>
+
+        <section
+          id="read-the-bible-with-us"
+          className="w-full bg-[#fff4dc89] bg-blend-overlay text-secondary-main  px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem] flex-col justify-start items-center"
+          style={{
+            backgroundImage: "url(assets/images/church-bible-reading.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="w-full">
+            <p className="text-7xl font-semibold font-sans">
+              Read the Bible with us.
+            </p>
+          </div>
+          <div className="w-3/5">
+            <p className="text-xl font-normal">
+              As a church, we are taking out time this year to read through the
+              scriptures from Genesis to Revelation. You can join in with us by clicking any of the links and downloading a plan suitable for you.
+            </p>
+          </div>
+          <div className="w-full mt-8 flex items-start justify-start">
+            {biblePlans.map((biblePlan, index) => (
+              <a
+                href={biblePlan.link}
+                download={biblePlan.download}
+                key={index}
+              >
+                <button className="mr-6 w-36 flex items-center justify-center border-2 border-secondary-main text-secondary-main rounded-md py-2 bg-secondary-200 transition-colors delay-150 duration-200 ease-in-out hover:bg-transparent">
+                  {biblePlan.text}
+                </button>
+              </a>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );
