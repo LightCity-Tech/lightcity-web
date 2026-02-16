@@ -179,24 +179,24 @@ const AboutUs = () => {
           }}
         >
           <div className="w-full">
-            <p className="text-7xl font-semibold font-sans">
+            <p className="text-5xl lg:text-7xl font-semibold font-sans">
               Read the Bible with us.
             </p>
           </div>
-          <div className="w-3/5">
-            <p className="text-xl font-normal">
+          <div className="w-full lg:w-3/5">
+            <p className="text-sm md:text-base lg:text-xl font-normal">
               As a church, we are taking out time this year to read through the
               scriptures from Genesis to Revelation. You can join in with us by clicking any of the links and downloading a plan suitable for you.
             </p>
           </div>
-          <div className="w-full mt-8 flex items-start justify-start">
+          <div className="w-full mt-8 flex flex-col md:flex-row items-start justify-start">
             {biblePlans.map((biblePlan, index) => (
               <a
                 href={biblePlan.link}
                 download={biblePlan.download}
                 key={index}
               >
-                <button className="mr-6 w-36 flex items-center justify-center border-2 border-secondary-main text-secondary-main rounded-md py-2 bg-secondary-200 transition-colors delay-150 duration-200 ease-in-out hover:bg-transparent">
+                <button className="mt-4 md:mt-0 md:mr-6 w-36 flex items-center justify-center border-2 border-secondary-main text-secondary-main rounded-md py-2 bg-secondary-200 transition-colors delay-150 duration-200 ease-in-out hover:bg-transparent">
                   {biblePlan.text}
                 </button>
               </a>
