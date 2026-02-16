@@ -138,7 +138,7 @@ const Testimony = () => {
   return (
     <div
       className="w-full flex flex-col lg:flex-row justify-between items-start gap-10"
-      id="share-your-testimony"
+      
     >
       <div className="w-full lg:w-[55%]">
         <div className="w-full grid grid-cols-2 grid-rows-4 gap-2 auto-rows-fr h-[500px]">

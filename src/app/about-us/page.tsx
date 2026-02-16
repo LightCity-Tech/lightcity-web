@@ -159,7 +159,10 @@ const AboutUs = () => {
             ></div>
           </div>
         </div>
-        <div className="bg-secondary-25 px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem]">
+        <div
+          className="bg-secondary-25 px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem]"
+          id="share-your-testimony"
+        >
           <h2 className="font-kaushan text-center md:text-left block text-2xl mb-8 md:text-[32px] lg:mb-0 lg:text-[34px] xl:text-[44px] text-[#6F4B16]">
             Leave a testimony at our Pastor&apos;s Desk
           </h2>
