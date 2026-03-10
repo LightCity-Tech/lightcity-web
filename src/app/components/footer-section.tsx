@@ -4,12 +4,13 @@ import { Button, Typography } from "@/src/ui";
 import Image from "next/image";
 import bgImage from "../home/services-bg.png";
 import BrownPlayIcon from "@/public/assets/svgs/brown-play-icon.svg";
-import Twitter from "@/public/assets/svgs/twitter.svg";
-import Facebook from "@/public/assets/svgs/facebook.svg";
-import Instagram from "@/public/assets/svgs/instagram.svg";
-import Youtube from "@/public/assets/svgs/youtube.svg";
 import FooterLogo from "/public/assets/svgs/lcc-logo-footer.png";
 import Link from "next/link";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { SlSocialFacebook,  SlSocialSpotify } from "react-icons/sl";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
+import { useId } from "react";
 
 interface InfoLink {
   href: string;
@@ -19,20 +20,24 @@ interface InfoLink {
 const FooterSection = () => {
   const socials = [
     {
-      icon: <Instagram />,
+      icon: <GradientInstagramIcon/>,
       href: "https://instagram.com/the.lightcityng?igshid=OGQ5ZDc2ODk2ZA==",
     },
     {
-      icon: <Twitter />,
+      icon: <FaXTwitter size={32} color="#14171a"/>,
       href: "https://x.com/the_lightcity?s=21&t=2ml2yWBwSbMXl3AHtNxACw",
     },
     {
-      icon: <Facebook />,
+      icon: <SlSocialFacebook size={32} color="#1877f2"/>,
       href: "https://www.facebook.com/the.lightcityng?mibextid=LQQJ4d",
     },
     {
-      icon: <Youtube />,
+      icon: <AiOutlineYoutube size={32} color="#ff0000"/>,
       href: "https://youtube.com/@lightcitychurchmedia2477?si=55shg00UGFq_ySV8",
+    },
+    {
+      icon: <SlSocialSpotify size={32} color="#1db954"/>,
+      href: "https://open.spotify.com/show/5hsoVN3KYEF4I7FUUvnSPU",
     },
   ];
 
@@ -153,7 +158,7 @@ const FooterSection = () => {
           </div>
         </div>
         <div className="mt-36 md:mt-20">
-          <div className="flex flex-col-reverse space-y-12 lg:flex-row lg:justify-between lg:items-center">
+          <div className="flex flex-col-reverse space-y-12 lg:space-y-0  lg:flex-row lg:justify-between lg:items-center">
             <div className="mt-8 lg:mt-0">
               <Link href="/live">
                 {" "}
@@ -165,13 +170,13 @@ const FooterSection = () => {
                 />
               </Link>
             </div>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 items-center">
               {socials.map((social, index) => (
                 <Link
                   href={social.href}
                   key={index}
                   target="_blank"
-                  className="transition ease-in-out delay-150 duration-150 hover:-translate-y-1"
+                  className="transition ease-in-out delay-150 duration-200 hover:-translate-y-1"
                 >
                   {social.icon}
                 </Link>
@@ -197,3 +202,24 @@ const FooterSection = () => {
 };
 
 export default FooterSection;
+
+
+export const GradientInstagramIcon = () => {
+  const id = useId();
+
+  return (
+    <svg width="32" height="32">
+      <defs>
+        <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#f09433" />
+          <stop offset="25%" stopColor="#e6683c" />
+          <stop offset="50%" stopColor="#dc2743" />
+          <stop offset="75%" stopColor="#cc2366" />
+          <stop offset="100%" stopColor="#bc1888" />
+        </linearGradient>
+      </defs>
+
+      <FaInstagram size={32} fill={`url(#${id})`} />
+    </svg>
+  );
+};

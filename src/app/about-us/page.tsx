@@ -5,6 +5,7 @@ import Image from "next/image";
 import TestimonialSlide from "../components/testimonial-slide";
 import { Testimony } from "./components";
 import { AboutUsHero, VisionPic, MissionPic } from "@/public/assets/images";
+import { ArrowDownToLine } from 'lucide-react';
 
 const AboutUs = () => {
   const biblePlans = [
@@ -26,7 +27,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="bg-[#fff]">
+    <section className="bg-secondary-25">
       <div className="bg-[#fff] px-5 h-full">
         <div className="text-center w-full 2xl:max-w-7xl lg:py-6 mt-5 lg:mt-4 mx-auto ">
           <h3 className="text-[48px] leading-[64px] lg:leading-[67.68px] font-bold text-black md:px-4 md:text-[72px]">
@@ -57,7 +58,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div className="mx-auto ">
-        <div className="px-5 lg:px-16 xl:px-20 mx-auto">
+        <div className="bg-white px-5 lg:px-16 xl:px-20 mx-auto">
           <div className="flex mt-8 lg:py-10 text-[#A6A2A2]">
             <span className="block w-[80%] md:w-[10%]"> OUR VISION</span>
             <span className="relative w-full -top-1.5 -left-5 border-b-black/20 border-b block"></span>
@@ -84,7 +85,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="py-6 px-5 lg:px-16 xl:px-20 ">
+        <div className="bg-white py-6 px-5 lg:px-16 xl:px-20 ">
           <div className="flex mt-6 text-[#A6A2A2]">
             <span className="block w-[90%] md:w-[12%]"> OUR MISSION</span>
             <span className="relative -top-1.5 -left-8 border-b-black/20 border-b w-full block"></span>
@@ -171,7 +172,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <section className="py-10 bg-secondary-25">
+        <section className="py-16 bg-secondary-25 mx-16">
           <section
             id="read-the-bible-with-us"
             className="w-full bg-[#fff4dc89] bg-blend-overlay text-secondary-main px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem] flex-col justify-start items-center"
@@ -202,8 +203,9 @@ const AboutUs = () => {
                   download={biblePlan.download}
                   key={index}
                 >
-                  <button className="mt-4 md:mt-0 md:mr-6 w-36 flex items-center justify-center border-2 border-secondary-main text-secondary-main rounded-md py-2 bg-secondary-200 transition-colors delay-150 duration-200 ease-in-out hover:bg-transparent">
+                  <button className="mt-4 md:mt-0 md:mr-6 w-auto flex items-center justify-start gap-4 border-2 border-secondary-main text-secondary-main rounded-md px-4 py-2 bg-secondary-200 transition-colors delay-150 duration-200 ease-in-out hover:bg-transparent">
                     {biblePlan.text}
+                    <ArrowDownToLine />
                   </button>
                 </a>
               ))}
