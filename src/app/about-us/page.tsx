@@ -5,6 +5,7 @@ import Image from "next/image";
 import TestimonialSlide from "../components/testimonial-slide";
 import { Testimony } from "./components";
 import { AboutUsHero, VisionPic, MissionPic } from "@/public/assets/images";
+import { ArrowDownToLine } from 'lucide-react';
 
 const AboutUs = () => {
   const biblePlans = [
@@ -26,7 +27,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <section className="bg-[#fff]">
+    <section className="bg-secondary-25">
       <div className="bg-[#fff] px-5 h-full">
         <div className="text-center w-full 2xl:max-w-7xl lg:py-6 mt-5 lg:mt-4 mx-auto ">
           <h3 className="text-[48px] leading-[64px] lg:leading-[67.68px] font-bold text-black md:px-4 md:text-[72px]">
@@ -57,7 +58,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div className="mx-auto ">
-        <div className="px-5 lg:px-16 xl:px-20 mx-auto">
+        <div className="bg-white px-5 lg:px-16 xl:px-20 mx-auto">
           <div className="flex mt-8 lg:py-10 text-[#A6A2A2]">
             <span className="block w-[80%] md:w-[10%]"> OUR VISION</span>
             <span className="relative w-full -top-1.5 -left-5 border-b-black/20 border-b block"></span>
@@ -84,7 +85,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="py-6 px-5 lg:px-16 xl:px-20 ">
+        <div className="bg-white py-6 px-5 lg:px-16 xl:px-20 ">
           <div className="flex mt-6 text-[#A6A2A2]">
             <span className="block w-[90%] md:w-[12%]"> OUR MISSION</span>
             <span className="relative -top-1.5 -left-8 border-b-black/20 border-b w-full block"></span>
@@ -159,7 +160,10 @@ const AboutUs = () => {
             ></div>
           </div>
         </div>
-        <div className="bg-secondary-25 px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem]">
+        <div
+          className="bg-secondary-25 px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem]"
+          id="share-your-testimony"
+        >
           <h2 className="font-kaushan text-center md:text-left block text-2xl mb-8 md:text-[32px] lg:mb-0 lg:text-[34px] xl:text-[44px] text-[#6F4B16]">
             Leave a testimony at our Pastor&apos;s Desk
           </h2>
@@ -168,40 +172,45 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <section
-          id="read-the-bible-with-us"
-          className="w-full bg-[#fff4dc89] bg-blend-overlay text-secondary-main  px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem] flex-col justify-start items-center"
-          style={{
-            backgroundImage: "url(assets/images/church-bible-reading.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div className="w-full">
-            <p className="text-5xl lg:text-7xl font-semibold font-sans">
-              Read the Bible with us.
-            </p>
-          </div>
-          <div className="w-full lg:w-3/5">
-            <p className="text-sm md:text-base lg:text-xl font-normal">
-              As a church, we are taking out time this year to read through the
-              scriptures from Genesis to Revelation. You can join in with us by clicking any of the links and downloading a plan suitable for you.
-            </p>
-          </div>
-          <div className="w-full mt-8 flex flex-col md:flex-row items-start justify-start">
-            {biblePlans.map((biblePlan, index) => (
-              <a
-                href={biblePlan.link}
-                download={biblePlan.download}
-                key={index}
-              >
-                <button className="mt-4 md:mt-0 md:mr-6 w-36 flex items-center justify-center border-2 border-secondary-main text-secondary-main rounded-md py-2 bg-secondary-200 transition-colors delay-150 duration-200 ease-in-out hover:bg-transparent">
-                  {biblePlan.text}
-                </button>
-              </a>
-            ))}
-          </div>
+        <section className="py-16 bg-secondary-25 mx-16">
+          <section
+            id="read-the-bible-with-us"
+            className="w-full bg-[#fff4dc89] bg-blend-overlay text-secondary-main px-8 py-8 sm:px-[3rem] sm:py-[2.5rem] lg:py-20 lg:px-[4rem] flex-col justify-start items-center"
+            style={{
+              backgroundImage: "url(assets/images/church-bible-reading.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="w-full">
+              <p className="text-5xl lg:text-7xl font-semibold font-sans">
+                Read the Bible with us.
+              </p>
+            </div>
+            <div className="w-full lg:w-3/5">
+              <p className="text-sm md:text-base lg:text-xl font-normal">
+                As a church, we are taking out time this year to read through
+                the scriptures from Genesis to Revelation. You can join in with
+                us by clicking any of the links and downloading a plan suitable
+                for you.
+              </p>
+            </div>
+            <div className="w-full mt-8 flex flex-col md:flex-row items-start justify-start">
+              {biblePlans.map((biblePlan, index) => (
+                <a
+                  href={biblePlan.link}
+                  download={biblePlan.download}
+                  key={index}
+                >
+                  <button className="mt-4 md:mt-0 md:mr-6 w-auto flex items-center justify-start gap-4 border-2 border-secondary-main text-secondary-main rounded-md px-4 py-2 bg-secondary-200 transition-colors delay-150 duration-200 ease-in-out hover:bg-transparent">
+                    {biblePlan.text}
+                    <ArrowDownToLine />
+                  </button>
+                </a>
+              ))}
+            </div>
+          </section>
         </section>
       </div>
     </section>
